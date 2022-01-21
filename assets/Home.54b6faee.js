@@ -1,0 +1,1 @@
+import{d as _,h as s,o as n,b as c,t as p}from"./vendor.f727bcdb.js";var u=(e,t)=>{const o=e.__vccOpts||e;for(const[a,r]of t)o[a]=r;return o};const l=_({setup(e){const t=s("\u6D4B\u8BD5");return(o,a)=>(n(),c("h1",null,p(t.value),1))}});var d=u(l,[["__scopeId","data-v-fe1ae730"]]);export{d as default};
