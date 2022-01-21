@@ -12,7 +12,7 @@ export default ((mode: string) => {
         '@': resolve(__dirname, 'src')
       }
     },
-    base: config.mode === 'development' ? './' : '/',
+    // base: config.mode === 'development' ? './' : '/',  //https://cn.vitejs.dev/guide/static-deploy.html#github-pages
     server: {
       host: config.VITE_HOST,
       port: config.VITE_PORT ? Number(config.VITE_PORT) : 9000,
