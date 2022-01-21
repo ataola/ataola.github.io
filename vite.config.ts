@@ -10,7 +10,8 @@ export default ((mode: string) => {
     resolve: {
       alias: {
         '@': resolve(__dirname, 'src')
-      }
+      },
+      extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue', '.mjs']
     },
     // base: config.mode === 'development' ? './' : '/',  //https://cn.vitejs.dev/guide/static-deploy.html#github-pages
     server: {
