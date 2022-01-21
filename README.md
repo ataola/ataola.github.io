@@ -1,2 +1,0 @@
-# ataola.github.io
-website
