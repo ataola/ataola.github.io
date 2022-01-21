@@ -6,3 +6,17 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+/// <reference types="vite/client" />
+// https://vitejs.dev/guide/env-and-mode.html#intellisense-for-typescript
+interface ImportMetaEnv {
+  readonly VITE_HOST: string
+  readonly VITE_PORT: string
+  readonly VITE_APP_TITLE: string
+  readonly VITE_API_DOMAIN: string
+  // more env variables...
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}
