@@ -3,12 +3,8 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home'
-  },
-  {
-    path: '/home',
     name: 'Home',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/home.vue'),
     meta: {
       title: '首页'
     }
@@ -16,7 +12,7 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('./'),
+  history: createWebHistory(), // https://next.router.vuejs.org/api/#createwebhistory
   routes
 })
 

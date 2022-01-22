@@ -13,8 +13,7 @@ export default ((mode: string) => {
       },
       extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue', '.mjs']
     },
-    // base: config.mode === 'development' ? './' : 'https://zhengjiangtao.cn',  //https://cn.vitejs.dev/guide/static-deploy.html#github-pages
-    base: './',
+    base: config.mode === 'development' ? '/' : './',  //https://cn.vitejs.dev/guide/static-deploy.html#github-pages
     server: {
       host: config.VITE_HOST,
       port: config.VITE_PORT ? Number(config.VITE_PORT) : 9000,
