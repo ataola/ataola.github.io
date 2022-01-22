@@ -16,7 +16,7 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('https://zhengjiangtao.cn'),
+  history: createWebHistory('./'),
   routes
 })
 
