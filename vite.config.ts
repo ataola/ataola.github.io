@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv  } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 
@@ -6,12 +6,23 @@ import { resolve } from 'path'
 export default ((mode: string) => {
   const config = loadEnv(mode, process.cwd())
   return defineConfig({
-    plugins: [vue()],
+    plugins: [ vue() ],
     resolve: {
       alias: {
-        '@': resolve(__dirname, 'src')
+        '@': resolve(__dirname, 'src'),
+        '@api': resolve('/src/api'),
+        '@views': resolve('/src/views'),
+        '@utils': resolve('/src/utils'),
+        '@store': resolve('/src/store'),
+        '@layout': resolve('/src/layout'),
+        '@assets': resolve('src/assets'),
+        '@router': resolve('/src/router'),
+        '@static': resolve('/src/static'),
+        '@layouts': resolve('/src/layouts'),
+        '@scss': resolve('/src/assets/scss'),
+        '@components': resolve('/src/components'),
       },
-      extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue', '.mjs']
+      extensions: [ '.js', '.ts', '.jsx', '.tsx', '.json', '.vue', '.mjs' ]
     },
     base: config.mode === 'development' ? '/' : './',  //https://cn.vitejs.dev/guide/static-deploy.html#github-pages
     server: {
@@ -21,7 +32,7 @@ export default ((mode: string) => {
       cors: true
       // proxy: {
       //   '/api': {
-      //     target: 'http://xxx.xxx.xxx.xxx:8000',
+      //     target: 'http://host:port',
       //     changeOrigin: true,
       //     secure: false,
       //     rewrite: (path) => path.replace('/api/', '/')

@@ -1,13 +1,12 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-
-
-const msg = ref('测试')
-</script>
-
 <template>
   <h1>{{ msg }}</h1>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const msg = ref('测试')
+</script>
 
 <style scoped>
 a {
