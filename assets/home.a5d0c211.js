@@ -1,1 +1,0 @@
-import{d as _,g as s,o as n,h as c,t as p}from"./vendor.db4456a0.js";var u=(e,t)=>{const o=e.__vccOpts||e;for(const[a,r]of t)o[a]=r;return o};const l=_({setup(e){const t=s("\u6D4B\u8BD5");return(o,a)=>(n(),c("h1",null,p(t.value),1))}});var d=u(l,[["__scopeId","data-v-3a3e7f70"]]);export{d as default};
