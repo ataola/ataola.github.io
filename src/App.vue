@@ -1,19 +1,50 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-</script>
-
 <template>
   <router-view></router-view>
 </template>
 
+<script lang="ts">
+import _ from 'lodash'
+import { defineComponent, onBeforeMount } from 'vue'
+
+export default defineComponent({
+  name: 'App',
+  setup(props, { emit, slots, attrs }) {
+    const computeRootFontSize = () => {
+      const documentElement = document.documentElement
+      let clientWidth = documentElement.clientWidth
+      clientWidth = clientWidth < 750 ? clientWidth : 750
+      documentElement.style.fontSize = clientWidth / 7.5 + 'px'
+    }
+
+    onBeforeMount(() => {
+      const debouncedComputeRootFontSize = _.debounce(computeRootFontSize, 1000)
+      document.addEventListener('DOMContentLoaded', debouncedComputeRootFontSize)
+      window.addEventListener(
+          'orientationchange' in window ? 'orientationchange' : 'resize',
+          debouncedComputeRootFontSize
+      )
+      computeRootFontSize()
+    })
+    return {}
+  }
+})
+</script>
+
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+</style>
+<style lang="scss">
+#app {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 </style>
