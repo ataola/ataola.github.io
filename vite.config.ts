@@ -18,13 +18,12 @@ export default ((mode: string) => {
         '@assets': resolve('src/assets'),
         '@router': resolve('/src/router'),
         '@static': resolve('/src/static'),
-        '@layouts': resolve('/src/layouts'),
         '@scss': resolve('/src/assets/scss'),
-        '@components': resolve('/src/components'),
+        '@components': resolve('/src/components')
       },
       extensions: [ '.js', '.ts', '.jsx', '.tsx', '.json', '.vue', '.mjs' ]
     },
-    base: config.mode === 'development' ? '/' : './',  //https://cn.vitejs.dev/guide/static-deploy.html#github-pages
+    base: config.mode === 'development' ? './' : '/',  //https://cn.vitejs.dev/guide/static-deploy.html#github-pages
     server: {
       host: config.VITE_HOST,
       port: config.VITE_PORT ? Number(config.VITE_PORT) : 9000,
