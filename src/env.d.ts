@@ -7,6 +7,8 @@ declare module '*.vue' {
   export default component
 }
 
+declare module 'particles.vue3'
+
 /// <reference types="vite/client" />
 // https://vitejs.dev/guide/env-and-mode.html#intellisense-for-typescript
 interface ImportMetaEnv {
