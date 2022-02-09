@@ -36,7 +36,7 @@ export class Request {
     this.axiosInstance.interceptors.request.use(
         (config: IRequestParams) => {
           const token = localStorage.getItem('ACCESS_TOKEN')
-          if (token) {
+          if (token && config && config.headers) {
             config.headers.Authorization = 'Bearer ' + token
           }
           return config
