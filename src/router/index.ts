@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory , RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -20,7 +20,7 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(), // https://next.router.vuejs.org/api/#createwebhistory
+  history: createWebHashHistory (), // https://router.vuejs.org/guide/essentials/history-mode.html#hash-mode
   routes
 })
 
