@@ -13,13 +13,15 @@ export default ((mode: string) => {
         '@api': resolve('/src/api'),
         '@views': resolve('/src/views'),
         '@utils': resolve('/src/utils'),
+        '@types': resolve('/src/types'),
         '@store': resolve('/src/store'),
         '@layout': resolve('/src/layout'),
         '@assets': resolve('src/assets'),
         '@router': resolve('/src/router'),
         '@static': resolve('/src/static'),
         '@scss': resolve('/src/assets/scss'),
-        '@components': resolve('/src/components')
+        '@components': resolve('/src/components'),
+        '@constants': resolve('/src/assets/constants'),
       },
       extensions: [ '.js', '.ts', '.jsx', '.tsx', '.json', '.vue', '.mjs' ]
     },
