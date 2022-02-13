@@ -13,14 +13,14 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref, reactive } from 'vue'
+<script lang="ts">
+import { defineComponent, ref, reactive } from 'vue';
 
 export default defineComponent({
   name: 'Bootstrap',
-  setup(props, {emit, slots, attrs}) {
-    const tip = ref('点此进入')
-    const title = ref('江涛的个人网站')
+  setup(props, { emit, slots, attrs }) {
+    const tip = ref('点此进入');
+    const title = ref('江涛的个人网站');
     const snowOption = reactive({
       'fullScreen': {
         'zIndex': 1
@@ -109,15 +109,15 @@ export default defineComponent({
           }
         }
       }
-    })
+    });
 
     return {
       tip,
       title,
       snowOption
-    }
+    };
   }
-})
+});
 </script>
 
 <style lang="scss" scoped>

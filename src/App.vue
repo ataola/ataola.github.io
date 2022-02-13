@@ -7,31 +7,31 @@
 </template>
 
 <script lang="ts">
-import _ from 'lodash'
-import { defineComponent, onBeforeMount } from 'vue'
+import _ from 'lodash';
+import { defineComponent, onBeforeMount } from 'vue';
 
 export default defineComponent({
   name: 'App',
   setup(props, { emit, slots, attrs }) {
     const computeRootFontSize = () => {
-      const documentElement = document.documentElement
-      let clientWidth = documentElement.clientWidth
-      clientWidth = clientWidth < 750 ? clientWidth : 750
-      documentElement.style.fontSize = clientWidth / 7.5 + 'px'
-    }
+      const documentElement = document.documentElement;
+      let clientWidth = documentElement.clientWidth;
+      clientWidth = clientWidth < 750 ? clientWidth : 750;
+      documentElement.style.fontSize = clientWidth / 7.5 + 'px';
+    };
 
     onBeforeMount(() => {
-      const debouncedComputeRootFontSize = _.debounce(computeRootFontSize, 1000)
-      document.addEventListener('DOMContentLoaded', debouncedComputeRootFontSize)
+      const debouncedComputeRootFontSize = _.debounce(computeRootFontSize, 1000);
+      document.addEventListener('DOMContentLoaded', debouncedComputeRootFontSize);
       window.addEventListener(
           'orientationchange' in window ? 'orientationchange' : 'resize',
           debouncedComputeRootFontSize
-      )
-      computeRootFontSize()
-    })
-    return {}
+      );
+      computeRootFontSize();
+    });
+    return {};
   }
-})
+});
 </script>
 
 <style>

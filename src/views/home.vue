@@ -3,9 +3,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-const msg = ref('测试')
+const msg = ref('测试');
 </script>
 
 <style scoped>
