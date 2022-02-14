@@ -30,7 +30,7 @@ export default defineComponent({
           text: '首页', value: 'Home', router: 'Home', children: []
         },
         {
-          text: '通用', value: 'Common', link: '#', children: [
+          text: '基本功', value: 'basicSkill', link: '#', children: [
             { text: '数据结构和算法', value: 'DataStructureAndAlgorithm', link: 'https://zhengjiangtao.cn/coding-ts' },
             { text: '设计模式', value: 'DesignMode', link: 'https://zhengjiangtao.cn/coding/' }
           ]
@@ -64,5 +64,6 @@ export default defineComponent({
   position: relative;
   padding-bottom: 1rem;
   box-sizing: border-box;
+  background-color: #F5F5F5;
 }
 </style>
