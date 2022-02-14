@@ -4,12 +4,16 @@
     <div class="nav">
       <ul class="nav-container">
         <li v-for="item in items" :key="item.value">
-          <a v-if="item.link" :href="item.link" active-class="link-active" target="_blank">{{ item.text }}</a>
-          <router-link v-else :to="{ name: item.router }" active-class="link-active">{{ item.text }}</router-link>
+          <router-link v-if="item.router" :to="{ name: item.router }" active-class="link-active">
+            {{ item.text }}
+          </router-link>
+          <a v-else :href="item.link" target="_blank">{{ item.text }}</a>
           <ul v-if="item.children.length > 0" class="nav-dropdown">
             <li v-for="child in item.children" :key="child.value">
-              <a v-if="child.link" :href="child.link" active-class="link-active" target="_blank">{{ child.text }}</a>
-              <router-link v-else :to="{ name: child.router }" active-class="link-active">{{ child.text }}</router-link>
+              <router-link v-if="child.router" :to="{ name: child.router }" active-class="link-active">
+                {{ child.text }}
+              </router-link>
+              <a v-else :href="child.link" class="link-active" target="_blank">{{ child.text }}</a>
             </li>
           </ul>
         </li>
@@ -26,7 +30,8 @@
 
 
 <script lang="ts">
-import { defineComponent, ref, reactive, toRef, toRefs } from 'vue';
+import { defineComponent, PropType, reactive, toRef, toRefs } from 'vue';
+import { TNavBarItems } from '@/types/layout/navbar';
 
 export default defineComponent({
   name: 'Navbar',
@@ -37,8 +42,9 @@ export default defineComponent({
       default: () => ({})
     },
     items: {
-      type: Array,
-      default: () => []
+      type: Array as PropType<TNavBarItems>,
+      default: () => ([]),
+      required: true
     }
   },
   setup(props, { emit, slots, attrs }) {
@@ -122,9 +128,9 @@ a:hover {
 
         ul.nav-dropdown {
           position: absolute;
-          top: 0.38rem;
+          top: 0.33rem;
           display: none;
-          width: 1.3rem;
+          width: 1.5rem;
           padding: 0;
           background-color: #333;
           opacity: 0.9;
@@ -134,6 +140,7 @@ a:hover {
 
           li {
             padding: 0.15rem 0.1rem 0;
+            text-align: left;
 
             &:last-child {
               padding: 0.15rem 0.1rem;
@@ -213,4 +220,3 @@ a:hover {
   }
 }
 </style>
-e>
