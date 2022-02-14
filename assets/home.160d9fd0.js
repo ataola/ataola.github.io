@@ -1,0 +1,1 @@
+import{_ as o}from"./index.766c41d8.js";import{d as s,C as t,c as _,l as a,o as r}from"./vendor.fe9d9413.js";const n=s({setup(c){const e=t("\u6D4B\u8BD5");return(p,d)=>(r(),_("h1",null,a(e.value),1))}});var m=o(n,[["__scopeId","data-v-8c2b6570"]]);export{m as default};
