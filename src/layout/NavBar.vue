@@ -36,11 +36,6 @@ import { TNavBarItems } from '@/types/layout/navbar';
 export default defineComponent({
   name: 'Navbar',
   props: {
-    value: {},
-    config: {
-      type: Object,
-      default: () => ({})
-    },
     items: {
       type: Array as PropType<TNavBarItems>,
       default: () => ([]),
