@@ -1,10 +1,10 @@
 <template>
   <div class="layout">
     <Navbar :items="stateList.navItems"/>
-    <router-view v-slot="{ Component }">
+    <router-view v-slot="{ Component, route }">
       <transition name="fade" mode="out-in">
         <keep-alive>
-          <component :is="Component" :key="$route.path"/>
+          <component :is="Component" :key="route.path"/>
         </keep-alive>
       </transition>
     </router-view>
