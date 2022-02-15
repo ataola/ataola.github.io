@@ -34,7 +34,7 @@ import { defineComponent, PropType, reactive, toRef, toRefs } from 'vue';
 import { TNavBarItems } from '@/types/layout/navbar';
 
 export default defineComponent({
-  name: 'Navbar',
+  name: 'NavBar',
   props: {
     items: {
       type: Array as PropType<TNavBarItems>,

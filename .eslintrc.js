@@ -16,9 +16,5 @@ module.exports = {
     'vue',
     '@typescript-eslint',
   ],
-  rules: {
-    'vue/valid-v-slot': ['error', {
-      allowModifiers: true,
-    }],
-  },
+  rules: {},
 };

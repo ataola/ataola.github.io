@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
-    <Navbar :items="stateList.navItems"/>
-    <router-view v-slot="{ Component, route }">
+    <NavBar :items="stateList.navItems"/>
+    <router-view #default="{ Component,route } ">
       <transition name="fade" mode="out-in">
         <keep-alive>
           <component :is="Component" :key="route.path"/>
@@ -14,14 +14,14 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
-import Navbar from '@/layout/NavBar.vue';
+import NavBar from '@/layout/NavBar.vue';
 import Footer from '@/layout/Footer.vue';
 
 export default defineComponent({
   name: 'Layout',
   components: {
-    [Navbar.name]: Navbar,
-    [Footer.name]: Footer
+    [ NavBar.name ]: NavBar,
+    [ Footer.name ]: Footer
   },
   setup(props, { emit, slots, attrs }) {
     const stateList = reactive({
