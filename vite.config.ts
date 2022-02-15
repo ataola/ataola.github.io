@@ -1,10 +1,10 @@
-import { defineConfig, loadEnv } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { resolve } from 'path'
+import { defineConfig, loadEnv } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default ((mode: string) => {
-  const config = loadEnv(mode, process.cwd())
+  const config = loadEnv(mode, process.cwd());
   return defineConfig({
     plugins: [ vue() ],
     resolve: {
@@ -21,7 +21,7 @@ export default ((mode: string) => {
         '@static': resolve('/src/static'),
         '@scss': resolve('/src/assets/scss'),
         '@components': resolve('/src/components'),
-        '@constants': resolve('/src/assets/constants'),
+        '@constants': resolve('/src/assets/constants')
       },
       extensions: [ '.js', '.ts', '.jsx', '.tsx', '.json', '.vue', '.mjs' ]
     },
@@ -39,6 +39,7 @@ export default ((mode: string) => {
       //     rewrite: (path) => path.replace('/api/', '/')
       //   }
       // }
-    }
-  })
-})
+    },
+    css: { preprocessorOptions: { scss: { charset: false } } }
+  });
+});

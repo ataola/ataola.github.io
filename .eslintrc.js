@@ -16,6 +16,5 @@ module.exports = {
     'vue',
     '@typescript-eslint',
   ],
-  rules: {
-  },
+  rules: {},
 };

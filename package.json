@@ -2,8 +2,9 @@
   "name": "ataola.github.io",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "dev": "vite --host",
+    "build": "vite build",
+    "prod": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

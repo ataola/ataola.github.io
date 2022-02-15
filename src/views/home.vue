@@ -1,11 +1,11 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <h4>{{ msg }}</h4>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const msg = ref('测试');
+const msg = ref('网站开发中。。。。。。');
 </script>
 
 <style scoped>
