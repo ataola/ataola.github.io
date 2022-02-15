@@ -1,0 +1,1 @@
+import{_ as o}from"./index.6c254307.js";import{d as s,G as t,c as u,l as _,o as a}from"./vendor.3e08d963.js";const r=s({setup(n){const e=t("\u7F51\u7AD9\u5F00\u53D1\u4E2D\u3002\u3002\u3002\u3002\u3002\u3002");return(c,p)=>(a(),u("h4",null,_(e.value),1))}});var m=o(r,[["__scopeId","data-v-7921236c"]]);export{m as default};
