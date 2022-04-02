@@ -1,12 +1,12 @@
-import { defineConfig, loadEnv } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import { resolve } from 'path';
+import { defineConfig, loadEnv } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import { resolve } from 'path'
 
 // https://vitejs.dev/config/
-export default ((mode: string) => {
-  const config = loadEnv(mode, process.cwd());
+export default (mode: string) => {
+  const config = loadEnv(mode, process.cwd())
   return defineConfig({
-    plugins: [ vue() ],
+    plugins: [vue()],
     resolve: {
       alias: {
         '@': resolve(__dirname, 'src'),
@@ -21,16 +21,16 @@ export default ((mode: string) => {
         '@static': resolve('/src/static'),
         '@scss': resolve('/src/assets/scss'),
         '@components': resolve('/src/components'),
-        '@constants': resolve('/src/assets/constants')
+        '@constants': resolve('/src/assets/constants'),
       },
-      extensions: [ '.js', '.ts', '.jsx', '.tsx', '.json', '.vue', '.mjs' ]
+      extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue', '.mjs'],
     },
-    base: config.mode === 'development' ? './' : '/',  //https://cn.vitejs.dev/guide/static-deploy.html#github-pages
+    base: config.mode === 'development' ? './' : '/', //https://cn.vitejs.dev/guide/static-deploy.html#github-pages
     server: {
       host: config.VITE_HOST,
       port: config.VITE_PORT ? Number(config.VITE_PORT) : 9000,
       open: true,
-      cors: true
+      cors: true,
       // proxy: {
       //   '/api': {
       //     target: 'http://host:port',
@@ -40,6 +40,6 @@ export default ((mode: string) => {
       //   }
       // }
     },
-    css: { preprocessorOptions: { scss: { charset: false } } }
-  });
-});
+    css: { preprocessorOptions: { scss: { charset: false } } },
+  })
+}

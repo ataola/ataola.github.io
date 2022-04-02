@@ -2,122 +2,122 @@
   <div class="cover">
     <span class="overlay"></span>
     <div class="logo">
-      <h2><img class="avatar" src="../static/brands/zheng.png" alt="郑"/>
+      <h2>
+        <img class="avatar" src="../static/brands/zheng.png" alt="郑" />
         <span class="blink">{{ title }}</span>
       </h2>
       <router-link :to="{ name: 'Home' }">{{ tip }}&nbsp;&nbsp;&nbsp;&nbsp;➞</router-link>
     </div>
     <!-- https://dev.to/matteobruni/how-to-create-snow-effects-for-this-christmas-with-tsparticles-4mpd -->
-    <Particles id="Particles"
-               :options="snowOption"/>
+    <Particles id="Particles" :options="snowOption" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive } from 'vue';
+import { defineComponent, ref, reactive } from 'vue'
 
 export default defineComponent({
   name: 'Bootstrap',
   setup(props, { emit, slots, attrs }) {
-    const tip = ref('点此进入');
-    const title = ref('江涛的个人网站');
+    const tip = ref('点此进入')
+    const title = ref('江涛的个人网站')
     const snowOption = reactive({
-      'fullScreen': {
-        'zIndex': 1
+      fullScreen: {
+        zIndex: 1,
       },
-      'interactivity': {
-        'events': {
-          'onClick': {
-            'enable': true,
-            'mode': 'repulse'
+      interactivity: {
+        events: {
+          onClick: {
+            enable: true,
+            mode: 'repulse',
           },
-          'onHover': {
-            'enable': true,
-            'mode': 'bubble'
-          }
+          onHover: {
+            enable: true,
+            mode: 'bubble',
+          },
         },
-        'modes': {
-          'bubble': {
-            'distance': 400,
-            'duration': 0.3,
-            'opacity': 1,
-            'size': 4
+        modes: {
+          bubble: {
+            distance: 400,
+            duration: 0.3,
+            opacity: 1,
+            size: 4,
           },
-          'grab': {
-            'distance': 400,
-            'links': {
-              'opacity': 0.5
-            }
-          }
-        }
+          grab: {
+            distance: 400,
+            links: {
+              opacity: 0.5,
+            },
+          },
+        },
       },
-      'particles': {
-        'links': {
-          'color': {
-            'value': '#ffffff'
+      particles: {
+        links: {
+          color: {
+            value: '#ffffff',
           },
-          'distance': 500,
-          'opacity': 0.4,
-          'width': 2
+          distance: 500,
+          opacity: 0.4,
+          width: 2,
         },
-        'move': {
-          'attract': {
-            'rotate': {
-              'x': 600,
-              'y': 1200
-            }
+        move: {
+          attract: {
+            rotate: {
+              x: 600,
+              y: 1200,
+            },
           },
-          'direction': 'bottom',
-          'enable': true,
-          'outModes': {
-            'bottom': 'out',
-            'left': 'out',
-            'right': 'out',
-            'top': 'out'
-          }
+          direction: 'bottom',
+          enable: true,
+          outModes: {
+            bottom: 'out',
+            left: 'out',
+            right: 'out',
+            top: 'out',
+          },
         },
-        'number': {
-          'density': {
-            'enable': true
+        number: {
+          density: {
+            enable: true,
           },
-          'value': 400
+          value: 400,
         },
-        'opacity': {
-          'random': {
-            'enable': true
+        opacity: {
+          random: {
+            enable: true,
           },
-          'value': {
-            'min': 0.1,
-            'max': 0.5
+          value: {
+            min: 0.1,
+            max: 0.5,
           },
-          'animation': {
-            'speed': 1,
-            'minimumValue': 0.1
-          }
+          animation: {
+            speed: 1,
+            minimumValue: 0.1,
+          },
         },
-        'size': {
-          'random': {
-            'enable': true
+        size: {
+          random: {
+            enable: true,
           },
-          'value': {
-            'min': 1,
-            'max': 10
+          value: {
+            min: 1,
+            max: 10,
           },
-          'animation': {
-            'speed': 40,
-            'minimumValue': 0.1
-          }
-        }
-      }
-    });
+          animation: {
+            speed: 40,
+            minimumValue: 0.1,
+          },
+        },
+      },
+    })
 
     return {
       tip,
       title,
-      snowOption
-    };
-  }
-});
+      snowOption,
+    }
+  },
+})
 </script>
 
 <style lang="scss" scoped>
@@ -164,8 +164,8 @@ export default defineComponent({
       animation: down linear 1s;
 
       .avatar {
-        width: .42rem;
-        height: .42rem;
+        width: 0.42rem;
+        height: 0.42rem;
       }
     }
 
@@ -223,7 +223,26 @@ export default defineComponent({
 }
 
 .blink {
-  background: -webkit-linear-gradient(left, #fff, #f00 6.25%, #ff7d00 12.5%, #ff0 18.75%, #0f0 25%, #0ff 31.25%, #00f 37.5%, #f0f 43.75%, #ff0 50%, #f00 56.25%, #ff7d00 62.5%, #ff0 68.75%, #0f0 75%, #0ff 81.25%, #00f 87.5%, #f0f 93.75%, #ff0);
+  background: -webkit-linear-gradient(
+    left,
+    #fff,
+    #f00 6.25%,
+    #ff7d00 12.5%,
+    #ff0 18.75%,
+    #0f0 25%,
+    #0ff 31.25%,
+    #00f 37.5%,
+    #f0f 43.75%,
+    #ff0 50%,
+    #f00 56.25%,
+    #ff7d00 62.5%,
+    #ff0 68.75%,
+    #0f0 75%,
+    #0ff 81.25%,
+    #00f 87.5%,
+    #f0f 93.75%,
+    #ff0
+  );
   background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

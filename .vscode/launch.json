@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "command": "yarn dev",
+      "name": "dev",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "debug",
+      "url": "http://localhost:3000",
+      "skipFiles": ["<node_internals>/**"],
+      "webRoot": "${workspaceFolder}/src"
+    }
+  ]
+}

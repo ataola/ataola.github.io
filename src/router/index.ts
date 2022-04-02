@@ -1,5 +1,5 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import layout from '@/layout/index.vue';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import layout from '@/layout/index.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -12,9 +12,9 @@ const routes: Array<RouteRecordRaw> = [
         name: 'Home',
         component: () => import('@/views/home.vue'),
         meta: {
-          title: '首页'
-        }
-      }
+          title: '首页',
+        },
+      },
     ],
   },
   {
@@ -22,33 +22,33 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Bootstrap',
     component: () => import('@/views/bootstrap.vue'),
     meta: {
-      title: '启动页'
-    }
-  }
-];
+      title: '启动页',
+    },
+  },
+]
 
 const router = createRouter({
   history: createWebHashHistory(), // https://router.vuejs.org/guide/essentials/history-mode.html#hash-mode
-  routes
-});
+  routes,
+})
 
 router.beforeEach((to, from, next) => {
   if (to.name === 'Home' && from.name === 'Bootstrap') {
-    localStorage.setItem('isBootstrap', 'true');
+    localStorage.setItem('isBootstrap', 'true')
   }
   if (localStorage.getItem('isBootstrap')) {
     if (to.path === '/bootstrap') {
-      next('/');
+      next('/')
     } else {
-      next();
+      next()
     }
   } else if (to.path === '/bootstrap') {
-    next();
+    next()
   } else {
     next({
-      path: '/bootstrap'
-    });
+      path: '/bootstrap',
+    })
   }
-});
+})
 
-export default router;
+export default router

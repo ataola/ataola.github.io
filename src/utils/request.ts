@@ -1,75 +1,70 @@
-import axios, { AxiosInstance, AxiosError, AxiosRequestConfig } from 'axios';
-import {
-  IRequestParams,
-  IRequestResponse,
-  TBackData
-} from '@/types/global/request';
+import axios, { AxiosInstance, AxiosError, AxiosRequestConfig } from 'axios'
+import { IRequestParams, IRequestResponse, TBackData } from '@/types/global/request'
 
 interface MyAxiosInstance extends AxiosInstance {
-  (config: AxiosRequestConfig): Promise<any>;
+  (config: AxiosRequestConfig): Promise<any>
 
-  (url: string, config?: AxiosRequestConfig): Promise<any>;
+  (url: string, config?: AxiosRequestConfig): Promise<any>
 }
 
 export class Request {
-  public static axiosInstance: MyAxiosInstance;
+  public static axiosInstance: MyAxiosInstance
 
   public static init() {
     // 创建axios实例
     this.axiosInstance = axios.create({
       baseURL: '/api',
-      timeout: 10000
-    });
+      timeout: 10000,
+    })
     // 初始化拦截器
-    this.initInterceptors();
+    this.initInterceptors()
   }
 
   // 初始化拦截器
   public static initInterceptors() {
     // 设置post请求头
-    this.axiosInstance.defaults.headers.post['Content-Type'] =
-      'application/x-www-form-urlencoded';
+    this.axiosInstance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
     /**
      * 请求拦截器
      * 每次请求前，如果存在token则在请求头中携带token
      */
     this.axiosInstance.interceptors.request.use(
       (config: IRequestParams) => {
-        const token = localStorage.getItem('ACCESS_TOKEN');
+        const token = localStorage.getItem('ACCESS_TOKEN')
         if (token && config && config.headers) {
-          config.headers.Authorization = 'Bearer ' + token;
+          config.headers.Authorization = 'Bearer ' + token
         }
-        return config;
+        return config
       },
       (error: any) => {
-        alert(error);
+        alert(error)
       }
-    );
+    )
 
     // 响应拦截器
     this.axiosInstance.interceptors.response.use(
       // 请求成功
       (response: IRequestResponse): TBackData => {
         const {
-          data: { code, message, data }
-        } = response;
+          data: { code, message, data },
+        } = response
         if (response.status !== 200 || code !== 0) {
-          Request.errorHandle(response, message);
+          Request.errorHandle(response, message)
         }
-        return data;
+        return data
       },
       // 请求失败
       (error: AxiosError): Promise<any> => {
-        const { response } = error;
+        const { response } = error
         if (response) {
           // 请求已发出，但是不在2xx的范围
-          Request.errorHandle(response);
+          Request.errorHandle(response)
         } else {
-          alert('网络连接异常,请稍后再试!');
+          alert('网络连接异常,请稍后再试!')
         }
-        return Promise.reject(response?.data);
+        return Promise.reject(response?.data)
       }
-    );
+    )
   }
 
   /**
@@ -81,15 +76,15 @@ export class Request {
     // 状态码判断
     switch (res.status) {
       case 401:
-        break;
+        break
       case 403:
-        break;
+        break
       case 404:
-        alert('请求的资源不存在');
-        break;
+        alert('请求的资源不存在')
+        break
       default:
         // 错误信息判断
-        message && alert(message);
+        message && alert(message)
     }
   }
 }

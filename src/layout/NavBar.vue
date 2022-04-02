@@ -21,46 +21,43 @@
     </div>
     <div class="search">
       <div class="search-box">
-        <font-awesome-icon class="icon-search" :icon="['fas', 'search']" @click="toggleSearch"/>
-        <input v-show="isSearch" type="text" placeholder="搜索..." class="ipt-search"/>
+        <font-awesome-icon class="icon-search" :icon="['fas', 'search']" @click="toggleSearch" />
+        <input v-show="isSearch" type="text" placeholder="搜索..." class="ipt-search" />
       </div>
     </div>
   </div>
 </template>
 
-
 <script lang="ts">
-import { defineComponent, PropType, reactive, toRef, toRefs } from 'vue';
-import { TNavBarItems } from '@/types/layout/navbar';
+import { defineComponent, PropType, reactive, toRef, toRefs } from 'vue'
+import { TNavBarItems } from '@/types/layout/navbar'
 
 export default defineComponent({
   name: 'NavBar',
   props: {
     items: {
       type: Array as PropType<TNavBarItems>,
-      default: () => ([]),
-      required: true
-    }
+      default: () => [],
+      required: true,
+    },
   },
   setup(props, { emit, slots, attrs }) {
-
-    const items = toRef(props, 'items');
+    const items = toRef(props, 'items')
     const stateList = reactive({
-      isSearch: false
-    });
+      isSearch: false,
+    })
 
     const toggleSearch = () => {
-      stateList.isSearch = !stateList.isSearch;
-    };
-
+      stateList.isSearch = !stateList.isSearch
+    }
 
     return {
       items,
       ...toRefs(stateList),
-      toggleSearch
-    };
-  }
-});
+      toggleSearch,
+    }
+  },
+})
 </script>
 
 <style lang="scss" scoped>
@@ -119,7 +116,7 @@ a:hover {
       li {
         position: relative;
         display: block;
-        padding: .05rem;
+        padding: 0.05rem;
 
         ul.nav-dropdown {
           position: absolute;

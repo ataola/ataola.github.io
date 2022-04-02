@@ -1,0 +1,34 @@
+{
+  "editor.tabSize": 2,
+  "editor.fontSize": 14,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSaveMode": "file",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "eslint.run": "onSave",
+  "eslint.alwaysShowStatus": true,
+  "eslint.validate": ["html", "vue", "vue-html", "javascript", "typescript", "javascriptreact", "typescriptreact"],
+  "eslint.options": {
+    "extensions": [".js", ".vue", ".ts", ".tsx"]
+  },
+  "prettier.eslintIntegration": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx",
+    "vue": "html",
+    "vue-html": "html"
+  },
+  "files.associations": {
+    ".eslintrc": "json",
+    "*.vue": "vue"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  }
+}

@@ -1,60 +1,78 @@
 <template>
   <div class="layout">
-    <NavBar :items="stateList.navItems"/>
-    <router-view #default="{ Component,route } ">
+    <NavBar :items="stateList.navItems" />
+    <router-view #default="{ Component, route }">
       <transition name="fade" mode="out-in">
         <keep-alive>
-          <component :is="Component" :key="route.path"/>
+          <component :is="Component" :key="route.path" />
         </keep-alive>
       </transition>
     </router-view>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
-import NavBar from '@/layout/NavBar.vue';
-import Footer from '@/layout/Footer.vue';
+import { defineComponent, reactive } from 'vue'
+import NavBar from '@/layout/NavBar.vue'
+import Footer from '@/layout/Footer.vue'
 
 export default defineComponent({
   name: 'Layout',
   components: {
-    [ NavBar.name ]: NavBar,
-    [ Footer.name ]: Footer
+    [NavBar.name]: NavBar,
+    [Footer.name]: Footer,
   },
   setup(props, { emit, slots, attrs }) {
     const stateList = reactive({
       navItems: [
         {
-          text: '首页', value: 'Home', router: 'Home', children: []
+          text: '首页',
+          value: 'Home',
+          router: 'Home',
+          children: [],
         },
         {
-          text: '基本功', value: 'basicSkill', link: '#', children: [
+          text: '基本功',
+          value: 'basicSkill',
+          link: '#',
+          children: [
             { text: '数据结构和算法', value: 'DataStructureAndAlgorithm', link: 'https://zhengjiangtao.cn/coding-ts' },
-            { text: '设计模式', value: 'DesignMode', link: 'https://zhengjiangtao.cn/coding/' }
-          ]
+            { text: '设计模式', value: 'DesignMode', link: 'https://zhengjiangtao.cn/coding/' },
+          ],
         },
         {
-          text: '前端', value: 'Frontend', link: '#', children: []
+          text: '前端',
+          value: 'Frontend',
+          link: '#',
+          children: [],
         },
         {
-          text: '博客', value: 'Blog', link: 'https://www.cnblogs.com/cnroadbridge/', children: []
+          text: '博客',
+          value: 'Blog',
+          link: 'https://www.cnblogs.com/cnroadbridge/',
+          children: [],
         },
         {
-          text: '实验室', value: 'Laboratory', link: '#', children: []
+          text: '实验室',
+          value: 'Laboratory',
+          link: '#',
+          children: [],
         },
         {
-          text: '友链', value: 'FriendsLinks', link: '#', children: []
-        }
-      ]
-    });
+          text: '友链',
+          value: 'FriendsLinks',
+          link: '#',
+          children: [],
+        },
+      ],
+    })
 
     return {
-      stateList
-    };
-  }
-});
+      stateList,
+    }
+  },
+})
 </script>
 
 <style scoped>
@@ -64,6 +82,6 @@ export default defineComponent({
   position: relative;
   padding-bottom: 1rem;
   box-sizing: border-box;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 </style>
