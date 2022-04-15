@@ -1,11 +1,29 @@
 <template>
-  <h4>{{ msg }}</h4>
+  <div>
+    <h4>{{ msg }}</h4>
+    <p>{{ count }}</p>
+    <p><button @click="add">+</button></p>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useCounterStore } from '@/store/modules/counter'
 
 const msg = ref('网站开发中。。。。。。')
+
+const counter = useCounterStore()
+
+const { count } = storeToRefs(counter)
+
+counter.count++
+// with autocompletion ✨
+counter.$patch({ count: counter.count + 1 })
+// or using an action instead
+counter.increment()
+
+const add = () => counter.increment()
 </script>
 
 <style scoped>
