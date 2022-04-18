@@ -1,9 +1,15 @@
 import { defineStore } from 'pinia'
 
+declare type TTodo = {
+  text: string
+  id: number
+  isFinished: boolean
+}
+
 export const todos = defineStore('todos', {
   state: () => ({
     /** @type {{ text: string, id: number, isFinished: boolean }[]} */
-    todos: [],
+    todos: [] as TTodo[],
     /** @type {'all' | 'finished' | 'unfinished'} */
     filter: 'all',
     // type will be automatically inferred to number
