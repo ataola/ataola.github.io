@@ -20,7 +20,7 @@ export default defineComponent({
   name: 'Bootstrap',
   setup(props, { emit, slots, attrs }) {
     const tip = ref('点此进入')
-    const title = ref('江涛的个人网站')
+    const title = ref('江涛酱的个人网站')
     const snowOption = reactive({
       fullScreen: {
         zIndex: 1,

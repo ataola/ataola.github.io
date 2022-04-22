@@ -25,6 +25,14 @@ const routes: Array<RouteRecordRaw> = [
       title: '启动页',
     },
   },
+  {
+    path: '/test/test1',
+    name: 'Test1',
+    component: () => import('@/views/test/test1.vue'),
+    meta: {
+      title: '测试页-1',
+    },
+  },
 ]
 
 const router = createRouter({
