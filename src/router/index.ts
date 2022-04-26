@@ -24,11 +24,19 @@ const routes: Array<RouteRecordRaw> = [
         },
       },
       {
+        path: '/subject',
+        name: 'Subject',
+        component: () => import('@/views/subject.vue'),
+        meta: {
+          title: '专题',
+        },
+      },
+      {
         path: '/laboratory',
         name: 'Laboratory',
         component: () => import('@/views/laboratory.vue'),
         meta: {
-          title: '导航',
+          title: '实验室',
         },
       },
     ],
