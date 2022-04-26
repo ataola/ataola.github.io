@@ -1,1 +1,0 @@
-import{_ as a}from"./index.19d53f50.js";import{d as s,c as n,o as c}from"./vendor.fce34864.js";const p=s({name:"Laboratory",setup(o,{emit:r,slots:e,attrs:t}){return{}}});function i(o,r,e,t,d,f){return c(),n("div",null,"Laboratory is coming.")}var l=a(p,[["render",i]]);export{l as default};

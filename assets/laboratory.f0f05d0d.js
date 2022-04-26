@@ -1,0 +1,1 @@
+import{_ as a}from"./index.8a91d8d2.js";import{d as s,c as n,o as c}from"./vendor.562e8fa2.js";const p=s({name:"Laboratory",setup(o,{emit:r,slots:e,attrs:t}){return{}}});function d(o,r,e,t,i,m){return c(),n("div",null,"Laboratory is coming.")}var l=a(p,[["render",d]]);export{l as default};
