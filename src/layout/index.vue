@@ -46,8 +46,8 @@ export default defineComponent({
         },
         {
           text: '专题',
-          value: 'Topic',
-          link: '#',
+          value: 'Subject',
+          router: 'Subject',
           children: [
             { text: '数据结构和算法', value: 'DataStructureAndAlgorithm', link: 'https://zhengjiangtao.cn/coding-ts' },
             { text: '设计模式', value: 'DesignMode', link: 'https://zhengjiangtao.cn/coding/' },
