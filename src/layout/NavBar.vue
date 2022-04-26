@@ -22,7 +22,14 @@
     <div class="search">
       <div class="search-box">
         <font-awesome-icon class="icon-search" :icon="['fas', 'search']" @click="toggleSearch" />
-        <input v-show="isSearch" type="text" placeholder="搜索..." class="ipt-search" />
+        <input
+          v-show="isSearch"
+          v-model="searchField"
+          type="text"
+          placeholder="搜索..."
+          class="ipt-search"
+          @keydown.enter="search"
+        />
       </div>
     </div>
   </div>
@@ -45,16 +52,25 @@ export default defineComponent({
     const items = toRef(props, 'items')
     const stateList = reactive({
       isSearch: false,
+      searchField: '',
     })
 
     const toggleSearch = () => {
       stateList.isSearch = !stateList.isSearch
+      stateList.searchField = ''
+    }
+
+    const search = () => {
+      if (stateList.searchField) {
+        window.location.href = `https://www.baidu.com/s?wd=site:zhengjiangtao.cn ${stateList.searchField}`
+      }
     }
 
     return {
       items,
       ...toRefs(stateList),
       toggleSearch,
+      search,
     }
   },
 })
@@ -76,9 +92,9 @@ a:hover {
 
 .header {
   display: flex;
-  flex-basis: 100%;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
   height: 1rem;
   padding: 0.1rem;
   background-color: rgba(255, 255, 255, 0.7);
