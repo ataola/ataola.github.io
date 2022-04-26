@@ -1,0 +1,538 @@
+[
+  {
+    "id": "1",
+    "name": "iconfont",
+    "type": "design",
+    "url": "https://www.iconfont.cn/",
+    "avatar": "design",
+    "description": "阿里妈妈MUX倾力打造的矢量图标管理、交流平台。"
+  },
+  {
+    "id": "2",
+    "name": "iconPark",
+    "type": "design",
+    "url": "https://iconpark.oceanengine.com/",
+    "avatar": "design",
+    "description": "IconPark是技术驱动图标样式的开源图标库"
+  },
+  {
+    "id": "3",
+    "name": "Font Awesome",
+    "type": "design",
+    "url": "https://fontawesome.com/icons",
+    "avatar": "design",
+    "description": "Font Awesome is the internet's icon library and toolkit used by millions of designers, developers, and content creators."
+  },
+  {
+    "id": "4",
+    "name": "VUE3",
+    "type": "vue",
+    "url": "https://vuejs.org/guide/introduction.html",
+    "avatar": "vue",
+    "description": "Vue is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS and JavaScript, and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be it simple or complex."
+  },
+  {
+    "id": "5",
+    "name": "VUE2",
+    "type": "vue",
+    "url": "https://v2.vuejs.org/v2/guide/",
+    "avatar": "vue",
+    "description": "Vue is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries."
+  },
+  {
+    "id": "6",
+    "name": "REACT",
+    "type": "react",
+    "url": "https://reactjs.org/docs/getting-started.html",
+    "avatar": "react",
+    "description": "React is a JavaScript library for building user interfaces."
+  },
+  {
+    "id": "7",
+    "name": "Font Awesome 中文网",
+    "type": "design",
+    "url": "http://www.fontawesome.com.cn/faicons/",
+    "avatar": "design",
+    "description": "Font Awesome 字体为您提供可缩放矢量图标,它可以被定制大小、颜色、阴影以及任何可以用CSS的样式。"
+  },
+  {
+    "id": "8",
+    "name": "MDN - JAVASCRIPT",
+    "type": "javascript",
+    "url": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript",
+    "avatar": "javascript",
+    "description": "权威的Javascript手册文档"
+  },
+  {
+    "id": "9",
+    "name": "学习CSS布局",
+    "type": "css",
+    "url": "https://zh.learnlayout.com/",
+    "avatar": "css",
+    "description": "本站教授的是现在广泛使用于网站布局领域的CSS基础."
+  },
+  {
+    "id": "10",
+    "name": "DOCS",
+    "type": "babel",
+    "url": "https://babeljs.io/docs/en/",
+    "avatar": "babel",
+    "description": "Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments."
+  },
+  {
+    "id": "11",
+    "name": "PLAYGROUND",
+    "type": "babel",
+    "url": "https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&corejs=3.6&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-2&prettier=false&targets=&version=7.17.9&externalPlugins=&assumptions=%7B%7D",
+    "avatar": "babel",
+    "description": "an online playground for babel."
+  },
+  {
+    "id": "12",
+    "name": "VuePress",
+    "type": "vue",
+    "url": "https://vuepress.vuejs.org/guide/getting-started.html#prerequisites/",
+    "avatar": "vue",
+    "description": "Build document and website easily with vuePress."
+  },
+  {
+    "id": "13",
+    "name": "Vuex",
+    "type": "vue",
+    "url": "https://vuex.vuejs.org/",
+    "avatar": "vue",
+    "description": "Vuex is a state management pattern + library for Vue.js applications. It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion."
+  },
+  {
+    "id": "14",
+    "name": "Pinia",
+    "type": "vue",
+    "url": "https://pinia.vuejs.org/introduction.html",
+    "avatar": "vue",
+    "description": "Pinia started as an experiment to redesign what a Store for Vue could look like with the Composition API around November 2019. Since then, the initial principles are still the same, but Pinia works for both Vue 2 and Vue 3 and doesn't require you to use the composition API. The API is the same for both except for installation and SSR, and these docs are targeted to Vue 3 with notes about Vue 2 whenever necessary so it can be read by Vue 2 and Vue 3 users!"
+  },
+  {
+    "id": "15",
+    "name": "Vue CLI",
+    "type": "vue",
+    "url": "https://cli.vuejs.org/guide/",
+    "avatar": "vue",
+    "description": "Vue CLI aims to be the standard tooling baseline for the Vue ecosystem. It ensures the various build tools work smoothly together with sensible defaults so you can focus on writing your app instead of spending days wrangling with configurations. At the same time, it still offers the flexibility to tweak the config of each tool without the need for ejecting."
+  },
+  {
+    "id": "16",
+    "name": "Vite官网文档",
+    "type": "vue",
+    "url": "https://cn.vitejs.dev/guide/",
+    "avatar": "vue",
+    "description": "Vite是一种新型前端构建工具，能够显著提升前端开发体验。它主要由两部分组成"
+  },
+  {
+    "id": "17",
+    "name": "ANGULAR",
+    "type": "angular",
+    "url": "https://angular.io/docs",
+    "avatar": "angular",
+    "description": "Angular is an application design framework and development platform for creating efficient and sophisticated single-page apps."
+  },
+  {
+    "id": "18",
+    "name": "ANGULAR 中文网",
+    "type": "angular",
+    "url": "https://angular.cn/docs",
+    "avatar": "angular",
+    "description": "Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用"
+  },
+  {
+    "id": "19",
+    "name": "GraphQL",
+    "type": "graphql",
+    "url": "https://graphql.org/",
+    "avatar": "graphql",
+    "description": "GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools."
+  },
+  {
+    "id": "19",
+    "name": "Vue Apollo & v2",
+    "type": "vue",
+    "url": "https://apollo.vuejs.org/",
+    "avatar": "vue",
+    "description": "This library integrates apollo (opens new window)in your Vue (opens new window)components with declarative queries. Compatible with Vue 2.0+."
+  },
+  {
+    "id": "20",
+    "name": "Vue Apollo & v3",
+    "type": "vue",
+    "url": "https://v4.apollo.vuejs.org/guide/#compatibility",
+    "avatar": "vue",
+    "description": "This library integrates apollo (opens new window)in your Vue (opens new window)components with declarative queries."
+  },
+  {
+    "id": "21",
+    "name": "Apollo",
+    "type": "graphql",
+    "url": "https://www.apollographql.com/docs/",
+    "avatar": "graphql",
+    "description": "Apollo is a platform for building a unified graph, a communication layer that helps you manage the flow of data between your application clients (such as web and native apps) and your backend services. At the heart of the graph is a query language called GraphQL."
+  },
+  {
+    "id": "22",
+    "name": "apollo react",
+    "type": "react",
+    "url": "https://www.apollographql.com/docs/react/",
+    "avatar": "react",
+    "description": "Apollo Client is a comprehensive state management library for JavaScript that enables you to manage both local and remote data with GraphQL. Use it to fetch, cache, and modify application data, all while automatically updating your UI."
+  },
+  {
+    "id": "23",
+    "name": "DOCS",
+    "type": "nodejs",
+    "url": "https://nodejs.org/docs/latest-v17.x/api/",
+    "avatar": "nodejs",
+    "description": "Node.js v17.9.0 documentation"
+  },
+  {
+    "id": "24",
+    "name": "NODJS中文文档",
+    "type": "nodejs",
+    "url": "http://nodejs.cn/api/",
+    "avatar": "nodejs",
+    "description": "Node.js v18.0.0 文档"
+  },
+  {
+    "id": "25",
+    "name": "CNODEJS",
+    "type": "forum",
+    "url": "https://cnodejs.org/",
+    "avatar": "nodejs",
+    "description": "NODJS专业中文社区"
+  },
+  {
+    "id": "26",
+    "name": "DENO",
+    "type": "deno",
+    "url": "https://deno.land/manual",
+    "avatar": "deno",
+    "description": "Deno is a JavaScript/TypeScript runtime with secure defaults and a great developer experience."
+  },
+  {
+    "id": "27",
+    "name": "DENO中文社区",
+    "type": "forum",
+    "url": "https://deno.js.cn/",
+    "avatar": "deno",
+    "description": "Deno 中文社区"
+  },
+  {
+    "id": "28",
+    "name": "CSS-TRICKS",
+    "type": "css",
+    "url": "https://css-tricks.com/",
+    "avatar": "css",
+    "description": "amazing website to study css"
+  },
+  {
+    "id": "29",
+    "name": "DOCS",
+    "type": "typescript",
+    "url": "https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html",
+    "avatar": "typescript",
+    "description": "TypeScript for the New Programmer"
+  },
+  {
+    "id": "30",
+    "name": "PLAYGROUND",
+    "type": "typescript",
+    "url": "https://www.typescriptlang.org/play?#code",
+    "avatar": "typescript",
+    "description": "online website runtime to study typescript"
+  },
+  {
+    "id": "31",
+    "name": "Ant Design",
+    "type": "react",
+    "url": "https://ant.design/docs/react/introduce-cn",
+    "avatar": "ant-design",
+    "description": "antd 是基于 Ant Design 设计体系的 React UI 组件库，主要用于研发企业级中后台产品"
+  },
+  {
+    "id": "32",
+    "name": "Elment UI",
+    "type": "vue",
+    "url": "https://element.eleme.cn/#/zh-CN/component/installation",
+    "avatar": "vue",
+    "description": "elementUI 是一个UI组件库"
+  },
+  {
+    "id": "33",
+    "name": "vant",
+    "type": "vue",
+    "url": "https://youzan.github.io/vant/#/zh-CN",
+    "avatar": "vue",
+    "description": "vant 是一个移动端UI组件库"
+  },
+  {
+    "id": "34",
+    "name": "Taro",
+    "type": "react",
+    "url": "https://taro-docs.jd.com/taro/docs/",
+    "avatar": "react",
+    "description": "Taro 是一个开放式跨端跨框架解决方案，支持使用 React/Vue/Nerv 等框架来开发 微信 / 京东 / 百度 / 支付宝 / 字节跳动 / QQ / 飞书 小程序 / H5 / RN 等应用。"
+  },
+  {
+    "id": "35",
+    "name": "Echarts",
+    "type": "visualization",
+    "url": "https://echarts.apache.org/handbook/zh/get-started/",
+    "avatar": "visualization",
+    "description": "一个优秀的前端图表库"
+  },
+  {
+    "id": "36",
+    "name": "Ant Design Vue",
+    "type": "vue",
+    "url": "https://www.antdv.com/components/overview",
+    "avatar": "vue",
+    "description": "一个 Vue的UI组件库"
+  },
+  {
+    "id": "37",
+    "name": "antv",
+    "type": "visualization",
+    "url": "https://antv.vision/zh",
+    "avatar": "visualization",
+    "description": "一个优秀的前端图表库"
+  },
+  {
+    "id": "38",
+    "name": "ES6入门教程",
+    "type": "javascript",
+    "url": "https://es6.ruanyifeng.com/",
+    "avatar": "javascript",
+    "description": "Javascript语法 - ES6入门教程"
+  },
+  {
+    "id": "39",
+    "name": "Dribbble",
+    "type": "design",
+    "url": "https://dribbble.com/",
+    "avatar": "design",
+    "description": "追波设计"
+  },
+  {
+    "id": "40",
+    "name": "animate.css",
+    "type": "css",
+    "url": "https://animate.style/#documentation",
+    "avatar": "css",
+    "description": "Animate.css is a library of ready-to-use, cross-browser animations for use in your web projects. Great for emphasis, home pages, sliders, and attention-guiding hints."
+  },
+  {
+    "id": "41",
+    "name": "SASS",
+    "type": "css",
+    "url": "https://sass-lang.com/guide",
+    "avatar": "scss",
+    "description": "Sass is a stylesheet language that’s compiled to CSS. It allows you to use variables, nested rules, mixins, functions, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized and makes it easy to share design within and across projects."
+  },
+  {
+    "id": "42",
+    "name": "LESS",
+    "type": "css",
+    "url": "https://lesscss.org/",
+    "avatar": "less",
+    "description": "Less (which stands for Leaner Style Sheets) is a backwards-compatible language extension for CSS. This is the official documentation for Less, the language and Less.js, the JavaScript tool that converts your Less styles to CSS styles."
+  },
+  {
+    "id": "43",
+    "name": "稀土掘金",
+    "type": "forum",
+    "url": "https://juejin.cn/",
+    "avatar": "forum",
+    "description": "字节跳动旗下技术社区"
+  },
+  {
+    "id": "44",
+    "name": "博客园",
+    "type": "forum",
+    "url": "https://www.cnblogs.com/",
+    "avatar": "forum",
+    "description": "早期的技术文章写作基地"
+  },
+  {
+    "id": "45",
+    "name": "Vue Router",
+    "type": "vue",
+    "url": "https://router.vuejs.org/installation.html",
+    "avatar": "vue",
+    "description": "a router library for vue"
+  },
+  {
+    "id": "46",
+    "name": "Lodash",
+    "type": "util",
+    "url": "https://lodash.com/",
+    "avatar": "util",
+    "description": "A modern JavaScript utility library delivering modularity, performance & extras.e"
+  },
+  {
+    "id": "47",
+    "name": "Nuxt",
+    "type": "vue",
+    "url": "https://nuxtjs.org/docs/get-started/installation",
+    "avatar": "vue",
+    "description": "A ssr framework for vue."
+  },
+  {
+    "id": "48",
+    "name": "前端精读周刊",
+    "type": "weekly",
+    "url": "https://github.com/ascoders/weekly",
+    "avatar": "weekly",
+    "description": "一份来自github的前端周刊."
+  },
+  {
+    "id": "49",
+    "name": "Javascript Weekly",
+    "type": "weekly",
+    "url": "https://javascriptweekly.com/issues",
+    "avatar": "javascript",
+    "description": "Javascript Weekyly Archives."
+  },
+  {
+    "id": "50",
+    "name": "奇舞周刊",
+    "type": "weekly",
+    "url": "https://weekly.75.team/",
+    "avatar": "weekly",
+    "description": "360奇舞团的周刊"
+  },
+  {
+    "id": "51",
+    "name": "V8",
+    "type": "nodejs",
+    "url": "https://v8.js.cn/",
+    "avatar": "nodejs",
+    "description": "V8引擎"
+  },
+  {
+    "id": "52",
+    "name": "regexr",
+    "type": "tools",
+    "url": "https://regexr.com/",
+    "avatar": "tools",
+    "description": "在线正则表达式工具"
+  },
+  {
+    "id": "53",
+    "name": "uigradients",
+    "type": "tools",
+    "url": "https://uigradients.com/#Maldives/",
+    "avatar": "css",
+    "description": "渐变色工具"
+  },
+  {
+    "id": "54",
+    "name": "CoolHue",
+    "type": "tools",
+    "url": "https://webkul.github.io/coolhue/",
+    "avatar": "css",
+    "description": "渐变色工具"
+  },
+  {
+    "id": "55",
+    "name": "webgradients",
+    "type": "tools",
+    "url": "https://webgradients.com/",
+    "avatar": "css",
+    "description": "渐变色工具"
+  },
+  {
+    "id": "56",
+    "name": "jex",
+    "type": "tools",
+    "url": "https://jex.im/regulex/#!flags=&re=%5E(a%7Cb)*%3F%24",
+    "avatar": "tools",
+    "description": "正则表达式工具"
+  },
+  {
+    "id": "57",
+    "name": "express",
+    "type": "nodejs",
+    "url": "https://expressjs.com/",
+    "avatar": "nodejs",
+    "description": "Node.js 的web框架"
+  },
+  {
+    "id": "58",
+    "name": "koa",
+    "type": "nodejs",
+    "url": "https://koajs.com/",
+    "avatar": "nodejs",
+    "description": "Node.js 的web框架"
+  },
+  {
+    "id": "59",
+    "name": "eggjs",
+    "type": "nodejs",
+    "url": "https://www.eggjs.org/",
+    "avatar": "nodejs",
+    "description": "Node.js 的web框架"
+  },
+  {
+    "id": "60",
+    "name": "Node Weekly",
+    "type": "weekly",
+    "url": "https://nodeweekly.com/issues",
+    "avatar": "nodejs",
+    "description": "Node.js周刊"
+  },
+  {
+    "id": "61",
+    "name": "CSS Weekly",
+    "type": "weekly",
+    "url": "https://css-weekly.com/archives/",
+    "avatar": "css",
+    "description": "css周刊"
+  },
+  {
+    "id": "62",
+    "name": "Frontend Weekly",
+    "type": "weekly",
+    "url": "https://frontendfoc.us/issues",
+    "avatar": "weekly",
+    "description": "Frontend Focus 周刊"
+  },
+  {
+    "id": "63",
+    "name": "Echo JS",
+    "type": "weekly",
+    "url": "https://www.echojs.com/",
+    "avatar": "javascript",
+    "description": "some news of Javascript"
+  },
+  {
+    "id": "64",
+    "name": "JSK",
+    "type": "weekly",
+    "url": "https://javascriptkicks.com/stories",
+    "avatar": "javascript",
+    "description": "javascript stories"
+  },
+  {
+    "id": "65",
+    "name": "Mobile Weekly",
+    "type": "weekly",
+    "url": "https://mobiledevweekly.com/issues",
+    "avatar": "mobile",
+    "description": "Mobile Weekly"
+  },
+  {
+    "id": "66",
+    "name": "statuscode Weekly",
+    "type": "weekly",
+    "url": "https://weekly.statuscode.com/issues",
+    "avatar": "weekly",
+    "description": "StatusCode Weekly"
+  }
+]

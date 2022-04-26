@@ -35,7 +35,7 @@ export default defineComponent({
         {
           text: '导航',
           value: 'Navigation',
-          link: '#',
+          router: 'Navigation',
           children: [],
         },
         {
@@ -56,7 +56,7 @@ export default defineComponent({
         {
           text: '实验室',
           value: 'Laboratory',
-          link: '#',
+          router: 'Laboratory',
           children: [],
         },
       ],

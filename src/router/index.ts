@@ -15,6 +15,22 @@ const routes: Array<RouteRecordRaw> = [
           title: '首页',
         },
       },
+      {
+        path: '/navigation',
+        name: 'Navigation',
+        component: () => import('@/views/navigation/index.vue'),
+        meta: {
+          title: '导航',
+        },
+      },
+      {
+        path: '/laboratory',
+        name: 'Laboratory',
+        component: () => import('@/views/laboratory.vue'),
+        meta: {
+          title: '导航',
+        },
+      },
     ],
   },
   {

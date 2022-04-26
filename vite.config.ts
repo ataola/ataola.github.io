@@ -11,6 +11,7 @@ export default (mode: string) => {
       alias: {
         '@': resolve(__dirname, 'src'),
         '@api': resolve('/src/api'),
+        '@data': resolve('/src/data'),
         '@views': resolve('/src/views'),
         '@utils': resolve('/src/utils'),
         '@types': resolve('/src/types'),
