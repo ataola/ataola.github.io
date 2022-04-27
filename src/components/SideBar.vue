@@ -15,6 +15,12 @@
           class="beta-img"
         />
       </div>
+      <div v-if="item.isNew" class="beta">
+        <img :src="NewImg" alt="new" class="beta-img" />
+      </div>
+      <div v-if="item.isHot" class="beta">
+        <img :src="HotImg" alt="hot" class="beta-img" />
+      </div>
     </div>
   </div>
 </template>
@@ -22,6 +28,8 @@
 <script lang="ts">
 import { defineComponent, toRef, PropType } from 'vue'
 import { TItem } from '@/types/components/sidebar'
+import NewImg from '@/static/icons/new.svg'
+import HotImg from '@/static/icons/hot.svg'
 
 export default defineComponent({
   name: 'SideBar',
@@ -43,6 +51,8 @@ export default defineComponent({
       items,
       emit,
       isActive,
+      NewImg,
+      HotImg,
     }
   },
 })
@@ -57,6 +67,7 @@ export default defineComponent({
   &-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 0.2rem;
     font-weight: 700;
     padding: 0.1rem;

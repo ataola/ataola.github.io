@@ -60,8 +60,6 @@ export default defineComponent({
     return {
       ...toRefs(state),
       changeSideBar,
-      DataStructImg,
-      DesignPatternImg,
     }
   },
 })

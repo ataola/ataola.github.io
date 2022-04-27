@@ -3,5 +3,6 @@ export type TItem = {
   text: string
   title?: string
   isBeta?: boolean
-  href?: string
+  isHot?: boolean
+  isNew?: boolean
 }
