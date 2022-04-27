@@ -34,19 +34,12 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/laboratory',
         name: 'Laboratory',
+        redirect: '/laboratory/bootstrap',
         component: () => import('@/views/laboratory.vue'),
         meta: {
           title: '实验室',
         },
         children: [
-          {
-            path: '/laboratory/test1',
-            name: 'LaboratoryTest',
-            component: () => import('@/views/test/test1.vue'),
-            meta: {
-              title: '测试页',
-            },
-          },
           {
             path: '/laboratory/bootstrap',
             name: 'LaboratoryBootstrap',

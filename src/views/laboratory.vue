@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs, onMounted } from 'vue'
+import { defineComponent, reactive, toRefs } from 'vue'
 import SideBar from '@/components/SideBar.vue'
 import { useRouter, RouteRecordName } from 'vue-router'
 
@@ -53,10 +53,6 @@ export default defineComponent({
         name,
       })
     }
-
-    onMounted(() => {
-      changeSideBar('LaboratoryBootstrap')
-    })
 
     return {
       ...toRefs(state),
@@ -110,13 +106,6 @@ export default defineComponent({
       background-color: #fff;
       min-height: calc(100vh - 2.5rem);
     }
-  }
-}
-
-@media screen and (max-width: 414px) {
-  .main-right {
-    width: 4rem !important;
-    height: 6rem !important;
   }
 }
 </style>
