@@ -534,5 +534,101 @@
     "url": "https://weekly.statuscode.com/issues",
     "avatar": "weekly",
     "description": "StatusCode Weekly"
+  },
+  {
+    "id": "67",
+    "name": "Segmentfault Question",
+    "type": "forum",
+    "url": "https://segmentfault.com/questions",
+    "avatar": "forum",
+    "description": "思否社区问答模块"
+  },
+  {
+    "id": "68",
+    "name": "Stackoverflow Question",
+    "type": "forum",
+    "url": "https://stackoverflow.com/questions",
+    "avatar": "forum",
+    "description": "stackoverflow社区问答模块"
+  },
+  {
+    "id": "69",
+    "name": "ES5规范-颜海镜",
+    "type": "javascript",
+    "url": "http://yanhaijing.com/es5/#about",
+    "avatar": "javascript",
+    "description": "关于部分不属于规范，本规范是w3c 规范的镜像版，目前以100%完成，但尚未校订，本规范为阅读而生，意在优化阅读体验。"
+  },
+  {
+    "id": "70",
+    "name": "ES5规范-W3C",
+    "type": "javascript",
+    "url": "https://www.w3.org/html/ig/zh/wiki/ES5",
+    "avatar": "javascript",
+    "description": "w3c  es5规范官方文档"
+  },
+  {
+    "id": "71",
+    "name": "ES5规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/5.1/",
+    "avatar": "javascript",
+    "description": "ECMA  es5规范官方文档"
+  },
+  {
+    "id": "72",
+    "name": "ES6规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/6.0/",
+    "avatar": "javascript",
+    "description": "ECMA  es6(ES2015)规范官方文档"
+  },
+  {
+    "id": "73",
+    "name": "ES7规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/7.0/",
+    "avatar": "javascript",
+    "description": "ECMA  es7(ES2016)规范官方文档"
+  },
+  {
+    "id": "74",
+    "name": "ES8规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/8.0/",
+    "avatar": "javascript",
+    "description": "ECMA  es8(ES2017)规范官方文档"
+  },
+  {
+    "id": "75",
+    "name": "ES9规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/9.0/",
+    "avatar": "javascript",
+    "description": "ECMA  es9(ES2018)规范官方文档"
+  },
+  {
+    "id": "76",
+    "name": "ES10规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/10.0/",
+    "avatar": "javascript",
+    "description": "ECMA  es10(ES2019)规范官方文档"
+  },
+  {
+    "id": "77",
+    "name": "ES11规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/11.0/",
+    "avatar": "javascript",
+    "description": "ECMA  es11(ES2020)规范官方文档"
+  },
+  {
+    "id": "78",
+    "name": "ES12规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/12.0/",
+    "avatar": "javascript",
+    "description": "ECMA  es12(ES2021)规范官方文档"
   }
 ]
