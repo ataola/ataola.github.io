@@ -630,5 +630,13 @@
     "url": "https://262.ecma-international.org/12.0/",
     "avatar": "javascript",
     "description": "ECMA  es12(ES2021)规范官方文档"
+  },
+  {
+    "id": "79",
+    "name": "Can I Use",
+    "type": "tools",
+    "url": "https://caniuse.com/",
+    "avatar": "tools",
+    "description": "\"Can I use\" provides up-to-date browser support tables for support of front-end web technologies on desktop and mobile web browsers."
   }
 ]
