@@ -14,9 +14,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs } from 'vue'
+import { defineComponent, reactive, toRefs, onBeforeMount } from 'vue'
 import SideBar from '@/components/SideBar.vue'
-import { useRouter, RouteRecordName } from 'vue-router'
+import { useRouter, RouteRecordName, useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'Laboratory',
@@ -25,6 +25,7 @@ export default defineComponent({
   },
   setup(props, { emit, slots, attrs }) {
     const router = useRouter()
+    const route = useRoute()
 
     const state = reactive({
       sideBarItem: {
@@ -59,7 +60,15 @@ export default defineComponent({
       })
     }
 
-    console.log(router.currentRoute)
+    onBeforeMount(() => {
+      const {
+        params: { value },
+      } = route
+
+      if (value) {
+        changeSideBar(value as string)
+      }
+    })
 
     return {
       ...toRefs(state),
