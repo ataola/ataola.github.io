@@ -30,12 +30,15 @@ export default defineComponent({
       sideBarItem: {
         text: '启动页',
         value: 'LaboratoryBootstrap',
-        isNew: true,
       },
       sideBarItems: [
         {
           text: '启动页',
           value: 'LaboratoryBootstrap',
+        },
+        {
+          text: 'LLD',
+          value: 'LEDLightWordIntro',
           isNew: true,
         },
       ],
@@ -45,14 +48,18 @@ export default defineComponent({
       state.sideBarItem = state.sideBarItems.find((item: any) => item.value === value) || {
         text: '启动页',
         value: 'LaboratoryBootstrap',
-        isNew: true,
       }
 
       const name = value as RouteRecordName
       router.push({
         name,
+        params: {
+          value,
+        },
       })
     }
+
+    console.log(router.currentRoute)
 
     return {
       ...toRefs(state),
@@ -101,7 +108,7 @@ export default defineComponent({
     &-right {
       display: flex;
       flex-grow: 1;
-      padding: 0.2rem 0.3rem;
+      // padding: 0.2rem 0.3rem;
       justify-content: center;
       background-color: #fff;
       min-height: calc(100vh - 2.5rem);

@@ -48,6 +48,14 @@ const routes: Array<RouteRecordRaw> = [
               title: '启动页',
             },
           },
+          {
+            path: '/laboratory/LED-light-word',
+            name: 'LEDLightWordIntro',
+            component: () => import('@/views/introduction/LED-light-word.vue'),
+            meta: {
+              title: 'LED LIGHT WORD',
+            },
+          },
         ],
       },
     ],
@@ -66,6 +74,14 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/test/test1.vue'),
     meta: {
       title: '测试页-1',
+    },
+  },
+  {
+    path: '/lab/LED-light-word',
+    name: 'LEDLightWord',
+    component: () => import('@/views/lab/LED-light-word/index.vue'),
+    meta: {
+      title: 'LED LIGHT WORD',
     },
   },
 ]
