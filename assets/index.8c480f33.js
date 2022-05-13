@@ -1,1 +1,0 @@
-import{_ as n}from"./index.dd32ea3f.js";import{d as r,c as a,o as _}from"./vendor.f41a3a53.js";const d=r({name:"LEDLightWord",setup(e,{emit:t,slots:o,attrs:s}){return{}}}),c={class:"container"};function p(e,t,o,s,i,f){return _(),a("div",c,"LED LIGHT")}var l=n(d,[["render",p],["__scopeId","data-v-647ff676"]]);export{l as default};
