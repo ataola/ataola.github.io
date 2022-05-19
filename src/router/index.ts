@@ -68,6 +68,7 @@ const routes: Array<RouteRecordRaw> = [
       title: '启动页',
     },
   },
+  /** test start */
   {
     path: '/test/test1',
     name: 'Test1',
@@ -76,6 +77,8 @@ const routes: Array<RouteRecordRaw> = [
       title: '测试页-1',
     },
   },
+  /** test end */
+  /** lab start */
   {
     path: '/lab/LED-light-word',
     name: 'LEDLightWord',
@@ -84,6 +87,17 @@ const routes: Array<RouteRecordRaw> = [
       title: 'LED LIGHT WORD',
     },
   },
+  /** lab end */
+  /** trash start */
+  {
+    path: '/trash/LED-light-word',
+    name: 'TrashLEDLightWord',
+    component: () => import('@/views/trash/LED-light-word/index.vue'),
+    meta: {
+      title: 'trash-LED LIGHT WORD',
+    },
+  },
+  /** trash end */
 ]
 
 const router = createRouter({

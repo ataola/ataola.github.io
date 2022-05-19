@@ -38,7 +38,7 @@ export default defineComponent({
           value: 'LaboratoryBootstrap',
         },
         {
-          text: 'LLD',
+          text: '流萤',
           value: 'LEDLightWordIntro',
           isNew: true,
         },
