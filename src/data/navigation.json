@@ -654,5 +654,69 @@
     "url": "https://devdocs.io/",
     "avatar": "tools",
     "description": "DevDocs combines multiple API documentations in a fast, organized, and searchable interface. Here's what you should know before you start:"
+  },
+  {
+    "id": "82",
+    "name": "hammer.js",
+    "type": "util",
+    "url": "http://hammerjs.github.io/",
+    "avatar": "util",
+    "description": "A JavaScript library for detecting touch gestures."
+  },
+  {
+    "id": "83",
+    "name": "day.js",
+    "type": "util",
+    "url": "https://day.js.org/",
+    "avatar": "util",
+    "description": "Fast 2kB alternative to Moment.js with the same modern API"
+  },
+  {
+    "id": "84",
+    "name": "moment.js",
+    "type": "util",
+    "url": "https://momentjs.com/",
+    "avatar": "util",
+    "description": "Moment.js 2.29.3 Parse, validate, manipulate,and display dates and times in JavaScript. Considering using Moment in your project? here may be better modern alternatives. For more details and recommendations, please see Project Status in the docs."
+  },
+  {
+    "id": "85",
+    "name": "swiper.js",
+    "type": "util",
+    "url": "https://swiperjs.com/",
+    "avatar": "util",
+    "description": "Swiper is the most modern free mobile touch slider with hardware accelerated transitions and amazing native behavior. It is intended to be used in mobile websites, mobile web apps, and mobile native/hybrid apps."
+  },
+  {
+    "id": "86",
+    "name": "fullPage.js",
+    "type": "util",
+    "url": "https://alvarotrigo.com/fullPage/",
+    "avatar": "util",
+    "description": "A simple and easy to use library that creates fullscreen scrolling websites (also known as single page websites or onepage sites) and adds landscape sliders inside the sections of the site."
+  },
+  {
+    "id": "87",
+    "name": "clipboard.js",
+    "type": "util",
+    "url": "https://clipboardjs.com/",
+    "avatar": "util",
+    "description": "Copying text to the clipboard shouldn't be hard. It shouldn't require dozens of steps to configure or hundreds of KBs to load. But most of all, it shouldn't depend on Flash or any bloated framework."
+  },
+  {
+    "id": "88",
+    "name": "axios.js",
+    "type": "util",
+    "url": "https://axios-http.com/",
+    "avatar": "util",
+    "description": "Axios is a simple promise based HTTP client for the browser and node.js. Axios provides a simple to use library in a small package with a very extensible interface."
+  },
+  {
+    "id": "89",
+    "name": "sweetalert.js",
+    "type": "util",
+    "url": "https://sweetalert.js.org/",
+    "avatar": "util",
+    "description": "SweetAlert makes popup messages easy and pretty."
   }
 ]

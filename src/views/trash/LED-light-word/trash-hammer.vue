@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <pre>
-      {{ swipeInfoText }}
-    </pre>
+    <div v-for="swipeInfoItem in swipeInfoItems" :key="swipeInfoItem.key">
+      <p>{{ swipeInfoItem.key }}:{{ swipeInfoItem.value }}</p>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -64,7 +64,7 @@ export default defineComponent({
         16: 'CANCELLED', //STATE_CANCELLED
         32: 'FAILED', // STATE_FAILED
       },
-      swipeInfoText: '',
+      swipeInfoItems: [],
     })
 
     const swipeInfoKeys = computed(() => {
@@ -72,12 +72,17 @@ export default defineComponent({
     })
 
     const syncSwipeInfo = (e: any) => {
-      let res = ''
+      let res: any[] = []
       for (const key of swipeInfoKeys.value) {
-        state.swipeInfo[key] = e[key]
-        res = res + ` ${key}: ${e[key]}` + '\n'
+        if (!(e[key] instanceof Function || e[key] instanceof Object)) {
+          state.swipeInfo[key] = e[key]
+          res.push({
+            key,
+            value: e[key],
+          })
+        }
       }
-      state.swipeInfoText = res
+      state.swipeInfoItems = res
     }
 
     onMounted(() => {
@@ -108,8 +113,10 @@ export default defineComponent({
   position: relative;
   color: #fff;
   font-size: 0.16rem;
-  pre {
-    margin: 0;
-  }
+}
+
+p {
+  padding: 10px;
+  text-align: left;
 }
 </style>
