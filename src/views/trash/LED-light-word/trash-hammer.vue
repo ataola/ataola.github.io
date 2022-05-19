@@ -1,14 +1,17 @@
 <template>
   <div class="container">
-    <div id="grid"></div>
+    <pre>
+      {{ swipeInfoText }}
+    </pre>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, reactive, computed, toRefs, onMounted } from 'vue'
+// http://hammerjs.github.io/recognizer-swipe/
 import Hammer from 'hammerjs'
 
 export default defineComponent({
-  name: 'LEDLightWord',
+  name: 'Hammer',
   setup(props, { emit, slots, attrs }) {
     const state = reactive({
       swipeInfo: {
@@ -61,6 +64,7 @@ export default defineComponent({
         16: 'CANCELLED', //STATE_CANCELLED
         32: 'FAILED', // STATE_FAILED
       },
+      swipeInfoText: '',
     })
 
     const swipeInfoKeys = computed(() => {
@@ -68,9 +72,12 @@ export default defineComponent({
     })
 
     const syncSwipeInfo = (e: any) => {
+      let res = ''
       for (const key of swipeInfoKeys.value) {
         state.swipeInfo[key] = e[key]
+        res = res + ` ${key}: ${e[key]}` + '\n'
       }
+      state.swipeInfoText = res
     }
 
     onMounted(() => {
@@ -79,17 +86,7 @@ export default defineComponent({
       // 开启所有方向的滑动配置
       hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL })
 
-      // 向左滑动
-      hammer.on('swipeleft', function (e) {
-        syncSwipeInfo(e)
-        const { type = '', deltaX = '', deltaY = '', deltaTime = '', distance = '', direction = '' } = state.swipeInfo
-        console.log(
-          `info: type ${type}, direction ${state.DIRECTION_MAP[direction]}, delat ${deltaX}, deltaY: ${deltaY}, distance ${distance}, deltaTime, ${deltaTime}`
-        )
-      })
-
-      // 向上滑动
-      hammer.on('swipeup', function (e) {
+      hammer.on('swipe', function (e) {
         syncSwipeInfo(e)
         const { type = '', deltaX = '', deltaY = '', deltaTime = '', distance = '', direction = '' } = state.swipeInfo
         console.log(
@@ -97,56 +94,22 @@ export default defineComponent({
         )
       })
     })
-    return {}
+    return {
+      ...toRefs(state),
+    }
   },
 })
 </script>
 <style lang="scss" scoped>
-$lineColor: #030617;
-$step: 12;
-$borderWeight: 1px;
-
-@function borderShadow($n) {
-  $value: '0px 0px #{$lineColor}';
-
-  @for $i from 0 through $n {
-    $value: '#{$value} , 0px #{($step)*$i}px #{$lineColor}';
-  }
-
-  @return unquote($value);
-}
-
-@function stripeShadow($n) {
-  $value: '0px 0px #{$lineColor}';
-
-  @for $i from 0 through $n {
-    $value: '#{$value} , #{($step)*$i}px 0px #{$lineColor}';
-  }
-
-  @return unquote($value);
-}
-
-$border: borderShadow(1000);
-$stripe: stripeShadow(1000);
-
 .container {
   width: 100%;
   height: 100%;
   background: radial-gradient(ellipse at bottom, #5091dd 0%, #030617 100%);
   position: relative;
-}
-
-#grid {
-  width: 100%;
-  height: $borderWeight;
-  box-shadow: $border;
-  &::after {
-    content: '';
-    position: absolute;
-    left: -50%;
-    width: $borderWeight;
-    height: 100%;
-    box-shadow: $stripe;
+  color: #fff;
+  font-size: 0.16rem;
+  pre {
+    margin: 0;
   }
 }
 </style>

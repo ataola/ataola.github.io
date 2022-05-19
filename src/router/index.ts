@@ -90,11 +90,19 @@ const routes: Array<RouteRecordRaw> = [
   /** lab end */
   /** trash start */
   {
-    path: '/trash/LED-light-word',
-    name: 'TrashLEDLightWord',
-    component: () => import('@/views/trash/LED-light-word/index.vue'),
+    path: '/trash/marquee',
+    name: 'TrashMarquee',
+    component: () => import('@/views/trash/LED-light-word/trash-marquee.vue'),
     meta: {
-      title: 'trash-LED LIGHT WORD',
+      title: 'trash-marquee',
+    },
+  },
+  {
+    path: '/trash/hammer',
+    name: 'Hammer',
+    component: () => import('@/views/trash/LED-light-word/trash-hammer.vue'),
+    meta: {
+      title: 'trash-hammer',
     },
   },
   /** trash end */

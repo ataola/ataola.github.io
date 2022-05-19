@@ -5,7 +5,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, toRefs } from 'vue'
+import { defineComponent } from 'vue'
 // 方向是向上的：direction="up"，左右下用left、right、down
 
 // scrollamount="1" 表示速度，1特别慢，具体要怎样的速度可以自己多试几次
@@ -17,7 +17,7 @@ import { defineComponent, reactive, toRefs } from 'vue'
 // behavior="slide" 表示滑行至左停止
 
 export default defineComponent({
-  name: 'LEDLightWord',
+  name: 'TrashMarquee',
   setup(props, { emit, slots, attrs }) {
     return {}
   },
