@@ -46,7 +46,7 @@ p {
   font-size: 0.18rem;
   padding: 0.15rem;
   text-align: left;
-  line-height: 1.44;
+  line-height: 1.8;
   text-indent: 2em;
 }
 
