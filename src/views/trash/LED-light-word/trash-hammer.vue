@@ -10,10 +10,18 @@ import { defineComponent, reactive, computed, toRefs, onMounted } from 'vue'
 // http://hammerjs.github.io/recognizer-swipe/
 import Hammer from 'hammerjs'
 
+declare type stateType = {
+  swipeInfo: any
+  DIRECTION_MAP: any
+  INPUT_EVENT_MAP: any
+  RECOGNIZER_STATES_MAP: any
+  swipeInfoItems: any[]
+}
+
 export default defineComponent({
   name: 'Hammer',
   setup(props, { emit, slots, attrs }) {
-    const state = reactive({
+    const state = reactive<stateType>({
       swipeInfo: {
         type: void 0, // Name of the event, like swipe
         deltaX: void 0, // Movement of the X axis.
