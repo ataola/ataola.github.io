@@ -34,7 +34,7 @@ export default defineComponent({
       },
       sideBarItems: [
         {
-          text: '飞雪',
+          text: '飞絮',
           value: 'LaboratoryBootstrap',
         },
         {

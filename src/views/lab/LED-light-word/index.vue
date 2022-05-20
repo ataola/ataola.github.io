@@ -1,14 +1,23 @@
 <template>
   <div class="container">
-    <div id="grid"></div>
+    <Cover />
+    <transition name="slide">
+      <WordOperator v-if="isShowPanel" @operator="onOperatorAction" />
+    </transition>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, reactive, computed, toRefs, onMounted } from 'vue'
 import Hammer from 'hammerjs'
+import WordOperator from '@/views/lab/LED-light-word/components/WordOperator.vue'
+import Cover from '@/views/lab/LED-light-word/components/Cover.vue'
 
 export default defineComponent({
   name: 'LEDLightWord',
+  components: {
+    [Cover.name]: Cover,
+    [WordOperator.name]: WordOperator,
+  },
   setup(props, { emit, slots, attrs }) {
     const state = reactive({
       swipeInfo: {
@@ -61,6 +70,7 @@ export default defineComponent({
         16: 'CANCELLED', //STATE_CANCELLED
         32: 'FAILED', // STATE_FAILED
       },
+      isShowPanel: false,
     })
 
     const swipeInfoKeys = computed(() => {
@@ -73,6 +83,13 @@ export default defineComponent({
       }
     }
 
+    const onOperatorAction = (ret: any) => {
+      const { type } = ret
+      if (type === 'close') {
+        state.isShowPanel = false
+      }
+    }
+
     onMounted(() => {
       const container = document.querySelector('.container')
       const hammer = new Hammer(container)
@@ -82,6 +99,7 @@ export default defineComponent({
       // 向左滑动
       hammer.on('swipeleft', function (e) {
         syncSwipeInfo(e)
+        state.isShowPanel = true
         const { type = '', deltaX = '', deltaY = '', deltaTime = '', distance = '', direction = '' } = state.swipeInfo
         console.log(
           `info: type ${type}, direction ${state.DIRECTION_MAP[direction]}, delat ${deltaX}, deltaY: ${deltaY}, distance ${distance}, deltaTime, ${deltaTime}`
@@ -97,56 +115,22 @@ export default defineComponent({
         )
       })
     })
-    return {}
+    return {
+      ...toRefs(state),
+      onOperatorAction,
+    }
   },
 })
 </script>
 <style lang="scss" scoped>
-$lineColor: #030617;
-$step: 12;
-$borderWeight: 1px;
-
-@function borderShadow($n) {
-  $value: '0px 0px #{$lineColor}';
-
-  @for $i from 0 through $n {
-    $value: '#{$value} , 0px #{($step)*$i}px #{$lineColor}';
-  }
-
-  @return unquote($value);
-}
-
-@function stripeShadow($n) {
-  $value: '0px 0px #{$lineColor}';
-
-  @for $i from 0 through $n {
-    $value: '#{$value} , #{($step)*$i}px 0px #{$lineColor}';
-  }
-
-  @return unquote($value);
-}
-
-$border: borderShadow(1000);
-$stripe: stripeShadow(1000);
-
 .container {
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at bottom, #5091dd 0%, #030617 100%);
   position: relative;
+  overflow-x: hidden;
 }
-
-#grid {
-  width: 100%;
-  height: $borderWeight;
-  box-shadow: $border;
-  &::after {
-    content: '';
-    position: absolute;
-    left: -50%;
-    width: $borderWeight;
-    height: 100%;
-    box-shadow: $stripe;
-  }
+.slide-enter,
+.slide-leave-active {
+  right: -100%;
 }
 </style>

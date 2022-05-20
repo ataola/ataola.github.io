@@ -5,7 +5,7 @@ import App from '@/App.vue'
 import 'normalize.css/normalize.css'
 import Particles from 'particles.vue3'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSearch, faPlusCircle, faFileDownload, faFileUpload } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faPlusCircle, faFileDownload, faFileUpload, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { faWeixin } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VConsole from 'vconsole'
@@ -19,6 +19,7 @@ library.add(faSearch)
 library.add(faWeixin)
 library.add(faPlusCircle)
 library.add(faFileDownload)
+library.add(faTimesCircle)
 library.add(faFileUpload)
 
 const app = createApp(App)

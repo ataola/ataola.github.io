@@ -47,7 +47,7 @@ const routes: Array<RouteRecordRaw> = [
             name: 'LaboratoryBootstrap',
             component: () => import('@/views/bootstrap.vue'),
             meta: {
-              title: '启动页',
+              title: '飞絮镜像',
             },
           },
           {
@@ -55,7 +55,7 @@ const routes: Array<RouteRecordRaw> = [
             name: 'LEDLightWordIntro',
             component: () => import('@/views/introduction/LED-light-word.vue'),
             meta: {
-              title: 'LED LIGHT WORD',
+              title: '流萤介绍',
             },
           },
         ],
@@ -67,7 +67,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Bootstrap',
     component: () => import('@/views/bootstrap.vue'),
     meta: {
-      title: '启动页',
+      title: '飞絮之门',
     },
   },
   /** test start */
@@ -86,7 +86,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'LEDLightWord',
     component: () => import('@/views/lab/LED-light-word/index.vue'),
     meta: {
-      title: 'LED LIGHT WORD',
+      title: '流萤',
     },
   },
   /** lab end */
@@ -117,6 +117,10 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   NProgress.start()
+  if (to) {
+    const { meta } = to
+    document.title = to.meta.title ? `江涛网-${to.meta.title}` : '江涛网-程序员的成长自留地'
+  }
   if (to.name === 'Home' && from.name === 'Bootstrap') {
     localStorage.setItem('isBootstrap', 'true')
   }
