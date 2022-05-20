@@ -8,6 +8,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch, faPlusCircle, faFileDownload, faFileUpload } from '@fortawesome/free-solid-svg-icons'
 import { faWeixin } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import VConsole from 'vconsole'
+import { initPlugin } from 'vue-vconsole-devtools'
+
+// https://cn.vitejs.dev/guide/env-and-mode.html
+const isDev = import.meta.env.DEV
+isDev && initPlugin(new VConsole())
 
 library.add(faSearch)
 library.add(faWeixin)

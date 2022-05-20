@@ -16,4 +16,6 @@ export const NAVIGATION_SHORT_MAP = {
   util: 'UTIL',
   weekly: 'WEEKLY',
   tools: 'TOOLS',
+  website: 'WEBSITE',
+  zjt: 'ZJT613',
 }

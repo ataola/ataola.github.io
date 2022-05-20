@@ -718,5 +718,93 @@
     "url": "https://sweetalert.js.org/",
     "avatar": "util",
     "description": "SweetAlert makes popup messages easy and pretty."
+  },
+  {
+    "id": "90",
+    "name": "nprogress.js",
+    "type": "util",
+    "url": "https://ricostacruz.com/nprogress/",
+    "avatar": "util",
+    "description": "A nanoscopic progress bar. Featuring realistic trickle animations to convince your users that something is happening!"
+  },
+  {
+    "id": "91",
+    "name": "草稿纸",
+    "type": "zjt",
+    "url": "https://zhengjiangtao.cn/show/",
+    "avatar": "zjt",
+    "description": "ataola童鞋学习网页设计的思考总结 - 打草稿篇"
+  },
+  {
+    "id": "92",
+    "name": "codepen-ataola",
+    "type": "zjt",
+    "url": "https://codepen.io/ataola",
+    "avatar": "zjt",
+    "description": "ataola童鞋在codepen上的一些实践demo"
+  },
+  {
+    "id": "93",
+    "name": "yuque-ataola",
+    "type": "zjt",
+    "url": "https://www.yuque.com/ataola",
+    "avatar": "zjt",
+    "description": "ataola童鞋在yuque上的一些笔记"
+  },
+  {
+    "id": "94",
+    "name": "cnblogs-ataola",
+    "type": "zjt",
+    "url": "https://www.cnblogs.com/cnroadbridge/",
+    "avatar": "zjt",
+    "description": "ataola童鞋写博客的地方"
+  },
+  {
+    "id": "95",
+    "name": "腾讯云社区-ataola",
+    "type": "zjt",
+    "url": "https://cloud.tencent.com/developer/user/2705701",
+    "avatar": "zjt",
+    "description": "同步自同名公众号“江涛学编程”的原创文章汇集地"
+  },
+  {
+    "id": "96",
+    "name": "github-ataola",
+    "type": "zjt",
+    "url": "https://github.com/ataola",
+    "avatar": "zjt",
+    "description": "ataola童鞋的GitHub地址"
+  },
+  {
+    "id": "97",
+    "name": "cnroadbridge",
+    "type": "zjt",
+    "url": "https://github.com/cnroadbridge",
+    "avatar": "zjt",
+    "description": "路桥工作室的GitHub地址"
+  },
+  {
+    "id": "98",
+    "name": "gitee-ataola",
+    "type": "zjt",
+    "url": "https://gitee.com/taoge2021",
+    "avatar": "zjt",
+    "description": "ataola童鞋的gitee地址"
+  },
+  {
+    "id": "99",
+    "name": "leetcode-ataola",
+    "type": "zjt",
+    "url": "https://leetcode.cn/u/ataola/",
+    "avatar": "zjt",
+    "description": "ataola童鞋的leetcode地址"
+  },
+  {
+    "id": "100",
+    "name": "nowcoder-ataola",
+    "type": "zjt",
+    "url": "https://www.nowcoder.com/profile/2285622",
+    "avatar": "zjt",
+    "description": "ataola童鞋的nowcoder地址"
   }
 ]

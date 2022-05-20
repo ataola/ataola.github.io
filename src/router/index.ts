@@ -1,5 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import layout from '@/layout/index.vue'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -114,6 +116,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  NProgress.start()
   if (to.name === 'Home' && from.name === 'Bootstrap') {
     localStorage.setItem('isBootstrap', 'true')
   }
@@ -130,6 +133,10 @@ router.beforeEach((to, from, next) => {
       path: '/bootstrap',
     })
   }
+})
+
+router.afterEach(() => {
+  NProgress.done()
 })
 
 export default router
