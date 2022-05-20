@@ -1,6 +1,8 @@
 <template>
   <div class="panel">
-    <button class="btn-close" @click="() => close()"><font-awesome-icon :icon="['fas', 'times-circle']" /></button>
+    <button class="btn-close" @click="() => close()">
+      <font-awesome-icon :icon="['fas', 'angle-double-right']" />
+    </button>
     <div class="title">liú yīng panel</div>
   </div>
 </template>
@@ -56,7 +58,7 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .panel {
-  width: 4rem;
+  width: 6rem;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.4);
   position: fixed;
@@ -70,17 +72,18 @@ export default defineComponent({
   transition: all 0.5s ease-in-out;
   .btn-close {
     border: none;
-    font-size: 0.24rem;
+    font-size: 0.32rem;
     background: transparent;
     color: #fff;
     position: absolute;
     top: 0;
     left: 0;
+    padding-left: 0;
   }
 
   .title {
     color: #fff;
-    font-size: 0.24rem;
+    font-size: 0.32rem;
     font-weight: 700;
     padding: 0.3rem 0.1rem;
   }

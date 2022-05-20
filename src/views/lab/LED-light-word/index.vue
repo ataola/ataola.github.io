@@ -106,6 +106,16 @@ export default defineComponent({
         )
       })
 
+      // 向右滑动
+      hammer.on('swiperight', function (e) {
+        syncSwipeInfo(e)
+        state.isShowPanel = false
+        const { type = '', deltaX = '', deltaY = '', deltaTime = '', distance = '', direction = '' } = state.swipeInfo
+        console.log(
+          `info: type ${type}, direction ${state.DIRECTION_MAP[direction]}, delat ${deltaX}, deltaY: ${deltaY}, distance ${distance}, deltaTime, ${deltaTime}`
+        )
+      })
+
       // 向上滑动
       hammer.on('swipeup', function (e) {
         syncSwipeInfo(e)
