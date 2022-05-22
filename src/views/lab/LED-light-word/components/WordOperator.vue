@@ -4,19 +4,88 @@
       <font-awesome-icon :icon="['fas', 'angle-double-right']" />
     </button>
     <div class="title">liú yīng panel</div>
+    <div class="content">
+      <div class="item">
+        <div class="item-title">类型:</div>
+        <RadioBox
+          :value="wordAttr.type"
+          :options="typeOptions"
+          @input="(value: string) => handleInput('type', value)"
+        />
+      </div>
+      <div class="item">
+        <div class="item-title">文字:</div>
+        <input
+          class="item-input"
+          :value="wordAttr.text"
+          placeholder="请输入文字"
+          @input="(event: any) => (wordAttr.text = event.target.value)"
+        />
+      </div>
+      <div class="item">
+        <div class="item-title">尺寸:</div>
+        <RadioBox
+          :value="wordAttr.size"
+          :options="sizeOptions"
+          @input="(value: string) => handleInput('size', value)"
+        />
+      </div>
+      <div class="item">
+        <div class="item-title">方向:</div>
+        <RadioBox
+          :value="wordAttr.direction"
+          :options="directionOptions"
+          @input="(value: string) => handleInput('direction', value)"
+        />
+      </div>
+      <div class="item">
+        <div class="item-title">速度:</div>
+        <RadioBox
+          :value="wordAttr.speed"
+          :options="speedOptions"
+          @input="(value: string) => handleInput('speed', value)"
+        />
+      </div>
+      <div class="item">
+        <div class="item-title">次数:</div>
+        <RadioBox
+          :value="wordAttr.count"
+          :options="countOptions"
+          @input="(value: string) => handleInput('count', value)"
+        />
+      </div>
+      <div class="item">
+        <div class="item-title">是否格子化:</div>
+        <SingleRadioBox :value="wordAttr.isSquareBg" @input="(value: boolean) => handleInput('isSquareBg', value)" />
+      </div>
+      <div class="item">
+        <button class="button">确认</button>
+        <button class="button">取消</button>
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs, PropType } from 'vue'
-import { TWordAttr } from '@/types/views/LED-light-word'
+import { TWordAttr, TRadioItem } from '@/types/views/LED-light-word'
+import RadioBox from './RadioBox.vue'
+import SingleRadioBox from './SingleRadioBox.vue'
 
 declare type stateType = {
   wordAttr: TWordAttr
+  typeOptions: TRadioItem[]
+  sizeOptions: TRadioItem[]
+  directionOptions: TRadioItem[]
+  speedOptions: TRadioItem[]
+  countOptions: TRadioItem[]
 }
 
 export default defineComponent({
   name: 'WordOperator',
-  components: {},
+  components: {
+    [RadioBox.name]: RadioBox,
+    [SingleRadioBox.name]: SingleRadioBox,
+  },
   emits: ['operator'],
   props: {
     initData: {
@@ -24,7 +93,7 @@ export default defineComponent({
       default: () => ({
         type: 'slide', // 类型 blink闪烁, slide滑动
         text: '谭松韵，你真棒', // 文本
-        fontSize: 2, // 文本尺寸
+        size: 2, // 尺寸 中杯, 大杯, 特大杯 ====> 致敬罗永浩的梗！
         direction: 'left', // 方向, left, right, up, down
         speed: 1, // 速度 0.5, 1, 1.5, 2
         count: 'n', // 次数 1, 2, 3, n
@@ -37,21 +106,53 @@ export default defineComponent({
       wordAttr: {
         type: 'slide', // 类型 blink闪烁, slide滑动
         text: '谭松韵，你真棒', // 文本
-        fontSize: 2, // 文本尺寸
+        size: 'large', // 文本尺寸
         direction: 'left', // 方向, left, right, up, down
         speed: 1, // 速度 0.5, 1, 1.5, 2
         count: 'n', // 次数 1, 2, 3, n
         isSquareBg: true, // 是否显示方格背景
       },
+      typeOptions: [
+        { text: '闪烁', value: 'blink' },
+        { text: '滑动', value: 'slide' },
+      ],
+      sizeOptions: [
+        { text: '中杯', value: 'middle' },
+        { text: '大杯', value: 'large' },
+        { text: '特大杯', value: 'heavy' },
+      ],
+      directionOptions: [
+        { text: '左', value: 'left' },
+        { text: '右', value: 'right' },
+        { text: '上', value: 'up' },
+        { text: '下', value: 'down' },
+      ],
+      speedOptions: [
+        { text: '0.5', value: 0.5 },
+        { text: '1', value: 1 },
+        { text: '1.5', value: 1.5 },
+        { text: '2', value: 2 },
+      ],
+      countOptions: [
+        { text: '1', value: '1' },
+        { text: '2', value: '2' },
+        { text: '3', value: '3' },
+        { text: 'n', value: 'n' },
+      ],
     })
 
     const close = (type = 'close', data: TWordAttr | undefined = undefined): void => {
       emit('operator', { type, data })
     }
 
+    const handleInput = (type: string, value: string | number | boolean) => {
+      state[type] = value
+    }
+
     return {
       ...toRefs(state),
       close,
+      handleInput,
     }
   },
 })
@@ -87,5 +188,65 @@ export default defineComponent({
     font-weight: 700;
     padding: 0.3rem 0.1rem;
   }
+
+  .content {
+    .item {
+      display: flex;
+      align-items: center;
+      .item-title {
+        display: flex;
+        font-size: 0.24rem;
+        font-weight: 700;
+        color: #fff;
+        padding: 0.15rem;
+      }
+      .item-input {
+        display: flex;
+        width: 4rem;
+        height: 0.32rem;
+        font-size: 0.18rem;
+        appearance: none;
+        outline: 0;
+        border: 1px solid transparent;
+        border-radius: 4px;
+      }
+      &:last-child {
+        justify-content: center;
+        button {
+          margin: 0.2rem;
+        }
+      }
+    }
+  }
+}
+
+input:focus {
+  outline: 0;
+  border: 1px solid rgba(82, 135, 255, 1);
+  box-shadow: 0px 0px 10px 0px rgba(82, 135, 255, 1);
+}
+
+.button {
+  background: rgba(82, 135, 255, 1);
+  border-radius: 2px;
+  box-shadow: rgba(82, 135, 255, 1) 0 0.15rem 0.2rem -0.15rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Inter, Helvetica, 'Apple Color Emoji', 'Segoe UI Emoji', NotoColorEmoji, 'Noto Color Emoji',
+    'Segoe UI Symbol', 'Android Emoji', EmojiSymbols, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue',
+    'Noto Sans', sans-serif;
+  font-size: 0.2rem;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 0.1rem 0.2rem;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
 }
 </style>

@@ -1,9 +1,14 @@
 export type TWordAttr = {
   type: string
   text: string
-  fontSize: number
+  size: string
   direction: string
   speed: number
   count: string
   isSquareBg: boolean
+}
+
+export type TRadioItem = {
+  text: string
+  value: string | number
 }

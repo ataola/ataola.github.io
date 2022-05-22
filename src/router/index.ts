@@ -60,6 +60,25 @@ const routes: Array<RouteRecordRaw> = [
           },
         ],
       },
+      {
+        path: '/components',
+        name: 'Components',
+        redirect: '/components/bootstrap',
+        component: () => import('@/views/components/index.vue'),
+        meta: {
+          title: '组件库',
+        },
+        children: [
+          {
+            path: '/components/bootstrap',
+            name: 'ComponentBootstrap',
+            component: () => import('@/views/bootstrap.vue'),
+            meta: {
+              title: '组件库-飞絮',
+            },
+          },
+        ],
+      },
     ],
   },
   {

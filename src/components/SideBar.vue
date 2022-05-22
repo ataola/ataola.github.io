@@ -60,6 +60,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .sidebar {
+  min-width: 1.2rem;
   padding: 0.2rem 0;
   border-radius: 0.1rem;
   background-color: #fff;
