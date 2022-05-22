@@ -806,5 +806,37 @@
     "url": "https://www.nowcoder.com/profile/2285622",
     "avatar": "zjt",
     "description": "ataola童鞋的nowcoder地址"
+  },
+  {
+    "id": "101",
+    "name": "虫部落",
+    "type": "forum",
+    "url": "https://www.chongbuluo.com/",
+    "avatar": "forum",
+    "description": "一个资源丰富的论坛社区"
+  },
+  {
+    "id": "102",
+    "name": "visualgo",
+    "type": "visualization",
+    "url": "https://visualgo.net/zh/",
+    "avatar": "visualization",
+    "description": "数据结构和算法的可视化学习教程网站"
+  },
+  {
+    "id": "103",
+    "name": "若川的博客",
+    "type": "friendlink",
+    "url": "https://lxchuan12.gitee.io/",
+    "avatar": "website",
+    "description": "你好，我是若川 (opens new window)。目前持续组织了5个月每周一起学200行左右源码共读活动 (opens new window)，每周一期，已进行到20期，感兴趣的可以加我微信 ruochuan12 (opens new window)加群参与，长期交流学习。微信扫码或搜索「若川视野」"
+  },
+  {
+    "id": "104",
+    "name": "山月行",
+    "type": "friendlink",
+    "url": "https://shanyue.tech/",
+    "avatar": "website",
+    "description": "关于平常工作中在前端，后端以及运维中遇到问题的一些文章总结。以后也会做系列文章进行输出，如前端高级进阶系列，个人服务器指南系列。"
   }
 ]

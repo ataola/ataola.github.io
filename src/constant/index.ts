@@ -18,4 +18,5 @@ export const NAVIGATION_SHORT_MAP = {
   tools: 'TOOLS',
   website: 'WEBSITE',
   zjt: 'ZJT613',
+  friendlink: 'FRIENDLINK',
 }
