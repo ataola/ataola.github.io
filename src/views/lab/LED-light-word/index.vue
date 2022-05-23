@@ -172,7 +172,8 @@ export default defineComponent({
 
 @media screen and (orientation: portrait) {
   .sentence {
-    transform: rotate(90deg) translate(0, 300%);
+    transform: rotate(90deg) translate(0, 9rem);
+    width: 18rem;
   }
 }
 </style>
