@@ -29,12 +29,12 @@ export default defineComponent({
 
     const state = reactive({
       sideBarItem: {
-        text: '飞絮',
+        text: '落雪',
         value: 'ComponentsyBootstrap',
       },
       sideBarItems: [
         {
-          text: '飞絮',
+          text: '落雪',
           value: 'ComponentsyBootstrap',
         },
       ],
@@ -42,7 +42,7 @@ export default defineComponent({
 
     const changeSideBar = (value: string | number) => {
       state.sideBarItem = state.sideBarItems.find((item: any) => item.value === value) || {
-        text: '飞絮',
+        text: '落雪',
         value: 'ComponentsyBootstrap',
       }
 

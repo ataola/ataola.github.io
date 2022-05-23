@@ -47,7 +47,7 @@ const routes: Array<RouteRecordRaw> = [
             name: 'LaboratoryBootstrap',
             component: () => import('@/views/bootstrap.vue'),
             meta: {
-              title: '飞絮镜像',
+              title: '落雪飘飘',
             },
           },
           {
@@ -74,7 +74,7 @@ const routes: Array<RouteRecordRaw> = [
             name: 'ComponentBootstrap',
             component: () => import('@/views/bootstrap.vue'),
             meta: {
-              title: '组件库-飞絮',
+              title: '组件库-落雪',
             },
           },
         ],
@@ -86,7 +86,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Bootstrap',
     component: () => import('@/views/bootstrap.vue'),
     meta: {
-      title: '飞絮之门',
+      title: '落雪之门',
     },
   },
   /** test start */

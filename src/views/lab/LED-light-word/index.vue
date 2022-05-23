@@ -2,7 +2,7 @@
   <div class="container">
     <Cover />
     <transition name="slide">
-      <WordOperator v-if="isShowPanel" @operator="onOperatorAction" />
+      <WordOperator v-show="isShowPanel" @operator="onOperatorAction" />
     </transition>
   </div>
 </template>
