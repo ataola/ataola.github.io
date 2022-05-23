@@ -146,7 +146,7 @@ export default defineComponent({
     }
 
     const handleInput = (type: string, value: string | number | boolean) => {
-      state[type] = value
+      state.wordAttr[type] = value
     }
 
     return {
