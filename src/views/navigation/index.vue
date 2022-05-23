@@ -45,8 +45,8 @@ export default defineComponent({
   setup(props, { emit, slots, attrs }) {
     const state = reactive({
       sideBarItem: {
-        text: 'Design',
-        value: 'design',
+        text: 'JS',
+        value: 'javascript',
       },
       navigationItems,
     })
@@ -60,13 +60,15 @@ export default defineComponent({
             return type
           })
         ),
-      ].map((value: string) => {
-        return {
-          text: NAVIGATION_SHORT_MAP[value] || value,
-          title: value,
-          value: value,
-        }
-      })
+      ]
+        .sort((a, b) => NAVIGATION_SHORT_MAP[a].length - NAVIGATION_SHORT_MAP[b].length)
+        .map((value: string) => {
+          return {
+            text: NAVIGATION_SHORT_MAP[value] || value,
+            title: value,
+            value: value,
+          }
+        })
     })
 
     const navigationItemRestArr = computed(() => {

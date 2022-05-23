@@ -534,5 +534,309 @@
     "url": "https://weekly.statuscode.com/issues",
     "avatar": "weekly",
     "description": "StatusCode Weekly"
+  },
+  {
+    "id": "67",
+    "name": "Segmentfault Question",
+    "type": "forum",
+    "url": "https://segmentfault.com/questions",
+    "avatar": "forum",
+    "description": "思否社区问答模块"
+  },
+  {
+    "id": "68",
+    "name": "Stackoverflow Question",
+    "type": "forum",
+    "url": "https://stackoverflow.com/questions",
+    "avatar": "forum",
+    "description": "stackoverflow社区问答模块"
+  },
+  {
+    "id": "69",
+    "name": "ES5规范-颜海镜",
+    "type": "javascript",
+    "url": "http://yanhaijing.com/es5/#about",
+    "avatar": "javascript",
+    "description": "关于部分不属于规范，本规范是w3c 规范的镜像版，目前以100%完成，但尚未校订，本规范为阅读而生，意在优化阅读体验。"
+  },
+  {
+    "id": "70",
+    "name": "ES5规范-W3C",
+    "type": "javascript",
+    "url": "https://www.w3.org/html/ig/zh/wiki/ES5",
+    "avatar": "javascript",
+    "description": "w3c  es5规范官方文档"
+  },
+  {
+    "id": "71",
+    "name": "ES5规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/5.1/",
+    "avatar": "javascript",
+    "description": "ECMA  es5规范官方文档"
+  },
+  {
+    "id": "72",
+    "name": "ES6规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/6.0/",
+    "avatar": "javascript",
+    "description": "ECMA  es6(ES2015)规范官方文档"
+  },
+  {
+    "id": "73",
+    "name": "ES7规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/7.0/",
+    "avatar": "javascript",
+    "description": "ECMA  es7(ES2016)规范官方文档"
+  },
+  {
+    "id": "74",
+    "name": "ES8规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/8.0/",
+    "avatar": "javascript",
+    "description": "ECMA  es8(ES2017)规范官方文档"
+  },
+  {
+    "id": "75",
+    "name": "ES9规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/9.0/",
+    "avatar": "javascript",
+    "description": "ECMA  es9(ES2018)规范官方文档"
+  },
+  {
+    "id": "76",
+    "name": "ES10规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/10.0/",
+    "avatar": "javascript",
+    "description": "ECMA  es10(ES2019)规范官方文档"
+  },
+  {
+    "id": "77",
+    "name": "ES11规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/11.0/",
+    "avatar": "javascript",
+    "description": "ECMA  es11(ES2020)规范官方文档"
+  },
+  {
+    "id": "78",
+    "name": "ES12规范-ECMA",
+    "type": "javascript",
+    "url": "https://262.ecma-international.org/12.0/",
+    "avatar": "javascript",
+    "description": "ECMA  es12(ES2021)规范官方文档"
+  },
+  {
+    "id": "79",
+    "name": "Can I Use",
+    "type": "tools",
+    "url": "https://caniuse.com/",
+    "avatar": "tools",
+    "description": "\"Can I use\" provides up-to-date browser support tables for support of front-end web technologies on desktop and mobile web browsers."
+  },
+  {
+    "id": "80",
+    "name": "Google Style Guide",
+    "type": "html",
+    "url": "https://google.github.io/styleguide/htmlcssguide.html",
+    "avatar": "html",
+    "description": "This document defines formatting and style rules for HTML and CSS. It aims at improving collaboration, code quality, and enabling supporting infrastructure. It applies to raw, working files that use HTML and CSS, including GSS files. Tools are free to obfuscate, minify, and compile as long as the general code quality is maintained."
+  },
+  {
+    "id": "81",
+    "name": "devdocs",
+    "type": "tools",
+    "url": "https://devdocs.io/",
+    "avatar": "tools",
+    "description": "DevDocs combines multiple API documentations in a fast, organized, and searchable interface. Here's what you should know before you start:"
+  },
+  {
+    "id": "82",
+    "name": "hammer.js",
+    "type": "util",
+    "url": "http://hammerjs.github.io/",
+    "avatar": "util",
+    "description": "A JavaScript library for detecting touch gestures."
+  },
+  {
+    "id": "83",
+    "name": "day.js",
+    "type": "util",
+    "url": "https://day.js.org/",
+    "avatar": "util",
+    "description": "Fast 2kB alternative to Moment.js with the same modern API"
+  },
+  {
+    "id": "84",
+    "name": "moment.js",
+    "type": "util",
+    "url": "https://momentjs.com/",
+    "avatar": "util",
+    "description": "Moment.js 2.29.3 Parse, validate, manipulate,and display dates and times in JavaScript. Considering using Moment in your project? here may be better modern alternatives. For more details and recommendations, please see Project Status in the docs."
+  },
+  {
+    "id": "85",
+    "name": "swiper.js",
+    "type": "util",
+    "url": "https://swiperjs.com/",
+    "avatar": "util",
+    "description": "Swiper is the most modern free mobile touch slider with hardware accelerated transitions and amazing native behavior. It is intended to be used in mobile websites, mobile web apps, and mobile native/hybrid apps."
+  },
+  {
+    "id": "86",
+    "name": "fullPage.js",
+    "type": "util",
+    "url": "https://alvarotrigo.com/fullPage/",
+    "avatar": "util",
+    "description": "A simple and easy to use library that creates fullscreen scrolling websites (also known as single page websites or onepage sites) and adds landscape sliders inside the sections of the site."
+  },
+  {
+    "id": "87",
+    "name": "clipboard.js",
+    "type": "util",
+    "url": "https://clipboardjs.com/",
+    "avatar": "util",
+    "description": "Copying text to the clipboard shouldn't be hard. It shouldn't require dozens of steps to configure or hundreds of KBs to load. But most of all, it shouldn't depend on Flash or any bloated framework."
+  },
+  {
+    "id": "88",
+    "name": "axios.js",
+    "type": "util",
+    "url": "https://axios-http.com/",
+    "avatar": "util",
+    "description": "Axios is a simple promise based HTTP client for the browser and node.js. Axios provides a simple to use library in a small package with a very extensible interface."
+  },
+  {
+    "id": "89",
+    "name": "sweetalert.js",
+    "type": "util",
+    "url": "https://sweetalert.js.org/",
+    "avatar": "util",
+    "description": "SweetAlert makes popup messages easy and pretty."
+  },
+  {
+    "id": "90",
+    "name": "nprogress.js",
+    "type": "util",
+    "url": "https://ricostacruz.com/nprogress/",
+    "avatar": "util",
+    "description": "A nanoscopic progress bar. Featuring realistic trickle animations to convince your users that something is happening!"
+  },
+  {
+    "id": "91",
+    "name": "草稿纸",
+    "type": "zjt",
+    "url": "https://zhengjiangtao.cn/show/",
+    "avatar": "zjt",
+    "description": "ataola童鞋学习网页设计的思考总结 - 打草稿篇"
+  },
+  {
+    "id": "92",
+    "name": "codepen-ataola",
+    "type": "zjt",
+    "url": "https://codepen.io/ataola",
+    "avatar": "zjt",
+    "description": "ataola童鞋在codepen上的一些实践demo"
+  },
+  {
+    "id": "93",
+    "name": "yuque-ataola",
+    "type": "zjt",
+    "url": "https://www.yuque.com/ataola",
+    "avatar": "zjt",
+    "description": "ataola童鞋在yuque上的一些笔记"
+  },
+  {
+    "id": "94",
+    "name": "cnblogs-ataola",
+    "type": "zjt",
+    "url": "https://www.cnblogs.com/cnroadbridge/",
+    "avatar": "zjt",
+    "description": "ataola童鞋写博客的地方"
+  },
+  {
+    "id": "95",
+    "name": "腾讯云社区-ataola",
+    "type": "zjt",
+    "url": "https://cloud.tencent.com/developer/user/2705701",
+    "avatar": "zjt",
+    "description": "同步自同名公众号“江涛学编程”的原创文章汇集地"
+  },
+  {
+    "id": "96",
+    "name": "github-ataola",
+    "type": "zjt",
+    "url": "https://github.com/ataola",
+    "avatar": "zjt",
+    "description": "ataola童鞋的GitHub地址"
+  },
+  {
+    "id": "97",
+    "name": "cnroadbridge",
+    "type": "zjt",
+    "url": "https://github.com/cnroadbridge",
+    "avatar": "zjt",
+    "description": "路桥工作室的GitHub地址"
+  },
+  {
+    "id": "98",
+    "name": "gitee-ataola",
+    "type": "zjt",
+    "url": "https://gitee.com/taoge2021",
+    "avatar": "zjt",
+    "description": "ataola童鞋的gitee地址"
+  },
+  {
+    "id": "99",
+    "name": "leetcode-ataola",
+    "type": "zjt",
+    "url": "https://leetcode.cn/u/ataola/",
+    "avatar": "zjt",
+    "description": "ataola童鞋的leetcode地址"
+  },
+  {
+    "id": "100",
+    "name": "nowcoder-ataola",
+    "type": "zjt",
+    "url": "https://www.nowcoder.com/profile/2285622",
+    "avatar": "zjt",
+    "description": "ataola童鞋的nowcoder地址"
+  },
+  {
+    "id": "101",
+    "name": "虫部落",
+    "type": "forum",
+    "url": "https://www.chongbuluo.com/",
+    "avatar": "forum",
+    "description": "一个资源丰富的论坛社区"
+  },
+  {
+    "id": "102",
+    "name": "visualgo",
+    "type": "visualization",
+    "url": "https://visualgo.net/zh/",
+    "avatar": "visualization",
+    "description": "数据结构和算法的可视化学习教程网站"
+  },
+  {
+    "id": "103",
+    "name": "若川的博客",
+    "type": "friendlink",
+    "url": "https://lxchuan12.gitee.io/",
+    "avatar": "website",
+    "description": "你好，我是若川 (opens new window)。目前持续组织了5个月每周一起学200行左右源码共读活动 (opens new window)，每周一期，已进行到20期，感兴趣的可以加我微信 ruochuan12 (opens new window)加群参与，长期交流学习。微信扫码或搜索「若川视野」"
+  },
+  {
+    "id": "104",
+    "name": "山月行",
+    "type": "friendlink",
+    "url": "https://shanyue.tech/",
+    "avatar": "website",
+    "description": "关于平常工作中在前端，后端以及运维中遇到问题的一些文章总结。以后也会做系列文章进行输出，如前端高级进阶系列，个人服务器指南系列。"
   }
 ]

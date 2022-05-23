@@ -3,9 +3,9 @@
     <NavBar :items="stateList.navItems" />
     <router-view #default="{ Component, route }">
       <transition name="fade" mode="out-in">
-        <keep-alive>
-          <component :is="Component" :key="route.path" />
-        </keep-alive>
+        <!-- <keep-alive> -->
+        <component :is="Component" :key="route.path" />
+        <!-- </keep-alive> -->
       </transition>
     </router-view>
     <Footer />

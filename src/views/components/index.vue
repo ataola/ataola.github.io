@@ -19,7 +19,7 @@ import SideBar from '@/components/SideBar.vue'
 import { useRouter, RouteRecordName, useRoute } from 'vue-router'
 
 export default defineComponent({
-  name: 'Laboratory',
+  name: 'Components',
   components: {
     [SideBar.name]: SideBar,
   },
@@ -30,17 +30,12 @@ export default defineComponent({
     const state = reactive({
       sideBarItem: {
         text: '落雪',
-        value: 'LaboratoryBootstrap',
+        value: 'ComponentsyBootstrap',
       },
       sideBarItems: [
         {
           text: '落雪',
-          value: 'LaboratoryBootstrap',
-        },
-        {
-          text: '流萤',
-          value: 'LEDLightWordIntro',
-          isNew: true,
+          value: 'ComponentsyBootstrap',
         },
       ],
     })
@@ -48,7 +43,7 @@ export default defineComponent({
     const changeSideBar = (value: string | number) => {
       state.sideBarItem = state.sideBarItems.find((item: any) => item.value === value) || {
         text: '落雪',
-        value: 'LaboratoryBootstrap',
+        value: 'ComponentsyBootstrap',
       }
 
       const name = value as RouteRecordName
@@ -117,7 +112,7 @@ export default defineComponent({
     &-right {
       display: flex;
       flex-grow: 1;
-      // padding: 0.2rem 0.3rem;
+      padding: 0.2rem 0.3rem;
       justify-content: center;
       background-color: #fff;
       min-height: calc(100vh - 2.5rem);

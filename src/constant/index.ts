@@ -8,7 +8,7 @@ export const NAVIGATION_SHORT_MAP = {
   angular: 'ANGULAR',
   css: 'CSS',
   babel: 'BABEL',
-  graphql: 'GraphQL',
+  graphql: 'GRAPHQL',
   nodejs: 'NODEJS',
   forum: 'FORUM',
   deno: 'DENO',
@@ -16,4 +16,7 @@ export const NAVIGATION_SHORT_MAP = {
   util: 'UTIL',
   weekly: 'WEEKLY',
   tools: 'TOOLS',
+  website: 'WEBSITE',
+  zjt: 'ZJT613',
+  friendlink: 'FRIENDLINK',
 }
