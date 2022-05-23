@@ -23,6 +23,24 @@
         />
       </div>
       <div class="item">
+        <div class="item-title">文字颜色:</div>
+        <input
+          class="item-color"
+          :value="wordAttr.color"
+          type="color"
+          @input="(event: any) => (wordAttr.color = event.target.value)"
+        />
+      </div>
+      <div class="item">
+        <div class="item-title">背景颜色:</div>
+        <input
+          class="item-color"
+          :value="wordAttr.bgColor"
+          type="color"
+          @input="(event: any) => (wordAttr.bgColor = event.target.value)"
+        />
+      </div>
+      <div class="item">
         <div class="item-title">尺寸:</div>
         <RadioBox
           :value="wordAttr.size"
@@ -165,9 +183,21 @@ export default defineComponent({
 
     const confirm = () => {
       if (!state.wordAttr.text) {
+        // https://sweetalert2.github.io/#usage
         return proxy?.$Swal.fire('错误提示', '请输入文字再提交！', 'error')
+        // return proxy?.$Swal
+        //   .mixin({
+        //     toast: true,
+        //     position: 'center',
+        //     showConfirmButton: false,
+        //     timer: 1000,
+        //     timerProgressBar: false,
+        //   })
+        //   .fire({
+        //     icon: 'error',
+        //     title: '请输入文字再提交！',
+        //   })
       }
-
       close('confirm', state.wordAttr)
     }
 
@@ -220,6 +250,7 @@ export default defineComponent({
     .item {
       display: flex;
       align-items: center;
+      margin: 0.2rem 0;
       .item-title {
         display: flex;
         font-size: 0.24rem;
@@ -242,6 +273,16 @@ export default defineComponent({
         button {
           margin: 0.2rem;
         }
+      }
+      .item-color {
+        display: flex;
+        width: 1rem;
+        height: 0.32rem;
+        font-size: 0.18rem;
+        appearance: none;
+        outline: 0;
+        border: 1px solid transparent;
+        border-radius: 4px;
       }
     }
   }

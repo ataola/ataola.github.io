@@ -112,6 +112,18 @@ export default defineComponent({
       } else if (type === 'confirm') {
         state.isShowPanel = false
         proxy?.$Swal.fire('提示', '保存成功', 'success')
+        // proxy?.$Swal
+        //   .mixin({
+        //     toast: true,
+        //     position: 'center',
+        //     showConfirmButton: false,
+        //     timer: 1000,
+        //     timerProgressBar: false,
+        //   })
+        //   .fire({
+        //     icon: 'success',
+        //     title: '配置成功',
+        //   })
         Object.assign(state.configData, data)
       }
     }

@@ -110,9 +110,9 @@ export default defineComponent({
   }
 
   .radio-label {
-    font-size: 0.18rem;
+    font-size: 0.2rem;
     padding: 0 0.05rem;
-    color: #50df90;
+    color: #9bf80c;
   }
 }
 </style>
