@@ -2,8 +2,9 @@
   <div class="container">
     <Cover />
     <transition name="slide">
-      <WordOperator v-show="isShowPanel" @operator="onOperatorAction" />
+      <WordOperator v-show="isShowPanel" :initData="configData" @operator="onOperatorAction" />
     </transition>
+    <marquee class="sentence">{{ configData.text }}</marquee>
   </div>
 </template>
 <script lang="ts">
@@ -71,6 +72,17 @@ export default defineComponent({
         32: 'FAILED', // STATE_FAILED
       },
       isShowPanel: false,
+      configData: {
+        type: 'slide', // 类型 blink闪烁, slide滑动
+        text: '谭松韵，你真棒', // 文本
+        size: 'large', // 尺寸 中杯, 大杯, 特大杯 ====> 致敬罗永浩的梗！
+        direction: 'left', // 方向, left, right, up, down
+        speed: 1, // 速度 0.5, 1, 1.5, 2
+        count: 'n', // 次数 1, 2, 3, n
+        isSquareBg: true, // 是否显示方格背景
+        color: '#fff', // 文字颜色
+        bgColor: '#c0c0c0', // 背景颜色
+      },
     })
 
     const swipeInfoKeys = computed(() => {
@@ -84,9 +96,13 @@ export default defineComponent({
     }
 
     const onOperatorAction = (ret: any) => {
-      const { type } = ret
+      const { type, data } = ret
       if (type === 'close') {
         state.isShowPanel = false
+      } else if (type === 'confirm') {
+        state.isShowPanel = false
+        console.log('data', data)
+        Object.assign(state.configData, data)
       }
     }
 
@@ -125,6 +141,7 @@ export default defineComponent({
         )
       })
     })
+
     return {
       ...toRefs(state),
       onOperatorAction,
@@ -142,5 +159,20 @@ export default defineComponent({
 .slide-enter,
 .slide-leave-active {
   right: -100%;
+}
+
+.sentence {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+@media screen and (orientation: portrait) {
+  .sentence {
+    transform: rotate(90deg) translate(0, 300%);
+  }
 }
 </style>

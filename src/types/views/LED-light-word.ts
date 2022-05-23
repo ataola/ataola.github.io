@@ -6,6 +6,8 @@ export type TWordAttr = {
   speed: number
   count: string
   isSquareBg: boolean
+  color: string
+  bgColor: string
 }
 
 export type TRadioItem = {

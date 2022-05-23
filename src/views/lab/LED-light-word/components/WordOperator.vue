@@ -59,14 +59,14 @@
         <SingleRadioBox :value="wordAttr.isSquareBg" @input="(value: boolean) => handleInput('isSquareBg', value)" />
       </div>
       <div class="item">
-        <button class="button">确认</button>
-        <button class="button">取消</button>
+        <button class="button" @click="confirm">确认</button>
+        <button class="button" @click="() => close()">取消</button>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, toRefs, PropType } from 'vue'
+import { defineComponent, reactive, toRefs, PropType, onBeforeMount } from 'vue'
 import { TWordAttr, TRadioItem } from '@/types/views/LED-light-word'
 import RadioBox from './RadioBox.vue'
 import SingleRadioBox from './SingleRadioBox.vue'
@@ -93,11 +93,13 @@ export default defineComponent({
       default: () => ({
         type: 'slide', // 类型 blink闪烁, slide滑动
         text: '谭松韵，你真棒', // 文本
-        size: 2, // 尺寸 中杯, 大杯, 特大杯 ====> 致敬罗永浩的梗！
+        size: 'large', // 尺寸 中杯, 大杯, 特大杯 ====> 致敬罗永浩的梗！
         direction: 'left', // 方向, left, right, up, down
         speed: 1, // 速度 0.5, 1, 1.5, 2
         count: 'n', // 次数 1, 2, 3, n
         isSquareBg: true, // 是否显示方格背景
+        color: '#fff', // 文字颜色
+        bgColor: '#c0c0c0', // 背景颜色
       }),
     },
   },
@@ -111,6 +113,8 @@ export default defineComponent({
         speed: 1, // 速度 0.5, 1, 1.5, 2
         count: 'n', // 次数 1, 2, 3, n
         isSquareBg: true, // 是否显示方格背景
+        color: '#fff', // 文字颜色
+        bgColor: '#c0c0c0', // 背景颜色
       },
       typeOptions: [
         { text: '闪烁', value: 'blink' },
@@ -149,10 +153,23 @@ export default defineComponent({
       state.wordAttr[type] = value
     }
 
+    const confirm = () => {
+      if (!state.wordAttr.text) {
+        return alert('请输入文字再提交！')
+      }
+
+      close('confirm', state.wordAttr)
+    }
+
+    onBeforeMount(() => {
+      Object.assign(state.wordAttr, props.initData)
+    })
+
     return {
       ...toRefs(state),
       close,
       handleInput,
+      confirm,
     }
   },
 })

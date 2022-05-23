@@ -23,13 +23,6 @@ export default defineComponent({
       emit('input', !value)
     }
 
-    watch(
-      () => props.value,
-      (newValue: boolean, oldValue: boolean) => {
-        updateSelected(newValue)
-      }
-    )
-
     return {
       uuid,
       updateSelected,
