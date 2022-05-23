@@ -5,7 +5,8 @@ import Particles from 'particles.vue3'
 import router from '@/router/index'
 import App from '@/App.vue'
 import 'normalize.css/normalize.css'
-import 'sweetalert2/src/sweetalert2.scss'
+import 'sweetalert2/src/sweetalert2.scss' // https://sweetalert.js.org/docs/#theming
+import '@/styles/sweetalert-fix.scss'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faSearch,

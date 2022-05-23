@@ -8,7 +8,15 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, computed, toRefs, onMounted, getCurrentInstance } from 'vue'
+import {
+  defineComponent,
+  reactive,
+  computed,
+  toRefs,
+  onMounted,
+  getCurrentInstance,
+  ComponentInternalInstance,
+} from 'vue'
 import Hammer from 'hammerjs'
 import WordOperator from '@/views/lab/LED-light-word/components/WordOperator.vue'
 import Cover from '@/views/lab/LED-light-word/components/Cover.vue'
@@ -20,7 +28,7 @@ export default defineComponent({
     [WordOperator.name]: WordOperator,
   },
   setup(props, { emit, slots, attrs }) {
-    const { proxy } = getCurrentInstance()
+    const { proxy } = getCurrentInstance() as ComponentInternalInstance
 
     const state = reactive({
       swipeInfo: {
@@ -103,7 +111,7 @@ export default defineComponent({
         state.isShowPanel = false
       } else if (type === 'confirm') {
         state.isShowPanel = false
-        proxy.$Swal.fire('提示', '保存成功', 'success')
+        proxy?.$Swal.fire('提示', '保存成功', 'success')
         Object.assign(state.configData, data)
       }
     }
