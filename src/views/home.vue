@@ -1,48 +1,108 @@
 <template>
-  <div>
-    <h6>{{ msg }}</h6>
-    <h6>额，暂时没有灵感和想法首页放什么，先放句鸡汤吧</h6>
+  <div class="container">
+    <div class="left">
+      <code>
+        C:\Users\ataola>node<br />
+        Welcome to Node.js v16.14.2. Type ".help" for more information. <br />
+        > Math.pow(1 + 0.01, 365) <br />
+        37.78343433288728 <br />
+        > Math.pow(1 + 0, 365)<br />
+        1<br />
+        > Math.pow(1 - 0.01, 365) <br />
+        0.025517964452291125 <br />
+        > (1 + 0.01) ** 365 <br />
+        37.78343433288728 <br />
+        > (1 + 0) ** 365 <br />
+        1 <br />
+        > (1 - 0.01) ** 365 <br />
+        0.025517964452291125<br />
+        > .exit<br />
+        C:\Users\ataola>
+      </code>
+    </div>
+    <div class="right">
+      <div class="head">参<img :src="ICON_CHAN" alt="禅" />禅</div>
+      <div class="sentence">
+        <span>选择</span>
+        是非黑白，非黑即白，你选白的时候意味着已经放弃了黑，很多时候都是这样的。
+      </div>
+      <div class="sentence">
+        <span>努力</span>
+        选择大于努力，努力也是没有错的，努力不一定能改命，但可以改善生活哇
+      </div>
+      <div class="sentence">
+        <span>努力并坚持</span>
+        努力不是喊口号，要落实到365，哪怕是你每天就搞一点点，那也是好的
+      </div>
+      <div class="sentence">
+        <span>拥抱变化</span>
+        时代在变，能坐地铁去打工，要什么自行车呀。
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import debug from 'debug'
-const logger = debug('zhengjiangtao.cn:views:Home')
-const msg = ref('网站开发中。。。。。。')
-
-fetch('https://v1.hitokoto.cn?c=k&c=d&max_length=10')
-  .then((response: any) => response.json())
-  .then((data: any) => {
-    logger(data)
-    msg.value = data.hitokoto
-  })
-  .catch(console.error)
+import ICON_CHAN from '@/static/icons/chan.svg'
 </script>
 
 <style lang="scss" scoped>
-a {
-  color: #42b983;
+.container {
+  width: 100%;
+  height: calc(100vh - 2rem);
+  display: flex;
+  .left {
+    display: flex;
+    flex: 1;
+    background-color: #000;
+    color: #fff;
+    code {
+      text-align: left;
+      font-size: 0.18rem;
+      padding: 0.15rem;
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    background-color: #fff;
+    .head {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 0.8rem;
+      line-height: 0.8rem;
+      font-size: 0.32rem;
+      font-family: '幼圆';
+      font-weight: 700;
+      img {
+        width: 0.8rem;
+        height: 0.8rem;
+      }
+    }
+    .sentence {
+      display: grid;
+      width: 100%;
+      padding: 0.1rem 0.15rem;
+      text-align: left;
+      font-size: 0.18rem;
+      span {
+        font-weight: 700;
+      }
+    }
+  }
 }
 
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
-}
-
-code {
-  background-color: #eee;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #304455;
-}
-
-h6 {
-  padding: 0.5rem;
-  font-size: 0.6rem;
-  &:last-child {
-    text-align: right;
-    font-size: 0.2rem;
+@media screen and (max-width: 414px) {
+  .container {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .left,
+  .right {
+    flex-basis: 100%;
   }
 }
 </style>

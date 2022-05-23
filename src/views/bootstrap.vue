@@ -244,6 +244,7 @@ export default defineComponent({
     #ff0
   );
   background-size: 200% 100%;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: masked-animation 2s linear infinite;

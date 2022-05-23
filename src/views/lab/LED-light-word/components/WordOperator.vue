@@ -66,7 +66,15 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, toRefs, PropType, onBeforeMount } from 'vue'
+import {
+  defineComponent,
+  reactive,
+  toRefs,
+  PropType,
+  onBeforeMount,
+  getCurrentInstance,
+  ComponentInternalInstance,
+} from 'vue'
 import { TWordAttr, TRadioItem } from '@/types/views/LED-light-word'
 import RadioBox from './RadioBox.vue'
 import SingleRadioBox from './SingleRadioBox.vue'
@@ -104,6 +112,8 @@ export default defineComponent({
     },
   },
   setup(props, { emit, slots, attrs }) {
+    const { proxy } = getCurrentInstance() as ComponentInternalInstance
+
     const state = reactive<stateType>({
       wordAttr: {
         type: 'slide', // 类型 blink闪烁, slide滑动
@@ -155,7 +165,7 @@ export default defineComponent({
 
     const confirm = () => {
       if (!state.wordAttr.text) {
-        return alert('请输入文字再提交！')
+        return proxy?.$Swal.fire('错误提示', '请输入文字再提交！', 'error')
       }
 
       close('confirm', state.wordAttr)

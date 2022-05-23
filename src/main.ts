@@ -1,9 +1,11 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import Swal from 'sweetalert2'
+import Particles from 'particles.vue3'
 import router from '@/router/index'
 import App from '@/App.vue'
 import 'normalize.css/normalize.css'
-import Particles from 'particles.vue3'
+import 'sweetalert2/src/sweetalert2.scss'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faSearch,
@@ -35,4 +37,11 @@ app.use(router)
 app.use(Particles)
 app.use(createPinia())
 app.component('font-awesome-icon', FontAwesomeIcon)
+app.config.globalProperties.$Swal = Swal
 app.mount('#app')
+
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    $Swal: typeof Swal
+  }
+}

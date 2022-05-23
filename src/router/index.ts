@@ -79,6 +79,25 @@ const routes: Array<RouteRecordRaw> = [
           },
         ],
       },
+      {
+        path: '/effect',
+        name: 'Effect',
+        redirect: '/effect/bootstrap',
+        component: () => import('@/views/effect/index.vue'),
+        meta: {
+          title: '效果',
+        },
+        children: [
+          {
+            path: '/effect/bootstrap',
+            name: 'EffectBootstrap',
+            component: () => import('@/views/bootstrap.vue'),
+            meta: {
+              title: '效果-落雪',
+            },
+          },
+        ],
+      },
     ],
   },
   {
@@ -96,6 +115,14 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/test/test1.vue'),
     meta: {
       title: '测试页-1',
+    },
+  },
+  {
+    path: '/test/test2',
+    name: 'Test2',
+    component: () => import('@/views/test/test2.vue'),
+    meta: {
+      title: '测试页-2',
     },
   },
   /** test end */
