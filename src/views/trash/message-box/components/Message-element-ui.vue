@@ -22,7 +22,7 @@ export default defineComponent({
     },
     type: {
       type: String,
-      default: 'warn', // warn 警告  error 错误  success 成功 info信息
+      default: 'warn', // warn 警告  error 错误  success 成功 info 信息
     },
   },
   setup(props, { emit, slots, attrs }) {
@@ -85,7 +85,7 @@ export default defineComponent({
   left: 50%;
   top: 0.2rem;
   z-index: 9999;
-  margin-left: -2rem;
+  transform: translateX(-50%);
   line-height: 0.4rem;
   padding: 0 0.1rem;
   border: 1px solid #e4e4e4;
