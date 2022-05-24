@@ -1,9 +1,9 @@
 <template>
   <div class="panel">
-    <button class="btn-close" @click="() => close()">
+    <button class="btn-close" @click="cancel">
       <font-awesome-icon :icon="['fas', 'angle-double-right']" />
     </button>
-    <div class="title">liú yīng panel</div>
+    <div class="title">流萤配置面板</div>
     <div class="content">
       <div class="item">
         <div class="item-title">类型:</div>
@@ -77,8 +77,16 @@
         <SingleRadioBox :value="wordAttr.isSquareBg" @input="(value: boolean) => handleInput('isSquareBg', value)" />
       </div>
       <div class="item">
+        <div class="item-title">是否全屏:</div>
+        <SingleRadioBox
+          :value="wordAttr.isFullScreen"
+          @input="(value: boolean) => handleInput('isFullScreen', value)"
+        />
+        <span class="tip">(不支持IOS(ಥ_ಥ)</span>
+      </div>
+      <div class="item">
         <button class="button" @click="confirm">确认</button>
-        <button class="button" @click="() => close()">取消</button>
+        <button class="button" @click="cancel">取消</button>
       </div>
     </div>
   </div>
@@ -89,7 +97,7 @@ import {
   reactive,
   toRefs,
   PropType,
-  onBeforeMount,
+  watchEffect,
   getCurrentInstance,
   ComponentInternalInstance,
 } from 'vue'
@@ -124,6 +132,7 @@ export default defineComponent({
         speed: 1, // 速度 0.5, 1, 1.5, 2
         count: 'n', // 次数 1, 2, 3, n
         isSquareBg: true, // 是否显示方格背景
+        isFullScreen: false, // 是否全屏
         color: '#fff', // 文字颜色
         bgColor: '#c0c0c0', // 背景颜色
       }),
@@ -141,6 +150,7 @@ export default defineComponent({
         speed: 1, // 速度 0.5, 1, 1.5, 2
         count: 'n', // 次数 1, 2, 3, n
         isSquareBg: true, // 是否显示方格背景
+        isFullScreen: false, // 是否全屏
         color: '#fff', // 文字颜色
         bgColor: '#c0c0c0', // 背景颜色
       },
@@ -183,26 +193,17 @@ export default defineComponent({
 
     const confirm = () => {
       if (!state.wordAttr.text) {
-        // https://sweetalert2.github.io/#usage
-        // return proxy?.$Swal.fire('错误提示', '请输入文字再提交！', 'error')
         return proxy?._$message({ text: '请输入文字再提交！', type: 'error' })
-        // return proxy?.$Swal
-        //   .mixin({
-        //     toast: true,
-        //     position: 'center',
-        //     showConfirmButton: false,
-        //     timer: 1000,
-        //     timerProgressBar: false,
-        //   })
-        //   .fire({
-        //     icon: 'error',
-        //     title: '请输入文字再提交！',
-        //   })
       }
       close('confirm', state.wordAttr)
     }
 
-    onBeforeMount(() => {
+    const cancel = () => {
+      Object.assign(state.wordAttr, props.initData)
+      close()
+    }
+
+    watchEffect(() => {
       Object.assign(state.wordAttr, props.initData)
     })
 
@@ -211,6 +212,7 @@ export default defineComponent({
       close,
       handleInput,
       confirm,
+      cancel,
     }
   },
 })
@@ -269,6 +271,11 @@ export default defineComponent({
       display: flex;
       align-items: center;
       margin: 0.2rem 0;
+      .tip {
+        color: red;
+        font-size: 0.18rem;
+        font-style: italic;
+      }
       .item-title {
         display: flex;
         font-size: 0.24rem;
@@ -334,5 +341,15 @@ input:focus {
   width: fit-content;
   word-break: break-word;
   border: 0;
+}
+
+@media screen and (max-width: 414px) {
+  .panel {
+    width: 100%;
+    .item {
+      padding-left: 0.4rem;
+      padding-bottom: 0.2rem;
+    }
+  }
 }
 </style>

@@ -20,6 +20,7 @@ import {
 import Hammer from 'hammerjs'
 import WordOperator from '@/views/lab/LED-light-word/components/WordOperator.vue'
 import Cover from '@/views/lab/LED-light-word/components/Cover.vue'
+import MyScreen from '@/utils/screen'
 
 export default defineComponent({
   name: 'LEDLightWord',
@@ -29,6 +30,7 @@ export default defineComponent({
   },
   setup(props, { emit, slots, attrs }) {
     const { proxy } = getCurrentInstance() as ComponentInternalInstance
+    const myScreen = new MyScreen()
 
     const state = reactive({
       swipeInfo: {
@@ -90,6 +92,7 @@ export default defineComponent({
         speed: 1, // 速度 0.5, 1, 1.5, 2
         count: 'n', // 次数 1, 2, 3, n
         isSquareBg: true, // 是否显示方格背景
+        isFullScreen: false, // 是否全屏
         color: '#fff', // 文字颜色
         bgColor: '#c0c0c0', // 背景颜色
       },
@@ -111,21 +114,9 @@ export default defineComponent({
         state.isShowPanel = false
       } else if (type === 'confirm') {
         state.isShowPanel = false
-        // proxy?.$Swal.fire('提示', '保存成功', 'success')
         proxy?._$message({ text: '配置成功', type: 'success' })
-        // proxy?.$Swal
-        //   .mixin({
-        //     toast: true,
-        //     position: 'center',
-        //     showConfirmButton: false,
-        //     timer: 1000,
-        //     timerProgressBar: false,
-        //   })
-        //   .fire({
-        //     icon: 'success',
-        //     title: '配置成功',
-        //   })
         Object.assign(state.configData, data)
+        state.configData.isFullScreen ? myScreen.fullScreen() : myScreen.exitFullScreen()
       }
     }
 
