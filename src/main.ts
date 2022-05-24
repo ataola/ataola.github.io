@@ -6,7 +6,9 @@ import router from '@/router/index'
 import App from '@/App.vue'
 import 'normalize.css/normalize.css'
 import 'sweetalert2/src/sweetalert2.scss' // https://sweetalert.js.org/docs/#theming
+// emmm, 我其实想把sweetalert拿掉的，副作用有一点啊
 import '@/styles/sweetalert-fix.scss'
+import CPMessage from '@/views/trash/message-box/components/message'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faSearch,
@@ -39,10 +41,12 @@ app.use(Particles)
 app.use(createPinia())
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.config.globalProperties.$Swal = Swal
+app.config.globalProperties._$message = CPMessage
 app.mount('#app')
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     $Swal: typeof Swal
+    _$message: typeof CPMessage
   }
 }

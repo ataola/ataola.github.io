@@ -111,7 +111,8 @@ export default defineComponent({
         state.isShowPanel = false
       } else if (type === 'confirm') {
         state.isShowPanel = false
-        proxy?.$Swal.fire('提示', '保存成功', 'success')
+        // proxy?.$Swal.fire('提示', '保存成功', 'success')
+        proxy?._$message({ text: '配置成功', type: 'success' })
         // proxy?.$Swal
         //   .mixin({
         //     toast: true,

@@ -153,6 +153,14 @@ const routes: Array<RouteRecordRaw> = [
       title: 'trash-hammer',
     },
   },
+  {
+    path: '/trash/message-box',
+    name: 'MessageBox',
+    component: () => import('@/views/trash/message-box/index.vue'),
+    meta: {
+      title: 'trash-message',
+    },
+  },
   /** trash end */
 ]
 

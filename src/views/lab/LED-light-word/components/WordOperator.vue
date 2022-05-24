@@ -184,7 +184,8 @@ export default defineComponent({
     const confirm = () => {
       if (!state.wordAttr.text) {
         // https://sweetalert2.github.io/#usage
-        return proxy?.$Swal.fire('错误提示', '请输入文字再提交！', 'error')
+        // return proxy?.$Swal.fire('错误提示', '请输入文字再提交！', 'error')
+        return proxy?._$message({ text: '请输入文字再提交！', type: 'error' })
         // return proxy?.$Swal
         //   .mixin({
         //     toast: true,
@@ -228,6 +229,24 @@ export default defineComponent({
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: all 0.5s ease-in-out;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.1);
+  }
   .btn-close {
     border: none;
     font-size: 0.32rem;
@@ -238,7 +257,6 @@ export default defineComponent({
     left: 0;
     padding-left: 0;
   }
-
   .title {
     color: #fff;
     font-size: 0.32rem;
