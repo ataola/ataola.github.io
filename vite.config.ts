@@ -15,8 +15,8 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       vue(),
       viteVConsole({
         entry: resolve(__dirname, './src/main.ts').replace(/\\/g, '/'),
-        localEnabled: mode !== 'prod', // dev environment
-        enabled: mode !== 'prod', // build production
+        localEnabled: mode === 'development', // dev environment
+        enabled: mode === 'development', // build production
         config: {
           maxLogNumber: 1000,
           theme: 'light',
