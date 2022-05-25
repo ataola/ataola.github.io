@@ -13,33 +13,29 @@ export default class MyScreen {
   }
 
   fullScreen() {
-    if (!this.isFullScreen) {
-      if (this.fullScreenDocumentElement.requestFullscreen) {
-        this.fullScreenDocumentElement.requestFullscreen()
-      } else if (this.fullScreenDocumentElement.mozRequestFullScreen) {
-        this.fullScreenDocumentElement.mozRequestFullScreen()
-      } else if (this.fullScreenDocumentElement.msRequestFullscreen) {
-        this.fullScreenDocumentElement.msRequestFullscreen()
-      } else if (this.fullScreenDocumentElement.webkitRequestFullscreen) {
-        this.fullScreenDocumentElement.webkitRequestFullscreen()
-      }
-      this.isFullScreen = true
+    if (this.fullScreenDocumentElement.requestFullscreen) {
+      this.fullScreenDocumentElement.requestFullscreen()
+    } else if (this.fullScreenDocumentElement.mozRequestFullScreen) {
+      this.fullScreenDocumentElement.mozRequestFullScreen()
+    } else if (this.fullScreenDocumentElement.msRequestFullscreen) {
+      this.fullScreenDocumentElement.msRequestFullscreen()
+    } else if (this.fullScreenDocumentElement.webkitRequestFullscreen) {
+      this.fullScreenDocumentElement.webkitRequestFullscreen()
     }
+    this.isFullScreen = true
   }
 
   exitFullScreen() {
-    if (this.isFullScreen) {
-      if (this.fullScreenDocument.exitFullscreen) {
-        this.fullScreenDocument.exitFullscreen()
-      } else if (this.fullScreenDocument.msExitFullscreen) {
-        this.fullScreenDocument.msExitFullscreen()
-      } else if (this.fullScreenDocument.mozCancelFullScreen) {
-        this.fullScreenDocument.mozCancelFullScreen()
-      } else if (this.fullScreenDocument.webkitExitFullscreen) {
-        this.fullScreenDocument.webkitExitFullscreen()
-      }
-      this.isFullScreen = false
+    if (this.fullScreenDocument.exitFullscreen) {
+      this.fullScreenDocument.exitFullscreen()
+    } else if (this.fullScreenDocument.msExitFullscreen) {
+      this.fullScreenDocument.msExitFullscreen()
+    } else if (this.fullScreenDocument.mozCancelFullScreen) {
+      this.fullScreenDocument.mozCancelFullScreen()
+    } else if (this.fullScreenDocument.webkitExitFullscreen) {
+      this.fullScreenDocument.webkitExitFullscreen()
     }
+    this.isFullScreen = false
   }
 
   toggleFullScreen() {
