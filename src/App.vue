@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import _ from 'lodash'
+import { debounce } from 'lodash-es'
 import { defineComponent, onBeforeMount } from 'vue'
 
 export default defineComponent({
@@ -21,7 +21,7 @@ export default defineComponent({
     }
 
     onBeforeMount(() => {
-      const debouncedComputeRootFontSize = _.debounce(computeRootFontSize, 1000)
+      const debouncedComputeRootFontSize = debounce(computeRootFontSize, 1000)
       document.addEventListener('DOMContentLoaded', debouncedComputeRootFontSize)
       window.addEventListener(
         'orientationchange' in window ? 'orientationchange' : 'resize',
