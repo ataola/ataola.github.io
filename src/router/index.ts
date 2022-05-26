@@ -105,7 +105,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Bootstrap',
     component: () => import('@/views/bootstrap.vue'),
     meta: {
-      title: '落雪之门',
+      title: '程序员的成长自留地',
     },
   },
   /** test start */
