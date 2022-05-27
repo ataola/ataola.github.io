@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import ICON_CHAN from '@/static/icons/chan.svg'
+import ICON_CHAN from '@static/icons/chan.svg'
 </script>
 
 <style lang="scss" scoped>

@@ -22,7 +22,6 @@ import WordOperator from '@views/lab/LED-light-word/components/WordOperator.vue'
 import Cover from '@views/lab/LED-light-word/components/Cover.vue'
 import MyScreen from '@utils/screen'
 import { createDebugLogger } from '@utils/tool'
-import { multiply } from 'lodash'
 
 export default defineComponent({
   name: 'LEDLightWord',
