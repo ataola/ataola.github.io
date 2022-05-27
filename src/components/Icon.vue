@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent, computed, toRef } from 'vue'
-import { getStaticIconFile } from '@/utils/file'
+import { getStaticIconFile } from '@utils/file'
 
 export default defineComponent({
   name: 'Icon',

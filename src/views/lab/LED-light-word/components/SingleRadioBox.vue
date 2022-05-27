@@ -7,7 +7,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, watch, PropType } from 'vue'
+import { defineComponent } from 'vue'
 import { getUUID } from '@/utils/str'
 
 export default defineComponent({

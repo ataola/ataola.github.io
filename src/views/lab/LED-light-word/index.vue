@@ -18,9 +18,10 @@ import {
   ComponentInternalInstance,
 } from 'vue'
 import Hammer from 'hammerjs'
-import WordOperator from '@/views/lab/LED-light-word/components/WordOperator.vue'
-import Cover from '@/views/lab/LED-light-word/components/Cover.vue'
-import MyScreen from '@/utils/screen'
+import WordOperator from '@views/lab/LED-light-word/components/WordOperator.vue'
+import Cover from '@views/lab/LED-light-word/components/Cover.vue'
+import MyScreen from '@utils/screen'
+import { createDebugLogger } from '@utils/tool'
 
 export default defineComponent({
   name: 'LEDLightWord',
@@ -31,6 +32,7 @@ export default defineComponent({
   setup(props, { emit, slots, attrs }) {
     const { proxy } = getCurrentInstance() as ComponentInternalInstance
     const myScreen = new MyScreen()
+    const logger = createDebugLogger(`${window.location.href}`)
 
     const state = reactive({
       swipeInfo: {
@@ -117,6 +119,7 @@ export default defineComponent({
         proxy?._$message({ text: '配置成功', type: 'success' })
         Object.assign(state.configData, data)
         state.configData.isFullScreen ? myScreen.fullScreen() : myScreen.exitFullScreen()
+        logger(`type: ${type}, data: ${JSON.stringify(data)}`)
       }
     }
 
@@ -131,7 +134,7 @@ export default defineComponent({
         syncSwipeInfo(e)
         state.isShowPanel = true
         const { type = '', deltaX = '', deltaY = '', deltaTime = '', distance = '', direction = '' } = state.swipeInfo
-        console.log(
+        logger(
           `info: type ${type}, direction ${state.DIRECTION_MAP[direction]}, delat ${deltaX}, deltaY: ${deltaY}, distance ${distance}, deltaTime, ${deltaTime}`
         )
       })
@@ -141,7 +144,7 @@ export default defineComponent({
         syncSwipeInfo(e)
         state.isShowPanel = false
         const { type = '', deltaX = '', deltaY = '', deltaTime = '', distance = '', direction = '' } = state.swipeInfo
-        console.log(
+        logger(
           `info: type ${type}, direction ${state.DIRECTION_MAP[direction]}, delat ${deltaX}, deltaY: ${deltaY}, distance ${distance}, deltaTime, ${deltaTime}`
         )
       })
@@ -150,7 +153,7 @@ export default defineComponent({
       hammer.on('swipeup', function (e) {
         syncSwipeInfo(e)
         const { type = '', deltaX = '', deltaY = '', deltaTime = '', distance = '', direction = '' } = state.swipeInfo
-        console.log(
+        logger(
           `info: type ${type}, direction ${state.DIRECTION_MAP[direction]}, delat ${deltaX}, deltaY: ${deltaY}, distance ${distance}, deltaTime, ${deltaTime}`
         )
       })

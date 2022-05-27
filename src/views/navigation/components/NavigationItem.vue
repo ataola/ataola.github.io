@@ -8,16 +8,16 @@
         <a :href="navItem.url" target="_blank"> {{ navItem.name }}</a>
       </div>
       <div class="desc" :title="navItem.description">
-        {{ subStr(navItem.description) }}
+        {{ display(navItem.description) }}
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, toRef, reactive } from 'vue'
-import Icon from '@/components/Icon.vue'
+import { defineComponent, PropType, toRef } from 'vue'
 import { TNavigationItem } from '@/types/views/navigation'
+import { subStr } from '@utils/str'
 
 export default defineComponent({
   name: 'NavigationItem',
@@ -27,22 +27,14 @@ export default defineComponent({
       default: () => ({}),
     },
   },
-  components: {
-    [Icon.name]: Icon,
-  },
   setup(props, { emit, slots, attrs }) {
     const navItem = toRef(props, 'value')
 
-    const subStr = (str: string, n = 120) => {
-      if (str.length < n) {
-        return str
-      }
-      return `${str.substring(0, n)}...`
-    }
+    const display = (description: string): string => subStr(description)
 
     return {
       navItem,
-      subStr,
+      display,
     }
   },
 })

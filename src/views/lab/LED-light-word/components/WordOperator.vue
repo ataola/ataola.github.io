@@ -16,6 +16,7 @@
       <div class="item">
         <div class="item-title">文字:</div>
         <input
+          v-trim="wordAttr.text"
           class="item-input"
           :value="wordAttr.text"
           placeholder="请输入文字"

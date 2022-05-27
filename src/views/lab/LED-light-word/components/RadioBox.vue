@@ -14,7 +14,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, watch, PropType } from 'vue'
-import { getUUID } from '@/utils/str'
+import { getUUID } from '@utils/str'
 import { TRadioItem } from '@/types/views/LED-light-word'
 
 export default defineComponent({

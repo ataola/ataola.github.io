@@ -1,4 +1,6 @@
-export const NAVIGATION_SHORT_MAP = {
+import { TRObj } from '@/types/global/types'
+
+export const NAVIGATION_SHORT_MAP: TRObj<string> = {
   javascript: 'JS',
   typescript: 'TS',
   html: 'HTML',
