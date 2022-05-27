@@ -32,7 +32,9 @@ export default defineComponent({
   setup(props, { emit, slots, attrs }) {
     const { proxy } = getCurrentInstance() as ComponentInternalInstance
     const myScreen = new MyScreen()
-    const logger = createDebugLogger(`${window.location.href}`)
+    const { hostname, hash } = window.location
+    const hashStr = hash.slice(1).replaceAll('/', ':')
+    const logger = createDebugLogger(`${hostname}${hashStr}`)
 
     const state = reactive({
       swipeInfo: {
