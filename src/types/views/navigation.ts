@@ -6,3 +6,9 @@ export type TNavigationItem = {
   avatar: string
   description: string
 }
+
+export type TSideBarItem = {
+  text: string
+  title: string
+  value: string
+}

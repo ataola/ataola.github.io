@@ -25,7 +25,7 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs, computed } from 'vue'
 import NavigationItem from './components/NavigationItem.vue'
-import { TNavigationItem } from '@/types/views/navigation'
+import { TNavigationItem, TSideBarItem } from '@/types/views/navigation'
 import { NAVIGATION_SHORT_MAP } from '@/constant'
 import navigationItems from '@/data/navigation.json'
 
@@ -44,8 +44,9 @@ export default defineComponent({
     })
 
     const sideBarItems = computed(() => {
+      let res: TSideBarItem[] = []
       const { navigationItems } = state
-      return [
+      const arr = [
         ...new Set(
           navigationItems.map((item: TNavigationItem) => {
             const { type } = item
@@ -53,14 +54,20 @@ export default defineComponent({
           })
         ),
       ]
+      arr
         .sort((a, b) => NAVIGATION_SHORT_MAP[a].length - NAVIGATION_SHORT_MAP[b].length)
-        .map((value: string) => {
-          return {
+        .forEach((value: string, index: number) => {
+          const data = {
             text: NAVIGATION_SHORT_MAP[value] || value,
             title: value,
             value: value,
           }
+          index % 2 === 0 ? res.unshift(data) : res.push(data)
         })
+      const len = res.length
+      const mid = len >> 1
+      res.unshift(...res.splice(mid, len - mid))
+      return res
     })
 
     const navigationItemRestArr = computed(() => {
