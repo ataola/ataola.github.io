@@ -23,7 +23,7 @@
       </div>
       <div class="sentence">
         使用说明：已经做了PC和移动端兼容，鼠标或者手势往左滑展示配置，
-        往右边滑动关闭配置，点击》或者取消按钮关闭配置，点击保存生效配置
+        往右边滑动关闭配置，点击》或者取消按钮关闭配置，点击保存生效配置 退出全屏请按ESC键
       </div>
       <div class="sentence">
         emmmmm, 为啥要叫流萤，文艺呗，营造一种浪漫主义气息，之前叫LED Light Word感觉欠那么点意思。
@@ -32,7 +32,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, toRefs } from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'LEDLightWordIntro',

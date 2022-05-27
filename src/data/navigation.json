@@ -838,5 +838,13 @@
     "url": "https://shanyue.tech/",
     "avatar": "website",
     "description": "关于平常工作中在前端，后端以及运维中遇到问题的一些文章总结。以后也会做系列文章进行输出，如前端高级进阶系列，个人服务器指南系列。"
+  },
+  {
+    "id": "105",
+    "name": "大圣",
+    "type": "friendlink",
+    "url": "https://shengxinjing.cn/",
+    "avatar": "website",
+    "description": "大圣前端编程自学网"
   }
 ]

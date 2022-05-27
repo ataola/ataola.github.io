@@ -1,11 +1,5 @@
 <template>
   <div class="container">
-    <!-- 暂时不做这些功能了 -->
-    <!-- <div class="top">
-      <button class="button"><font-awesome-icon :icon="['fas', 'plus-circle']" />新增</button>
-      <button class="button"><font-awesome-icon :icon="['fas', 'file-upload']" />导入</button>
-      <button class="button"><font-awesome-icon :icon="['fas', 'file-download']" />导出</button>
-    </div> -->
     <div class="main">
       <div class="main-left">
         <div class="sidebar-box">
@@ -30,7 +24,6 @@
 
 <script lang="ts">
 import { defineComponent, reactive, toRefs, computed } from 'vue'
-import SideBar from '@/components/SideBar.vue'
 import NavigationItem from './components/NavigationItem.vue'
 import { TNavigationItem } from '@/types/views/navigation'
 import { NAVIGATION_SHORT_MAP } from '@/constant'
@@ -39,7 +32,6 @@ import navigationItems from '@/data/navigation.json'
 export default defineComponent({
   name: 'Navigation',
   components: {
-    [SideBar.name]: SideBar,
     [NavigationItem.name]: NavigationItem,
   },
   setup(props, { emit, slots, attrs }) {
@@ -158,29 +150,5 @@ export default defineComponent({
       }
     }
   }
-}
-
-.button {
-  background: #5e5df0;
-  border-radius: 0.2rem;
-  box-shadow: #5e5df0 0 0.15rem 0.2rem -0.15rem;
-  box-sizing: border-box;
-  color: #ffffff;
-  cursor: pointer;
-  font-family: Inter, Helvetica, 'Apple Color Emoji', 'Segoe UI Emoji', NotoColorEmoji, 'Noto Color Emoji',
-    'Segoe UI Symbol', 'Android Emoji', EmojiSymbols, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue',
-    'Noto Sans', sans-serif;
-  font-size: 0.2rem;
-  font-weight: 700;
-  line-height: 1;
-  opacity: 1;
-  outline: 0 solid transparent;
-  padding: 0.1rem 0.2rem;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: fit-content;
-  word-break: break-word;
-  border: 0;
 }
 </style>

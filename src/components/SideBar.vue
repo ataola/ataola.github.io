@@ -28,8 +28,8 @@
 <script lang="ts">
 import { defineComponent, toRef, PropType } from 'vue'
 import { TItem } from '@/types/components/sidebar'
-import NewImg from '@/static/icons/new.svg'
-import HotImg from '@/static/icons/hot.svg'
+import NewImg from '@static/icons/new.svg'
+import HotImg from '@static/icons/hot.svg'
 
 export default defineComponent({
   name: 'SideBar',

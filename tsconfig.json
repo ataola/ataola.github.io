@@ -13,7 +13,22 @@
     "noImplicitAny": false,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@api/*": ["./src/api/*"],
+      "@data/*": ["./src/data/*"],
+      "@views/*": ["./src/views/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@store/*": ["./src/store/*"],
+      "@layout/*": ["./src/layout/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@router/*": ["./src/router/*"],
+      "@static/*": ["./src/static/*"],
+      "@scss/*": ["./src/assets/scss/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@directives/*": ["./src/directives/*"],
+      "@componets/*": ["./src/componets/*"],
+      "@constants/*": ["./src/constants/*"],
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]

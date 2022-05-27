@@ -14,8 +14,8 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
-import NavBar from '@/layout/NavBar.vue'
-import Footer from '@/layout/Footer.vue'
+import NavBar from '@layout/NavBar.vue'
+import Footer from '@layout/Footer.vue'
 
 export default defineComponent({
   name: 'Layout',

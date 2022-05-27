@@ -60,44 +60,6 @@ const routes: Array<RouteRecordRaw> = [
           },
         ],
       },
-      {
-        path: '/components',
-        name: 'Components',
-        redirect: '/components/bootstrap',
-        component: () => import('@/views/components/index.vue'),
-        meta: {
-          title: '组件库',
-        },
-        children: [
-          {
-            path: '/components/bootstrap',
-            name: 'ComponentBootstrap',
-            component: () => import('@/views/bootstrap.vue'),
-            meta: {
-              title: '组件库-落雪',
-            },
-          },
-        ],
-      },
-      {
-        path: '/effect',
-        name: 'Effect',
-        redirect: '/effect/bootstrap',
-        component: () => import('@/views/effect/index.vue'),
-        meta: {
-          title: '效果',
-        },
-        children: [
-          {
-            path: '/effect/bootstrap',
-            name: 'EffectBootstrap',
-            component: () => import('@/views/bootstrap.vue'),
-            meta: {
-              title: '效果-落雪',
-            },
-          },
-        ],
-      },
     ],
   },
   {
@@ -105,27 +67,9 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Bootstrap',
     component: () => import('@/views/bootstrap.vue'),
     meta: {
-      title: '落雪之门',
+      title: '程序员的成长自留地',
     },
   },
-  /** test start */
-  {
-    path: '/test/test1',
-    name: 'Test1',
-    component: () => import('@/views/test/test1.vue'),
-    meta: {
-      title: '测试页-1',
-    },
-  },
-  {
-    path: '/test/test2',
-    name: 'Test2',
-    component: () => import('@/views/test/test2.vue'),
-    meta: {
-      title: '测试页-2',
-    },
-  },
-  /** test end */
   /** lab start */
   {
     path: '/lab/LED-light-word',
@@ -138,19 +82,11 @@ const routes: Array<RouteRecordRaw> = [
   /** lab end */
   /** trash start */
   {
-    path: '/trash/marquee',
-    name: 'TrashMarquee',
-    component: () => import('@/views/trash/LED-light-word/trash-marquee.vue'),
+    path: '/trash/message-box',
+    name: 'MessageBox',
+    component: () => import('@/views/trash/message-box/index.vue'),
     meta: {
-      title: 'trash-marquee',
-    },
-  },
-  {
-    path: '/trash/hammer',
-    name: 'Hammer',
-    component: () => import('@/views/trash/LED-light-word/trash-hammer.vue'),
-    meta: {
-      title: 'trash-hammer',
+      title: 'trash-message',
     },
   },
   /** trash end */
@@ -187,6 +123,19 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach(() => {
   NProgress.done()
+})
+
+router
+  .isReady()
+  .then(() =>
+    console.log(
+      "%cWelcome to ZhengJiangTao's website, have fun!",
+      'color: #43bb88;font-size: 24px;font-weight: bold;text-decoration: underline;'
+    )
+  )
+
+router.onError((err) => {
+  console.error(err)
 })
 
 export default router

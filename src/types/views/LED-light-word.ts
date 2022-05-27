@@ -5,7 +5,8 @@ export type TWordAttr = {
   direction: string
   speed: number
   count: string
-  isSquareBg: boolean
+  isSquareBg?: boolean
+  isFullScreen?: boolean
   color: string
   bgColor: string
 }
