@@ -22,6 +22,7 @@ import WordOperator from '@views/lab/LED-light-word/components/WordOperator.vue'
 import Cover from '@views/lab/LED-light-word/components/Cover.vue'
 import MyScreen from '@utils/screen'
 import { createDebugLogger } from '@utils/tool'
+import { multiply } from 'lodash'
 
 export default defineComponent({
   name: 'LEDLightWord',
@@ -118,7 +119,11 @@ export default defineComponent({
         state.isShowPanel = false
         proxy?._$message({ text: '配置成功', type: 'success' })
         Object.assign(state.configData, data)
-        state.configData.isFullScreen ? myScreen.fullScreen() : myScreen.exitFullScreen()
+        if (state.configData.isFullScreen) {
+          if (!myScreen.isFullScreen) {
+            myScreen.fullScreen()
+          }
+        }
         logger(`type: ${type}, data: ${JSON.stringify(data)}`)
       }
     }

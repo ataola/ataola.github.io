@@ -10,6 +10,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 import { faWeixin } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { globalComponents } from '@components/index'
 
 library.add(faSearch)
 library.add(faWeixin)
@@ -22,13 +23,7 @@ app.use(createPinia())
 app.use(directives)
 
 app.component('font-awesome-icon', FontAwesomeIcon)
-const modulesFiles: any = import.meta.globEager('./components/*/*.vue')
-const publicComponent = Object.keys(modulesFiles).filter((item: any) => true)
-publicComponent.forEach((item: any) => {
-  const componentConfig = modulesFiles[item]
-  const moduleName = componentConfig.default.name
-  app.component(moduleName, componentConfig.default || componentConfig)
-})
+globalComponents.forEach((component) => app.component(component.name, component))
 
 app.config.globalProperties._$message = CPMessage
 app.mount('#app')
