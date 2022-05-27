@@ -14,15 +14,11 @@
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
-import SideBar from '@/components/SideBar.vue'
-import DataStructImg from '@/static/cover/ds.jpg'
-import DesignPatternImg from '@/static/cover/design-pattern.jpg'
+import DataStructImg from '@static/cover/ds.jpg'
+import DesignPatternImg from '@static/cover/design-pattern.jpg'
 
 export default defineComponent({
   name: 'Subject',
-  components: {
-    [SideBar.name]: SideBar,
-  },
   setup(props, { emit, slots, attrs }) {
     const state = reactive({
       sideBarItem: {

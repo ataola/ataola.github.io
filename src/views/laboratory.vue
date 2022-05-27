@@ -15,14 +15,10 @@
 
 <script lang="ts">
 import { defineComponent, reactive, toRefs, onBeforeMount } from 'vue'
-import SideBar from '@/components/SideBar.vue'
 import { useRouter, RouteRecordName, useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'Laboratory',
-  components: {
-    [SideBar.name]: SideBar,
-  },
   setup(props, { emit, slots, attrs }) {
     const router = useRouter()
     const route = useRoute()
