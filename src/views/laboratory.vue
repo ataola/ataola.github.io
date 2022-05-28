@@ -23,13 +23,13 @@ declare type stateType = {
   sideBarItems: TItem[]
 }
 
-export default defineComponent<stateType>({
+export default defineComponent({
   name: 'Laboratory',
   setup(props, { emit, slots, attrs }) {
     const router = useRouter()
     const route = useRoute()
 
-    const state = reactive({
+    const state = reactive<stateType>({
       sideBarItem: {
         text: '落雪',
         value: 'LaboratoryBootstrap',
