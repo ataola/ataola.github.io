@@ -3,7 +3,7 @@
     <div class="left">
       <code>
         C:\Users\ataola>node<br />
-        Welcome to Node.js v16.14.2. Type ".help" for more information. <br />
+        Welcome to Node.js v16.14.2. <br />
         > Math.pow(1 + 0.01, 365) <br />
         37.78343433288728 <br />
         > Math.pow(1 + 0, 365)<br />
@@ -19,6 +19,26 @@
         > .exit<br />
         C:\Users\ataola>
       </code>
+      <pre>
+                    _ooOoo_
+                    o8888888o
+                    88" . "88
+                    (| -_- |)
+                    O\  =  /O
+                    ____/`---'\____
+                  .'  \\|     |//  `.
+                  /  \\|||  :  |||//  \
+                /  _||||| -:- |||||-  \
+                |   | \\\  -  /// |   |
+                | \_|  ''\-/''  |   |
+                \  .-\__  `-`  ___/-. /
+                    ___`. .'  /-.-\  `. . __
+                  ."" '&lt;  `.___\_&lt;|>_/___.'  >'"".
+                | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+                \  \ `-.   \_ __\ /__ _/   .-` /  /
+            ======`-.____`-.___\_____/___.-`____.-'======
+                              `=-='
+      </pre>
     </div>
     <div class="right">
       <div class="head">参<img :src="ICON_CHAN" alt="禅" />禅</div>
@@ -56,10 +76,18 @@ import ICON_CHAN from '@static/icons/chan.svg'
     flex: 1;
     background-color: #000;
     color: #fff;
+    position: relative;
     code {
       text-align: left;
       font-size: 0.18rem;
       padding: 0.15rem;
+    }
+    pre {
+      display: table;
+      font-size: 0.18rem;
+      position: absolute;
+      right: 0;
+      bottom: 0;
     }
   }
 
