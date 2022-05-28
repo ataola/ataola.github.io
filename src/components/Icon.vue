@@ -1,9 +1,9 @@
 <template>
-  <img class="img-box" :src="getStaticIconFile(name)" :alt="name" />
+  <img class="img-box" :src="getStaticIconFile(value)" :alt="value" />
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, toRef } from 'vue'
+import { defineComponent } from 'vue'
 import { getStaticIconFile } from '@utils/file'
 
 export default defineComponent({
@@ -15,16 +15,7 @@ export default defineComponent({
     },
   },
   setup(props, { emit, slots, attrs }) {
-    const name = toRef(props, 'value')
-
-    const url = computed(() => {
-      const { value } = props
-      return getStaticIconFile(value)
-    })
-
     return {
-      name,
-      url,
       getStaticIconFile,
     }
   },

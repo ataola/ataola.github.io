@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRef, PropType } from 'vue'
+import { defineComponent, PropType } from 'vue'
 import { TItem } from '@/types/components/sidebar'
 import NewImg from '@static/icons/new.svg'
 import HotImg from '@static/icons/hot.svg'
@@ -41,14 +41,11 @@ export default defineComponent({
     },
   },
   setup(props, { emit, slots, attrs }) {
-    const items = toRef(props, 'items')
-
     const isActive = (item) => {
       return props.value === item.value
     }
 
     return {
-      items,
       emit,
       isActive,
       NewImg,

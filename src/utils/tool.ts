@@ -8,4 +8,10 @@ function createDebugLogger(name: string): debug.Debugger {
   return debug(name)
 }
 
-export { getProperty, createDebugLogger }
+function getCurrentUrlInfo(): string {
+  const { hostname, hash } = window.location
+  const hashStr = hash.slice(1).replaceAll('/', ':')
+  return `${hostname}${hashStr}`
+}
+
+export { getProperty, createDebugLogger, getCurrentUrlInfo }

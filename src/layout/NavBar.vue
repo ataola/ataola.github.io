@@ -39,6 +39,11 @@
 import { defineComponent, PropType, reactive, toRef, toRefs } from 'vue'
 import { TNavBarItems } from '@/types/layout/navbar'
 
+declare type stateType = {
+  isSearch: boolean
+  searchField: string
+}
+
 export default defineComponent({
   name: 'NavBar',
   props: {
@@ -49,26 +54,25 @@ export default defineComponent({
     },
   },
   setup(props, { emit, slots, attrs }) {
-    const items = toRef(props, 'items')
-    const stateList = reactive({
+    const state = reactive<stateType>({
       isSearch: false,
       searchField: '',
     })
 
     const toggleSearch = () => {
-      stateList.isSearch = !stateList.isSearch
-      stateList.searchField = ''
+      state.isSearch = !state.isSearch
+      state.searchField = ''
     }
 
     const search = () => {
-      if (stateList.searchField) {
-        window.location.href = `https://www.baidu.com/s?wd=site:zhengjiangtao.cn ${stateList.searchField}`
+      if (state.searchField) {
+        // window.location.href = `https://www.baidu.com/s?wd=site:zhengjiangtao.cn ${state.searchField}`
+        window.location.href = `https://www.google.com/search?q=site:zhengjiangtao.cn ${state.searchField}`
       }
     }
 
     return {
-      items,
-      ...toRefs(stateList),
+      ...toRefs(state),
       toggleSearch,
       search,
     }

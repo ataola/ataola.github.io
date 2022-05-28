@@ -16,11 +16,19 @@
 import { defineComponent, reactive, toRefs } from 'vue'
 import DataStructImg from '@static/cover/ds.jpg'
 import DesignPatternImg from '@static/cover/design-pattern.jpg'
+import { TRObj } from '@/types/global/types'
+import { TItem } from '@/types/components/sidebar'
+
+declare type stateType = {
+  sideBarItem: TItem
+  sideBarItems: TItem[]
+  map: TRObj<string>
+}
 
 export default defineComponent({
   name: 'Subject',
   setup(props, { emit, slots, attrs }) {
-    const state = reactive({
+    const state = reactive<stateType>({
       sideBarItem: {
         text: '数据结构和算法',
         value: 'ds',

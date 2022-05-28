@@ -16,8 +16,14 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs, onBeforeMount } from 'vue'
 import { useRouter, RouteRecordName, useRoute } from 'vue-router'
+import { TItem } from '@/types/components/sidebar'
 
-export default defineComponent({
+declare type stateType = {
+  sideBarItem: TItem
+  sideBarItems: TItem[]
+}
+
+export default defineComponent<stateType>({
   name: 'Laboratory',
   setup(props, { emit, slots, attrs }) {
     const router = useRouter()

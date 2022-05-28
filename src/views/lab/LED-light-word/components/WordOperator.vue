@@ -194,7 +194,7 @@ export default defineComponent({
 
     const confirm = () => {
       if (!state.wordAttr.text) {
-        return proxy?._$message({ text: '请输入文字再提交！', type: 'error' })
+        return proxy?.$message({ text: '请输入文字再提交！', type: 'error' })
       }
       close('confirm', state.wordAttr)
     }

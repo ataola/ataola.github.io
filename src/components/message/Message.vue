@@ -1,6 +1,6 @@
 <template>
   <transition name="down">
-    <div v-show="isShow" class="cp-message" :style="style[type]">
+    <div v-show="isShow" class="message" :style="style[type]">
       <img :src="style[type].icon" />
       <span class="text">{{ text }}</span>
     </div>
@@ -8,13 +8,13 @@
 </template>
 <script lang="ts">
 import { onMounted, ref, defineComponent } from 'vue'
-import error from '@/static/icons/error.svg'
-import warn from '@/static/icons/warn.svg'
-import info from '@/static/icons/info.svg'
-import success from '@/static/icons/success.svg'
+import error from '@static/icons/error.svg'
+import warn from '@static/icons/warn.svg'
+import info from '@static/icons/info.svg'
+import success from '@static/icons/success.svg'
 
 export default defineComponent({
-  name: 'CPMessage',
+  name: 'Message',
   props: {
     text: {
       type: String,
@@ -78,8 +78,7 @@ export default defineComponent({
     }
   }
 }
-.cp-message {
-  min-width: 2rem;
+.message {
   height: 0.4rem;
   position: fixed;
   left: 50%;

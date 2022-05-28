@@ -128,10 +128,7 @@ router.afterEach(() => {
 router
   .isReady()
   .then(() =>
-    console.log(
-      "%cWelcome to ZhengJiangTao's website, have fun!",
-      'color: #43bb88;font-size: 24px;font-weight: bold;text-decoration: underline;'
-    )
+    console.log("%cWelcome to ZhengJiangTao's website, have fun!", 'color: #43bb88;font-size: 24px;font-weight: bold;')
   )
 
 router.onError((err) => {

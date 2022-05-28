@@ -9,6 +9,6 @@ export type TNavigationItem = {
 
 export type TSideBarItem = {
   text: string
-  title: string
+  title?: string
   value: string
 }
