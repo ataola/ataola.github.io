@@ -12,7 +12,7 @@ import { getCurrentInstance, ComponentInternalInstance } from 'vue'
 const { proxy } = getCurrentInstance() as ComponentInternalInstance
 
 const handleClick = (text: string, type: string, duration = 1000) => {
-  proxy?._$message({ text, type, duration })
+  proxy?.$message({ text, type, duration })
 }
 </script>
 

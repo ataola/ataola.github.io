@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <NavBar :items="stateList.navItems" />
+    <NavBar :items="state.navItems" />
     <router-view #default="{ Component, route }">
       <transition name="fade" mode="out-in">
         <!-- <keep-alive> -->
@@ -16,6 +16,11 @@
 import { defineComponent, reactive } from 'vue'
 import NavBar from '@layout/NavBar.vue'
 import Footer from '@layout/Footer.vue'
+import { TNavBarItems } from '@/types/layout/navbar'
+
+declare type stateType = {
+  navItems: TNavBarItems
+}
 
 export default defineComponent({
   name: 'Layout',
@@ -24,7 +29,7 @@ export default defineComponent({
     [Footer.name]: Footer,
   },
   setup(props, { emit, slots, attrs }) {
-    const stateList = reactive({
+    const state = reactive<stateType>({
       navItems: [
         {
           text: '首页',
@@ -63,7 +68,7 @@ export default defineComponent({
     })
 
     return {
-      stateList,
+      state,
     }
   },
 })

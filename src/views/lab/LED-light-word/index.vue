@@ -21,7 +21,7 @@ import Hammer from 'hammerjs'
 import WordOperator from '@views/lab/LED-light-word/components/WordOperator.vue'
 import Cover from '@views/lab/LED-light-word/components/Cover.vue'
 import MyScreen from '@utils/screen'
-import { createDebugLogger } from '@utils/tool'
+import { createDebugLogger, getCurrentUrlInfo } from '@utils/tool'
 
 export default defineComponent({
   name: 'LEDLightWord',
@@ -32,9 +32,7 @@ export default defineComponent({
   setup(props, { emit, slots, attrs }) {
     const { proxy } = getCurrentInstance() as ComponentInternalInstance
     const myScreen = new MyScreen()
-    const { hostname, hash } = window.location
-    const hashStr = hash.slice(1).replaceAll('/', ':')
-    const logger = createDebugLogger(`${hostname}${hashStr}`)
+    const logger = createDebugLogger(getCurrentUrlInfo())
 
     const state = reactive({
       swipeInfo: {
@@ -118,7 +116,7 @@ export default defineComponent({
         state.isShowPanel = false
       } else if (type === 'confirm') {
         state.isShowPanel = false
-        proxy?._$message({ text: '配置成功', type: 'success' })
+        proxy?.$message({ text: '配置成功', type: 'success' })
         Object.assign(state.configData, data)
         if (state.configData.isFullScreen) {
           if (!myScreen.isFullScreen) {

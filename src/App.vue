@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { debounce } from 'lodash-es'
-import { defineComponent, onBeforeMount } from 'vue'
+import { defineComponent, onBeforeMount, provide, readonly } from 'vue'
 
 export default defineComponent({
   name: 'App',
@@ -28,6 +28,33 @@ export default defineComponent({
         debouncedComputeRootFontSize
       )
       computeRootFontSize()
+
+      const {
+        appCodeName = '',
+        appName = '',
+        appVersion = '',
+        platform = '',
+        product = '',
+        productSub = '',
+        userAgent,
+        vendor,
+        vendorSub = '',
+      } = window.navigator
+      provide(
+        'navigatorInfo',
+        readonly({
+          appCodeName,
+          appName,
+          appVersion,
+          platform,
+          product,
+          productSub,
+          userAgent,
+          vendor,
+          vendorSub,
+          isMobile: !!userAgent.match(/(iPhone|iPod|iPad|Android|ios)/i),
+        })
+      )
     })
     return {}
   },
