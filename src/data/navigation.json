@@ -846,5 +846,21 @@
     "url": "https://shengxinjing.cn/",
     "avatar": "website",
     "description": "大圣前端编程自学网"
+  },
+  {
+    "id": "106",
+    "name": "WebAssembly",
+    "type": "webassembly",
+    "url": "https://webassembly.org/",
+    "avatar": "webassembly",
+    "description": "WebAssembly (abbreviated Wasm) is a binary instruction format for a stack-based virtual machine. Wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications."
+  },
+  {
+    "id": "107",
+    "name": "WasmFiddle",
+    "type": "webassembly",
+    "url": "https://wasdk.github.io/WasmFiddle/",
+    "avatar": "webassembly",
+    "description": "make c/c++ code to wasm code"
   }
 ]
