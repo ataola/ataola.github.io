@@ -23,6 +23,7 @@
       "@assets/*": ["./src/assets/*"],
       "@router/*": ["./src/router/*"],
       "@static/*": ["./src/static/*"],
+      "@mock": ["./src/mock/*"],
       "@scss/*": ["./src/assets/scss/*"],
       "@styles/*": ["./src/styles/*"],
       "@hooks/*": ["./src/hooks/*"],

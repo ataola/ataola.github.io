@@ -22,5 +22,6 @@ export const NAVIGATION_SHORT_MAP: TRObj<string> = {
   zjt: 'ZJT613',
   friendlink: 'FRIENDLINK',
   elasticsearch: 'ElasticSearch',
-  webassembly: 'WebAssembly',
+  webassembly: 'WEBASSEMBLY',
+  serverless: 'SERVERLESS',
 }

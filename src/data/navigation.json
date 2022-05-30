@@ -862,5 +862,101 @@
     "url": "https://wasdk.github.io/WasmFiddle/",
     "avatar": "webassembly",
     "description": "make c/c++ code to wasm code"
+  },
+  {
+    "id": "108",
+    "name": "SpriteJS",
+    "type": "visualization",
+    "url": "http://spritejs.com/",
+    "avatar": "visualization",
+    "description": "SpriteJS 是跨平台的高性能图形系统，它能够支持web、node、桌面应用和小程序的图形绘制和实现各种动画效果。"
+  },
+  {
+    "id": "109",
+    "name": "MDN-Canvas",
+    "type": "visualization",
+    "url": "https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API",
+    "avatar": "visualization",
+    "description": "Canvas API 提供了一个通过JavaScript 和 HTML的<canvas>元素来绘制图形的方式。它可以用于动画、游戏画面、数据可视化、图片编辑以及实时视频处理等方面。"
+  },
+  {
+    "id": "110",
+    "name": "MDN-SVG",
+    "type": "visualization",
+    "url": "https://developer.mozilla.org/zh-CN/docs/Web/SVG",
+    "avatar": "visualization",
+    "description": "可缩放矢量图形（Scalable Vector Graphics，SVG），是一种用于描述二维的矢量图形，基于 XML 的标记语言。作为一个基于文本的开放网络标准，SVG 能够优雅而简洁地渲染不同大小的图形，并和CSS，DOM，JavaScript和SMIL等其他网络标准无缝衔接。本质上，SVG 相对于图像，就好比 HTML 相对于文本。"
+  },
+  {
+    "id": "111",
+    "name": "MDN-WebGL",
+    "type": "visualization",
+    "url": "https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL_API",
+    "avatar": "visualization",
+    "description": "WebGL（Web图形库）是一个JavaScript API，可在任何兼容的Web浏览器中渲染高性能的交互式3D和2D图形，而无需使用插件。WebGL通过引入一个与OpenGL ES 2.0非常一致的API来做到这一点，该API可以在HTML5 <canvas>元素中使用。 这种一致性使API可以利用用户设备提供的硬件图形加速。"
+  },
+  {
+    "id": "112",
+    "name": "chartist",
+    "type": "visualization",
+    "url": "https://github.com/gionkunz/chartist-js",
+    "avatar": "visualization",
+    "description": "You may think that this is just yet an other charting library. But Chartist.js is the product of a community that was disappointed about the abilities provided by other charting libraries. Of course there are hundreds of other great charting libraries but after using them there were always tweaks you would have wished for that were not included."
+  },
+  {
+    "id": "113",
+    "name": "chartjs",
+    "type": "visualization",
+    "url": "https://www.chartjs.org/",
+    "avatar": "visualization",
+    "description": "Simple yet flexible JavaScript charting for designers & developers"
+  },
+  {
+    "id": "114",
+    "name": "mapbox",
+    "type": "visualization",
+    "url": "https://www.mapbox.com/",
+    "avatar": "visualization",
+    "description": "Precise location data and powerful developer tools to change the way we navigate the world."
+  },
+  {
+    "id": "115",
+    "name": "leafletjs",
+    "type": "visualization",
+    "url": "https://leafletjs.com/",
+    "avatar": "visualization",
+    "description": "Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps. Weighing just about 42 KB of JS, it has all the mapping features most developers ever need."
+  },
+  {
+    "id": "116",
+    "name": "deck.gl",
+    "type": "visualization",
+    "url": "https://deck.gl/",
+    "avatar": "visualization",
+    "description": "deck.gl is a WebGL-powered framework for visual exploratory data analysis of large datasets."
+  },
+  {
+    "id": "117",
+    "name": "cesiumjs",
+    "type": "visualization",
+    "url": "https://cesium.com/platform/cesiumjs/",
+    "avatar": "visualization",
+    "description": "CesiumJS is an open source JavaScript library for creating world-class 3D globes and maps with the best possible performance, precision, visual quality, and ease of use. Developers across industries, from aerospace to smart cities to drones, use CesiumJS to create interactive web apps for sharing dynamic geospatial data."
+  },
+  {
+    "id": "118",
+    "name": "threejs",
+    "type": "visualization",
+    "url": "https://threejs.org/",
+    "avatar": "visualization",
+    "description": "一个很棒的3D可视化库"
+  },
+  {
+    "id": "119",
+    "name": "serverless中文站",
+    "type": "serverless",
+    "url": "https://cn.serverless.com/",
+    "avatar": "serverless",
+    "description": "Serverless 是一种由开发人员和企业共同推动的运动，他们意识到软件正在吞噬世界，但如果您自己构建和维护所有软件，您也会被吞噬。这一运动要求将构建应用程序中最琐碎的部分抽象化，以便开发人员能够真正将时间花在交付业务价值上。"
   }
 ]
