@@ -54,8 +54,8 @@ export default defineComponent({
     const { proxy } = getCurrentInstance() as ComponentInternalInstance
     const state = reactive<stateType>({
       sideBarItem: {
-        text: 'TS',
-        value: 'typescript',
+        text: 'JS',
+        value: 'javascript',
       },
       navigationItems: [],
       page: 1,
@@ -121,8 +121,8 @@ export default defineComponent({
 
     const changeSideBar = (value: string | number) => {
       state.sideBarItem = sideBarItems.value.find((item: any) => item.value === value) || {
-        text: 'TS',
-        value: 'typescript',
+        text: 'JS',
+        value: 'javascript',
       }
       state.page = 1
     }

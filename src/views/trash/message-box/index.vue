@@ -9,12 +9,14 @@
 
 <script setup lang="ts">
 import { getCurrentInstance, ComponentInternalInstance } from 'vue'
+import useMouse from '@/hooks/useMouse'
 import Service from './api/index'
 
 const { proxy } = getCurrentInstance() as ComponentInternalInstance
+const { x, y } = useMouse()
 
 const handleClick = (text: string, type: string, duration = 1000) => {
-  proxy?.$message({ text, type, duration })
+  proxy?.$message({ text: `${text}, ${x.value}, ${y.value}`, type, duration })
 }
 
 ;(async () => {

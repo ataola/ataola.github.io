@@ -958,5 +958,61 @@
     "url": "https://cn.serverless.com/",
     "avatar": "serverless",
     "description": "Serverless 是一种由开发人员和企业共同推动的运动，他们意识到软件正在吞噬世界，但如果您自己构建和维护所有软件，您也会被吞噬。这一运动要求将构建应用程序中最琐碎的部分抽象化，以便开发人员能够真正将时间花在交付业务价值上。"
+  },
+  {
+    "id": "120",
+    "name": "HTTP Methods",
+    "type": "tutorial",
+    "url": "https://restfulapi.net/http-methods/",
+    "avatar": "tutorial",
+    "description": "REST guidelines suggest using a specific HTTP method on a particular type of call made to the server (though technically it is possible to violate this guideline, yet it is highly discouraged)."
+  },
+  {
+    "id": "121",
+    "name": "jwt",
+    "type": "tools",
+    "url": "https://jwt.io/",
+    "avatar": "tools",
+    "description": "JSON Web Tokens are an open, industry standard RFC 7519 method for representing claims securely between two parties."
+  },
+  {
+    "id": "122",
+    "name": "docker docs",
+    "type": "docker",
+    "url": "https://docs.docker.com/get-docker/",
+    "avatar": "docker",
+    "description": "Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications. By taking advantage of Docker’s methodologies for shipping, testing, and deploying code quickly, you can significantly reduce the delay between writing code and running it in production."
+  },
+  {
+    "id": "123",
+    "name": "docker hub",
+    "type": "docker",
+    "url": "https://hub.docker.com/",
+    "avatar": "docker",
+    "description": "Docker Hub is the world's easiest way to create, manage, and deliver your team's container applications."
+  },
+  {
+    "id": "124",
+    "name": "k8s",
+    "type": "docker",
+    "url": "https://kubernetes.io/",
+    "avatar": "docker",
+    "description": "Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications."
+  },
+  {
+    "id": "125",
+    "name": "git for windows",
+    "type": "download",
+    "url": "https://gitforwindows.org/",
+    "avatar": "download",
+    "description": "Git for Windows focuses on offering a lightweight, native set of tools that bring the full feature set of the Git SCM to Windows while providing appropriate user interfaces for experienced Git users and novices alike."
+  },
+  {
+    "id": "126",
+    "name": "csstriggers",
+    "type": "css",
+    "url": "https://csstriggers.com/",
+    "avatar": "css",
+    "description": "css triggers"
   }
 ]
