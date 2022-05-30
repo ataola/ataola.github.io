@@ -81,6 +81,7 @@ a {
 
 .waveline {
   position: relative;
+  // text-decoration: underline wavy; //实际上这样写就够了 MDN看到的
 }
 
 .waveline::after {

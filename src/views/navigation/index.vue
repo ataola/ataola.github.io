@@ -22,12 +22,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs, computed, inject, getCurrentInstance, ComponentInternalInstance } from 'vue'
+import {
+  defineComponent,
+  reactive,
+  toRefs,
+  computed,
+  inject,
+  getCurrentInstance,
+  ComponentInternalInstance,
+  onBeforeMount,
+} from 'vue'
 import NavigationItem from './components/NavigationItem.vue'
 import { TNavigationItem, TSideBarItem } from '@/types/views/navigation'
 import { TNavigatorInfo } from '@/types/app'
 import { NAVIGATION_SHORT_MAP } from '@/constant'
-import navigationItems from '@/data/navigation.json'
+import NavigationService from './api/index'
 
 declare type stateType = {
   sideBarItem: TSideBarItem
@@ -45,10 +54,10 @@ export default defineComponent({
     const { proxy } = getCurrentInstance() as ComponentInternalInstance
     const state = reactive<stateType>({
       sideBarItem: {
-        text: 'JS',
-        value: 'javascript',
+        text: 'TS',
+        value: 'typescript',
       },
-      navigationItems,
+      navigationItems: [],
       page: 1,
       size: 9,
     })
@@ -112,8 +121,8 @@ export default defineComponent({
 
     const changeSideBar = (value: string | number) => {
       state.sideBarItem = sideBarItems.value.find((item: any) => item.value === value) || {
-        text: 'JS',
-        value: 'javascript',
+        text: 'TS',
+        value: 'typescript',
       }
       state.page = 1
     }
@@ -124,6 +133,15 @@ export default defineComponent({
       }
       state.page++
     }
+
+    onBeforeMount(async () => {
+      try {
+        const data = await NavigationService.getNavigation()
+        Object.assign(state.navigationItems, data)
+      } catch (e) {
+        console.log(e)
+      }
+    })
 
     return {
       ...toRefs(state),

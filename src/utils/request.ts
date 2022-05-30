@@ -1,18 +1,19 @@
-import axios, { AxiosInstance, AxiosError, AxiosRequestConfig } from 'axios'
+import Axios, { AxiosInstance, AxiosError, AxiosRequestConfig } from 'axios'
 import { IRequestParams, IRequestResponse, TBackData } from '@/types/global/request'
+import Message from '@components/message/index'
 
 interface MyAxiosInstance extends AxiosInstance {
-  (config: AxiosRequestConfig): Promise<any>
+  (config: IRequestParams): Promise<any>
 
   (url: string, config?: AxiosRequestConfig): Promise<any>
 }
 
-export class Request {
+export default class Request {
   public static axiosInstance: MyAxiosInstance
 
   public static init() {
     // 创建axios实例
-    this.axiosInstance = axios.create({
+    this.axiosInstance = Axios.create({
       baseURL: '/api',
       timeout: 10000,
     })
@@ -23,7 +24,13 @@ export class Request {
   // 初始化拦截器
   public static initInterceptors() {
     // 设置post请求头
-    this.axiosInstance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+    // this.axiosInstance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+    // 允许携带cookie
+    this.axiosInstance.defaults.withCredentials = true
+    // 请求头信息
+    this.axiosInstance.defaults.headers['X-Requested-With'] = 'XMLHttpRequest'
+    // 默认使用 application/json 形式
+    this.axiosInstance.defaults.headers.post['Content-Type'] = 'application/json'
     /**
      * 请求拦截器
      * 每次请求前，如果存在token则在请求头中携带token
@@ -60,7 +67,7 @@ export class Request {
           // 请求已发出，但是不在2xx的范围
           Request.errorHandle(response)
         } else {
-          alert('网络连接异常,请稍后再试!')
+          Message({ text: '网络连接异常,请稍后再试!', type: 'error' })
         }
         return Promise.reject(response?.data)
       }
@@ -80,11 +87,11 @@ export class Request {
       case 403:
         break
       case 404:
-        alert('请求的资源不存在')
+        Message({ text: '请求的资源不存在', type: 'error' })
         break
       default:
         // 错误信息判断
-        message && alert(message)
+        message && Message({ text: message, type: 'error' })
     }
   }
 }

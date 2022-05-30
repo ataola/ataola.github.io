@@ -12,7 +12,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/home',
         name: 'Home',
-        component: () => import('@/views/home.vue'),
+        component: () => import('@views/home.vue'),
         meta: {
           title: '首页',
         },
@@ -20,7 +20,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/navigation',
         name: 'Navigation',
-        component: () => import('@/views/navigation/index.vue'),
+        component: () => import('@views/navigation/index.vue'),
         meta: {
           title: '导航',
         },
@@ -28,7 +28,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/subject',
         name: 'Subject',
-        component: () => import('@/views/subject.vue'),
+        component: () => import('@views/subject.vue'),
         meta: {
           title: '专题',
         },
@@ -37,7 +37,7 @@ const routes: Array<RouteRecordRaw> = [
         path: '/laboratory',
         name: 'Laboratory',
         redirect: '/laboratory/bootstrap',
-        component: () => import('@/views/laboratory.vue'),
+        component: () => import('@views/laboratory.vue'),
         meta: {
           title: '实验室',
         },
@@ -45,7 +45,7 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: '/laboratory/bootstrap',
             name: 'LaboratoryBootstrap',
-            component: () => import('@/views/bootstrap.vue'),
+            component: () => import('@views/bootstrap.vue'),
             meta: {
               title: '落雪飘飘',
             },
@@ -53,7 +53,7 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: '/laboratory/LED-light-word',
             name: 'LEDLightWordIntro',
-            component: () => import('@/views/introduction/LED-light-word.vue'),
+            component: () => import('@views/introduction/LED-light-word.vue'),
             meta: {
               title: '流萤介绍',
             },
@@ -65,7 +65,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/bootstrap',
     name: 'Bootstrap',
-    component: () => import('@/views/bootstrap.vue'),
+    component: () => import('@views/bootstrap.vue'),
     meta: {
       title: '程序员的成长自留地',
     },
@@ -74,7 +74,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/lab/LED-light-word',
     name: 'LEDLightWord',
-    component: () => import('@/views/lab/LED-light-word/index.vue'),
+    component: () => import('@views/lab/LED-light-word/index.vue'),
     meta: {
       title: '流萤',
     },
@@ -84,17 +84,36 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/trash/message-box',
     name: 'MessageBox',
-    component: () => import('@/views/trash/message-box/index.vue'),
+    component: () => import('@views/trash/message-box/index.vue'),
     meta: {
       title: 'trash-message',
     },
   },
   /** trash end */
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('@views/404.vue'),
+    meta: {
+      title: '404',
+    },
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: () => import('@views/404.vue'),
+    meta: {
+      title: '404',
+    },
+  },
 ]
 
 const router = createRouter({
   history: createWebHashHistory(), // https://router.vuejs.org/guide/essentials/history-mode.html#hash-mode
   routes,
+  scrollBehavior: () => ({
+    top: 0,
+  }),
 })
 
 router.beforeEach((to, from, next) => {

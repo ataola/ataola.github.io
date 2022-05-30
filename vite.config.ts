@@ -86,6 +86,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
         '@assets': resolve(__dirname, 'rc/assets'),
         '@router': resolve(__dirname, 'src/router'),
         '@static': resolve(__dirname, 'src/static'),
+        '@mock': resolve(__dirname, 'src/mock'),
         '@scss': resolve(__dirname, 'src/assets/scss'),
         '@styles': resolve(__dirname, 'src/styles'),
         '@hooks': resolve(__dirname, 'src/hooks'),
