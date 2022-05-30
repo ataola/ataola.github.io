@@ -39,3 +39,5 @@ export type TOption = {
   alias?: string
   code?: string | number
 }
+
+export type TStorageValue<T> = T | TObj<T> | Array<T>
