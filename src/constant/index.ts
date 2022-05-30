@@ -24,4 +24,7 @@ export const NAVIGATION_SHORT_MAP: TRObj<string> = {
   elasticsearch: 'ElasticSearch',
   webassembly: 'WEBASSEMBLY',
   serverless: 'SERVERLESS',
+  tutorial: 'TUTORIAL',
+  docker: 'DOCKER',
+  download: 'DOWNLOAD',
 }
