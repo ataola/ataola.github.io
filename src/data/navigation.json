@@ -1014,5 +1014,21 @@
     "url": "https://csstriggers.com/",
     "avatar": "css",
     "description": "css triggers"
+  },
+  {
+    "id": "127",
+    "name": "vim",
+    "type": "download",
+    "url": "https://www.vim.org/download.php",
+    "avatar": "download",
+    "description": "a good editor"
+  },
+  {
+    "id": "128",
+    "name": "google浏览器",
+    "type": "download",
+    "url": "https://www.google.cn/chrome/",
+    "avatar": "download",
+    "description": "google chrome 网络浏览器"
   }
 ]

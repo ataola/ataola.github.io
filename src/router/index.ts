@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory, Router, RouteRecordRaw } from 'vue-router'
 import layout from '@/layout/index.vue'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
@@ -108,7 +108,7 @@ const routes: Array<RouteRecordRaw> = [
   },
 ]
 
-const router = createRouter({
+const router: Router = createRouter({
   history: createWebHashHistory(), // https://router.vuejs.org/guide/essentials/history-mode.html#hash-mode
   routes,
   scrollBehavior: () => ({
