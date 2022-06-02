@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "types": ["jest", "node"],
+    "typeRoots": ["node_modules/@types"],
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
@@ -29,7 +31,7 @@
       "@hooks/*": ["./src/hooks/*"],
       "@directives/*": ["./src/directives/*"],
       "@components/*": ["./src/components/*"],
-      "@constants/*": ["./src/constants/*"],
+      "@constants/*": ["./src/constants/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]

@@ -29,4 +29,5 @@ export const NAVIGATION_SHORT_MAP: TRObj<string> = {
   download: 'DOWNLOAD',
   python: 'PYTHON',
   rust: 'RUST',
+  test: 'TEST',
 }

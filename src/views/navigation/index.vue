@@ -51,6 +51,8 @@ export default defineComponent({
     [NavigationItem.name]: NavigationItem,
   },
   setup(props, { emit, slots, attrs }) {
+    // const instance:ComponentInternalInstance|null =getCurrentInstance() 也可以这么写
+    // instance.appContext.config.globalProperties
     const { proxy } = getCurrentInstance() as ComponentInternalInstance
     const state = reactive<stateType>({
       sideBarItem: {

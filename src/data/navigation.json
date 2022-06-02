@@ -1174,5 +1174,13 @@
     "url": "http://www.sublimetext.com/3",
     "avatar": "download",
     "description": "sublimetext3下载"
+  },
+  {
+    "id": "146",
+    "name": "jest中文网",
+    "type": "test",
+    "url": "https://www.jestjs.cn/",
+    "avatar": "test",
+    "description": "Jest 是一个令人愉快的 JavaScript 测试框架，专注于 简洁明快。这些项目都在使用 Jest：Babel、 TypeScript、 Node、 React、 Angular、 Vue 等等！"
   }
 ]
