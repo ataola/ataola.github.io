@@ -1014,5 +1014,173 @@
     "url": "https://csstriggers.com/",
     "avatar": "css",
     "description": "css triggers"
+  },
+  {
+    "id": "127",
+    "name": "vim",
+    "type": "download",
+    "url": "https://www.vim.org/download.php",
+    "avatar": "download",
+    "description": "a good editor"
+  },
+  {
+    "id": "128",
+    "name": "google浏览器",
+    "type": "download",
+    "url": "https://www.google.cn/chrome/",
+    "avatar": "download",
+    "description": "google chrome 网络浏览器"
+  },
+  {
+    "id": "129",
+    "name": "serverless中文网",
+    "type": "serverless",
+    "url": "https://serverlesscloud.cn/",
+    "avatar": "serverless",
+    "description": "Serverless 是一种由开发人员和企业共同推动的运动，他们意识到软件正在吞噬世界，但如果您自己构建和维护所有软件，您也会被吞噬。这一运动要求将构建应用程序中最琐碎的部分抽象化，以便开发人员能够真正将时间花在交付业务价值上。"
+  },
+  {
+    "id": "130",
+    "name": "serverless",
+    "type": "serverless",
+    "url": "https://github.com/serverless/",
+    "avatar": "github",
+    "description": "Serverless 的GitHub地址"
+  },
+  {
+    "id": "131",
+    "name": "serverless-components",
+    "type": "serverless",
+    "url": "https://github.com/serverless-components",
+    "avatar": "github",
+    "description": "Serverless Components的github地址"
+  },
+  {
+    "id": "132",
+    "name": "tencent-serverless",
+    "type": "serverless",
+    "url": "https://cloud.tencent.com/product/sls",
+    "avatar": "tencent",
+    "description": "腾讯云的Serverless产品"
+  },
+  {
+    "id": "133",
+    "name": "VSCode",
+    "type": "download",
+    "url": "https://code.visualstudio.com/",
+    "avatar": "download",
+    "description": "Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity)."
+  },
+  {
+    "id": "134",
+    "name": "Anaconda",
+    "type": "download",
+    "url": "https://www.anaconda.com/",
+    "avatar": "download",
+    "description": "Anaconda offers the easiest way to perform Python/R data science and machine learning on a single machine. Start working with thousands of open-source packages and libraries today."
+  },
+  {
+    "id": "135",
+    "name": "jupyter notebook",
+    "type": "download",
+    "url": "https://jupyter.org/",
+    "avatar": "download",
+    "description": "JupyterLab is the latest web-based interactive development environment for notebooks, code, and data. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning. A modular design invites extensions to expand and enrich functionality."
+  },
+  {
+    "id": "136",
+    "name": "pypi",
+    "type": "python",
+    "url": "https://pypi.org/",
+    "avatar": "python",
+    "description": "Find, install and publish Python packages with the Python Package Index"
+  },
+  {
+    "id": "137",
+    "name": "python docs",
+    "type": "python",
+    "url": "https://docs.python.org/zh-cn/3.9/library/index.html",
+    "avatar": "python",
+    "description": "Python 语言参考手册 描述了 Python 语言的具体语法和语义，这份库参考则介绍了与 Python 一同发行的标准库。它还描述了通常包含在 Python 发行版中的一些可选组件"
+  },
+  {
+    "id": "137",
+    "name": "python",
+    "type": "download",
+    "url": "https://www.python.org/downloads/",
+    "avatar": "download",
+    "description": "Python下载地址"
+  },
+  {
+    "id": "138",
+    "name": "godbolt",
+    "type": "tools",
+    "url": "https://godbolt.org/",
+    "avatar": "tools",
+    "description": "把C/c++语言转换成汇编"
+  },
+  {
+    "id": "139",
+    "name": "rustup",
+    "type": "download",
+    "url": "https://rustup.rs/",
+    "avatar": "download",
+    "description": "安装rust的网站"
+  },
+  {
+    "id": "140",
+    "name": "Rust Playground",
+    "type": "rust",
+    "url": "https://play.rust-lang.org/",
+    "avatar": "rust",
+    "description": "在线写rust的地方"
+  },
+  {
+    "id": "141",
+    "name": "mysql forum",
+    "type": "forum",
+    "url": "https://forums.mysql.com/",
+    "avatar": "mysql",
+    "description": "MySQL的官方论坛"
+  },
+  {
+    "id": "142",
+    "name": "mysql",
+    "type": "download",
+    "url": "https://dev.mysql.com/downloads/mysql/8.0.html/",
+    "avatar": "download",
+    "description": "downlod mysql8"
+  },
+  {
+    "id": "143",
+    "name": "visualstudio",
+    "type": "download",
+    "url": "https://visualstudio.microsoft.com/zh-hans/vs/compare/",
+    "avatar": "download",
+    "description": "downlod visualstudio"
+  },
+  {
+    "id": "144",
+    "name": "jetbrains",
+    "type": "download",
+    "url": "https://www.jetbrains.com/",
+    "avatar": "download",
+    "description": "JB全家桶"
+  },
+  {
+    "id": "145",
+    "name": "sublimetext",
+    "type": "download",
+    "url": "http://www.sublimetext.com/3",
+    "avatar": "download",
+    "description": "sublimetext3下载"
+  },
+  {
+    "id": "146",
+    "name": "jest中文网",
+    "type": "test",
+    "url": "https://www.jestjs.cn/",
+    "avatar": "test",
+    "description": "Jest 是一个令人愉快的 JavaScript 测试框架，专注于 简洁明快。这些项目都在使用 Jest：Babel、 TypeScript、 Node、 React、 Angular、 Vue 等等！"
   }
 ]

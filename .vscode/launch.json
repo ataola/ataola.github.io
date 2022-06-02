@@ -7,7 +7,6 @@
       "request": "launch",
       "type": "node-terminal"
     },
-
     {
       "type": "pwa-chrome",
       "request": "launch",
@@ -15,6 +14,21 @@
       "url": "http://localhost:3000",
       "skipFiles": ["<node_internals>/**"],
       "webRoot": "${workspaceFolder}/src"
+    },
+    // https://cn.vuejs.org/v2/cookbook/debugging-in-vscode.html
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "vuejs: chrome",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}/src",
+    },
+    {
+      "type": "firefox",
+      "request": "launch",
+      "name": "vuejs: firefox",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}/src",
     }
   ]
 }
