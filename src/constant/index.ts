@@ -27,4 +27,6 @@ export const NAVIGATION_SHORT_MAP: TRObj<string> = {
   tutorial: 'TUTORIAL',
   docker: 'DOCKER',
   download: 'DOWNLOAD',
+  python: 'PYTHON',
+  rust: 'RUST',
 }
