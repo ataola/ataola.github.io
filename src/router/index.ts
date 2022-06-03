@@ -36,22 +36,14 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/laboratory',
         name: 'Laboratory',
-        redirect: '/laboratory/bootstrap',
+        redirect: '/laboratory/liuying',
         component: () => import('@views/laboratory.vue'),
         meta: {
           title: '实验室',
         },
         children: [
           {
-            path: '/laboratory/bootstrap',
-            name: 'LaboratoryBootstrap',
-            component: () => import('@views/bootstrap.vue'),
-            meta: {
-              title: '落雪飘飘',
-            },
-          },
-          {
-            path: '/laboratory/LED-light-word',
+            path: '/laboratory/liuying',
             name: 'LEDLightWordIntro',
             component: () => import('@views/introduction/LED-light-word.vue'),
             meta: {
@@ -72,7 +64,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   /** lab start */
   {
-    path: '/lab/LED-light-word',
+    path: '/lab/liuying',
     name: 'LEDLightWord',
     component: () => import('@views/lab/LED-light-word/index.vue'),
     meta: {

@@ -1182,5 +1182,21 @@
     "url": "https://www.jestjs.cn/",
     "avatar": "test",
     "description": "Jest 是一个令人愉快的 JavaScript 测试框架，专注于 简洁明快。这些项目都在使用 Jest：Babel、 TypeScript、 Node、 React、 Angular、 Vue 等等！"
+  },
+  {
+    "id": "147",
+    "name": "jest官网",
+    "type": "test",
+    "url": "https://jestjs.io/",
+    "avatar": "test",
+    "description": "Jest is a delightful JavaScript Testing Framework with a focus on simplicity."
+  },
+  {
+    "id": "148",
+    "name": "async-validator",
+    "type": "util",
+    "url": "https://github.com/yiminghe/async-validator",
+    "avatar": "util",
+    "description": "Validate form asynchronous. "
   }
 ]
