@@ -1198,5 +1198,85 @@
     "url": "https://github.com/yiminghe/async-validator",
     "avatar": "util",
     "description": "Validate form asynchronous. "
+  },
+  {
+    "id": "149",
+    "name": "css3generator",
+    "type": "css",
+    "url": "https://css3generator.com/",
+    "avatar": "css",
+    "description": "CSS3 Generator是一款免费的在线应用，它可以让你快速编写一些现代CSS功能的代码，如Flexbox、渐变、过渡和变换等"
+  },
+  {
+    "id": "150",
+    "name": "CSS Generator",
+    "type": "css",
+    "url": "https://webcode.tools/generators/css",
+    "avatar": "css",
+    "description": "CSS Generator是一个免费的在线应用程序，可让您生成CSS动画，背景，渐变，边框，滤镜等的代码。"
+  },
+  {
+    "id": "151",
+    "name": "CSS Grid",
+    "type": "css",
+    "url": "https://css-grid-layout-generator.pw/",
+    "avatar": "css",
+    "description": "Dmitrii Bykov编写的CSS Grid Layout Generator是免费的，可以在线访问，并且非常灵活。我试了一下，发现它在网格容器级别和网格项目级别上为我提供了很多控制，同时为我提供了不错的预览功能和简洁的代码。"
+  },
+  {
+    "id": "152",
+    "name": "SVGOMG",
+    "type": "tools",
+    "url": "https://jakearchibald.github.io/svgomg/",
+    "avatar": "tools",
+    "description": "SVGOMG是一个免费的在线应用程序，可让你将许多优化选项应用于SVG代码并预览最终结果。易于使用，也可以离线使用。"
+  },
+  {
+    "id": "153",
+    "name": "animate.css",
+    "type": "css",
+    "url": "https://animate.style/",
+    "avatar": "css",
+    "description": "Animate.css is a library of ready-to-use, cross-browser animations for use in your web projects. Great for emphasis, home pages, sliders, and attention-guiding hints. "
+  },
+  {
+    "id": "154",
+    "name": "greensock",
+    "type": "visualization",
+    "url": "https://greensock.com/",
+    "avatar": "visualization",
+    "description": "GSAP（GreenSock动画平台）提供“针对现代网络的超高性能，专业级动画”。其高度直观的JavaScript驱动的语法使你可以立即构建出色的动画。从DOM元素和JavaScript对象到SVG，Canvas和WebGL身临其境的体验，可以使用GSAP进行动画制作的对象没有任何限制。此外，GSAP是跨浏览器的，并且向后兼容，并提供了出色的文档和支持社区。"
+  },
+  {
+    "id": "155",
+    "name": "anime.js",
+    "type": "util",
+    "url": "https://animejs.com/",
+    "avatar": "util",
+    "description": "Anime.js 是一个轻量级的JavaScript动画库，具有简单而强大的API。它与CSS属性，SVG，DOM属性和JavaScript对象一起使用。"
+  },
+  {
+    "id": "156",
+    "name": "Am I Responsive",
+    "type": "tools",
+    "url": "https://ui.dev/amiresponsive",
+    "avatar": "tools",
+    "description": "这是一个免费的在线应用程序，可让您快速检查网站在不同屏幕尺寸下的外观。"
+  },
+  {
+    "id": "157",
+    "name": "Responsive Web Design Checker",
+    "type": "tools",
+    "url": "https://responsivedesignchecker.com/",
+    "avatar": "tools",
+    "description": "Responsive Web Design Checker，即响应式网页设计检查器，是另一个免费的在线应用，可以测试你的网站不仅在不同的屏幕尺寸上，而且在各种设备上的外观。其中包括各种台式机和笔记本电脑，Apple iPad Retina和Amazon Kindle Fire等平板电脑，以及Apple iPhone 6/7 Plus，三星Galaxy等智能手机。"
+  },
+  {
+    "id": "158",
+    "name": "materialize",
+    "type": "css",
+    "url": "https://materializecss.com/",
+    "avatar": "css",
+    "description": "A modern responsive front-end framework based on Material Design"
   }
 ]
