@@ -537,7 +537,7 @@
   },
   {
     "id": "67",
-    "name": "Segmentfault Question",
+    "name": "Segmentfault FAQ",
     "type": "forum",
     "url": "https://segmentfault.com/questions",
     "avatar": "forum",
@@ -545,7 +545,7 @@
   },
   {
     "id": "68",
-    "name": "Stackoverflow Question",
+    "name": "Stackoverflow FAQ",
     "type": "forum",
     "url": "https://stackoverflow.com/questions",
     "avatar": "forum",
@@ -737,7 +737,7 @@
   },
   {
     "id": "92",
-    "name": "codepen-ataola",
+    "name": "codepen",
     "type": "zjt",
     "url": "https://codepen.io/ataola",
     "avatar": "zjt",
@@ -745,7 +745,7 @@
   },
   {
     "id": "93",
-    "name": "yuque-ataola",
+    "name": "yuque",
     "type": "zjt",
     "url": "https://www.yuque.com/ataola",
     "avatar": "zjt",
@@ -753,7 +753,7 @@
   },
   {
     "id": "94",
-    "name": "cnblogs-ataola",
+    "name": "cnblogs",
     "type": "zjt",
     "url": "https://www.cnblogs.com/cnroadbridge/",
     "avatar": "zjt",
@@ -761,7 +761,7 @@
   },
   {
     "id": "95",
-    "name": "腾讯云社区-ataola",
+    "name": "腾讯云社区",
     "type": "zjt",
     "url": "https://cloud.tencent.com/developer/user/2705701",
     "avatar": "zjt",
@@ -769,7 +769,7 @@
   },
   {
     "id": "96",
-    "name": "github-ataola",
+    "name": "github",
     "type": "zjt",
     "url": "https://github.com/ataola",
     "avatar": "zjt",
@@ -785,7 +785,7 @@
   },
   {
     "id": "98",
-    "name": "gitee-ataola",
+    "name": "gitee",
     "type": "zjt",
     "url": "https://gitee.com/taoge2021",
     "avatar": "zjt",
@@ -793,7 +793,7 @@
   },
   {
     "id": "99",
-    "name": "leetcode-ataola",
+    "name": "leetcode",
     "type": "zjt",
     "url": "https://leetcode.cn/u/ataola/",
     "avatar": "zjt",
@@ -801,7 +801,7 @@
   },
   {
     "id": "100",
-    "name": "nowcoder-ataola",
+    "name": "nowcoder",
     "type": "zjt",
     "url": "https://www.nowcoder.com/profile/2285622",
     "avatar": "zjt",
@@ -1049,7 +1049,7 @@
   },
   {
     "id": "131",
-    "name": "serverless-components",
+    "name": "components",
     "type": "serverless",
     "url": "https://github.com/serverless-components",
     "avatar": "github",
@@ -1057,7 +1057,7 @@
   },
   {
     "id": "132",
-    "name": "tencent-serverless",
+    "name": "tencent",
     "type": "serverless",
     "url": "https://cloud.tencent.com/product/sls",
     "avatar": "tencent",
@@ -1265,7 +1265,7 @@
   },
   {
     "id": "157",
-    "name": "Responsive Web Design Checker",
+    "name": "RWDC",
     "type": "tools",
     "url": "https://responsivedesignchecker.com/",
     "avatar": "tools",
