@@ -31,14 +31,10 @@ export default defineComponent({
 
     const state = reactive<stateType>({
       sideBarItem: {
-        text: '落雪',
-        value: 'LaboratoryBootstrap',
+        text: '流萤',
+        value: 'LEDLightWordIntro',
       },
       sideBarItems: [
-        {
-          text: '落雪',
-          value: 'LaboratoryBootstrap',
-        },
         {
           text: '流萤',
           value: 'LEDLightWordIntro',
@@ -49,8 +45,9 @@ export default defineComponent({
 
     const changeSideBar = (value: string | number) => {
       state.sideBarItem = state.sideBarItems.find((item: any) => item.value === value) || {
-        text: '落雪',
-        value: 'LaboratoryBootstrap',
+        text: '流萤',
+        value: 'LEDLightWordIntro',
+        isNew: true,
       }
 
       const name = value as RouteRecordName
