@@ -49,15 +49,15 @@
           @input="(value: string) => handleInput('size', value)"
         />
       </div>
-      <div class="item">
+      <!-- <div class="item">
         <div class="item-title">方向:</div>
         <RadioBox
           :value="wordAttr.direction"
           :options="directionOptions"
           @input="(value: string) => handleInput('direction', value)"
         />
-      </div>
-      <div class="item">
+      </div> -->
+      <div v-if="wordAttr.type === 'roll'" class="item">
         <div class="item-title">速度:</div>
         <RadioBox
           :value="wordAttr.speed"
@@ -65,14 +65,14 @@
           @input="(value: string) => handleInput('speed', value)"
         />
       </div>
-      <div class="item">
+      <!-- <div class="item">
         <div class="item-title">次数:</div>
         <RadioBox
           :value="wordAttr.count"
           :options="countOptions"
           @input="(value: string) => handleInput('count', value)"
         />
-      </div>
+      </div> -->
       <div class="item">
         <div class="item-title">是否格子化:</div>
         <SingleRadioBox :value="wordAttr.isSquareBg" @input="(value: boolean) => handleInput('isSquareBg', value)" />
@@ -126,16 +126,16 @@ export default defineComponent({
     initData: {
       type: Object as PropType<TWordAttr>,
       default: () => ({
-        type: 'slide', // 类型 blink闪烁, slide滑动
+        type: 'roll', // 类型 blink闪烁, roll滚动
         text: '谭松韵，你真棒', // 文本
-        size: 'large', // 尺寸 中杯, 大杯, 特大杯 ====> 致敬罗永浩的梗！
+        size: '2rem', // 尺寸 中杯, 大杯, 特大杯 ====> 致敬罗永浩的梗！
         direction: 'left', // 方向, left, right, up, down
         speed: 1, // 速度 0.5, 1, 1.5, 2
-        count: 'n', // 次数 1, 2, 3, n
-        isSquareBg: true, // 是否显示方格背景
+        count: 'infinite', // 次数 1, 2, 3, infinite
+        isSquareBg: false, // 是否显示方格背景
         isFullScreen: false, // 是否全屏
-        color: '#fff', // 文字颜色
-        bgColor: '#c0c0c0', // 背景颜色
+        color: '#ffffff', // 文字颜色
+        bgColor: '#5091dd', // 背景颜色
       }),
     },
   },
@@ -144,25 +144,25 @@ export default defineComponent({
 
     const state = reactive<stateType>({
       wordAttr: {
-        type: 'slide', // 类型 blink闪烁, slide滑动
+        type: 'roll', // 类型 blink闪烁, roll滚动
         text: '谭松韵，你真棒', // 文本
-        size: 'large', // 文本尺寸
+        size: '2rem', // 文本尺寸
         direction: 'left', // 方向, left, right, up, down
         speed: 1, // 速度 0.5, 1, 1.5, 2
-        count: 'n', // 次数 1, 2, 3, n
-        isSquareBg: true, // 是否显示方格背景
+        count: 'infinite', // 次数 1, 2, 3, infinite
+        isSquareBg: false, // 是否显示方格背景
         isFullScreen: false, // 是否全屏
-        color: '#fff', // 文字颜色
-        bgColor: '#c0c0c0', // 背景颜色
+        color: '#ffffff', // 文字颜色
+        bgColor: '#5091dd', // 背景颜色
       },
       typeOptions: [
         { text: '闪烁', value: 'blink' },
-        { text: '滑动', value: 'slide' },
+        { text: '滚动', value: 'roll' },
       ],
       sizeOptions: [
-        { text: '中杯', value: 'middle' },
-        { text: '大杯', value: 'large' },
-        { text: '特大杯', value: 'heavy' },
+        { text: '中杯', value: '2rem' },
+        { text: '大杯', value: '2.5rem' },
+        { text: '特大杯', value: '3rem' },
       ],
       directionOptions: [
         { text: '左', value: 'left' },
@@ -180,7 +180,7 @@ export default defineComponent({
         { text: '1', value: '1' },
         { text: '2', value: '2' },
         { text: '3', value: '3' },
-        { text: 'n', value: 'n' },
+        { text: 'n', value: 'infinite' },
       ],
     })
 
@@ -283,6 +283,7 @@ export default defineComponent({
         font-weight: 700;
         color: #fff;
         padding: 0.15rem;
+        flex-shrink: 0;
       }
       .item-input {
         display: flex;

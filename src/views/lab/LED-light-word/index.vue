@@ -1,15 +1,20 @@
 <template>
   <div class="container">
-    <Cover />
+    <Cover :isSquareBg="configData.isSquareBg" :bgColor="configData.bgColor" />
     <transition name="slide">
       <WordOperator v-show="isShowPanel" :initData="configData" @operator="onOperatorAction" />
     </transition>
-    <marquee class="sentence">{{ configData.text }}</marquee>
+    <div class="sentence">
+      <p ref="wordRef" class="word" :class="wordClass">
+        {{ configData.text }}
+      </p>
+    </div>
   </div>
 </template>
 <script lang="ts">
 import {
   defineComponent,
+  ref,
   reactive,
   computed,
   toRefs,
@@ -33,6 +38,7 @@ export default defineComponent({
     const { proxy } = getCurrentInstance() as ComponentInternalInstance
     const myScreen = new MyScreen()
     const logger = createDebugLogger(getCurrentUrlInfo())
+    const wordRef = ref<HTMLElement>()
 
     const state = reactive({
       swipeInfo: {
@@ -87,21 +93,29 @@ export default defineComponent({
       },
       isShowPanel: false,
       configData: {
-        type: 'slide', // 类型 blink闪烁, slide滑动
+        type: 'roll', // 类型 blink闪烁, roll滚动
         text: '谭松韵，你真棒', // 文本
-        size: 'large', // 尺寸 中杯, 大杯, 特大杯 ====> 致敬罗永浩的梗！
+        size: '3rem', // 尺寸 中杯, 大杯, 特大杯 ====> 致敬罗永浩的梗！
         direction: 'left', // 方向, left, right, up, down
         speed: 1, // 速度 0.5, 1, 1.5, 2
-        count: 'n', // 次数 1, 2, 3, n
-        isSquareBg: true, // 是否显示方格背景
+        count: 'infinite', // 次数 1, 2, 3, infinite
+        isSquareBg: false, // 是否显示方格背景
         isFullScreen: false, // 是否全屏
-        color: '#fff', // 文字颜色
-        bgColor: '#c0c0c0', // 背景颜色
+        color: '#ffffff', // 文字颜色
+        bgColor: '#5091dd', // 背景颜色
       },
+      wordWidth: wordRef.value?.offsetWidth || 2000,
+      bodyheight: `${document.body.clientHeight + 170 || 600}px`,
+      bodyWidth: `${document.body.clientWidth - 200 || 300}px`,
+      wordClass: 'roll-play',
     })
 
     const swipeInfoKeys = computed(() => {
       return Object.keys(state.swipeInfo)
+    })
+
+    const wordRefSpeend = computed(() => {
+      return state.wordWidth / 100 / state.configData.speed + 's'
     })
 
     const syncSwipeInfo = (e: any) => {
@@ -123,11 +137,21 @@ export default defineComponent({
             myScreen.fullScreen()
           }
         }
+        state.wordClass =
+          data.type === 'blink' ? data.type : state.wordClass === 'roll-play' ? 'roll-restart' : 'roll-play'
         logger(`type: ${type}, data: ${JSON.stringify(data)}`)
+        setTimeout(() => {
+          state.wordWidth = wordRef.value?.offsetWidth || 2000
+          state.bodyheight = `${document.body.clientHeight + 170 || 600}px`
+          state.bodyWidth = `${document.body.clientWidth - 200 || 300}px`
+        }, 1000)
       }
     }
 
     onMounted(() => {
+      state.wordWidth = wordRef.value?.offsetWidth || 2000
+      state.bodyheight = `${document.body.clientHeight + 170 || 600}px`
+      state.bodyWidth = `${document.body.clientWidth - 200 || 300}px`
       const container = document.querySelector('.container')
       const hammer = new Hammer(container)
       // 开启所有方向的滑动配置
@@ -164,7 +188,9 @@ export default defineComponent({
     })
 
     return {
+      wordRef,
       ...toRefs(state),
+      wordRefSpeend,
       onOperatorAction,
     }
   },
@@ -184,17 +210,112 @@ export default defineComponent({
 
 .sentence {
   width: 100%;
+  height: auto;
+  min-height: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #fff;
+  // https://learnvue.co/2021/05/how-to-use-vue-css-variables-reactive-styles-rfc/#css-variables-are-not-available-in-the-child-component
+  /* expressions (wrap in quotes) */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  .word {
+    display: inline-block;
+    min-width: 100%;
+    width: fit-content;
+    word-break: keep-all;
+    white-space: nowrap;
+    color: v-bind('configData.color');
+    font-size: v-bind('configData.size');
+    font-weight: 700;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
+
+.roll-play,
+.roll-restart {
+  animation: v-bind(wordRefSpeend) roll linear infinite normal;
+  // animation-iteration-count: v-bind('configData.count');
+}
+
+.roll-pause {
+  animation-play-state: paused;
+}
+
+.blink {
+  animation: blink 1s linear infinite;
 }
 
 @media screen and (orientation: portrait) {
   .sentence {
-    transform: rotate(90deg) translate(0, 9rem);
-    width: 18rem;
+    transform: rotate(90deg) translate(0, 220%);
+    width: v-bind(bodyheight);
+    height: v-bind(bodyWidth);
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes roll {
+  0% {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@keyframes blink {
+  0% {
+    text-shadow: 0 0 4px #c0c0c0;
+    opacity: 1;
+  }
+  50% {
+    text-shadow: 0 0 40px #c0c0c0;
+    opacity: 1;
+  }
+  50.01% {
+    text-shadow: 0 0 40px #c0c0c0;
+    opacity: 0;
+  }
+  100% {
+    text-shadow: 0 0 4px #c0c0c0;
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes blink {
+  0% {
+    text-shadow: 0 0 4px #c0c0c0;
+    opacity: 1;
+  }
+  50% {
+    text-shadow: 0 0 40px #c0c0c0;
+    opacity: 1;
+  }
+  50.01% {
+    text-shadow: 0 0 40px #c0c0c0;
+    opacity: 0;
+  }
+  100% {
+    text-shadow: 0 0 4px #c0c0c0;
+    opacity: 0;
   }
 }
 </style>
