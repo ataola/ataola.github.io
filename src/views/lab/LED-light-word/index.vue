@@ -5,7 +5,9 @@
       <WordOperator v-show="isShowPanel" :initData="configData" @operator="onOperatorAction" />
     </transition>
     <div class="sentence">
-      <p ref="wordRef" class="word" :class="wordClass">{{ configData.text }}</p>
+      <p ref="wordRef" class="word" :class="wordClass">
+        {{ configData.text }}
+      </p>
     </div>
   </div>
 </template>
@@ -97,7 +99,7 @@ export default defineComponent({
         direction: 'left', // 方向, left, right, up, down
         speed: 1, // 速度 0.5, 1, 1.5, 2
         count: 'infinite', // 次数 1, 2, 3, infinite
-        isSquareBg: true, // 是否显示方格背景
+        isSquareBg: false, // 是否显示方格背景
         isFullScreen: false, // 是否全屏
         color: '#ffffff', // 文字颜色
         bgColor: '#5091dd', // 背景颜色
@@ -236,7 +238,7 @@ export default defineComponent({
 .roll-play,
 .roll-restart {
   animation: v-bind(wordRefSpeend) roll linear infinite normal;
-  animation-iteration-count: v-bind('configData.count');
+  // animation-iteration-count: v-bind('configData.count');
 }
 
 .roll-pause {
@@ -249,7 +251,7 @@ export default defineComponent({
 
 @media screen and (orientation: portrait) {
   .sentence {
-    transform: rotate(90deg) translate(0, 210%);
+    transform: rotate(90deg) translate(0, 220%);
     width: v-bind(bodyheight);
     height: v-bind(bodyWidth);
   }

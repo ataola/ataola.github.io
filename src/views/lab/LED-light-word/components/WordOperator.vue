@@ -65,14 +65,14 @@
           @input="(value: string) => handleInput('speed', value)"
         />
       </div>
-      <div v-if="wordAttr.type === 'roll'" class="item">
+      <!-- <div class="item">
         <div class="item-title">次数:</div>
         <RadioBox
           :value="wordAttr.count"
           :options="countOptions"
           @input="(value: string) => handleInput('count', value)"
         />
-      </div>
+      </div> -->
       <div class="item">
         <div class="item-title">是否格子化:</div>
         <SingleRadioBox :value="wordAttr.isSquareBg" @input="(value: boolean) => handleInput('isSquareBg', value)" />
@@ -132,7 +132,7 @@ export default defineComponent({
         direction: 'left', // 方向, left, right, up, down
         speed: 1, // 速度 0.5, 1, 1.5, 2
         count: 'infinite', // 次数 1, 2, 3, infinite
-        isSquareBg: true, // 是否显示方格背景
+        isSquareBg: false, // 是否显示方格背景
         isFullScreen: false, // 是否全屏
         color: '#ffffff', // 文字颜色
         bgColor: '#5091dd', // 背景颜色
@@ -150,7 +150,7 @@ export default defineComponent({
         direction: 'left', // 方向, left, right, up, down
         speed: 1, // 速度 0.5, 1, 1.5, 2
         count: 'infinite', // 次数 1, 2, 3, infinite
-        isSquareBg: true, // 是否显示方格背景
+        isSquareBg: false, // 是否显示方格背景
         isFullScreen: false, // 是否全屏
         color: '#ffffff', // 文字颜色
         bgColor: '#5091dd', // 背景颜色
