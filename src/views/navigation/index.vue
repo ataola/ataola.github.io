@@ -61,12 +61,12 @@ export default defineComponent({
       },
       navigationItems: [],
       page: 1,
-      size: 9,
+      size: 12,
     })
 
     const navigatorInfo: TNavigatorInfo | undefined = inject('navigatorInfo')
     if (navigatorInfo) {
-      state.size = navigatorInfo.isMobile ? 4 : 9
+      state.size = navigatorInfo.isMobile ? 4 : 12
     }
 
     const sideBarItems = computed(() => {

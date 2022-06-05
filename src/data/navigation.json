@@ -1278,5 +1278,21 @@
     "url": "https://materializecss.com/",
     "avatar": "css",
     "description": "A modern responsive front-end framework based on Material Design"
+  },
+  {
+    "id": "159",
+    "name": "Homebrew",
+    "type": "download",
+    "url": "https://brew.sh/",
+    "avatar": "download",
+    "description": "The Missing Package Manager for macOS (or Linux)"
+  },
+  {
+    "id": "160",
+    "name": "vimcdoc",
+    "type": "tutorial",
+    "url": "https://yianwillis.github.io/vimcdoc/doc/help.html",
+    "avatar": "tutorial",
+    "description": "vim 中文帮助"
   }
 ]

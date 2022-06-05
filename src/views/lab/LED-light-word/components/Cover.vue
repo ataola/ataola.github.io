@@ -1,6 +1,6 @@
 <template>
   <div class="bg">
-    <div id="grid"></div>
+    <div v-if="isSquareBg" id="grid"></div>
   </div>
 </template>
 <script lang="ts">
@@ -8,6 +8,16 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'Cover',
+  props: {
+    isSquareBg: {
+      type: Boolean,
+      default: true,
+    },
+    bgColor: {
+      type: String,
+      default: '#5091dd',
+    },
+  },
   setup(props, { emit, slots, attrs }) {
     return {}
   },
@@ -44,7 +54,7 @@ $stripe: stripeShadow(1000);
 .bg {
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at bottom, #5091dd 0%, #030617 100%);
+  background: radial-gradient(ellipse at bottom, v-bind('bgColor') 0%, #030617 100%);
   position: absolute;
 }
 
