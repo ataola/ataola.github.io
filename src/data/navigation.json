@@ -1294,5 +1294,69 @@
     "url": "https://yianwillis.github.io/vimcdoc/doc/help.html",
     "avatar": "tutorial",
     "description": "vim 中文帮助"
+  },
+  {
+    "id": "161",
+    "name": "iterm2",
+    "type": "download",
+    "url": "https://iterm2.com/",
+    "avatar": "download",
+    "description": "iTerm2 is a replacement for Terminal and the successor to iTerm. It works on Macs with macOS 10.14 or newer. iTerm2 brings the terminal into the modern age with features you never knew you always wanted."
+  },
+  {
+    "id": "162",
+    "name": "PEP 8",
+    "type": "python",
+    "url": "https://peps.python.org/pep-0008/",
+    "avatar": "python",
+    "description": "This document gives coding conventions for the Python code comprising the standard library in the main Python distribution. Please see the companion informational PEP describing style guidelines for the C code in the C implementation of Python."
+  },
+  {
+    "id": "163",
+    "name": "cmake",
+    "type": "download",
+    "url": "https://cmake.org/download/",
+    "avatar": "download",
+    "description": "CMake is an open-source, cross-platform family of tools designed to build, test and package software. CMake is used to control the software compilation process using simple platform and compiler independent configuration files, and generate native makefiles and workspaces that can be used in the compiler environment of your choice. The suite of CMake tools were created by Kitware in response to the need for a powerful, cross-platform build environment for open-source projects such as ITK and VTK."
+  },
+  {
+    "id": "164",
+    "name": "WA中文网",
+    "type": "webassembly",
+    "url": "https://www.wasm.com.cn/",
+    "avatar": "webassembly",
+    "description": "WebAssembly/wasm WebAssembly 或者 wasm 是一个可移植、体积小、加载快并且兼容 Web 的全新格式"
+  },
+  {
+    "id": "165",
+    "name": "VS Tools",
+    "type": "download",
+    "url": "https://visualstudio.microsoft.com/zh-hans/downloads/",
+    "avatar": "download",
+    "description": "visualstudio tools下载"
+  },
+  {
+    "id": "166",
+    "name": "midwayjs",
+    "type": "nodejs",
+    "url": "https://midwayjs.org/docs/intro",
+    "avatar": "nodejs",
+    "description": "Midway 是阿里巴巴 - 淘宝前端架构团队，基于渐进式理念研发的 Node.js 框架，通过自研的依赖注入容器，搭配各种上层模块，组合出适用于不同场景的解决方案。"
+  },
+  {
+    "id": "167",
+    "name": "chaijs",
+    "type": "test",
+    "url": "https://www.chaijs.com/",
+    "avatar": "test",
+    "description": "Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework."
+  },
+  {
+    "id": "168",
+    "name": "cheerio",
+    "type": "util",
+    "url": "https://cheerio.js.org/",
+    "avatar": "util",
+    "description": "Fast, flexible & lean implementation of core jQuery designed specifically for the server."
   }
 ]
