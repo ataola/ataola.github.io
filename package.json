@@ -87,5 +87,8 @@
   },
   "resolutions": {
     "bin-wrapper": "npm:bin-wrapper-china"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
