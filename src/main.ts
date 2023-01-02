@@ -12,6 +12,9 @@ import { faSearch, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 import { faWeixin } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { globalComponents } from '@components/index'
+import 'vue-fullpage.js/dist/style.css'
+// import './fullpage.scrollHorizontally.min' // Optional. When using fullpage extensions
+import VueFullPage from 'vue-fullpage.js'
 
 library.add(faSearch)
 library.add(faWeixin)
@@ -20,6 +23,7 @@ library.add(faAngleDoubleRight)
 const app = createApp(App)
 app.use(router)
 app.use(Particles)
+app.use(VueFullPage)
 app.use(createPinia())
 app.use(directives)
 
