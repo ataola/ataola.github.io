@@ -1,14 +1,16 @@
 <template>
-  <router-view v-slot="{ Component }">
+  <router-view v-slot="{ Component }" :key="$route.path">
     <transition name="fade" mode="out-in">
       <component :is="Component" />
     </transition>
   </router-view>
+  <audio id="audio" loop controls :src="getStaticMusic('nuan2')" style="display: none"></audio>
 </template>
 
 <script lang="ts">
 import { debounce } from 'lodash-es'
-import { defineComponent, onBeforeMount, provide, readonly } from 'vue'
+import { defineComponent, onBeforeMount, provide, readonly, reactive, onMounted } from 'vue'
+import { getStaticMusic } from '@utils/file'
 
 export default defineComponent({
   name: 'App',
@@ -19,6 +21,28 @@ export default defineComponent({
       clientWidth = clientWidth < 750 ? clientWidth : 750
       documentElement.style.fontSize = clientWidth / 7.5 + 'px'
     }
+
+    const myAudioInfo = reactive<any>({
+      audioDom: null,
+      isPlay: false,
+      play: function () {
+        this.audioDom.play()
+        this.isPlay = true
+      },
+      pause: function () {
+        this.audioDom.pause()
+      },
+      finish: function () {
+        this.audioDom.pause()
+        this.audioDom.currentTime = 0
+      },
+      replay: function () {
+        this.audioDom.currentTime = 0
+        this.audioDom.play()
+      },
+    })
+
+    provide('myAudioInfo', myAudioInfo)
 
     onBeforeMount(() => {
       const debouncedComputeRootFontSize = debounce(computeRootFontSize, 1000)
@@ -56,7 +80,14 @@ export default defineComponent({
         })
       )
     })
-    return {}
+
+    onMounted(() => {
+      myAudioInfo.audioDom = document.getElementById('audio')
+    })
+
+    return {
+      getStaticMusic,
+    }
   },
 })
 </script>

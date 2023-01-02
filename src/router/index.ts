@@ -26,6 +26,14 @@ const routes: Array<RouteRecordRaw> = [
         },
       },
       {
+        path: '/door-of-future',
+        name: 'Future',
+        component: () => import('@views/future/index.vue'),
+        meta: {
+          title: '玉の涛',
+        },
+      },
+      {
         path: '/subject',
         name: 'Subject',
         component: () => import('@views/subject.vue'),
@@ -62,6 +70,14 @@ const routes: Array<RouteRecordRaw> = [
       title: '程序员的成长自留地',
     },
   },
+  {
+    path: '/ZJT-LOVE-YUER-FOREVER',
+    name: 'Love',
+    component: () => import('@views/love/index.vue'),
+    meta: {
+      title: '郑江涛永远爱玉儿',
+    },
+  },
   /** lab start */
   {
     path: '/lab/liuying',
@@ -82,6 +98,86 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   /** trash end */
+  {
+    path: '/map/map1',
+    name: 'Map1',
+    component: () => import('@views/map/map1.vue'),
+    meta: {
+      title: 'Map1',
+    },
+  },
+  {
+    path: '/echarts/china',
+    name: 'China',
+    component: () => import('@/views/echarts/china.vue'),
+    meta: {
+      title: 'China',
+    },
+  },
+  {
+    path: '/echarts/zhejiang',
+    name: 'zhejiang',
+    component: () => import('@/views/echarts/zhejiang.vue'),
+    meta: {
+      title: 'zhejiang',
+    },
+  },
+  {
+    path: '/echarts/quzhou',
+    name: 'quzhou',
+    component: () => import('@/views/echarts/quzhou.vue'),
+    meta: {
+      title: 'quzhou',
+    },
+  },
+  {
+    path: '/echarts/yunnan',
+    name: 'yunnan',
+    component: () => import('@/views/echarts/yunnan.vue'),
+    meta: {
+      title: 'yunnan',
+    },
+  },
+  {
+    path: '/echarts/xishuangbanna',
+    name: 'xishuangbanna',
+    component: () => import('@/views/echarts/xishuangbanna.vue'),
+    meta: {
+      title: 'xishuangbanna',
+    },
+  },
+  {
+    path: '/echarts/jinghong',
+    name: 'jinghong',
+    component: () => import('@/views/echarts/jinghong.vue'),
+    meta: {
+      title: 'jinghong',
+    },
+  },
+  {
+    path: '/echarts/kecheng',
+    name: 'kecheng',
+    component: () => import('@/views/echarts/kecheng.vue'),
+    meta: {
+      title: 'kecheng',
+    },
+  },
+  {
+    path: '/echarts/distance',
+    name: 'distance',
+    component: () => import('@/views/echarts/distance.vue'),
+    meta: {
+      title: 'distance',
+    },
+  },
+  {
+    path: '/echarts/dynamic',
+    name: 'dynamic',
+    component: () => import('@/views/echarts/dynamic.vue'),
+    meta: {
+      title: 'dynamic',
+    },
+  },
   {
     path: '/404',
     name: '404',
@@ -111,7 +207,6 @@ const router: Router = createRouter({
 router.beforeEach((to, from, next) => {
   NProgress.start()
   if (to) {
-    const { meta } = to
     document.title = to.meta.title ? `江涛网-${to.meta.title}` : '江涛网-程序员的成长自留地'
   }
   if (to.name === 'Home' && from.name === 'Bootstrap') {

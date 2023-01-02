@@ -9,17 +9,22 @@
       </transition>
     </router-view>
     <Footer />
+    <!-- <Footer v-show="state.isShowFooter" /> -->
   </div>
+  <!-- <audio id="audio" loop controls :src="getStaticMusic('nuan2')" style="display: none"></audio> -->
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, reactive, onMounted, provide, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import NavBar from '@layout/NavBar.vue'
 import Footer from '@layout/Footer.vue'
+// import { getStaticMusic } from '@utils/file'
 import { TNavBarItems } from '@/types/layout/navbar'
 
 declare type stateType = {
   navItems: TNavBarItems
+  // isShowFooter: boolean
 }
 
 export default defineComponent({
@@ -44,9 +49,9 @@ export default defineComponent({
           children: [],
         },
         {
-          text: '博客',
-          value: 'Blog',
-          link: 'https://www.cnblogs.com/cnroadbridge/',
+          text: '玉の涛',
+          value: 'Future',
+          router: 'Future',
           children: [],
         },
         {
@@ -65,10 +70,60 @@ export default defineComponent({
           children: [],
         },
       ],
+      // isShowFooter: true,
     })
+
+    const route = useRoute()
+    const myAudioInfo = reactive<any>({
+      audioDom: null,
+      isPlay: false,
+      play: function () {
+        this.audioDom.play()
+        this.isPlay = true
+      },
+      pause: function () {
+        this.audioDom.pause()
+      },
+      finish: function () {
+        this.audioDom.pause()
+        this.audioDom.currentTime = 0
+      },
+      replay: function () {
+        this.audioDom.currentTime = 0
+        this.audioDom.play()
+      },
+    })
+
+    provide('myAudioInfo', myAudioInfo)
+
+    onMounted(() => {
+      myAudioInfo.audioDom = document.getElementById('audio')
+      // if (['/ZJT-LOVE-YUER-FOREVER'].includes(route.path)) {
+      //   state.isShowFooter = false
+      // } else {
+      //   state.isShowFooter = true
+      // }
+    })
+
+    // watch(
+    //   () => route.path,
+    //   (newPath, oldPath) => {
+    //     console.log(newPath, oldPath)
+    //     if (['/ZJT-LOVE-YUER-FOREVER'].includes(newPath)) {
+    //       state.isShowFooter = false
+    //     } else {
+    //       state.isShowFooter = true
+    //     }
+
+    //     if (['/ZJT-LOVE-YUER-FOREVER'].includes(oldPath)) {
+    //       window.location.reload()
+    //     }
+    //   }
+    // )
 
     return {
       state,
+      // getStaticMusic,
     }
   },
 })
