@@ -15,7 +15,8 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          pnpm
+          npm install -g pnpm
+          pnpm install
           pnpm build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
