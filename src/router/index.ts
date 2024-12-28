@@ -14,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
         name: 'Home',
         component: () => import('@views/home.vue'),
         meta: {
-          title: '首页',
+          title: '首頁',
         },
       },
       {
@@ -22,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [
         name: 'Navigation',
         component: () => import('@views/navigation/index.vue'),
         meta: {
-          title: '导航',
+          title: '導航',
         },
       },
       {
@@ -34,11 +34,19 @@ const routes: Array<RouteRecordRaw> = [
         },
       },
       {
+        path: '/benefit',
+        name: 'Benefit',
+        component: () => import('@views/benefit/index.vue'),
+        meta: {
+          title: '福利',
+        },
+      },
+      {
         path: '/subject',
         name: 'Subject',
         component: () => import('@views/subject.vue'),
         meta: {
-          title: '专题',
+          title: '專題',
         },
       },
       {
@@ -47,7 +55,7 @@ const routes: Array<RouteRecordRaw> = [
         redirect: '/laboratory/liuying',
         component: () => import('@views/laboratory.vue'),
         meta: {
-          title: '实验室',
+          title: '實驗室',
         },
         children: [
           {
@@ -55,7 +63,7 @@ const routes: Array<RouteRecordRaw> = [
             name: 'LEDLightWordIntro',
             component: () => import('@views/introduction/LED-light-word.vue'),
             meta: {
-              title: '流萤介绍',
+              title: '流螢介紹',
             },
           },
         ],
@@ -67,7 +75,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Bootstrap',
     component: () => import('@views/bootstrap.vue'),
     meta: {
-      title: '程序员的成长自留地',
+      title: '程序員的成長自留地',
     },
   },
   {
@@ -75,7 +83,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Love',
     component: () => import('@views/love/index.vue'),
     meta: {
-      title: '郑江涛永远爱玉儿',
+      title: '郑江涛永遠愛玉兒',
     },
   },
   /** lab start */
@@ -84,7 +92,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'LEDLightWord',
     component: () => import('@views/lab/LED-light-word/index.vue'),
     meta: {
-      title: '流萤',
+      title: '流螢',
     },
   },
   /** lab end */
@@ -207,7 +215,7 @@ const router: Router = createRouter({
 router.beforeEach((to, from, next) => {
   NProgress.start()
   if (to) {
-    document.title = to.meta.title ? `江涛网-${to.meta.title}` : '江涛网-程序员的成长自留地'
+    document.title = to.meta.title ? `江涛網-${to.meta.title}` : '江涛網-程序員的成長自留地'
   }
   if (to.name === 'Home' && from.name === 'Bootstrap') {
     localStorage.setItem('isBootstrap', 'true')
