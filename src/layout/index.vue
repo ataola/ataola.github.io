@@ -37,34 +37,34 @@ export default defineComponent({
     const state = reactive<stateType>({
       navItems: [
         {
-          text: '首页',
+          text: '首頁',
           value: 'Home',
           router: 'Home',
           children: [],
         },
         {
-          text: '导航',
+          text: '導航',
           value: 'Navigation',
           router: 'Navigation',
           children: [],
         },
         {
-          text: '玉の涛',
-          value: 'Future',
-          router: 'Future',
+          text: '福利',
+          value: 'Benefit',
+          router: 'Benefit',
           children: [],
         },
         {
-          text: '专题',
+          text: '專題',
           value: 'Subject',
           router: 'Subject',
           children: [
-            { text: '数据结构和算法', value: 'DataStructureAndAlgorithm', link: 'https://zhengjiangtao.cn/coding-ts' },
-            { text: '设计模式', value: 'DesignMode', link: 'https://zhengjiangtao.cn/coding/' },
+            { text: '數據結構和算法', value: 'DataStructureAndAlgorithm', link: 'https://zhengjiangtao.cn/coding-ts' },
+            { text: '設計模式', value: 'DesignMode', link: 'https://zhengjiangtao.cn/coding/' },
           ],
         },
         {
-          text: '实验室',
+          text: '實驗室',
           value: 'Laboratory',
           router: 'Laboratory',
           children: [],

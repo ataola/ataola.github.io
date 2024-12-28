@@ -131,7 +131,7 @@ export default defineComponent({
 
     const loadMore = () => {
       if (navigationFilterItems.value.length === curNavigationItems.value.length) {
-        return proxy?.$message({ text: '＼(〇O〇)／没有更多了', type: 'warn' })
+        return proxy?.$message({ text: '＼(〇O〇)／沒有更多了', type: 'warn' })
       }
       state.page++
     }

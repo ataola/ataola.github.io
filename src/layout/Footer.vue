@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <div class="copyright">©2022 - present 江涛网 design by ataola with Vue3 | All Rights Reserved</div>
+    <div class="copyright">©2022 - present 江涛網 design by ataola with Vue3 | All Rights Reserved</div>
     <div class="contact">
       <div class="contact-item">
         <a href="https://cloud.tencent.com/developer/user/2705701" target="_blank">

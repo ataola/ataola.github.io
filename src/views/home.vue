@@ -41,22 +41,18 @@
       </pre>
     </div>
     <div class="right">
-      <div class="head">参<img :src="ICON_CHAN" alt="禅" />禅</div>
-      <div class="sentence">
-        <span>选择</span>
-        是非黑白，非黑即白，你选白的时候意味着已经放弃了黑，很多时候都是这样的。
-      </div>
-      <div class="sentence">
-        <span>努力</span>
-        选择大于努力，努力也是没有错的，努力不一定能改命，但可以改善生活哇。
-      </div>
-      <div class="sentence">
-        <span>努力并坚持</span>
-        努力不是喊口号，要落实到365，哪怕是你每天就搞一点点，那也是好的呀。
-      </div>
-      <div class="sentence">
-        <span>拥抱变化</span>
-        时代在变，能挤地铁去打工，那为什么要去挤公交呢。
+      <div class="head">參<img :src="ICON_CHAN" alt="禅" />禪</div>
+      <div class="word">
+        <span>佛曰：我執，痛苦的根源。</span>
+        <span>贪、嗔、痴、慢、疑皆煩惱。</span>
+        <span>斷、捨、離、定、慧皆解脫。</span>
+        <span>凡所有相，皆是虛妄。</span>
+        <span>一花一世界，一葉一菩提。</span>
+        <span>因果若有虛，乾坤必有私。</span>
+        <span>賺到了，多給人。學到了，多教人。修到了，多傳人。</span>
+        <span>金剛手段，菩薩心腸，無不為之，唯有禪定，無不積之。</span>
+        <span>若欲無境，當忘其心，心忘即境空，境空即心滅‌‌。</span>
+        <span>我不入地獄誰入地獄，地獄不空誓不成佛，眾生度盡方證菩提。</span>
       </div>
     </div>
   </div>
@@ -96,6 +92,7 @@ import ICON_CHAN from '@static/icons/chan.svg'
     flex-wrap: wrap;
     flex: 1;
     background-color: #fff;
+    align-content: center;
     .head {
       display: flex;
       justify-content: center;
@@ -118,6 +115,25 @@ import ICON_CHAN from '@static/icons/chan.svg'
       font-size: 0.18rem;
       span {
         font-weight: 700;
+      }
+    }
+
+    .word {
+      display: flex;
+      font-size: 0.24rem;
+      font-weight: 700;
+      color: #000;
+      background-color: #fff;
+      border-radius: 0.2rem;
+      width: 100%;
+      flex-wrap: wrap;
+      margin-top: 0.1rem;
+      span {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0.1rem;
       }
     }
   }
