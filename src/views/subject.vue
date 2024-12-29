@@ -36,12 +36,12 @@ export default defineComponent({
       },
       sideBarItems: [
         {
-          text: '数据结构和算法',
+          text: '數據結構和算法',
           value: 'ds',
           href: 'https://zhengjiangtao.cn/coding-ts',
         },
         {
-          text: '设计模式',
+          text: '設計模式',
           value: 'design-pattern',
           href: 'https://zhengjiangtao.cn/coding',
           isBeta: true,
@@ -55,7 +55,7 @@ export default defineComponent({
 
     const changeSideBar = (value: string | number) => {
       state.sideBarItem = state.sideBarItems.find((item: any) => item.value === value) || {
-        text: '数据结构和算法',
+        text: '數據結構和算法',
         value: 'ds',
         href: 'https://zhengjiangtao.cn/coding-ts',
       }
