@@ -33,8 +33,8 @@ const state = reactive({
     [
       {
         label: '25年1月',
-        alt: '',
-        value: '',
+        alt: 'ataola送您一张会员礼品卡，快来看看TA的祝福吧! http://163cn.tv/AvpMQSd (@网易云音乐)',
+        value: 'http://163cn.tv/AvpMQSd',
       },
       {
         label: '25年2月',
