@@ -31,29 +31,33 @@ export default defineComponent({
 
     const state = reactive<stateType>({
       sideBarItem: {
-        text: '流萤',
-        value: 'LEDLightWordIntro',
+        text: '木魚',
+        value: 'WoodenFish',
       },
       sideBarItems: [
         {
-          text: '流萤',
-          value: 'LEDLightWordIntro',
+          text: '木魚',
+          value: 'WoodenFish',
           isNew: true,
+        },
+        {
+          text: '流螢',
+          value: 'LEDLightWordIntro',
         },
       ],
     })
 
     const changeSideBar = (value: string | number) => {
       state.sideBarItem = state.sideBarItems.find((item: any) => item.value === value) || {
-        text: '流萤',
-        value: 'LEDLightWordIntro',
+        text: '木魚',
+        value: 'WoodenFish',
         isNew: true,
       }
 
       const name = value as RouteRecordName
       router.push({
         name,
-        params: {
+        query: {
           value,
         },
       })
@@ -61,9 +65,8 @@ export default defineComponent({
 
     onBeforeMount(() => {
       const {
-        params: { value },
+        query: { value },
       } = route
-
       if (value) {
         changeSideBar(value as string)
       }
