@@ -52,12 +52,20 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/laboratory',
         name: 'Laboratory',
-        redirect: '/laboratory/liuying',
+        redirect: '/laboratory/wooden-fish',
         component: () => import('@views/laboratory.vue'),
         meta: {
           title: '實驗室',
         },
         children: [
+          {
+            path: '/laboratory/wooden-fish',
+            name: 'WoodenFish',
+            component: () => import('@views/lab/wooden-fish/index.vue'),
+            meta: {
+              title: '電子功德-木魚',
+            },
+          },
           {
             path: '/laboratory/liuying',
             name: 'LEDLightWordIntro',
