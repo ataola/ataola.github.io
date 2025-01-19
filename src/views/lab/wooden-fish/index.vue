@@ -13,7 +13,8 @@ import { ref, onMounted } from 'vue'
 import woodenFish from '@static/lab/wooden-fish.png'
 import MyWoodfishSound from '@static/lab/woodfish-sound.mp3'
 
-// const woodfishSound = new Audio(MyWoodfishSound)
+const woodfishSound = new Audio(MyWoodfishSound)
+woodfishSound.preload = 'auto'
 const blessingTexts = [
   '功德 +1',
   '財富 +1',
@@ -57,10 +58,10 @@ const playSound = () => {
 }
 
 const knock = () => {
-  // woodfishSound.currentTime = 0
-  // woodfishSound.play()
-  if (!audioContext) return // 确保音频上下文已初始化
-  playSound()
+  woodfishSound.currentTime = 0
+  woodfishSound.play()
+  // if (!audioContext) return // 确保音频上下文已初始化
+  // playSound()
 
   isKnocking.value = true
   setTimeout(() => {
@@ -92,6 +93,7 @@ onMounted(() => {
 .woodfish-container {
   position: relative;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .woodfish {
