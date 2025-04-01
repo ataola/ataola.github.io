@@ -48,8 +48,8 @@ const state = reactive({
       },
       {
         label: '25年4月',
-        alt: '',
-        value: '',
+        alt: 'ataola送您一张会员礼品卡，快来看看TA的祝福吧! http://163cn.tv/DnhMfmv (@网易云音乐)',
+        value: 'http://163cn.tv/DnhMfmv',
       },
       {
         label: '25年5月',
