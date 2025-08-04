@@ -11,7 +11,7 @@
           @click="openLink(it.value)"
         >
           <img :src="NeteaseMusicPic" alt="it.alt" />
-          <span :class="it.value ? 'breathing-text-size' : ''">{{ it.label }}</span>
+          <span>{{ it.label }}</span>
         </div>
       </div>
     </div>
