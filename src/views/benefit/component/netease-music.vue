@@ -73,8 +73,8 @@ const state = reactive({
       },
       {
         label: '25年9月',
-        alt: '',
-        value: '',
+        alt: '1http:/$fU3yiu1780bdda$【復淛整段文案并咑閞「网易云音乐」，领免费会员】 黑胶邀请官 a***a 送你网易云音乐会员卡，领取享20+会员权益。https://163cn.tv/Jkp6jOb',
+        value: 'https://163cn.tv/Jkp6jOb',
       },
       {
         label: '25年10月',
