@@ -100,8 +100,8 @@ const state = reactive({
       },
       {
         label: '26年2月',
-        alt: '',
-        value: '',
+        alt: '1http:/$67n6jm24acc61b$【復淛整段文案并咑閞「网易云音乐」，领免费会员】 黑胶邀请官 a***a 送你网易云音乐2月黑胶会员卡，领取享20+会员权益。https://163cn.tv/0F5ANFr',
+        value: 'https://163cn.tv/0F5ANFr',
       },
       {
         label: '26年3月',
