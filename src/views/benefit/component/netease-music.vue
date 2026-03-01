@@ -105,8 +105,8 @@ const state = reactive({
       },
       {
         label: '26年3月',
-        alt: '',
-        value: '',
+        alt: '1http:/$uAby6b266431ed$【復淛整段文案并咑閞「网易云音乐」，领免费会员】 黑胶邀请官 a***a 送你网易云音乐3月黑胶会员卡，领取享20+会员权益。https://163cn.tv/2pLXKyl',
+        value: 'https://163cn.tv/2pLXKyl',
       },
       {
         label: '26年4月',
