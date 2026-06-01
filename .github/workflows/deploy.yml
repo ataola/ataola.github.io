@@ -16,13 +16,19 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '22'
-          cache: 'pnpm'
-      - name: Install and Build 🔧
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 8
+          cache: true
+          cache_dependency_path: |
+            yarn.lock
+          run_install: true
+
+      - name: Build 🔧
         run: |
-          npm install -g pnpm@8
           pnpm config set --global auto-install-peers true
           pnpm approve-builds
-          pnpm install
           pnpm build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
