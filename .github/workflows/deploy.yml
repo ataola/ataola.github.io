@@ -28,7 +28,6 @@ jobs:
       - name: Build 🔧
         run: |
           pnpm config set --global auto-install-peers true
-          pnpm approve-builds
           pnpm build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
