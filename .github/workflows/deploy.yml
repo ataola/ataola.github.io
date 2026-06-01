@@ -19,8 +19,7 @@ jobs:
           cache: 'pnpm'
       - name: Install and Build 🔧
         run: |
-          corepack enable
-          corepack prepare pnpm@8 --activate
+          npm install -g pnpm@8
           pnpm config set --global auto-install-peers true
           pnpm approve-builds
           pnpm install
