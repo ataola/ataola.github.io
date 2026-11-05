@@ -1,0 +1,1 @@
+const t="public",i=t==="internal";function n(e){return e.filter(s=>s.scope==="public"||i)}function r(e){return e?e.startsWith("site:")?"/".replace(/\/$/,"")+"/"+e.slice(5).replace(/^\//,""):e:void 0}export{i,r,n as v};

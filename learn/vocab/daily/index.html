@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>青龙词场 · 每日归档</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card: #fff; --text: #1f2329; --sub: #6b7280;
+    --line: #e6e8eb; --accent: #0f766e; --accent-soft: #ccfbf1; --btn: #f3f4f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#111418; --card:#191d23; --text:#e6e8eb; --sub:#9aa3ad;
+            --line:#2a3038; --accent:#5eead4; --accent-soft:#134e4a; --btn:#232830; }
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin:0; padding:0; }
+  body {
+    background: var(--bg); color: var(--text); min-height:100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 16px 16px 40px; }
+  header { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px; }
+  .brand { font-size:17px; font-weight:700; }
+  .brand small { display:block; font-size:12px; color:var(--sub); font-weight:400; margin-top:2px; }
+  .back { font-size:13px; color:var(--accent); text-decoration:none; padding:8px 10px; border-radius:10px; background:var(--card); border:1px solid var(--line); }
+  .toolbar { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
+  .nav-btn {
+    width:38px; height:38px; border-radius:12px; border:1px solid var(--line);
+    background:var(--card); color:var(--text); font-size:18px; cursor:pointer;
+  }
+  .nav-btn:disabled { opacity:.35; cursor:default; }
+  select {
+    flex:1; height:38px; border-radius:12px; border:1px solid var(--line);
+    background:var(--card); color:var(--text); padding:0 10px; font-size:14px;
+  }
+  .tabs { display:flex; gap:6px; background:var(--btn); padding:4px; border-radius:12px; margin-bottom:14px; }
+  .tabs button {
+    flex:1; border:0; background:transparent; color:var(--sub); padding:9px 0;
+    border-radius:9px; font-size:14px; cursor:pointer;
+  }
+  .tabs button.on { background:var(--card); color:var(--text); font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.08); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; }
+  .meta { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+  .chip { font-size:12px; color:var(--accent); background:var(--accent-soft); padding:4px 9px; border-radius:999px; }
+  .date { font-size:13px; color:var(--sub); }
+  #poster { width:100%; border-radius:12px; display:block; }
+  #textBox {
+    white-space:pre-wrap; word-break:break-word; font-size:14px; line-height:1.8;
+    margin:0; font-family:inherit; max-height:70vh; overflow:auto;
+  }
+  .actions { display:flex; gap:8px; margin-top:12px; }
+  .actions button {
+    flex:1; height:40px; border-radius:12px; border:1px solid var(--line);
+    background:var(--btn); color:var(--text); font-size:14px; cursor:pointer;
+  }
+  .actions button.primary { background:var(--accent); border-color:var(--accent); color:#062a26; font-weight:600; }
+  .hint { text-align:center; color:var(--sub); font-size:12px; margin-top:14px; }
+  .empty { text-align:center; color:var(--sub); padding:60px 10px; font-size:14px; }
+  .hidden { display:none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">🐉 青龙词场<small>每日一词 · 归档</small></div>
+    <a class="back" href="../">回词场</a>
+  </header>
+
+  <div class="toolbar">
+    <button class="nav-btn" id="prev" aria-label="前一天">‹</button>
+    <select id="dateSel" aria-label="选择日期"></select>
+    <button class="nav-btn" id="next" aria-label="后一天">›</button>
+  </div>
+
+  <div class="tabs">
+    <button id="tabImage" class="on">图片版</button>
+    <button id="tabText">文字版</button>
+  </div>
+
+  <div id="app" class="card">
+    <div class="meta">
+      <span class="chip" id="theme">—</span>
+      <span class="date" id="dateLabel"></span>
+    </div>
+    <img id="poster" alt="每日一词海报" class="hidden">
+    <pre id="textBox" class="hidden"></pre>
+    <div class="actions">
+      <button id="copyBtn">复制文字</button>
+      <a id="openBtn" href="#" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--btn);color:var(--text);text-decoration:none;font-size:14px;">查看原图</a>
+    </div>
+  </div>
+
+  <div class="hint" id="hint"></div>
+</div>
+
+<script>
+(async function () {
+  const $ = (id) => document.getElementById(id);
+  let days = [], idx = 0, mode = 'image', cache = {}, touchX = null;
+
+  function showEmpty(msg) {
+    $('app').innerHTML = `<div class="empty">${msg}</div>`;
+  }
+
+  try {
+    const res = await fetch('index.json?_=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) throw new Error('index.json ' + res.status);
+    const data = await res.json();
+    days = (data.days || []).slice().sort((a, b) => (a.date < b.date ? 1 : -1));
+  } catch (e) {
+    showEmpty('还没有归档数据<br><small>' + e.message + '</small>');
+    return;
+  }
+
+  if (!days.length) { showEmpty('还没有归档数据'); return; }
+
+  const sel = $('dateSel');
+  days.forEach((d, i) => {
+    const o = document.createElement('option');
+    o.value = i;
+    o.textContent = d.date + (d.theme ? ' · ' + d.theme : '');
+    sel.appendChild(o);
+  });
+
+  function render() {
+    sel.value = idx;
+    $('prev').disabled = idx >= days.length - 1;
+    $('next').disabled = idx <= 0;
+    $('hint').textContent = `共 ${days.length} 天 · 左右滑动或按 ← → 切换`;
+    load(idx);
+  }
+
+  async function load(i) {
+    const d = days[i];
+    $('dateLabel').textContent = d.date;
+    $('theme').textContent = d.theme || '每日一词';
+    $('textBox').textContent = '加载中…';
+    let doc = cache[d.date];
+    if (!doc) {
+      try {
+        const r = await fetch(`./${d.date}.json?_=` + Date.now(), { cache: 'no-store' });
+        doc = await r.json();
+        cache[d.date] = doc;
+      } catch (e) {
+        doc = { text: '内容加载失败：' + e.message, image: d.image || '' };
+      }
+    }
+    $('textBox').textContent = doc.text || '（无文字）';
+    const img = $('poster');
+    if (doc.image) {
+      img.src = './' + doc.image;
+      img.alt = `每日一词 ${d.date} 海报`;
+      $('openBtn').href = './' + doc.image;
+      $('openBtn').classList.remove('hidden');
+    } else {
+      img.removeAttribute('src');
+      $('openBtn').classList.add('hidden');
+    }
+    applyMode();
+  }
+
+  function applyMode() {
+    const isImg = mode === 'image';
+    $('tabImage').classList.toggle('on', isImg);
+    $('tabText').classList.toggle('on', !isImg);
+    $('poster').classList.toggle('hidden', !isImg);
+    $('textBox').classList.toggle('hidden', isImg);
+  }
+
+  function go(delta) {
+    const n = idx + delta;
+    if (n < 0 || n >= days.length) return;
+    idx = n;
+    render();
+  }
+
+  $('prev').onclick = () => go(1);
+  $('next').onclick = () => go(-1);
+  sel.onchange = () => { idx = Number(sel.value); render(); };
+  $('tabImage').onclick = () => { mode = 'image'; applyMode(); };
+  $('tabText').onclick = () => { mode = 'text'; applyMode(); };
+
+  $('copyBtn').onclick = async () => {
+    const text = $('textBox').textContent || '';
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (e) {
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); ta.remove();
+    }
+    const btn = $('copyBtn');
+    const old = btn.textContent;
+    btn.textContent = '已复制 ✓';
+    setTimeout(() => (btn.textContent = old), 1400);
+  };
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') go(1);
+    if (e.key === 'ArrowRight') go(-1);
+  });
+
+  document.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) go(dx > 0 ? 1 : -1);
+    touchX = null;
+  }, { passive: true });
+
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1220">
+<title>青龙词场 · 翻卡书</title>
+<style>
+  :root {
+    --bg: #0b1220;
+    --bg2: #111b2e;
+    --card: #151f33;
+    --card2: #1b2740;
+    --text: #e8eefc;
+    --sub: #9aa8c7;
+    --line: rgba(148, 163, 184, .18);
+    --accent: #5eead4;
+    --accent2: #38bdf8;
+    --accent-soft: rgba(94, 234, 212, .12);
+    --shadow: 0 24px 70px rgba(0, 0, 0, .48);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #eef3fb;
+      --bg2: #e3ebf7;
+      --card: #ffffff;
+      --card2: #f7f9fd;
+      --text: #172033;
+      --sub: #5c6b86;
+      --line: rgba(23, 32, 51, .12);
+      --accent: #0f766e;
+      --accent2: #0369a1;
+      --accent-soft: rgba(15, 118, 110, .1);
+      --shadow: 0 24px 60px rgba(15, 23, 42, .18);
+    }
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    color: var(--text);
+    background:
+      radial-gradient(900px 520px at 12% -8%, rgba(56, 189, 248, .16), transparent 60%),
+      radial-gradient(760px 480px at 88% 4%, rgba(94, 234, 212, .12), transparent 60%),
+      linear-gradient(160deg, var(--bg), var(--bg2));
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    min-height: 100vh;
+  }
+  .app { max-width: 980px; margin: 0 auto; padding: 18px 16px 34px; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 16px; }
+  .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .logo {
+    width: 46px; height: 46px; border-radius: 15px; display: grid; place-items: center;
+    font-size: 24px; background: linear-gradient(145deg, rgba(94,234,212,.22), rgba(56,189,248,.12));
+    border: 1px solid var(--line); box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+  }
+  h1 { font-size: 19px; line-height: 1.2; margin: 0; letter-spacing: .2px; }
+  .brand p { margin: 3px 0 0; font-size: 12px; color: var(--sub); }
+  nav { display: flex; gap: 8px; flex-shrink: 0; }
+  nav a {
+    color: var(--sub); text-decoration: none; font-size: 13px; padding: 9px 12px;
+    border: 1px solid var(--line); border-radius: 11px; background: rgba(255,255,255,.03);
+  }
+  nav a:hover { color: var(--text); border-color: var(--accent); }
+
+  .modebar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  .seg { display: inline-flex; padding: 4px; gap: 4px; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,255,255,.03); }
+  .seg button {
+    border: 0; background: transparent; color: var(--sub); padding: 8px 14px; border-radius: 9px;
+    font-size: 13px; cursor: pointer; font-family: inherit;
+  }
+  .seg button.on { background: var(--card); color: var(--text); box-shadow: 0 2px 8px rgba(0,0,0,.18); }
+  .daypick { display: flex; align-items: center; gap: 8px; }
+  select {
+    height: 38px; border-radius: 11px; border: 1px solid var(--line); background: var(--card);
+    color: var(--text); padding: 0 10px; font-size: 13px; font-family: inherit; max-width: 210px;
+  }
+  .chip { font-size: 11px; color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(94,234,212,.18); padding: 4px 9px; border-radius: 999px; white-space: nowrap; }
+
+  .stage { display: flex; align-items: center; gap: 12px; }
+  .navbtn {
+    width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%; border: 1px solid var(--line);
+    background: rgba(255,255,255,.04); color: var(--text); font-size: 22px; cursor: pointer;
+    display: grid; place-items: center; transition: .18s;
+  }
+  .navbtn:hover:not(:disabled) { border-color: var(--accent); transform: translateY(-1px); }
+  .navbtn:disabled { opacity: .28; cursor: default; }
+
+  .card { flex: 1; perspective: 1500px; min-width: 0; }
+  .card-inner {
+    position: relative; width: 100%; min-height: 540px; transform-style: preserve-3d;
+    transition: transform .62s cubic-bezier(.2,.75,.2,1); border-radius: 22px;
+  }
+  .card-inner.flipped { transform: rotateY(180deg); }
+  .face {
+    position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    border-radius: 22px; border: 1px solid var(--line); background: var(--card);
+    box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column;
+  }
+  .face.back { transform: rotateY(180deg); background: var(--card2); }
+  .face-body { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+  .face-head {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 14px 16px; border-bottom: 1px solid var(--line); flex-shrink: 0;
+  }
+  .face-head .label { font-size: 12px; color: var(--sub); letter-spacing: .08em; text-transform: uppercase; }
+  .face-head .meta { display: flex; align-items: center; gap: 8px; }
+  .poster-wrap { flex: 1; min-height: 0; overflow: hidden; display: grid; place-items: center; padding: 10px; background: #0a0f1a; }
+  @media (prefers-color-scheme: light) { .poster-wrap { background: #eef2f8; } }
+  #poster { width: 100%; height: 100%; min-height: 0; display: block; object-fit: contain; border-radius: 12px; }
+  .poster-empty { color: var(--sub); font-size: 14px; padding: 40px; text-align: center; }
+  .daytext {
+    flex: 1; min-height: 0; overflow: auto; margin: 0; padding: 18px 20px 24px;
+    white-space: pre-wrap; word-break: break-word; font: inherit; font-size: 14px; line-height: 1.9;
+    color: var(--text);
+  }
+  .tap-hint {
+    position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
+    font-size: 11px; color: var(--sub); background: rgba(11,18,32,.72); border: 1px solid var(--line);
+    padding: 5px 10px; border-radius: 999px; pointer-events: none; backdrop-filter: blur(8px);
+  }
+  @media (prefers-color-scheme: light) { .tap-hint { background: rgba(255,255,255,.82); } }
+
+  .word-face { align-items: center; justify-content: center; text-align: center; padding: 30px 24px; }
+  .word-front { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; height: 100%; }
+  .flag { font-size: 54px; line-height: 1; filter: drop-shadow(0 10px 24px rgba(0,0,0,.28)); }
+  .lang { font-size: 13px; color: var(--sub); letter-spacing: .14em; }
+  .term { font-size: clamp(30px, 6vw, 56px); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; word-break: break-word; }
+  .reading { font-size: 14px; color: var(--accent); font-weight: 400; }
+  .word-back { height: 100%; display: flex; flex-direction: column; justify-content: center; text-align: left; padding: 30px 28px; gap: 14px; }
+  .meaning { font-size: 22px; font-weight: 700; color: var(--accent); }
+  .example { font-size: 16px; line-height: 1.65; }
+  .example-zh { font-size: 14px; line-height: 1.7; color: var(--sub); }
+  .word-note { font-size: 12px; color: var(--sub); margin-top: auto; }
+
+  .toolbar { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+  .toolbar button {
+    height: 40px; padding: 0 16px; border-radius: 12px; border: 1px solid var(--line);
+    background: rgba(255,255,255,.04); color: var(--text); font-size: 13px; font-family: inherit; cursor: pointer;
+  }
+  .toolbar button.primary { background: var(--accent); border-color: var(--accent); color: #062a26; font-weight: 700; }
+  .toolbar button:hover { border-color: var(--accent); }
+  #progress { font-size: 12px; color: var(--sub); min-width: 72px; text-align: center; }
+  .hint { text-align: center; color: var(--sub); font-size: 11px; margin: 14px 0 0; }
+  .toast {
+    position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 16px); opacity: 0;
+    background: var(--accent); color: #062a26; font-size: 13px; font-weight: 700;
+    padding: 9px 16px; border-radius: 999px; pointer-events: none; transition: .25s; z-index: 50;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+  .empty { padding: 60px 20px; text-align: center; color: var(--sub); font-size: 14px; }
+
+  @media (max-width: 640px) {
+    .app { padding: 12px 10px 28px; }
+    h1 { font-size: 17px; }
+    .brand p { display: none; }
+    nav a { padding: 8px 10px; }
+    .card-inner { min-height: 62vh; }
+    .stage { gap: 6px; }
+    .navbtn { width: 34px; height: 34px; flex-basis: 34px; font-size: 18px; }
+    .face-head { padding: 12px; }
+    .daytext { padding: 14px; font-size: 13px; line-height: 1.82; }
+    .word-back { padding: 24px 20px; }
+    .term { font-size: clamp(26px, 9vw, 44px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card-inner { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="brand">
+      <div class="logo" style="font-size:22px;font-weight:800;letter-spacing:-.04em;">龙</div>
+      <div>
+        <h1>青龙词场 · 翻卡书</h1>
+        <p>每日一词 · 图片 / 文字双面 · 单词卡复习</p>
+      </div>
+    </div>
+    <nav>
+      <a href="/hub/">Hub</a>
+      <a href="/hub/vocab/daily/">旧归档</a>
+    </nav>
+  </header>
+
+  <div class="modebar">
+    <div class="seg" role="tablist" aria-label="模式">
+      <button id="modeDay" class="on" role="tab" aria-selected="true">翻卡书</button>
+      <button id="modeWord" role="tab" aria-selected="false">单词卡</button>
+    </div>
+    <div class="daypick">
+      <span class="chip" id="themeChip">—</span>
+      <select id="dateSel" aria-label="选择日期"></select>
+    </div>
+  </div>
+
+  <main class="stage">
+    <button class="navbtn" id="prev" aria-label="上一个">‹</button>
+    <div class="card" id="card">
+      <div class="card-inner" id="cardInner">
+        <section class="face front" id="front" aria-live="polite"></section>
+        <section class="face back" id="back" aria-live="polite"></section>
+      </div>
+    </div>
+    <button class="navbtn" id="next" aria-label="下一个">›</button>
+  </main>
+
+  <div class="toolbar">
+    <button id="flip" class="primary">翻面</button>
+    <button id="copy">复制文字</button>
+    <button id="shuffle" hidden>洗牌</button>
+    <span id="progress"></span>
+  </div>
+  <p class="hint">← → 切换 · 空格翻面 · C 复制 · S 洗牌</p>
+</div>
+<div class="toast" id="toast">已复制</div>
+
+<script>
+(() => {
+  'use strict';
+  const DATA_DIR = 'vocab/daily/';
+  const $ = (s) => document.querySelector(s);
+  const cardInner = $('#cardInner');
+  const front = $('#front');
+  const back = $('#back');
+  const dateSel = $('#dateSel');
+  const themeChip = $('#themeChip');
+  const progress = $('#progress');
+  const toast = $('#toast');
+  const shuffleBtn = $('#shuffle');
+
+  let days = [];
+  let dayIdx = 0;
+  let mode = 'day';
+  let wordCards = [];
+  let wordIdx = 0;
+  let dayData = null;
+  const cache = new Map();
+  let flipped = false;
+
+  const FLAG_RE = /^([\u{1F1E6}-\u{1F1FF}]{2})\s*([^｜|]+)｜(.+)$/u;
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function showToast(text) {
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => toast.classList.remove('show'), 1400);
+  }
+
+  async function copyText(text) {
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast('已复制');
+    } catch (e) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); showToast('已复制'); } catch (_) { showToast('复制失败，请手动选择'); }
+      ta.remove();
+    }
+  }
+
+  function setFlipped(v) {
+    flipped = !!v;
+    cardInner.classList.toggle('flipped', flipped);
+    $('#flip').textContent = flipped ? '翻回' : '翻面';
+  }
+
+  function parseWords(text) {
+    const cards = [];
+    const blocks = String(text || '').split(/\n\s*\n/).map((b) => b.trim()).filter(Boolean);
+    for (const block of blocks) {
+      const lines = block.split('\n').map((l) => l.trim()).filter(Boolean);
+      if (!lines.length) continue;
+      const first = lines[0];
+      if (first.startsWith('📖')) continue;
+      const m = first.match(FLAG_RE);
+      if (m) {
+        let term = m[3].trim();
+        let reading = '';
+        const rm = term.match(/^(.+?)（(.+)）$/);
+        if (rm) { term = rm[1].trim(); reading = rm[2].trim(); }
+        cards.push({
+          type: 'word', flag: m[1], lang: m[2].trim(), term, reading,
+          meaning: lines[1] || '',
+          example: lines[2] || '',
+          exampleZh: lines.slice(3).join('\n') || '',
+          raw: lines.join('\n')
+        });
+      } else if (first.startsWith('✍️')) {
+        cards.push({
+          type: 'sentence',
+          title: first.replace(/^✍️\s*/, ''),
+          raw: lines.slice(1).join('\n')
+        });
+      }
+    }
+    return cards;
+  }
+
+  function renderDay() {
+    const d = dayData;
+    if (!d) {
+      front.innerHTML = '<div class="empty">暂无数据</div>';
+      back.innerHTML = '<div class="empty">暂无数据</div>';
+      progress.textContent = '';
+      return;
+    }
+    const img = d.image ? DATA_DIR + encodeURIComponent(d.image) : '';
+    front.innerHTML = `
+      <div class="face-head">
+        <span class="label">图片版</span>
+        <span class="meta"><span class="chip">${esc(d.theme || '每日一词')}</span><span class="date">${esc(d.date)}</span></span>
+      </div>
+      <div class="face-body">
+        ${img ? `<div class="poster-wrap"><img id="poster" src="${img}" alt="${esc(d.date)} 每日一词海报" loading="lazy"></div>` : `<div class="poster-empty">这一天没有海报，翻面看文字版</div>`}
+      </div>
+      <div class="tap-hint">点击卡片 / 空格 翻面</div>`;
+    back.innerHTML = `
+      <div class="face-head">
+        <span class="label">文字版 · 可复制</span>
+        <span class="meta"><span class="chip">${esc(d.theme || '每日一词')}</span></span>
+      </div>
+      <div class="face-body"><pre class="daytext">${esc(d.text || '')}</pre></div>
+      <div class="tap-hint">点击卡片 / 空格 翻面</div>`;
+    progress.textContent = `${dayIdx + 1} / ${days.length}`;
+    themeChip.textContent = d.theme || '每日一词';
+    dateSel.value = d.date;
+    updateNav();
+  }
+
+  function renderWord() {
+    const c = wordCards[wordIdx];
+    if (!c) {
+      front.innerHTML = '<div class="empty">这一天没有可拆分的单词卡</div>';
+      back.innerHTML = '<div class="empty">翻回文字版查看完整内容</div>';
+      progress.textContent = '';
+      return;
+    }
+    if (c.type === 'sentence') {
+      front.innerHTML = `
+        <div class="face-head"><span class="label">每日一句</span><span class="meta"><span class="chip">${esc(c.title || '句子')}</span></span></div>
+        <div class="face-body word-front">
+          <div class="flag">✍️</div>
+          <div class="lang">DAILY SENTENCE</div>
+          <div class="term" style="font-size:clamp(22px,4.6vw,38px)">${esc(c.title || '每日一句')}</div>
+          <div class="reading">点击翻面看九语对照</div>
+        </div>
+        <div class="tap-hint">点击卡片 / 空格 翻面</div>`;
+      back.innerHTML = `
+        <div class="face-head"><span class="label">九语对照 · 可复制</span><span class="meta"><span class="chip">每日一句</span></span></div>
+        <div class="face-body"><pre class="daytext">${esc(c.raw)}</pre></div>
+        <div class="tap-hint">点击卡片 / 空格 翻面</div>`;
+    } else {
+      front.innerHTML = `
+        <div class="face-head"><span class="label">单词卡</span><span class="meta"><span class="chip">${esc(c.lang)}</span></span></div>
+        <div class="face-body word-front">
+          <div class="flag">${c.flag}</div>
+          <div class="lang">${esc(c.lang)}</div>
+          <div class="term">${esc(c.term)}</div>
+          ${c.reading ? `<div class="reading">${esc(c.reading)}</div>` : ''}
+          <div class="reading">点击翻面看释义</div>
+        </div>
+        <div class="tap-hint">点击卡片 / 空格 翻面</div>`;
+      back.innerHTML = `
+        <div class="face-head"><span class="label">释义 / 例句</span><span class="meta"><span class="chip">${esc(c.lang)}</span></span></div>
+        <div class="face-body word-back">
+          <div class="meaning">${esc(c.meaning || '—')}</div>
+          ${c.example ? `<div class="example">${esc(c.example)}</div>` : ''}
+          ${c.exampleZh ? `<div class="example-zh">${esc(c.exampleZh)}</div>` : ''}
+          <div class="word-note">${esc(c.term)}${c.reading ? ` · ${esc(c.reading)}` : ''}</div>
+        </div>
+        <div class="tap-hint">点击卡片 / 空格 翻面</div>`;
+    }
+    progress.textContent = `${wordIdx + 1} / ${wordCards.length}`;
+    updateNav();
+  }
+
+  function updateNav() {
+    const prev = $('#prev');
+    const next = $('#next');
+    if (mode === 'day') {
+      prev.disabled = dayIdx >= days.length - 1;
+      next.disabled = dayIdx <= 0;
+      shuffleBtn.hidden = true;
+    } else {
+      prev.disabled = wordIdx <= 0;
+      next.disabled = wordIdx >= wordCards.length - 1;
+      shuffleBtn.hidden = wordCards.length < 2;
+    }
+    $('#copy').textContent = mode === 'day' ? '复制文字' : '复制卡片';
+  }
+
+  function render() {
+    setFlipped(false);
+    if (mode === 'day') renderDay();
+    else renderWord();
+  }
+
+  async function loadDay(date) {
+    if (cache.has(date)) return cache.get(date);
+    const res = await fetch(DATA_DIR + encodeURIComponent(date) + '.json?t=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    cache.set(date, data);
+    return data;
+  }
+
+  async function goDay(i) {
+    if (i < 0 || i >= days.length) return;
+    dayIdx = i;
+    try {
+      dayData = await loadDay(days[dayIdx].date);
+      wordCards = parseWords(dayData.text);
+      wordIdx = 0;
+      render();
+    } catch (e) {
+      front.innerHTML = `<div class="empty">加载失败：${esc(e.message)}</div>`;
+      back.innerHTML = '<div class="empty">请检查归档数据</div>';
+    }
+  }
+
+  function goWord(i) {
+    if (i < 0 || i >= wordCards.length) return;
+    wordIdx = i;
+    render();
+  }
+
+  function currentCopyText() {
+    if (mode === 'day') return dayData ? dayData.text : '';
+    const c = wordCards[wordIdx];
+    if (!c) return '';
+    if (c.type === 'sentence') return c.title + '\n' + c.raw;
+    return `${c.flag} ${c.lang}｜${c.term}${c.reading ? `（${c.reading}）` : ''}\n${c.meaning}\n${c.example}\n${c.exampleZh}`.trim();
+  }
+
+  function bind() {
+    $('#flip').addEventListener('click', () => setFlipped(!flipped));
+    $('#copy').addEventListener('click', () => copyText(currentCopyText()));
+    $('#prev').addEventListener('click', () => mode === 'day' ? goDay(dayIdx + 1) : goWord(wordIdx - 1));
+    $('#next').addEventListener('click', () => mode === 'day' ? goDay(dayIdx - 1) : goWord(wordIdx + 1));
+    $('#card').addEventListener('click', (e) => {
+      if (e.target.closest('a, button, select, pre')) return;
+      setFlipped(!flipped);
+    });
+    $('#modeDay').addEventListener('click', () => setMode('day'));
+    $('#modeWord').addEventListener('click', () => setMode('word'));
+    $('#shuffle').addEventListener('click', () => {
+      if (wordCards.length < 2) return;
+      for (let i = wordCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [wordCards[i], wordCards[j]] = [wordCards[j], wordCards[i]];
+      }
+      wordIdx = 0;
+      render();
+      showToast('已洗牌');
+    });
+    dateSel.addEventListener('change', () => {
+      const i = days.findIndex((d) => d.date === dateSel.value);
+      if (i >= 0) goDay(i);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.target.matches('input, textarea, select')) return;
+      if (e.key === 'ArrowLeft') { e.preventDefault(); $('#prev').click(); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); $('#next').click(); }
+      else if (e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); setFlipped(!flipped); }
+      else if (e.key.toLowerCase() === 'c') { copyText(currentCopyText()); }
+      else if (e.key.toLowerCase() === 's' && mode === 'word') { $('#shuffle').click(); }
+    });
+  }
+
+  function setMode(next) {
+    mode = next;
+    $('#modeDay').classList.toggle('on', mode === 'day');
+    $('#modeWord').classList.toggle('on', mode === 'word');
+    $('#modeDay').setAttribute('aria-selected', String(mode === 'day'));
+    $('#modeWord').setAttribute('aria-selected', String(mode === 'word'));
+    render();
+  }
+
+  async function init() {
+    bind();
+    try {
+      const res = await fetch(DATA_DIR + 'index.json?t=' + Date.now());
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const idx = await res.json();
+      days = (idx.days || []).slice().sort((a, b) => String(b.date).localeCompare(String(a.date)));
+      if (!days.length) throw new Error('归档为空');
+      dateSel.innerHTML = days.map((d) => `<option value="${esc(d.date)}">${esc(d.date)} · ${esc(d.theme || '每日一词')}</option>`).join('');
+      await goDay(0);
+    } catch (e) {
+      front.innerHTML = `<div class="empty">暂无每日一词归档<br><small>${esc(e.message)}</small></div>`;
+      back.innerHTML = '<div class="empty">生成每日一词后会自动出现在这里</div>';
+      themeChip.textContent = '暂无';
+    }
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>

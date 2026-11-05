@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>郑江涛 · 自留地</title>
+    <link>https://zhengjiangtao.cn</link>
+    <description>自建服务、代理与媒体栈的长期记录。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 05 Nov 2026 05:16:44 GMT</lastBuildDate>
+    <item>
+      <title>自己写一个投屏系统：为什么我没用现成协议</title>
+      <link>https://zhengjiangtao.cn/blog/2026-11-05-self-made-cast</link>
+      <guid>https://zhengjiangtao.cn/blog/2026-11-05-self-made-cast</guid>
+      <pubDate>Thu, 05 Nov 2026 01:00:00 GMT</pubDate>
+      <description>厂商投屏要会员、Miracast 玄学、DLNA 只能投流。最后花了两周自己写了一套：抓屏编码推流，投影仪收流解码。记一下协议怎么定、延迟怎么压、坑都在哪。</description>
+    </item>
+    <item>
+      <title>主站重做：从「玩具站」到「自留地」</title>
+      <link>https://zhengjiangtao.cn/blog/2026-11-04-redesign</link>
+      <guid>https://zhengjiangtao.cn/blog/2026-11-04-redesign</guid>
+      <pubDate>Wed, 04 Nov 2026 01:00:00 GMT</pubDate>
+      <description>旧站是一堆并列路由加一个启动门槛，没有任何一处能回答「你现在在做什么」。这次按博客的路子重做了一遍。</description>
+    </item>
+    <item>
+      <title>把个人站做成一份报纸</title>
+      <link>https://zhengjiangtao.cn/blog/2026-11-02-newspaper-site</link>
+      <guid>https://zhengjiangtao.cn/blog/2026-11-02-newspaper-site</guid>
+      <pubDate>Mon, 02 Nov 2026 01:00:00 GMT</pubDate>
+      <description>静态站、报纸排版、四种语言——这次重做时做的几个取舍，以及为什么最后几乎没用什么框架。</description>
+    </item>
+    <item>
+      <title>教外国人学中文：一个四周的开口计划</title>
+      <link>https://zhengjiangtao.cn/blog/2026-10-20-chinese-in-four-weeks</link>
+      <guid>https://zhengjiangtao.cn/blog/2026-10-20-chinese-in-four-weeks</guid>
+      <pubDate>Tue, 20 Oct 2026 01:00:00 GMT</pubDate>
+      <description>拼音、声调、部首、场景对话，四周能到什么程度。给想自学或者想教别人的朋友。</description>
+    </item>
+    <item>
+      <title>多语学习的笨办法：把输入变简单</title>
+      <link>https://zhengjiangtao.cn/blog/2026-09-28-language-learning-dull-method</link>
+      <guid>https://zhengjiangtao.cn/blog/2026-09-28-language-learning-dull-method</guid>
+      <pubDate>Mon, 28 Sep 2026 01:00:00 GMT</pubDate>
+      <description>同时学两三门语言时，最容易死在「材料太难」。我的做法是把输入降到刚好能懂，剩下的交给重复。</description>
+    </item>
+  </channel>
+</rss>
