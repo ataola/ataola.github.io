@@ -1,9 +1,9 @@
 name: GitHub Actions Build and Deploy
+# 2026-11-05：主站已改为由 personal-site 构建后直接发布 gh-pages。
+# 保留旧站自动部署会覆盖新站（CLEAN: true 会删掉所有新文件），
+# 因此改为仅手动触发，需要重建旧站时在 Actions 页面点 Run workflow。
 on:
-  push:
-    branches: [ dev ]
-  pull_request:
-    branches: [ dev ]
+  workflow_dispatch:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
