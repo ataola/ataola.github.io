@@ -1,0 +1,19 @@
+{
+  "name": "青龙词场 · 英日韩",
+  "short_name": "青龙词场",
+  "description": "英语、日语、韩语背单词与例句学习，带间隔复习和进度统计。",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2f4f8",
+  "theme_color": "#f2f4f8",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
