@@ -87,12 +87,15 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-fo
 @page{size:A4;margin:14mm}
 @media print{
   :root{--paper:#fff;--paper-2:#fff}
-  body{background:#fff}
+  body{background:#fff;font-size:12.5px}
   .toolbar{display:none!important}
   .sheet{max-width:none;margin:0;padding:0;border:0;box-shadow:none}
-  .sec{margin-top:20px;break-inside:avoid}
-  .job,.edu{break-inside:avoid}
-  .rname{font-size:30px}
+  .sec{margin-top:15px}
+  .sec>h2{break-after:avoid;page-break-after:avoid}
+  .rhead{break-inside:avoid;page-break-inside:avoid}
+  .job,.edu{break-inside:avoid;page-break-inside:avoid}
+  .job ul,.summary{orphans:3;widows:3}
+  .rname{font-size:28px}
   .rfoot{display:none}
   a{color:var(--ink)!important;border:0!important}
 }
