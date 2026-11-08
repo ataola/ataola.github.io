@@ -1,20 +1,379 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>江涛の个人小站</title>
-    <meta name="description" content="江涛の个人小站：AI 工程、排版实验与可复现的工程笔记。" />
-    <meta name="theme-color" content="#faf8f5" />
-    <link rel="icon" href="/favicon.ico?v=20261108" sizes="any" />
-    <link rel="icon" type="image/png" href="/favicon.png?v=20261108" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261108" />
-    <meta property="og:image" content="https://zhengjiangtao.cn/logo-512.png" />
-    <script type="module" crossorigin src="/assets/index-B6ynERKI.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BuJlHDHM.css">
-    <link rel="canonical" href="https://zhengjiangtao.cn/resume" />
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f2e8">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://zhengjiangtao.cn/resume/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='84'%3E%E7%AE%80%3C/text%3E%3C/svg%3E">
+<title>郑江涛 · John Cheng — 简历 / Resume</title>
+<style>
+:root{
+  --paper:#f6f2e8; --paper-2:#fbf8f0; --ink:#17140f; --ink-2:#3a342b;
+  --muted:#6d6557; --rule:#d9d1bf; --rule-strong:#b3a88f; --seal:#9c1f16;
+  --serif:Georgia,"Songti SC","Noto Serif SC","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans","Noto Sans KR","Microsoft YaHei",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.6}
+
+/* ---------- 工具条 ---------- */
+.toolbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:10px clamp(14px,4vw,28px);background:color-mix(in srgb,var(--paper) 92%,transparent);
+  backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--rule)}
+.langs{display:flex;gap:4px}
+.langs button{font:inherit;font-size:12.5px;letter-spacing:.06em;color:var(--ink-2);background:transparent;
+  border:1px solid var(--rule-strong);padding:5px 10px;cursor:pointer}
+.langs button:hover{border-color:var(--ink);color:var(--ink)}
+.langs button.active{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.print{font:inherit;font-size:12.5px;letter-spacing:.06em;color:var(--paper);background:var(--seal);border:1px solid var(--seal);
+  padding:6px 14px;cursor:pointer}
+.print:hover{filter:brightness(1.08)}
+
+/* ---------- 纸张 ---------- */
+.sheet{max-width:820px;margin:clamp(16px,3vw,34px) auto 60px;padding:clamp(22px,4.5vw,52px);
+  background:var(--paper-2);border:1px solid var(--rule);
+  box-shadow:0 1px 0 rgba(23,20,15,.05),0 18px 50px -30px rgba(23,20,15,.35)}
+
+/* ---------- 头部 ---------- */
+.rhead{padding-bottom:18px;border-bottom:3px double var(--ink)}
+.rname{font-family:var(--serif);font-weight:700;font-size:clamp(28px,5vw,42px);letter-spacing:.03em;line-height:1.15;margin:0}
+.rtitle{margin:7px 0 0;font-size:14.5px;letter-spacing:.04em;color:var(--seal);font-weight:600}
+.rcontact{margin-top:12px;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--ink-2);letter-spacing:.02em}
+.rcontact a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--rule-strong)}
+.rcontact a:hover{color:var(--seal);border-color:var(--seal)}
+.rcontact .dot{color:var(--rule-strong)}
+
+/* ---------- 段落 ---------- */
+.sec{margin-top:30px}
+.sec>h2{margin:0 0 14px;font-size:11.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--seal);padding-bottom:6px;border-bottom:1px solid var(--rule)}
+.summary{font-size:14px;line-height:1.9;color:var(--ink);margin:0}
+
+/* 技能 */
+.skills{display:grid;gap:9px;margin:0}
+.skill{display:grid;grid-template-columns:120px 1fr;gap:14px;font-size:13.5px}
+.skill .k{color:var(--muted);font-size:12.5px;letter-spacing:.03em;padding-top:1px}
+.skill .v{color:var(--ink)}
+
+/* 经历 */
+.job{padding-bottom:20px;margin-bottom:20px;border-bottom:1px dashed var(--rule)}
+.job:last-child{border-bottom:0;padding-bottom:0;margin-bottom:0}
+.job .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.job .co{font-family:var(--serif);font-weight:700;font-size:15.5px}
+.job .pd{font-size:12px;letter-spacing:.05em;color:var(--muted);white-space:nowrap}
+.job .ro{margin-top:3px;font-size:13.5px;color:var(--seal)}
+.job .nt{margin-top:7px;font-size:13px;line-height:1.75;color:var(--ink-2)}
+.job ul{margin:9px 0 0;padding:0;list-style:none}
+.job li{position:relative;padding-left:15px;font-size:13.5px;line-height:1.85;color:var(--ink)}
+.job li::before{content:"·";position:absolute;left:2px;color:var(--seal);font-weight:700}
+
+/* 教育 */
+.edu .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.edu .sc{font-family:var(--serif);font-weight:700;font-size:15.5px}
+.edu .pd{font-size:12px;color:var(--muted);white-space:nowrap}
+.edu .mj{margin-top:3px;font-size:13.5px;color:var(--ink-2)}
+
+.rfoot{margin-top:34px;padding-top:14px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--muted);text-align:center;letter-spacing:.08em}
+
+@media(max-width:560px){
+  .skill{grid-template-columns:1fr;gap:2px}
+  .rcontact{font-size:12px}
+}
+
+/* ---------- 打印 ---------- */
+@page{size:A4;margin:14mm}
+@media print{
+  :root{--paper:#fff;--paper-2:#fff}
+  body{background:#fff}
+  .toolbar{display:none!important}
+  .sheet{max-width:none;margin:0;padding:0;border:0;box-shadow:none}
+  .sec{margin-top:20px;break-inside:avoid}
+  .job,.edu{break-inside:avoid}
+  .rname{font-size:30px}
+  .rfoot{display:none}
+  a{color:var(--ink)!important;border:0!important}
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="langs" id="langs"></div>
+  <button class="print" id="print"></button>
+</div>
+
+<main class="sheet" id="sheet"></main>
+
+<script id="data" type="application/json">
+{
+  "zh": {
+    "label": "中文",
+    "name": "郑江涛",
+    "title": "AI 应用开发工程师 / 高级前端开发工程师",
+    "location": "杭州",
+    "email": "JohnCheng@zhengjiangtao.cn",
+    "github": "github.com/ataola",
+    "website": "zhengjiangtao.cn",
+    "print": "打印 / 保存 PDF",
+    "summaryTitle": "个人简介",
+    "summary": "AI 应用开发工程师，专注多智能体编排、AI 工具链与自托管基础设施。具备 7 年前端 / 全栈工程经验（Vue / React / TypeScript），近三年深耕医疗行业 HRP/HIS 低代码平台研发，擅长把工程化能力迁移到 AI 产品落地。",
+    "skillsTitle": "技术栈",
+    "skills": [
+      { "k": "AI 应用", "v": "多智能体编排（Claude / Codex / OpenCode）、MCP、Prompt 工程、LLM 集成" },
+      { "k": "前端", "v": "Vue2/3、React、TypeScript、Vite、Webpack、Element Plus / View UI" },
+      { "k": "后端", "v": "Node.js（Express / Egg / Midway）、Spring Boot" },
+      { "k": "工程化", "v": "Monorepo、CI/CD（Jenkins + GitLab）、ESLint / Prettier / Husky / Commitlint、Docker、Nginx" },
+      { "k": "运维", "v": "Linux、Shell / BAT 脚本、NAS 自托管" }
+    ],
+    "expTitle": "工作经历",
+    "jobs": [
+      { "co": "杭州图特信息技术有限公司（thothinfo）", "pd": "2024.03 – 至今", "ro": "高级前端开发工程师 → AI 应用开发工程师（公司业务转型）",
+        "nt": "医疗行业 HRP / HIS 低代码平台前端核心开发。技术栈 Vue3 + TypeScript + pnpm Monorepo + Element Plus + 自研 hrp-ui 组件库。",
+        "b": ["低代码「页面中心 PageCenter」核心开发：页面设计器、页面引擎、动态容器、流程容器、数据集、打印页",
+              "「表单设计器」自定义组件与配置能力开发",
+              "BPM 流程、OA 系统（Web / OA 站点 / 移动端）、选人组件 UserSelectUltra",
+              "移动端多套业务应用（值班 App、义工业 App）",
+              "AI 方向：AI 辅助图表 / 打印设计（LLM 流式对话）、n8n 向量库同步、院内知识库",
+              "团队：前端组多人协作，本人为该仓库贡献量第二（2700+ 次提交）"] },
+      { "co": "信雅达科技股份有限公司", "pd": "2021.03 – 2023.12", "ro": "前端开发工程师",
+        "b": ["基于 Vue2 + View UI + Webpack、Vue3 + TypeScript + Element Plus + Vite 进行业务开发",
+              "封装表格、上传、预览、提示、布局等公共组件；沉淀公共接口服务、通用 Hooks 与工具包",
+              "落地代码与提交规范（ESLint / Prettier / Husky / Commitlint）",
+              "推广无外网环境脚本部署与 Jenkins + GitLab 自动化构建；推动 Monorepo 架构落地",
+              "制定公司前端标准参考手册、带新人、参与团队文化建设",
+              "主要项目：中建资本保理供应链系统、中电信票系统、宁波银行 APP 埋点治理"] },
+      { "co": "浙江公共安全技术研究院有限公司", "pd": "2020.09 – 2021.03", "ro": "前端开发工程师",
+        "b": ["AngularJS + 地图 SDK 实现路线规划与安防演练；Vue3 + ECharts 数据可视化",
+              "警情报表 / 值班信息的上传、下载、预览（html-canvas / pdf.js）",
+              "主要项目：陕西省杨凌公安局警情研判系统、浙江省公安厅智能指挥警情看板"] },
+      { "co": "浙江中控科教仪器设备有限公司", "pd": "2019.05 – 2020.03", "ro": "软件工程师",
+        "b": ["PC 端「中控智慧课堂」、移动端「分类了吗」「党的理论答题」、三维虚拟仿真平台页面开发",
+              "技术：weui / light7、Bootstrap / layui、C#、MySQL"] }
+    ],
+    "eduTitle": "教育经历",
+    "edu": [ { "s": "浙江工业大学之江学院", "d": "本科", "m": "计算机科学与技术", "p": "2015 – 2019" } ]
+  },
+  "en": {
+    "label": "EN",
+    "name": "John Cheng",
+    "title": "AI Application Engineer / Senior Front-End Engineer",
+    "location": "Hangzhou, China",
+    "email": "JohnCheng@zhengjiangtao.cn",
+    "github": "github.com/ataola",
+    "website": "zhengjiangtao.cn",
+    "print": "Print / Save as PDF",
+    "summaryTitle": "Profile",
+    "summary": "AI Application Engineer specializing in multi-agent orchestration, AI toolchains, and self-hosted infrastructure. 7 years of front-end and full-stack engineering experience (Vue, React, TypeScript); the past three years focused on low-code platforms for HRP/HIS in healthcare. I excel at applying engineering discipline to shipping AI products.",
+    "skillsTitle": "Skills",
+    "skills": [
+      { "k": "AI", "v": "Multi-agent orchestration (Claude / Codex / OpenCode), MCP, prompt engineering, LLM integration" },
+      { "k": "Front-End", "v": "Vue 2/3, React, TypeScript, Vite, Webpack, Element Plus / View UI" },
+      { "k": "Backend", "v": "Node.js (Express / Egg / Midway), Spring Boot" },
+      { "k": "Engineering", "v": "Monorepo, CI/CD (Jenkins + GitLab), ESLint / Prettier / Husky / Commitlint, Docker, Nginx" },
+      { "k": "Ops / Infra", "v": "Linux, Shell / BAT scripting, self-hosted NAS" }
+    ],
+    "expTitle": "Work Experience",
+    "jobs": [
+      { "co": "Hangzhou Thoth Information Technology Co., Ltd. (thothinfo)", "pd": "Mar 2024 – Present", "ro": "Senior Front-End Engineer → AI Application Engineer (company transformation)",
+        "nt": "Core front-end development for a healthcare HRP/HIS low-code platform. Stack: Vue 3 + TypeScript + pnpm monorepo + Element Plus + in-house hrp-ui component library.",
+        "b": ["Core development of the low-code PageCenter: page designer, page engine, dynamic container, flow container, dataset, print page",
+              "Custom components and configuration for the Form Designer",
+              "BPM workflows, OA system (web / OA site / mobile), and the UserSelectUltra people-picker component",
+              "Multiple mobile business apps (Duty App, Volunteer App)",
+              "AI: AI-assisted chart / print design (LLM streaming chat), n8n vector-database sync, in-hospital knowledge base",
+              "Team: second-highest contributor to the repository (2,700+ commits)"] },
+      { "co": "Sunyard Technology Co., Ltd.", "pd": "Mar 2021 – Dec 2023", "ro": "Front-End Engineer",
+        "b": ["Business development with Vue 2 + View UI + Webpack and Vue 3 + TypeScript + Element Plus + Vite",
+              "Built shared components (table, upload, preview, toast, layout); consolidated shared API services, hooks, and a toolkit",
+              "Established code and commit conventions (ESLint / Prettier / Husky / Commitlint)",
+              "Rolled out offline-environment script deployment and Jenkins + GitLab automation; drove Monorepo adoption",
+              "Authored the company front-end standards manual, mentored new hires, contributed to team culture",
+              "Key projects: China Construction Capital factoring supply-chain system, China Telecom invoice system, Ningbo Bank app tracking governance"] },
+      { "co": "Zhejiang Public Security Technology Research Institute Co., Ltd.", "pd": "Sep 2020 – Mar 2021", "ro": "Front-End Engineer",
+        "b": ["Route planning and security drills with AngularJS + map SDK; data visualization with Vue 3 + ECharts",
+              "Upload / download / preview of incident reports and duty logs (html-canvas / pdf.js)",
+              "Key projects: Yangling (Shaanxi) Public Security Bureau incident analysis system; Zhejiang Provincial Public Security Department intelligent command dashboard"] },
+      { "co": "Zhejiang Supcon Science & Education Instrument Equipment Co., Ltd.", "pd": "May 2019 – Mar 2020", "ro": "Software Engineer",
+        "b": ["Pages for PC Supcon Smart Classroom, mobile apps Have You Sorted It? and Party Theory Quiz, and a 3D simulation platform",
+              "Tech: weui / light7, Bootstrap / layui, C#, MySQL"] }
+    ],
+    "eduTitle": "Education",
+    "edu": [ { "s": "Zhejiang University of Technology, Zhijiang College", "d": "Bachelor's Degree", "m": "Computer Science and Technology", "p": "2015 – 2019" } ]
+  },
+  "ja": {
+    "label": "日本語",
+    "name": "鄭江涛（John Cheng）",
+    "title": "AIアプリケーション開発エンジニア / シニアフロントエンドエンジニア",
+    "location": "杭州",
+    "email": "JohnCheng@zhengjiangtao.cn",
+    "github": "github.com/ataola",
+    "website": "zhengjiangtao.cn",
+    "print": "印刷 / PDFとして保存",
+    "summaryTitle": "プロフィール",
+    "summary": "AIアプリケーション開発エンジニア。マルチエージェントのオーケストレーション、AIツールチェーン、セルフホスト型インフラを専門とする。7年間のフロントエンド／フルスタック開発経験（Vue／React／TypeScript）を有し、直近3年間は医療業界のHRP／HISローコードプラットフォーム開発に注力。エンジニアリングのノウハウをAI製品の実用化に活かすことを得意とする。",
+    "skillsTitle": "スキル",
+    "skills": [
+      { "k": "AI", "v": "マルチエージェントオーケストレーション（Claude / Codex / OpenCode）、MCP、プロンプトエンジニアリング、LLM統合" },
+      { "k": "フロントエンド", "v": "Vue 2/3、React、TypeScript、Vite、Webpack、Element Plus / View UI" },
+      { "k": "バックエンド", "v": "Node.js（Express / Egg / Midway）、Spring Boot" },
+      { "k": "エンジニアリング", "v": "Monorepo、CI/CD（Jenkins + GitLab）、ESLint / Prettier / Husky / Commitlint、Docker、Nginx" },
+      { "k": "運用・保守", "v": "Linux、シェル／BATスクリプト、NASセルフホスティング" }
+    ],
+    "expTitle": "職歴",
+    "jobs": [
+      { "co": "杭州图特信息技术有限公司（thothinfo）", "pd": "2024.03 – 現在", "ro": "シニアフロントエンドエンジニア → AIアプリケーションエンジニア（会社の事業転換に伴い）",
+        "nt": "医療業界のHRP／HISローコードプラットフォームのフロントエンド中核開発。技術スタック：Vue3 + TypeScript + pnpm Monorepo + Element Plus + 自社開発のhrp-uiコンポーネントライブラリ。",
+        "b": ["ローコード「PageCenter」の中核開発：ページデザイナー、ページエンジン、動的コンテナ、フローコンテナ、データセット、印刷ページ",
+              "「フォームデザイナー」のカスタムコンポーネントと設定機能の開発",
+              "BPMプロセス、OAシステム（Web／OAサイト／モバイル）、人材選択コンポーネント UserSelectUltra",
+              "モバイル向け複数の業務アプリ（当直アプリ、ボランティアアプリ）",
+              "AI分野：AIを活用した図表作成／印刷デザイン（LLMストリーミング対話）、n8nベクトルライブラリ同期、院内ナレッジベース",
+              "チーム：フロントエンドチームで協働。このリポジトリへの貢献度は2位（2700回以上のコミット）"] },
+      { "co": "信雅達科技股份有限公司（Sunyard）", "pd": "2021.03 – 2023.12", "ro": "フロントエンドエンジニア",
+        "b": ["Vue2 + View UI + Webpack、Vue3 + TypeScript + Element Plus + Vite による業務開発",
+              "テーブル、アップロード、プレビュー、トースト、レイアウトなどの共通コンポーネントを整備；共通APIサービス、汎用フック、ツールキットを集約",
+              "コード・コミット規約の策定（ESLint / Prettier / Husky / Commitlint）",
+              "オフライン環境でのスクリプト配備と Jenkins + GitLab による自動ビルドを推進；Monorepoアーキテクチャの導入を主導",
+              "社内フロントエンド標準マニュアルの作成、新人指導、チーム文化の構築に参画",
+              "主なプロジェクト：中建資本ファクタリング・サプライチェーンシステム、中国電信請求書システム、寧波銀行アプリのイベントトラッキング管理"] },
+      { "co": "浙江公共安全技術研究院有限公司", "pd": "2020.09 – 2021.03", "ro": "フロントエンドエンジニア",
+        "b": ["AngularJS + 地図SDKによるルート計画と防犯訓練の実装；Vue3 + EChartsによるデータ可視化",
+              "警察事案レポート／当直情報のアップロード・ダウンロード・プレビュー（html-canvas / pdf.js）",
+              "主なプロジェクト：陝西省楊凌公安局の事案分析システム、浙江省公安庁のスマート指揮ダッシュボード"] },
+      { "co": "浙江中控科教儀器設備有限公司（Supcon）", "pd": "2019.05 – 2020.03", "ro": "ソフトウェアエンジニア",
+        "b": ["PC版「中控スマート教室」、モバイル版「分類しましたか」「党の理論クイズ」、3D仮想シミュレーションプラットフォームのページ開発",
+              "技術：weui / light7、Bootstrap / layui、C#、MySQL"] }
+    ],
+    "eduTitle": "学歴",
+    "edu": [ { "s": "浙江工業大学之江学院", "d": "学士", "m": "コンピュータ科学と技術", "p": "2015 – 2019" } ]
+  },
+  "ko": {
+    "label": "한국어",
+    "name": "정강도 (John Cheng)",
+    "title": "AI 애플리케이션 개발 엔지니어 / 선임 프론트엔드 엔지니어",
+    "location": "항저우",
+    "email": "JohnCheng@zhengjiangtao.cn",
+    "github": "github.com/ataola",
+    "website": "zhengjiangtao.cn",
+    "print": "인쇄 / PDF로 저장",
+    "summaryTitle": "개인 소개",
+    "summary": "AI 애플리케이션 개발 엔지니어로, 다중 에이전트 오케스트레이션, AI 툴체인, 자체 호스팅 인프라에 주력하고 있습니다. 7년의 프론트엔드/풀스택 엔지니어링 경험(Vue / React / TypeScript)을 보유하고 있으며, 최근 3년간 의료 업계 HRP/HIS 로우코드 플랫폼 개발에 심도 있게 매진해 왔습니다. 엔지니어링 역량을 AI 제품 출시에 적용하는 데 능숙합니다.",
+    "skillsTitle": "스킬",
+    "skills": [
+      { "k": "AI", "v": "다중 에이전트 오케스트레이션(Claude / Codex / OpenCode), MCP, 프롬프트 엔지니어링, LLM 통합" },
+      { "k": "프론트엔드", "v": "Vue 2/3, React, TypeScript, Vite, Webpack, Element Plus / View UI" },
+      { "k": "백엔드", "v": "Node.js(Express / Egg / Midway), Spring Boot" },
+      { "k": "엔지니어링", "v": "Monorepo, CI/CD(Jenkins + GitLab), ESLint / Prettier / Husky / Commitlint, Docker, Nginx" },
+      { "k": "운영 / 인프라", "v": "Linux, 셸/BAT 스크립트, NAS 자체 호스팅" }
+    ],
+    "expTitle": "경력",
+    "jobs": [
+      { "co": "항저우 투스 정보기술 유한공사 (thothinfo)", "pd": "2024.03 – 현재", "ro": "선임 프론트엔드 엔지니어 → AI 애플리케이션 엔지니어 (회사 사업 전환)",
+        "nt": "의료 업계 HRP/HIS 로우코드 플랫폼 프론트엔드 핵심 개발. 기술 스택: Vue3 + TypeScript + pnpm Monorepo + Element Plus + 자체 개발 hrp-ui 컴포넌트 라이브러리.",
+        "b": ["로우코드 「페이지 센터(PageCenter)」 핵심 개발: 페이지 디자이너, 페이지 엔진, 동적 컨테이너, 워크플로 컨테이너, 데이터 세트, 인쇄 페이지",
+              "「폼 디자이너」 사용자 정의 컴포넌트 및 구성 기능 개발",
+              "BPM 프로세스, OA 시스템(웹 / OA 사이트 / 모바일), 인재 선발 컴포넌트 UserSelectUltra",
+              "모바일용 여러 업무 애플리케이션(당직 앱, 자원봉사 앱)",
+              "AI 분야: AI 지원 차트 / 인쇄 디자인(LLM 스트리밍 대화), n8n 벡터 라이브러리 동기화, 병원 내 지식베이스",
+              "팀: 프론트엔드 팀 협업. 이 저장소에서 두 번째로 많은 기여(2,700회 이상 커밋)"] },
+      { "co": "신야다 테크놀로지 주식회사 (Sunyard)", "pd": "2021.03 – 2023.12", "ro": "프론트엔드 엔지니어",
+        "b": ["Vue2 + View UI + Webpack, Vue3 + TypeScript + Element Plus + Vite 기반 업무 개발",
+              "테이블, 업로드, 미리보기, 토스트, 레이아웃 등 공통 컴포넌트 구축; 공통 API 서비스, 범용 Hooks, 툴킷 정리",
+              "코드 및 커밋 규약 정립(ESLint / Prettier / Husky / Commitlint)",
+              "오프라인 환경 스크립트 배포 및 Jenkins + GitLab 자동 빌드 도입; Monorepo 아키텍처 도입 주도",
+              "회사 프론트엔드 표준 매뉴얼 작성, 신입 교육, 팀 문화 조성 참여",
+              "주요 프로젝트: 중건자본 팩토링 공급망 시스템, 차이나텔레콤 청구서 시스템, 닝보은행 앱 이벤트 추적 관리"] },
+      { "co": "저장 공공안전기술연구원 유한공사", "pd": "2020.09 – 2021.03", "ro": "프론트엔드 엔지니어",
+        "b": ["AngularJS + 지도 SDK 기반 경로 계획 및 보안 훈련 구현; Vue3 + ECharts 데이터 시각화",
+              "경찰 사건 보고서 / 당직 정보 업로드·다운로드·미리보기 (html-canvas / pdf.js)",
+              "주요 프로젝트: 산시성 양링 공안국 사건 분석 시스템, 저장성 공안청 지능형 지휘 대시보드"] },
+      { "co": "저장 중콩 과학교육 기기 설비 유한공사 (Supcon)", "pd": "2019.05 – 2020.03", "ro": "소프트웨어 엔지니어",
+        "b": ["PC용 중콩 스마트 교실, 모바일용 분류했나요?, 당 이론 퀴즈, 3D 가상 시뮬레이션 플랫폼 페이지 개발",
+              "기술: weui / light7, Bootstrap / layui, C#, MySQL"] }
+    ],
+    "eduTitle": "학력",
+    "edu": [ { "s": "저장공업대학교 지장학원", "d": "학사", "m": "컴퓨터 과학 및 기술", "p": "2015 – 2019" } ]
+  }
+}
+</script>
+
+<script>
+(function(){
+  var DATA = JSON.parse(document.getElementById('data').textContent);
+  var ORDER = ['zh','en','ja','ko'];
+  var langTag = { zh:'zh-CN', en:'en', ja:'ja', ko:'ko' };
+
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+  function render(code){
+    var d = DATA[code]; if(!d) return;
+    var mail = 'mailto:' + d.email;
+    var html = '';
+    html += '<header class="rhead">';
+    html += '<h1 class="rname">' + esc(d.name) + '</h1>';
+    html += '<p class="rtitle">' + esc(d.title) + '</p>';
+    html += '<div class="rcontact">';
+    html += '<span>' + esc(d.location) + '</span>';
+    html += '<span class="dot">·</span><a href="' + esc(mail) + '">' + esc(d.email) + '</a>';
+    html += '<span class="dot">·</span><a href="https://' + esc(d.github) + '" target="_blank" rel="noopener">' + esc(d.github) + '</a>';
+    html += '<span class="dot">·</span><a href="https://' + esc(d.website) + '" target="_blank" rel="noopener">' + esc(d.website) + '</a>';
+    html += '</div></header>';
+
+    html += '<section class="sec"><h2>' + esc(d.summaryTitle) + '</h2><p class="summary">' + esc(d.summary) + '</p></section>';
+
+    html += '<section class="sec"><h2>' + esc(d.skillsTitle) + '</h2><div class="skills">';
+    d.skills.forEach(function(s){ html += '<div class="skill"><span class="k">' + esc(s.k) + '</span><span class="v">' + esc(s.v) + '</span></div>'; });
+    html += '</div></section>';
+
+    html += '<section class="sec"><h2>' + esc(d.expTitle) + '</h2>';
+    d.jobs.forEach(function(j){
+      html += '<article class="job"><div class="top"><span class="co">' + esc(j.co) + '</span><span class="pd">' + esc(j.pd) + '</span></div>';
+      html += '<p class="ro">' + esc(j.ro) + '</p>';
+      if(j.nt) html += '<p class="nt">' + esc(j.nt) + '</p>';
+      html += '<ul>';
+      j.b.forEach(function(x){ html += '<li>' + esc(x) + '</li>'; });
+      html += '</ul></article>';
+    });
+    html += '</section>';
+
+    html += '<section class="sec"><h2>' + esc(d.eduTitle) + '</h2>';
+    d.edu.forEach(function(e){
+      html += '<div class="edu"><div class="top"><span class="sc">' + esc(e.s) + '</span><span class="pd">' + esc(e.p) + '</span></div>';
+      html += '<p class="mj">' + esc(e.d) + ' · ' + esc(e.m) + '</p></div>';
+    });
+    html += '</section>';
+
+    html += '<div class="rfoot">' + esc(d.name) + ' · ' + esc(d.email) + '</div>';
+
+    document.getElementById('sheet').innerHTML = html;
+    document.getElementById('print').textContent = d.print;
+    document.documentElement.lang = langTag[code] || 'zh-CN';
+    document.title = d.name + ' — ' + d.title;
+    document.querySelectorAll('#langs button').forEach(function(b){ b.classList.toggle('active', b.dataset.lang === code); });
+    try { localStorage.setItem('resume-lang', code); } catch(e){}
+  }
+
+  var langs = document.getElementById('langs');
+  ORDER.forEach(function(code){
+    var b = document.createElement('button');
+    b.textContent = DATA[code].label; b.dataset.lang = code;
+    b.addEventListener('click', function(){ render(code); });
+    langs.appendChild(b);
+  });
+
+  document.getElementById('print').addEventListener('click', function(){ window.print(); });
+
+  var saved;
+  try { saved = localStorage.getItem('resume-lang'); } catch(e){}
+  if(!saved || ORDER.indexOf(saved) < 0){
+    var nav = (navigator.languages && navigator.languages[0] || navigator.language || '').toLowerCase();
+    saved = nav.indexOf('ja') === 0 ? 'ja' : nav.indexOf('ko') === 0 ? 'ko' : nav.indexOf('en') === 0 ? 'en' : 'zh';
+  }
+  render(saved);
+})();
+</script>
+</body>
 </html>
