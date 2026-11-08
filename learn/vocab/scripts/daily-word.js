@@ -41,6 +41,6 @@ const lines = [
   `${item.example}`,
   `${item.exampleZh}`,
   "",
-  `👉 http://192.168.31.39:9098/hub/vocab/`
+  `👉 https://zhengjiangtao.cn/learn/vocab/`
 ];
 process.stdout.write(lines.join("\n") + "\n");

@@ -1,4 +1,4 @@
-import{v as o}from"./index-yBF_8aaj.js";import{i as y}from"./scope-DCVDpFqO.js";const f=`---
+import{v as o}from"./index--4OhzZAb.js";import{i as y}from"./scope-DCVDpFqO.js";const f=`---
 title: 多语学习的笨办法：把输入变简单
 date: 2026-09-28
 summary: 同时学两三门语言时，最容易死在「材料太难」。我的做法是把输入降到刚好能懂，剩下的交给重复。
@@ -252,7 +252,7 @@ summary_ko: "예전 사이트는 나란한 라우트와 입구 관문뿐, 지금
 地图页依赖百度地图 AK，暂时下线；实验室里标了「暂不可用」，等哪天想起来再补。
 
 写作流也在试：文章直接写在 \`src/content/posts/*.md\`，frontmatter 只有 \`title / date / summary / tags\`。够用。
-`,A=`---
+`,j=`---
 title: 自己写一个投屏系统：为什么我没用现成协议
 date: 2026-11-05
 summary: 厂商投屏要会员、Miracast 玄学、DLNA 只能投流。最后花了两周自己写了一套：抓屏编码推流，投影仪收流解码。记一下协议怎么定、延迟怎么压、坑都在哪。
@@ -346,4 +346,70 @@ e6 d9 b8 4b 8e 8f 8d 29   ← 不是明文
 这套东西现在日常在用：手机点一下就连，投影仪顶上显示帧率、码率、分辨率，卡的时候一眼能看出是哪一段的问题。
 
 自己写的好处不是性能，而是**每一层都看得见**——出问题能定位到帧、到包、到编码器参数，而不是对着一个黑盒猜。
-`,j=Object.assign({"../content/posts/2026-09-28-language-learning-dull-method.md":f,"../content/posts/2026-10-20-chinese-in-four-weeks.md":b,"../content/posts/2026-11-02-newspaper-site.md":k,"../content/posts/2026-11-04-redesign.md":w,"../content/posts/2026-11-05-self-made-cast.md":A}),E=j;function M(e){const t=e.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);if(!t)return{data:{},body:e};const n={};for(const s of t[1].split(/\r?\n/)){const i=s.indexOf(":");i<0||(n[s.slice(0,i).trim()]=s.slice(i+1).trim().replace(/^["']|["']$/g,""))}return{data:n,body:t[2]}}const g=Object.entries(E).map(([e,t])=>{const{data:n,body:s}=M(t),i=e.split("/").pop().replace(/\.md$/,""),m=s.replace(/[#>*`\-|\s]/g,"").length;return{slug:i,title:n.title||i,date:n.date||"1970-01-01",summary:n.summary||"",tags:(n.tags||"").split(",").map(u=>u.trim()).filter(Boolean),draft:n.draft==="true",scope:n.scope==="public"?"public":"internal",i18n:{en:{title:n.title_en,summary:n.summary_en},ja:{title:n.title_ja,summary:n.summary_ja},ko:{title:n.title_ko,summary:n.summary_ko}},minutes:Math.max(1,Math.round(m/350)),body:s}}).filter(e=>!e.draft&&(e.scope==="public"||y)).sort((e,t)=>e.date<t.date?1:-1),d=g.map(({body:e,...t})=>t);function I(e){return g.find(t=>t.slug===e)}function L(e){const t=d.findIndex(n=>n.slug===e);return{prev:d[t+1],next:d[t-1]}}let _=null;async function P(){const[{default:e},t]=await Promise.all([o(()=>import("./index-3uSonpzy.js"),[]),Promise.all([o(()=>import("./core-CtK-02SP.js"),[]),o(()=>import("./javascript-DUNaicwC.js"),[]),o(()=>import("./typescript-5pldp2kO.js"),[]),o(()=>import("./bash-I8pq0VWm.js"),[]),o(()=>import("./json-DdsocbVI.js"),[]),o(()=>import("./yaml-drsDnIKT.js"),[]),o(()=>import("./xml-FcirFJJ2.js"),[]),o(()=>import("./nginx-CwEijJ2O.js"),[]),o(()=>import("./dockerfile-Co-AyC30.js"),[])])]),n=t[0].default,s=t.slice(1).map(a=>a.default);["javascript","typescript","bash","json","yaml","xml","nginx","dockerfile"].forEach((a,r)=>n.registerLanguage(a,s[r]));const m=new e({html:!0,linkify:!0,typographer:!0,highlight(a,r){const l=r&&n.getLanguage(r)?r:"bash";return`<pre class="hljs"><code class="language-${l}">${n.highlight(a,{language:l}).value}</code></pre>`}}),u=m.renderer.rules.link_open||((a,r,l,p,c)=>c.renderToken(a,r,l));return m.renderer.rules.link_open=(a,r,l,p,c)=>{const h=a[r].attrGet("href")||"";return/^https?:\/\//.test(h)&&(a[r].attrSet("target","_blank"),a[r].attrSet("rel","noopener")),u(a,r,l,p,c)},m}async function x(e){return _||(_=await P()),_.render(e)}function D(e,t){const n=t,s=e.i18n?.[n];return{title:s?.title||e.title,summary:s?.summary||e.summary}}export{L as a,I as g,D as l,d as m,x as r};
+`,v=`---
+title: 让模型可以随时被换掉
+date: 2026-11-06
+summary: 上游发新版本、下线旧版本是常态。把所有模型名收进一层薄薄的抽象，换供应商就和改一行配置一样轻。
+tags: LLM, 架构
+scope: public
+title_en: "Making your model replaceable"
+summary_en: "Upstreams ship new versions and retire old ones all the time. Put model names behind a thin layer of abstraction, and swapping a provider becomes a one-line change."
+title_ja: "モデルをいつでも差し替えられるようにする"
+summary_ja: "上流が新版を出し旧版を止めるのは日常だ。モデル名を薄い抽象の裏に置けば、乗り換えは一行の変更で済む。"
+title_ko: "모델을 언제든 교체할 수 있게 만들기"
+summary_ko: "업스트림이 새 버전을 내고 구 버전을 내리는 일은 일상이다. 모델 이름을 얇은 추상 뒤에 두면 갈아타는 일이 한 줄 수정이 된다."
+---
+
+去年有个模型服务商调整了模型命名，加了个日期后缀。我当时有四个工具在用它，每个工具的配置文件里都写着旧名字。
+
+结果是一次很没必要的下午：改配置、重启、挨个验证，其中两个还在启动时不报错，只是回答质量悄悄变了。
+
+从那以后我把模型名收进了一层抽象。
+
+## 只写意图，不写上游的名字
+
+客户端里不写具体型号，写角色：
+
+\`\`\`
+chat-model     long-context-model     fast-model
+\`\`\`
+
+角色到真实型号的翻译放在中间层——自建网关、代理，或者一个只做转发的函数都行。上游换名字，只改这一张表。
+
+这层薄得几乎没成本，但它决定了「换供应商」是一行配置还是一次迁移。
+
+## 切换要给观察期
+
+直接指过去是最容易出事的地方。稳妥的顺序：
+
+1. 新模型先以**影子**身份接入，主路径不动
+2. 拿真实任务跑几天，比延迟、比稳定性、比输出质量
+3. 确认后再把角色的映射切过去
+4. 旧路径保留一段时间，留住回滚的可能
+
+同一时刻一个角色只对应一个上游。想同时试两条，就开两个角色，别让一个名字同时通两处——出了问题连「刚才走的哪条」都查不清。
+
+## 提前知道上游变了
+
+等报错就晚了。每天拉一次对方公布的模型清单，和自己配置的比。
+
+| 变化 | 含义 | 该做的事 |
+|---|---|---|
+| 我们配着、对方没了 | 旧版下线 | 告警，准备切映射 |
+| 对方上了新的 | 新版发布 | 记录，观察后再用 |
+| 名字对不上 | 命名改了 | 查是不是映射漏了 |
+
+第一类必须告警，因为从「下线」到「客户端报错」往往只有几个小时。
+
+## 最隐蔽的一种失败
+
+不是报错，是**静默降级**。
+
+有些客户端在模型不可用时会自动退到备选，日志里只有一行 warning。等你发现回答变差，可能已经过去一周，而且很难回溯是哪天开始的。
+
+所以监控要盯的是**实际用了哪个模型**，而不只是「请求成功了没有」。成功但不达预期，比失败更难处理。
+
+## 一句话
+
+把模型当基础设施，而不是当依赖。基础设施的第一属性是可替换——换的时候不应该惊动业务。
+`,A=Object.assign({"../content/posts/2026-09-28-language-learning-dull-method.md":f,"../content/posts/2026-10-20-chinese-in-four-weeks.md":b,"../content/posts/2026-11-02-newspaper-site.md":k,"../content/posts/2026-11-04-redesign.md":w,"../content/posts/2026-11-05-self-made-cast.md":j,"../content/posts/2026-11-06-model-abstraction.md":v}),M=A;function E(e){const t=e.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);if(!t)return{data:{},body:e};const n={};for(const r of t[1].split(/\r?\n/)){const i=r.indexOf(":");i<0||(n[r.slice(0,i).trim()]=r.slice(i+1).trim().replace(/^["']|["']$/g,""))}return{data:n,body:t[2]}}const g=Object.entries(M).map(([e,t])=>{const{data:n,body:r}=E(t),i=e.split("/").pop().replace(/\.md$/,""),m=r.replace(/[#>*`\-|\s]/g,"").length;return{slug:i,title:n.title||i,date:n.date||"1970-01-01",summary:n.summary||"",tags:(n.tags||"").split(",").map(u=>u.trim()).filter(Boolean),draft:n.draft==="true",scope:n.scope==="public"?"public":"internal",i18n:{en:{title:n.title_en,summary:n.summary_en},ja:{title:n.title_ja,summary:n.summary_ja},ko:{title:n.title_ko,summary:n.summary_ko}},minutes:Math.max(1,Math.round(m/350)),body:r}}).filter(e=>!e.draft&&(e.scope==="public"||y)).sort((e,t)=>e.date<t.date?1:-1),d=g.map(({body:e,...t})=>t);function I(e){return g.find(t=>t.slug===e)}function x(e){const t=d.findIndex(n=>n.slug===e);return{prev:d[t+1],next:d[t-1]}}let _=null;async function P(){const[{default:e},t]=await Promise.all([o(()=>import("./index-3uSonpzy.js"),[]),Promise.all([o(()=>import("./core-CtK-02SP.js"),[]),o(()=>import("./javascript-DUNaicwC.js"),[]),o(()=>import("./typescript-5pldp2kO.js"),[]),o(()=>import("./bash-I8pq0VWm.js"),[]),o(()=>import("./json-DdsocbVI.js"),[]),o(()=>import("./yaml-drsDnIKT.js"),[]),o(()=>import("./xml-FcirFJJ2.js"),[]),o(()=>import("./nginx-CwEijJ2O.js"),[]),o(()=>import("./dockerfile-Co-AyC30.js"),[])])]),n=t[0].default,r=t.slice(1).map(a=>a.default);["javascript","typescript","bash","json","yaml","xml","nginx","dockerfile"].forEach((a,s)=>n.registerLanguage(a,r[s]));const m=new e({html:!0,linkify:!0,typographer:!0,highlight(a,s){const l=s&&n.getLanguage(s)?s:"bash";return`<pre class="hljs"><code class="language-${l}">${n.highlight(a,{language:l}).value}</code></pre>`}}),u=m.renderer.rules.link_open||((a,s,l,p,c)=>c.renderToken(a,s,l));return m.renderer.rules.link_open=(a,s,l,p,c)=>{const h=a[s].attrGet("href")||"";return/^https?:\/\//.test(h)&&(a[s].attrSet("target","_blank"),a[s].attrSet("rel","noopener")),u(a,s,l,p,c)},m}async function D(e){return _||(_=await P()),_.render(e)}function O(e,t){const n=t,r=e.i18n?.[n];return{title:r?.title||e.title,summary:r?.summary||e.summary}}export{x as a,I as g,O as l,d as m,D as r};

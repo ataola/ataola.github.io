@@ -5,7 +5,14 @@
     <link>https://zhengjiangtao.cn</link>
     <description>自建服务、代理与媒体栈的长期记录。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 05 Nov 2026 05:29:12 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 05:01:54 GMT</lastBuildDate>
+    <item>
+      <title>让模型可以随时被换掉</title>
+      <link>https://zhengjiangtao.cn/blog/2026-11-06-model-abstraction</link>
+      <guid>https://zhengjiangtao.cn/blog/2026-11-06-model-abstraction</guid>
+      <pubDate>Fri, 06 Nov 2026 01:00:00 GMT</pubDate>
+      <description>上游发新版本、下线旧版本是常态。把所有模型名收进一层薄薄的抽象，换供应商就和改一行配置一样轻。</description>
+    </item>
     <item>
       <title>自己写一个投屏系统：为什么我没用现成协议</title>
       <link>https://zhengjiangtao.cn/blog/2026-11-05-self-made-cast</link>
