@@ -1,4 +1,4 @@
-import{v as o}from"./index-DNdj0NgT.js";import{i as y}from"./scope-DCVDpFqO.js";const f=`---
+import{v as o}from"./index-D4XkWEWK.js";import{i as y}from"./scope-DCVDpFqO.js";const f=`---
 title: 多语学习的笨办法：把输入变简单
 date: 2026-09-28
 summary: 同时学两三门语言时，最容易死在「材料太难」。我的做法是把输入降到刚好能懂，剩下的交给重复。
