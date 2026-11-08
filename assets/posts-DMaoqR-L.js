@@ -1,4 +1,4 @@
-import{v as o}from"./index-R6ZSmncL.js";import{i as y}from"./scope-DCVDpFqO.js";const f=`---
+import{v as o}from"./index-DnfnDier.js";import{i as y}from"./scope-DCVDpFqO.js";const f=`---
 title: 多语学习的笨办法：把输入变简单
 date: 2026-09-28
 summary: 同时学两三门语言时，最容易死在「材料太难」。我的做法是把输入降到刚好能懂，剩下的交给重复。
@@ -10,6 +10,7 @@ title_ja: "語学の地味な方法——入力を簡単にする"
 summary_ja: "二つ三つの言語を同時にやるとき、一番の敵は教材が難しすぎること。ちょうど分かる程度まで下げて、あとは繰り返しに任せる。"
 title_ko: "언어 학습의 둔한 방법 — 입력을 단순하게"
 summary_ko: "두세 언어를 동시에 배울 때 가장 큰 적은 자료가 너무 어렵다는 것. 겨우 이해될 만큼 낮추고 나머지는 반복에 맡긴다."
+reviewed: 2026-11-08
 ---
 
 有一阵子我同时在碰英语、日语和韩语。结果三门都停在「认识字母但开不了口」的阶段，问题不在努力程度，在**材料选错了**。
@@ -75,6 +76,7 @@ title_ja: "外国人に中国語を教える——四週間で話し始める計
 summary_ja: "ピンイン、声調、部首、場面会話。四週間でどこまで行けるか。独学する人にも、教える人にも。"
 title_ko: "외국인에게 중국어 가르치기 — 4주 말하기 계획"
 summary_ko: "병음, 성조, 부수, 상황 대화. 4주면 어디까지 가능한지. 혼자 배우는 사람과 가르치는 사람 모두에게."
+reviewed: 2026-11-08
 ---
 
 经常有人问我：中文到底怎么入门。市面上的课程大多从「你好、谢谢、再见」开始，学了三周还是开不了口。我给别人排过几次计划，最后收敛成下面这套，四周为一个周期。
@@ -131,7 +133,7 @@ summary_ko: "병음, 성조, 부수, 상황 대화. 4주면 어디까지 가능�
 四周之后，正常进度是：能读简单招牌、能点菜、能做自我介绍、能听懂慢速对话的一半。这已经够用了，剩下的靠时间泡。
 
 > 给想教别人的朋友一句话：**别纠正每一个错误**。一次只盯一个问题，其它的先放过。语言是习惯，不是知识。
-`,k=`---
+`,w=`---
 title: 把个人站做成一份报纸
 date: 2026-11-02
 summary: 静态站、报纸排版、四种语言——这次重做时做的几个取舍，以及为什么最后几乎没用什么框架。
@@ -143,6 +145,7 @@ title_ja: "個人サイトを新聞のように作る"
 summary_ja: "静的サイト、新聞の組版、四つの言語。今回の作り直しで下した判断と、なぜフレームワークをほぼ使わなかったか。"
 title_ko: "개인 사이트를 신문처럼 만들기"
 summary_ko: "정적 사이트, 신문 조판, 네 개 언어. 이번 재작업의 선택과 프레임워크를 거의 쓰지 않은 이유."
+reviewed: 2026-11-08
 ---
 
 站点重做的时候，我给自己定了一个不太技术的要求：**打开它应该像拿起一份报纸**，而不是又看到一个「现代 Web 应用」。
@@ -193,7 +196,7 @@ summary_ko: "정적 사이트, 신문 조판, 네 개 언어. 이번 재작업�
 做个人站最容易犯的错，是把「技术展示」当成目的。读者其实只关心两件事：**能不能看懂**，**值不值得看**。
 
 排版的所有决定，最后都该回到这两件事上。
-`,w=`---
+`,k=`---
 title: 主站重做：从「玩具站」到「自留地」
 date: 2026-11-04
 summary: 旧站是一堆并列路由加一个启动门槛，没有任何一处能回答「你现在在做什么」。这次按博客的路子重做了一遍。
@@ -205,6 +208,7 @@ title_ja: "サイトを作り直す——「玩具」から「自分の場所」
 summary_ja: "旧サイトは並列のルートと入口の関門だけで、「今なにをしているか」を答える場所がなかった。今回はブログとして作り直した。"
 title_ko: "사이트를 다시 짓다 — 장난감에서 내 자리로"
 summary_ko: "예전 사이트는 나란한 라우트와 입구 관문뿐, 지금 무엇을 하는지 답하는 곳이 없었다. 이번엔 블로그로 다시 지었다."
+reviewed: 2026-11-08
 ---
 
 旧站的代码我留了五年。Vue 3 刚发布那会儿写的，rem 布局、粒子背景、自动播放的背景音乐，还有一个必须先点掉的引导页——现在回头看，那些都是「炫技」，不是「作品」。
@@ -252,7 +256,7 @@ summary_ko: "예전 사이트는 나란한 라우트와 입구 관문뿐, 지금
 地图页依赖百度地图 AK，暂时下线；实验室里标了「暂不可用」，等哪天想起来再补。
 
 写作流也在试：文章直接写在 \`src/content/posts/*.md\`，frontmatter 只有 \`title / date / summary / tags\`。够用。
-`,j=`---
+`,v=`---
 title: 自己写一个投屏系统：为什么我没用现成协议
 date: 2026-11-05
 summary: 厂商投屏要会员、Miracast 玄学、DLNA 只能投流。最后花了两周自己写了一套：抓屏编码推流，投影仪收流解码。记一下协议怎么定、延迟怎么压、坑都在哪。
@@ -264,6 +268,7 @@ title_ja: "自分で作るキャストシステム——既存プロトコルを
 summary_ja: "ベンダーのキャストは課金、Miracast は当たり外れ、DLNA はストリームしか飛ばせない。結局二週間かけて自作した。プロトコル設計、遅延、そしてハマりどころの記録。"
 title_ko: "내 캐스팅 시스템을 직접 만들다 — 기성 프로토콜을 쓰지 않은 이유"
 summary_ko: "제조사 캐스팅은 유료, Miracast는 복불복, DLNA는 스트림만 보낸다. 결국 2주 동안 직접 만들었다. 프로토콜 설계, 지연, 그리고 삽질 기록."
+reviewed: 2026-11-08
 ---
 
 家里有台投影仪，想把手机画面投上去。试过一圈现成方案，各有各的别扭：厂商投屏要会员、Miracast 兼容性玄学、DLNA 只能投流不能投屏。最后干脆自己写了一套——手机抓屏编码推流，投影仪收流解码。
@@ -346,7 +351,7 @@ e6 d9 b8 4b 8e 8f 8d 29   ← 不是明文
 这套东西现在日常在用：手机点一下就连，投影仪顶上显示帧率、码率、分辨率，卡的时候一眼能看出是哪一段的问题。
 
 自己写的好处不是性能，而是**每一层都看得见**——出问题能定位到帧、到包、到编码器参数，而不是对着一个黑盒猜。
-`,v=`---
+`,j=`---
 title: 让模型可以随时被换掉
 date: 2026-11-06
 summary: 上游发新版本、下线旧版本是常态。把所有模型名收进一层薄薄的抽象，换供应商就和改一行配置一样轻。
@@ -358,6 +363,7 @@ title_ja: "モデルをいつでも差し替えられるようにする"
 summary_ja: "上流が新版を出し旧版を止めるのは日常だ。モデル名を薄い抽象の裏に置けば、乗り換えは一行の変更で済む。"
 title_ko: "모델을 언제든 교체할 수 있게 만들기"
 summary_ko: "업스트림이 새 버전을 내고 구 버전을 내리는 일은 일상이다. 모델 이름을 얇은 추상 뒤에 두면 갈아타는 일이 한 줄 수정이 된다."
+reviewed: 2026-11-08
 ---
 
 去年有个模型服务商调整了模型命名，加了个日期后缀。我当时有四个工具在用它，每个工具的配置文件里都写着旧名字。
@@ -412,4 +418,4 @@ chat-model     long-context-model     fast-model
 ## 一句话
 
 把模型当基础设施，而不是当依赖。基础设施的第一属性是可替换——换的时候不应该惊动业务。
-`,A=Object.assign({"../content/posts/2026-09-28-language-learning-dull-method.md":f,"../content/posts/2026-10-20-chinese-in-four-weeks.md":b,"../content/posts/2026-11-02-newspaper-site.md":k,"../content/posts/2026-11-04-redesign.md":w,"../content/posts/2026-11-05-self-made-cast.md":j,"../content/posts/2026-11-06-model-abstraction.md":v}),M=A;function E(e){const t=e.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);if(!t)return{data:{},body:e};const n={};for(const r of t[1].split(/\r?\n/)){const i=r.indexOf(":");i<0||(n[r.slice(0,i).trim()]=r.slice(i+1).trim().replace(/^["']|["']$/g,""))}return{data:n,body:t[2]}}const g=Object.entries(M).map(([e,t])=>{const{data:n,body:r}=E(t),i=e.split("/").pop().replace(/\.md$/,""),m=r.replace(/[#>*`\-|\s]/g,"").length;return{slug:i,title:n.title||i,date:n.date||"1970-01-01",summary:n.summary||"",tags:(n.tags||"").split(",").map(u=>u.trim()).filter(Boolean),draft:n.draft==="true",scope:n.scope==="public"?"public":"internal",i18n:{en:{title:n.title_en,summary:n.summary_en},ja:{title:n.title_ja,summary:n.summary_ja},ko:{title:n.title_ko,summary:n.summary_ko}},minutes:Math.max(1,Math.round(m/350)),body:r}}).filter(e=>!e.draft&&(e.scope==="public"||y)).sort((e,t)=>e.date<t.date?1:-1),d=g.map(({body:e,...t})=>t);function I(e){return g.find(t=>t.slug===e)}function x(e){const t=d.findIndex(n=>n.slug===e);return{prev:d[t+1],next:d[t-1]}}let _=null;async function P(){const[{default:e},t]=await Promise.all([o(()=>import("./index-3uSonpzy.js"),[]),Promise.all([o(()=>import("./core-CtK-02SP.js"),[]),o(()=>import("./javascript-DUNaicwC.js"),[]),o(()=>import("./typescript-5pldp2kO.js"),[]),o(()=>import("./bash-I8pq0VWm.js"),[]),o(()=>import("./json-DdsocbVI.js"),[]),o(()=>import("./yaml-drsDnIKT.js"),[]),o(()=>import("./xml-FcirFJJ2.js"),[]),o(()=>import("./nginx-CwEijJ2O.js"),[]),o(()=>import("./dockerfile-Co-AyC30.js"),[])])]),n=t[0].default,r=t.slice(1).map(a=>a.default);["javascript","typescript","bash","json","yaml","xml","nginx","dockerfile"].forEach((a,s)=>n.registerLanguage(a,r[s]));const m=new e({html:!0,linkify:!0,typographer:!0,highlight(a,s){const l=s&&n.getLanguage(s)?s:"bash";return`<pre class="hljs"><code class="language-${l}">${n.highlight(a,{language:l}).value}</code></pre>`}}),u=m.renderer.rules.link_open||((a,s,l,p,c)=>c.renderToken(a,s,l));return m.renderer.rules.link_open=(a,s,l,p,c)=>{const h=a[s].attrGet("href")||"";return/^https?:\/\//.test(h)&&(a[s].attrSet("target","_blank"),a[s].attrSet("rel","noopener")),u(a,s,l,p,c)},m}async function D(e){return _||(_=await P()),_.render(e)}function O(e,t){const n=t,r=e.i18n?.[n];return{title:r?.title||e.title,summary:r?.summary||e.summary}}export{x as a,I as g,O as l,d as m,D as r};
+`,A=Object.assign({"../content/posts/2026-09-28-language-learning-dull-method.md":f,"../content/posts/2026-10-20-chinese-in-four-weeks.md":b,"../content/posts/2026-11-02-newspaper-site.md":w,"../content/posts/2026-11-04-redesign.md":k,"../content/posts/2026-11-05-self-made-cast.md":v,"../content/posts/2026-11-06-model-abstraction.md":j}),M=A;function E(e){const t=e.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);if(!t)return{data:{},body:e};const n={};for(const s of t[1].split(/\r?\n/)){const i=s.indexOf(":");i<0||(n[s.slice(0,i).trim()]=s.slice(i+1).trim().replace(/^["']|["']$/g,""))}return{data:n,body:t[2]}}const g=Object.entries(M).map(([e,t])=>{const{data:n,body:s}=E(t),i=e.split("/").pop().replace(/\.md$/,""),m=s.replace(/[#>*`\-|\s]/g,"").length;return{slug:i,title:n.title||i,date:n.date||"1970-01-01",summary:n.summary||"",tags:(n.tags||"").split(",").map(d=>d.trim()).filter(Boolean),draft:n.draft==="true",scope:n.scope==="public"?"public":"internal",i18n:{en:{title:n.title_en,summary:n.summary_en},ja:{title:n.title_ja,summary:n.summary_ja},ko:{title:n.title_ko,summary:n.summary_ko}},minutes:Math.max(1,Math.round(m/350)),body:s}}).filter(e=>!e.draft&&(e.scope==="public"||y)).sort((e,t)=>e.date<t.date?1:-1),c=g.map(({body:e,...t})=>t);function I(e){return g.find(t=>t.slug===e)}function x(e){const t=c.findIndex(n=>n.slug===e);return{prev:c[t+1],next:c[t-1]}}let _=null;async function P(){const[{default:e},t]=await Promise.all([o(()=>import("./index-3uSonpzy.js"),[]),Promise.all([o(()=>import("./core-CtK-02SP.js"),[]),o(()=>import("./javascript-DUNaicwC.js"),[]),o(()=>import("./typescript-5pldp2kO.js"),[]),o(()=>import("./bash-I8pq0VWm.js"),[]),o(()=>import("./json-DdsocbVI.js"),[]),o(()=>import("./yaml-drsDnIKT.js"),[]),o(()=>import("./xml-FcirFJJ2.js"),[]),o(()=>import("./nginx-CwEijJ2O.js"),[]),o(()=>import("./dockerfile-Co-AyC30.js"),[])])]),n=t[0].default,s=t.slice(1).map(a=>a.default);["javascript","typescript","bash","json","yaml","xml","nginx","dockerfile"].forEach((a,r)=>n.registerLanguage(a,s[r]));const m=new e({html:!0,linkify:!0,typographer:!0,highlight(a,r){const l=r&&n.getLanguage(r)?r:"bash";return`<pre class="hljs"><code class="language-${l}">${n.highlight(a,{language:l}).value}</code></pre>`}}),d=m.renderer.rules.link_open||((a,r,l,p,u)=>u.renderToken(a,r,l));return m.renderer.rules.link_open=(a,r,l,p,u)=>{const h=a[r].attrGet("href")||"";return/^https?:\/\//.test(h)&&(a[r].attrSet("target","_blank"),a[r].attrSet("rel","noopener")),d(a,r,l,p,u)},m}async function D(e){return _||(_=await P()),_.render(e)}function O(e,t){const n=t,s=e.i18n?.[n];return{title:s?.title||e.title,summary:s?.summary||e.summary}}export{x as a,I as g,O as l,c as m,D as r};
