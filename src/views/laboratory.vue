@@ -31,14 +31,13 @@ export default defineComponent({
 
     const state = reactive<stateType>({
       sideBarItem: {
-        text: '流螢',
-        value: 'LEDLightWordIntro',
+        text: '木魚',
+        value: 'WoodenFish',
       },
       sideBarItems: [
         {
           text: '木魚',
           value: 'WoodenFish',
-          href: '/muyu/',
           isNew: true,
         },
         {
@@ -49,17 +48,10 @@ export default defineComponent({
     })
 
     const changeSideBar = (value: string | number) => {
-      const item = state.sideBarItems.find((i: any) => i.value === value)
-
-      // 木魚已抽成独立纯净页 /muyu/，直接跳转
-      if (item && item.href) {
-        window.location.href = item.href
-        return
-      }
-
-      state.sideBarItem = item || {
-        text: '流螢',
-        value: 'LEDLightWordIntro',
+      state.sideBarItem = state.sideBarItems.find((item: any) => item.value === value) || {
+        text: '木魚',
+        value: 'WoodenFish',
+        isNew: true,
       }
 
       const name = value as RouteRecordName
