@@ -111,7 +111,7 @@ if (sent) {
   }
   lines.push("");
 }
-lines.push(`👉 https://zhengjiangtao.cn/learn/vocab/`);
+lines.push(`👉 https://zhengjiangtao.cn/vocab/`);
 
 /* ---------- 海报配图（Pollinations 免费额度） ---------- */
 function posterArt() {
@@ -219,7 +219,7 @@ function posterHTML() {
     ${head}
     <div class="rows">${cards}</div>
     ${sentBlock}
-    <div class="foot"><span>青龙词场 · <b>六语背单词</b></span><span>zhengjiangtao.cn/learn/vocab</span></div>
+    <div class="foot"><span>青龙词场 · <b>六语背单词</b></span><span>zhengjiangtao.cn/vocab</span></div>
   </div></body></html>`;
 }
 

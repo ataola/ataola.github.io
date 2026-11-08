@@ -1,0 +1,416 @@
+/* 電子功德 · 木魚 —— 独立纯净页 */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background-color: #f2be45;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-color: #f2be45;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  touch-action: pan-y;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  flex-shrink: 0;
+}
+
+.merit-display {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.merit-label {
+  font-size: 18px;
+  color: #8b4513;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.merit-value-container {
+  position: relative;
+  display: inline-block;
+}
+
+.merit-value {
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), 0 0 20px currentColor;
+  line-height: 1;
+  min-width: 80px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  transition: color 0.5s ease;
+  display: inline-block;
+}
+
+/* 佛光效果 */
+.buddha-light {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.4) 0%,
+    rgba(255, 215, 0, 0.2) 30%,
+    rgba(255, 215, 0, 0.1) 60%,
+    transparent 100%
+  );
+  animation: buddha-glow 3s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes buddha-glow {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.action-btn {
+  padding: 8px 20px;
+  font-size: 14px;
+  color: #8b4513;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(139, 69, 19, 0.3);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.action-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(139, 69, 19, 0.5);
+  transform: translateY(-1px);
+}
+
+.action-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.music-btn {
+  font-size: 18px;
+  padding: 6px 12px;
+}
+
+.dedicate-btn {
+  background-color: rgba(255, 87, 34, 0.15);
+  color: #ff5722;
+  border-color: rgba(255, 87, 34, 0.3);
+}
+
+.dedicate-btn:hover {
+  background-color: rgba(255, 87, 34, 0.25);
+  border-color: rgba(255, 87, 34, 0.5);
+}
+
+.woodfish-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 400px;
+}
+
+.woodfish {
+  width: 4.1rem;
+  height: 2.8rem;
+  transition: transform 0.2s ease;
+}
+
+.woodfish-active {
+  transform: scale(1.2);
+}
+
+.blessings {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.blessing {
+  position: absolute;
+  color: #ff5722;
+  font-size: 16px;
+  font-weight: bold;
+  animation: slide-up 1s ease-out forwards;
+  white-space: nowrap;
+}
+
+@keyframes slide-up {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100px); opacity: 0; }
+}
+
+/* 弹窗 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-overlay.show {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 16px;
+  border: 3px solid #f2be45;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #8b4513;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+  border-bottom: 2px solid #f2be45;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.current-merit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  color: #8b4513;
+  margin-bottom: 20px;
+  padding: 12px;
+  background-color: rgba(242, 190, 69, 0.1);
+  border-radius: 8px;
+}
+
+.merit-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #8b4513;
+  margin-bottom: 8px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #f2be45;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  border-color: #ff5722;
+  box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.1);
+}
+
+.input-field::placeholder {
+  color: #bbb;
+}
+
+.modal-hint {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  padding: 12px;
+  background-color: rgba(255, 87, 34, 0.05);
+  border-left: 3px solid #ff5722;
+  border-radius: 4px;
+  margin-top: 16px;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.modal-btn {
+  flex: 1;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-btn:active {
+  transform: scale(0.98);
+}
+
+.cancel-btn {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.cancel-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.confirm-btn {
+  background-color: #d32f2f;
+  color: #fff;
+}
+
+.confirm-btn:hover {
+  background-color: #b71c1c;
+}
+
+.confirm-btn.full-width {
+  flex: none;
+  width: 100%;
+}
+
+.confirm-modal {
+  max-width: 400px;
+}
+
+.confirm-modal .confirm-text {
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.success-modal {
+  max-width: 400px;
+}
+
+.success-modal .success-title {
+  color: #ff5722;
+}
+
+.success-modal .success-icon {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.success-modal .success-text {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+  margin: 8px 0;
+}
+
+.success-modal .success-target {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #d32f2f;
+  margin: 12px 0;
+  word-break: break-word;
+}
+
+.success-modal .success-blessing {
+  text-align: center;
+  font-size: 14px;
+  color: #8b4513;
+  margin: 16px 0 8px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background: linear-gradient(180deg, rgba(139, 69, 19, 0.05) 0%, transparent 100%);
+  }
+  .merit-display { flex-direction: column; align-items: center; gap: 8px; }
+  .merit-label { font-size: 16px; }
+  .merit-value { font-size: 56px; min-width: auto; }
+  .buddha-light { width: 140px; height: 140px; }
+  .button-group { gap: 12px; width: 100%; justify-content: center; }
+  .action-btn { padding: 10px 18px; font-size: 14px; flex: 1; max-width: 100px; }
+  .music-btn { font-size: 20px; padding: 10px 14px; flex: 0 0 auto; max-width: none; }
+  .woodfish-container { min-height: 300px; }
+  .blessing { font-size: 14px; }
+  .modal-content { max-width: 90%; border-radius: 12px; }
+  .modal-title { font-size: 20px; padding: 16px; }
+  .modal-body { padding: 20px; }
+  .current-merit { font-size: 16px; }
+  .merit-number { font-size: 20px; }
+  .form-group label { font-size: 13px; }
+  .input-field { font-size: 16px; padding: 10px 14px; }
+  .modal-hint { font-size: 12px; padding: 10px; }
+  .modal-footer { padding: 16px 20px; gap: 10px; }
+  .modal-btn { padding: 10px 20px; font-size: 15px; }
+  .confirm-modal .confirm-text { font-size: 15px; padding: 16px 0; }
+  .success-modal .success-icon { font-size: 40px; margin-bottom: 12px; }
+  .success-modal .success-text { font-size: 15px; }
+  .success-modal .success-target { font-size: 18px; }
+  .success-modal .success-blessing { font-size: 13px; }
+}

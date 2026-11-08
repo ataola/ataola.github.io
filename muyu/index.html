@@ -1,13 +1,95 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>电子木鱼 · 江涛の个人小站</title>
-<meta name="robots" content="noindex">
-<link rel="canonical" href="https://zhengjiangtao.cn/lab/wooden-fish/">
-<meta http-equiv="refresh" content="0;url=/lab/wooden-fish/">
-<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#faf8f5;color:#1c1a17;font:15px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}a{color:#1c1a17}</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f2be45" />
+  <meta name="description" content="電子功德 · 木魚：敲一敲，功德 +1，可回向。" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AA%98%3C/text%3E%3C/svg%3E" />
+  <title>電子功德 · 木魚</title>
+  <link rel="stylesheet" href="./muyu.css" />
 </head>
-<body><p>正在前往电子木鱼… <a href="/lab/wooden-fish/">点这里</a></p><script>location.replace('/lab/wooden-fish/')</script></body>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="merit-display">
+        <span class="merit-label">功德</span>
+        <div class="merit-value-container">
+          <span class="merit-value" id="meritValue">0</span>
+          <div class="buddha-light"></div>
+        </div>
+      </div>
+      <div class="button-group">
+        <button class="action-btn music-btn" id="musicBtn" title="播放音樂">🎵</button>
+        <button class="action-btn dedicate-btn" id="dedicateBtn">回向</button>
+        <button class="action-btn reset-btn" id="resetBtn">歸零</button>
+      </div>
+    </div>
+
+    <div class="woodfish-container" id="woodfishContainer">
+      <img class="woodfish" id="woodfishImg" src="./wooden-fish.png" alt="木魚" />
+      <div class="blessings" id="blessings"></div>
+    </div>
+
+    <!-- 歸零確認彈窗 -->
+    <div class="modal-overlay" id="resetModal">
+      <div class="modal-content confirm-modal">
+        <h2 class="modal-title">確認歸零</h2>
+        <div class="modal-body">
+          <p class="confirm-text">確定要將功德歸零嗎？</p>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-btn cancel-btn" id="resetCancel">取消</button>
+          <button class="modal-btn confirm-btn" id="resetConfirm">確定</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 回向彈窗 -->
+    <div class="modal-overlay" id="dedicateModal">
+      <div class="modal-content">
+        <h2 class="modal-title">功德回向</h2>
+        <div class="modal-body">
+          <div class="current-merit">
+            <span>當前功德：</span>
+            <span class="merit-number" id="dedicateCurrentMerit">0</span>
+          </div>
+          <div class="form-group">
+            <label>回向對象：</label>
+            <input type="text" id="dedicateTarget" placeholder="請輸入回向對象" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label>回向功德數：</label>
+            <input type="number" id="dedicateAmount" inputmode="numeric" min="1" placeholder="請輸入功德數" class="input-field" />
+          </div>
+          <div class="modal-hint">
+            回向是將個人善業功德轉向更廣大目標的修行，功德不會因分享而減少，反而因願力加持而增長。
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-btn cancel-btn" id="dedicateCancel">取消</button>
+          <button class="modal-btn confirm-btn" id="dedicateConfirm">確定</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 回向成功彈窗 -->
+    <div class="modal-overlay" id="successModal">
+      <div class="modal-content success-modal">
+        <h2 class="modal-title success-title">回向成功</h2>
+        <div class="modal-body">
+          <div class="success-icon">✨</div>
+          <p class="success-text">已將 <span id="successAmount">0</span> 功德回向給</p>
+          <p class="success-target" id="successTarget"></p>
+          <p class="success-blessing">願此功德，莊嚴佛淨土</p>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-btn confirm-btn full-width" id="successClose">確定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./muyu.js"></script>
+</body>
 </html>

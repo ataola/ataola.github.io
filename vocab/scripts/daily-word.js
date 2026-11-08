@@ -41,6 +41,6 @@ const lines = [
   `${item.example}`,
   `${item.exampleZh}`,
   "",
-  `👉 https://zhengjiangtao.cn/learn/vocab/`
+  `👉 https://zhengjiangtao.cn/vocab/`
 ];
 process.stdout.write(lines.join("\n") + "\n");
