@@ -1,4 +1,4 @@
-import{v as o}from"./index-8bWM19o9.js";import{i as y}from"./scope-DCVDpFqO.js";const f=`---
+import{v as o}from"./index-kHS_a5R9.js";import{i as y}from"./scope-DCVDpFqO.js";const f=`---
 title: 多语学习的笨办法：把输入变简单
 date: 2026-09-28
 summary: 同时学两三门语言时，最容易死在「材料太难」。我的做法是把输入降到刚好能懂，剩下的交给重复。
@@ -351,7 +351,7 @@ e6 d9 b8 4b 8e 8f 8d 29   ← 不是明文
 这套东西现在日常在用：手机点一下就连，投影仪顶上显示帧率、码率、分辨率，卡的时候一眼能看出是哪一段的问题。
 
 自己写的好处不是性能，而是**每一层都看得见**——出问题能定位到帧、到包、到编码器参数，而不是对着一个黑盒猜。
-`,j=`---
+`,A=`---
 title: 让模型可以随时被换掉
 date: 2026-11-06
 summary: 上游发新版本、下线旧版本是常态。把所有模型名收进一层薄薄的抽象，换供应商就和改一行配置一样轻。
@@ -418,4 +418,101 @@ chat-model     long-context-model     fast-model
 ## 一句话
 
 把模型当基础设施，而不是当依赖。基础设施的第一属性是可替换——换的时候不应该惊动业务。
-`,A=Object.assign({"../content/posts/2026-09-28-language-learning-dull-method.md":f,"../content/posts/2026-10-20-chinese-in-four-weeks.md":b,"../content/posts/2026-11-02-newspaper-site.md":w,"../content/posts/2026-11-04-redesign.md":k,"../content/posts/2026-11-05-self-made-cast.md":v,"../content/posts/2026-11-06-model-abstraction.md":j}),M=A;function E(e){const t=e.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);if(!t)return{data:{},body:e};const n={};for(const s of t[1].split(/\r?\n/)){const i=s.indexOf(":");i<0||(n[s.slice(0,i).trim()]=s.slice(i+1).trim().replace(/^["']|["']$/g,""))}return{data:n,body:t[2]}}const g=Object.entries(M).map(([e,t])=>{const{data:n,body:s}=E(t),i=e.split("/").pop().replace(/\.md$/,""),m=s.replace(/[#>*`\-|\s]/g,"").length;return{slug:i,title:n.title||i,date:n.date||"1970-01-01",summary:n.summary||"",tags:(n.tags||"").split(",").map(d=>d.trim()).filter(Boolean),draft:n.draft==="true",scope:n.scope==="public"?"public":"internal",i18n:{en:{title:n.title_en,summary:n.summary_en},ja:{title:n.title_ja,summary:n.summary_ja},ko:{title:n.title_ko,summary:n.summary_ko}},minutes:Math.max(1,Math.round(m/350)),body:s}}).filter(e=>!e.draft&&(e.scope==="public"||y)).sort((e,t)=>e.date<t.date?1:-1),c=g.map(({body:e,...t})=>t);function I(e){return g.find(t=>t.slug===e)}function x(e){const t=c.findIndex(n=>n.slug===e);return{prev:c[t+1],next:c[t-1]}}let _=null;async function P(){const[{default:e},t]=await Promise.all([o(()=>import("./index-3uSonpzy.js"),[]),Promise.all([o(()=>import("./core-CtK-02SP.js"),[]),o(()=>import("./javascript-DUNaicwC.js"),[]),o(()=>import("./typescript-5pldp2kO.js"),[]),o(()=>import("./bash-I8pq0VWm.js"),[]),o(()=>import("./json-DdsocbVI.js"),[]),o(()=>import("./yaml-drsDnIKT.js"),[]),o(()=>import("./xml-FcirFJJ2.js"),[]),o(()=>import("./nginx-CwEijJ2O.js"),[]),o(()=>import("./dockerfile-Co-AyC30.js"),[])])]),n=t[0].default,s=t.slice(1).map(a=>a.default);["javascript","typescript","bash","json","yaml","xml","nginx","dockerfile"].forEach((a,r)=>n.registerLanguage(a,s[r]));const m=new e({html:!0,linkify:!0,typographer:!0,highlight(a,r){const l=r&&n.getLanguage(r)?r:"bash";return`<pre class="hljs"><code class="language-${l}">${n.highlight(a,{language:l}).value}</code></pre>`}}),d=m.renderer.rules.link_open||((a,r,l,p,u)=>u.renderToken(a,r,l));return m.renderer.rules.link_open=(a,r,l,p,u)=>{const h=a[r].attrGet("href")||"";return/^https?:\/\//.test(h)&&(a[r].attrSet("target","_blank"),a[r].attrSet("rel","noopener")),d(a,r,l,p,u)},m}async function D(e){return _||(_=await P()),_.render(e)}function O(e,t){const n=t,s=e.i18n?.[n];return{title:s?.title||e.title,summary:s?.summary||e.summary}}export{x as a,I as g,O as l,c as m,D as r};
+`,j=`---
+title: 评测会骗人，六次
+date: 2026-11-11
+summary: 检索命中十五题全中，答案只对了六题。从那以后我开始怀疑这把尺子，果然又被它骗了六次——每次都不是模型变差，是量错了。
+tags: 评测, RAG, 工程实践
+scope: public
+title_en: "The ruler lied to me six times"
+summary_en: "Retrieval hit all fifteen questions; the answers were only six right. I started doubting the ruler, and it lied six more times. Each time the model was fine — the measurement was wrong."
+title_ja: "物差しは六回嘘をついた"
+summary_ja: "検索は十五問すべて命中、答えは六問しか合わなかった。そこから物差しを疑い始めると、さらに六回騙された。悪かったのはモデルではなく、測り方だった。"
+title_ko: "자(척도)가 여섯 번 거짓말을 했다"
+summary_ko: "검색은 열다섯 문제 모두 적중했는데 답은 여섯 개만 맞았다. 그때부터 자를 의심하기 시작했고, 자는 여섯 번 더 거짓말을 했다. 매번 모델이 아니라 측정이 틀렸다."
+reviewed: 2026-11-11
+---
+
+第一周结束那天，我的检索命中是 15/15，端到端答案正确只有 6/15。
+
+差了不止一倍。当时差点得出「检索已经做完」的结论，然后去优化别的地方。
+
+后来这几天，同一把尺子又骗了我六次。每一次都不是模型变差，是量错了。
+
+## 一、负样本会过期
+
+扩到全库之后，负样本拒答从 10/10 掉到 1/10。第一反应是系统退化了。
+
+逐条查才发现，十条负样本里有五条，在新收的资料里已经真实存在——问 Kubernetes Operator 的、问 Rust 所有权的、问分区表的，全都有。
+
+系统没坏，是题目错了。
+
+从那以后立了一条规矩：每次扩库，先把所有负样本在原文里查一遍，再回头改正样本的答案。评测集不是一次性资产，是跟语料一起维护的活物。
+
+## 二、要点写错，永远答不对
+
+第一版评测集里我写过一个要点：\`speed-measure-webpack-plugin\`。原文里根本没有这个插件，是我自己总结时带进去的。
+
+还有一条写 \`tree shaking\`，原文讲的是 CommonJS/AMD/import/export；一条写 \`workspace\`，原文出现零次。
+
+这类题无论系统多好都必错。判官会判失败，看起来像系统不行，其实是题目在冤枉它。
+
+规则很短：每个要点都要能在原文里用 \`grep\` 找到。找不到，是题目错了，不是系统错了。
+
+## 三、判官比你以为的不可靠
+
+用模型当判官很方便，代价是它会系统性地偏。
+
+我后来把同一批答案交给另一个族的模型盲判，看同一份证据、同一个提示词，只换模型。两边的判决用 κ 量化一致程度——0.61 以上才算实质一致，0.41–0.60 中等，0.40 以下基本等于没对上：
+
+| 判的轴 | 一致率 | κ |
+|---|---|---|
+| 对 / 半对 / 错（三分类） | 70.0% | 0.52 |
+| 答案质量好 / 有问题（二分类） | 54.5% | 0.09 |
+
+同一批答案，我这边判 17 条通过，它只给 9 条。同一批再判一遍，还会差两题。
+
+κ 到 0.09 基本等于随机。也就是说凡是用「编造 / 是否准确」算出来的比例，换个模型就基本对不上，只能当某个模型的看法。
+
+所以主判据换掉了：要点覆盖率、引用编号越界、是否拒答，这三项不调模型，同一命令跑两次输出字节相同。
+
+判官留着解释个案——「表述不同但说对了」和「编了原文没有的东西」，这类判断还是得模型来做。
+
+## 四、差一题不算结论
+
+有次做 A/B，同一条提示词、同一批检索结果、同一个判官，跑出 22/30 对 22/30，我写成「没有提升」。
+
+后来发现另一组的 \`p02\` 一次过一次不过。答案温度 0.2，判官卡在通过和半对之间，这就是 ±1 题的来源。
+
+同一套配置连跑三次，答案效率是 82.5% / 83.5% / 84.5%。
+
+所以现在的阈值是两个百分点，差一题一律写「无差异」。这条最省时间，它能挡掉一半「听起来有效」的方案。
+
+## 五、基线也会过期
+
+这条差点让我把一个假结论写成文章。
+
+我做了个两步法：先列片段要点，再逐条作答。第一次跑到 85.4%，跟历史记录的 69.9% 一比，像涨了十五个点。
+
+幸好补了一组当日对照：同一套原始提示词当天重跑，83.5%。
+
+那十几个点是流水线这几天自己涨上来的，跟我那个方法没关系。逐题配对算下来，A 赢 3 题、对照赢 3 题、平 24 题。
+
+现在每次 A/B 都对着当天冻结的基线跑：文档覆盖 70.2%、上下文天花板 83.1%、答案效率 82.5%、引用越界 0 题。
+
+## 六、总覆盖率是个混合数
+
+最后一个坑最隐蔽。
+
+要点覆盖看起来是好指标，但它把两类要点混着算：一类是「使用」「代码」「实现」「前端」这种到处都有的通词，一类是专有名词、配置参数、类名。
+
+分层一算，通词那层 92.3%，特有那层 58.2%。只要答案里多塞几个通用词，总分就能白涨。
+
+往后只看「特有」那一行，阈值还是两个百分点。
+
+## 收束
+
+六件事拆开看都平常，合起来是一句话：**评测不是打分，是把「哪里错了」变成一句可复核的话。**
+
+我现在的顺序是——机械指标当主判据，判官只做解释，同一套题、同一时点跑对照。
+`,M=Object.assign({"../content/posts/2026-09-28-language-learning-dull-method.md":f,"../content/posts/2026-10-20-chinese-in-four-weeks.md":b,"../content/posts/2026-11-02-newspaper-site.md":w,"../content/posts/2026-11-04-redesign.md":k,"../content/posts/2026-11-05-self-made-cast.md":v,"../content/posts/2026-11-06-model-abstraction.md":A,"../content/posts/2026-11-11-ruler-lies.md":j}),E=M;function P(e){const t=e.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);if(!t)return{data:{},body:e};const n={};for(const s of t[1].split(/\r?\n/)){const i=s.indexOf(":");i<0||(n[s.slice(0,i).trim()]=s.slice(i+1).trim().replace(/^["']|["']$/g,""))}return{data:n,body:t[2]}}const g=Object.entries(E).map(([e,t])=>{const{data:n,body:s}=P(t),i=e.split("/").pop().replace(/\.md$/,""),m=s.replace(/[#>*`\-|\s]/g,"").length;return{slug:i,title:n.title||i,date:n.date||"1970-01-01",summary:n.summary||"",tags:(n.tags||"").split(",").map(u=>u.trim()).filter(Boolean),draft:n.draft==="true",scope:n.scope==="public"?"public":"internal",i18n:{en:{title:n.title_en,summary:n.summary_en},ja:{title:n.title_ja,summary:n.summary_ja},ko:{title:n.title_ko,summary:n.summary_ko}},minutes:Math.max(1,Math.round(m/350)),body:s}}).filter(e=>!e.draft&&(e.scope==="public"||y)).sort((e,t)=>e.date<t.date?1:-1),_=g.map(({body:e,...t})=>t);function x(e){return g.find(t=>t.slug===e)}function D(e){const t=_.findIndex(n=>n.slug===e);return{prev:_[t+1],next:_[t-1]}}let c=null;async function T(){const[{default:e},t]=await Promise.all([o(()=>import("./index-3uSonpzy.js"),[]),Promise.all([o(()=>import("./core-CtK-02SP.js"),[]),o(()=>import("./javascript-DUNaicwC.js"),[]),o(()=>import("./typescript-5pldp2kO.js"),[]),o(()=>import("./bash-I8pq0VWm.js"),[]),o(()=>import("./json-DdsocbVI.js"),[]),o(()=>import("./yaml-drsDnIKT.js"),[]),o(()=>import("./xml-FcirFJJ2.js"),[]),o(()=>import("./nginx-CwEijJ2O.js"),[]),o(()=>import("./dockerfile-Co-AyC30.js"),[])])]),n=t[0].default,s=t.slice(1).map(a=>a.default);["javascript","typescript","bash","json","yaml","xml","nginx","dockerfile"].forEach((a,r)=>n.registerLanguage(a,s[r]));const m=new e({html:!0,linkify:!0,typographer:!0,highlight(a,r){const l=r&&n.getLanguage(r)?r:"bash";return`<pre class="hljs"><code class="language-${l}">${n.highlight(a,{language:l}).value}</code></pre>`}}),u=m.renderer.rules.link_open||((a,r,l,p,d)=>d.renderToken(a,r,l));return m.renderer.rules.link_open=(a,r,l,p,d)=>{const h=a[r].attrGet("href")||"";return/^https?:\/\//.test(h)&&(a[r].attrSet("target","_blank"),a[r].attrSet("rel","noopener")),u(a,r,l,p,d)},m}async function O(e){return c||(c=await T()),c.render(e)}function R(e,t){const n=t,s=e.i18n?.[n];return{title:s?.title||e.title,summary:s?.summary||e.summary}}export{D as a,x as g,R as l,_ as m,O as r};
