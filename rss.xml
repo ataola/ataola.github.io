@@ -5,14 +5,7 @@
     <link>https://zhengjiangtao.cn</link>
     <description>自建服务、代理与媒体栈的长期记录。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 11 Nov 2026 08:05:07 GMT</lastBuildDate>
-    <item>
-      <title>评测会骗人，六次</title>
-      <link>https://zhengjiangtao.cn/blog/2026-11-11-ruler-lies</link>
-      <guid>https://zhengjiangtao.cn/blog/2026-11-11-ruler-lies</guid>
-      <pubDate>Wed, 11 Nov 2026 01:00:00 GMT</pubDate>
-      <description>检索命中十五题全中，答案只对了六题。从那以后我开始怀疑这把尺子，果然又被它骗了六次——每次都不是模型变差，是量错了。</description>
-    </item>
+    <lastBuildDate>Wed, 11 Nov 2026 13:34:50 GMT</lastBuildDate>
     <item>
       <title>让模型可以随时被换掉</title>
       <link>https://zhengjiangtao.cn/blog/2026-11-06-model-abstraction</link>
