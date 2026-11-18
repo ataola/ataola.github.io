@@ -1,4 +1,4 @@
-import{v as o}from"./index-UoYl4Sr2.js";import{i as y}from"./scope-DCVDpFqO.js";const f=`---
+import{H as i}from"./index-QEU_yb3C.js";import{i as b}from"./scope-DCVDpFqO.js";const w=`---
 title: 多语学习的笨办法：把输入变简单
 date: 2026-09-28
 summary: 同时学两三门语言时，最容易死在「材料太难」。我的做法是把输入降到刚好能懂，剩下的交给重复。
@@ -64,7 +64,7 @@ reviewed: 2026-11-08
 语言学习没有捷径，但有**阻力最小的路径**：材料刚好能懂、每天固定时间、只做听读写复述这四件事。
 
 我见过太多人卡在「找最好的方法」上。先随便选一套，跑满三十天，比什么都强。
-`,b=`---
+`,k=`---
 title: 教外国人学中文：一个四周的开口计划
 date: 2026-10-20
 summary: 拼音、声调、部首、场景对话，四周能到什么程度。给想自学或者想教别人的朋友。
@@ -133,7 +133,7 @@ reviewed: 2026-11-08
 四周之后，正常进度是：能读简单招牌、能点菜、能做自我介绍、能听懂慢速对话的一半。这已经够用了，剩下的靠时间泡。
 
 > 给想教别人的朋友一句话：**别纠正每一个错误**。一次只盯一个问题，其它的先放过。语言是习惯，不是知识。
-`,w=`---
+`,v=`---
 title: 把个人站做成一份报纸
 date: 2026-11-02
 summary: 静态站、报纸排版、四种语言——这次重做时做的几个取舍，以及为什么最后几乎没用什么框架。
@@ -155,6 +155,10 @@ reviewed: 2026-11-08
 ## 为什么是静态
 
 报纸不需要登录、不需要实时数据、不需要个性化推荐。它只是把内容排好，放在那里。
+
+![排版校样：细栏线划出四栏，栏内是等宽的灰色长条，右上角一枚朱红印](/posts/2026-11-02-newspaper-site/plate-01.jpg)
+
+*排版校样。栏线是骨架，灰条块是字号的占位，右上那一点朱红是全页唯一的强调色。*
 
 所以整站是纯静态产物：构建一次，得到一个文件夹，丢到任意静态托管上就能跑。没有数据库、没有后端、没有定时任务。
 
@@ -196,7 +200,7 @@ reviewed: 2026-11-08
 做个人站最容易犯的错，是把「技术展示」当成目的。读者其实只关心两件事：**能不能看懂**，**值不值得看**。
 
 排版的所有决定，最后都该回到这两件事上。
-`,k=`---
+`,j=`---
 title: 主站重做：从「玩具站」到「自留地」
 date: 2026-11-04
 summary: 旧站是一堆并列路由加一个启动门槛，没有任何一处能回答「你现在在做什么」。这次按博客的路子重做了一遍。
@@ -256,7 +260,7 @@ reviewed: 2026-11-08
 地图页依赖百度地图 AK，暂时下线；实验室里标了「暂不可用」，等哪天想起来再补。
 
 写作流也在试：文章直接写在 \`src/content/posts/*.md\`，frontmatter 只有 \`title / date / summary / tags\`。够用。
-`,v=`---
+`,A=`---
 title: 自己写一个投屏系统：为什么我没用现成协议
 date: 2026-11-05
 summary: 厂商投屏要会员、Miracast 玄学、DLNA 只能投流。最后花了两周自己写了一套：抓屏编码推流，投影仪收流解码。记一下协议怎么定、延迟怎么压、坑都在哪。
@@ -351,7 +355,7 @@ e6 d9 b8 4b 8e 8f 8d 29   ← 不是明文
 这套东西现在日常在用：手机点一下就连，投影仪顶上显示帧率、码率、分辨率，卡的时候一眼能看出是哪一段的问题。
 
 自己写的好处不是性能，而是**每一层都看得见**——出问题能定位到帧、到包、到编码器参数，而不是对着一个黑盒猜。
-`,j=`---
+`,M=`---
 title: 让模型可以随时被换掉
 date: 2026-11-06
 summary: 上游发新版本、下线旧版本是常态。把所有模型名收进一层薄薄的抽象，换供应商就和改一行配置一样轻。
@@ -418,4 +422,4 @@ chat-model     long-context-model     fast-model
 ## 一句话
 
 把模型当基础设施，而不是当依赖。基础设施的第一属性是可替换——换的时候不应该惊动业务。
-`,A=Object.assign({"../content/posts/2026-09-28-language-learning-dull-method.md":f,"../content/posts/2026-10-20-chinese-in-four-weeks.md":b,"../content/posts/2026-11-02-newspaper-site.md":w,"../content/posts/2026-11-04-redesign.md":k,"../content/posts/2026-11-05-self-made-cast.md":v,"../content/posts/2026-11-06-model-abstraction.md":j}),M=A;function E(e){const t=e.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);if(!t)return{data:{},body:e};const n={};for(const s of t[1].split(/\r?\n/)){const i=s.indexOf(":");i<0||(n[s.slice(0,i).trim()]=s.slice(i+1).trim().replace(/^["']|["']$/g,""))}return{data:n,body:t[2]}}const g=Object.entries(M).map(([e,t])=>{const{data:n,body:s}=E(t),i=e.split("/").pop().replace(/\.md$/,""),m=s.replace(/[#>*`\-|\s]/g,"").length;return{slug:i,title:n.title||i,date:n.date||"1970-01-01",summary:n.summary||"",tags:(n.tags||"").split(",").map(d=>d.trim()).filter(Boolean),draft:n.draft==="true",scope:n.scope==="public"?"public":"internal",i18n:{en:{title:n.title_en,summary:n.summary_en},ja:{title:n.title_ja,summary:n.summary_ja},ko:{title:n.title_ko,summary:n.summary_ko}},minutes:Math.max(1,Math.round(m/350)),body:s}}).filter(e=>!e.draft&&(e.scope==="public"||y)).sort((e,t)=>e.date<t.date?1:-1),c=g.map(({body:e,...t})=>t);function I(e){return g.find(t=>t.slug===e)}function x(e){const t=c.findIndex(n=>n.slug===e);return{prev:c[t+1],next:c[t-1]}}let _=null;async function P(){const[{default:e},t]=await Promise.all([o(()=>import("./index-3uSonpzy.js"),[]),Promise.all([o(()=>import("./core-CtK-02SP.js"),[]),o(()=>import("./javascript-DUNaicwC.js"),[]),o(()=>import("./typescript-5pldp2kO.js"),[]),o(()=>import("./bash-I8pq0VWm.js"),[]),o(()=>import("./json-DdsocbVI.js"),[]),o(()=>import("./yaml-drsDnIKT.js"),[]),o(()=>import("./xml-FcirFJJ2.js"),[]),o(()=>import("./nginx-CwEijJ2O.js"),[]),o(()=>import("./dockerfile-Co-AyC30.js"),[])])]),n=t[0].default,s=t.slice(1).map(a=>a.default);["javascript","typescript","bash","json","yaml","xml","nginx","dockerfile"].forEach((a,r)=>n.registerLanguage(a,s[r]));const m=new e({html:!0,linkify:!0,typographer:!0,highlight(a,r){const l=r&&n.getLanguage(r)?r:"bash";return`<pre class="hljs"><code class="language-${l}">${n.highlight(a,{language:l}).value}</code></pre>`}}),d=m.renderer.rules.link_open||((a,r,l,p,u)=>u.renderToken(a,r,l));return m.renderer.rules.link_open=(a,r,l,p,u)=>{const h=a[r].attrGet("href")||"";return/^https?:\/\//.test(h)&&(a[r].attrSet("target","_blank"),a[r].attrSet("rel","noopener")),d(a,r,l,p,u)},m}async function D(e){return _||(_=await P()),_.render(e)}function O(e,t){const n=t,s=e.i18n?.[n];return{title:s?.title||e.title,summary:s?.summary||e.summary}}export{x as a,I as g,O as l,c as m,D as r};
+`,P=Object.assign({"../content/posts/2026-09-28-language-learning-dull-method.md":w,"../content/posts/2026-10-20-chinese-in-four-weeks.md":k,"../content/posts/2026-11-02-newspaper-site.md":v,"../content/posts/2026-11-04-redesign.md":j,"../content/posts/2026-11-05-self-made-cast.md":A,"../content/posts/2026-11-06-model-abstraction.md":M}),E=P;function T(e){const t=e.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);if(!t)return{data:{},body:e};const n={};for(const s of t[1].split(/\r?\n/)){const l=s.indexOf(":");l<0||(n[s.slice(0,l).trim()]=s.slice(l+1).trim().replace(/^["']|["']$/g,""))}return{data:n,body:t[2]}}const y=Object.entries(E).map(([e,t])=>{const{data:n,body:s}=T(t),l=e.split("/").pop().replace(/\.md$/,""),m=s.replace(/[#>*`\-|\s]/g,"").length;return{slug:l,title:n.title||l,date:n.date||"1970-01-01",summary:n.summary||"",tags:(n.tags||"").split(",").map(_=>_.trim()).filter(Boolean),draft:n.draft==="true",scope:n.scope==="public"?"public":"internal",i18n:{en:{title:n.title_en,summary:n.summary_en},ja:{title:n.title_ja,summary:n.summary_ja},ko:{title:n.title_ko,summary:n.summary_ko}},minutes:Math.max(1,Math.round(m/350)),body:s}}).filter(e=>!e.draft&&(e.scope==="public"||b)).sort((e,t)=>e.date<t.date?1:-1),p=y.map(({body:e,...t})=>t);function D(e){return y.find(t=>t.slug===e)}function O(e){const t=p.findIndex(n=>n.slug===e);return{prev:p[t+1],next:p[t-1]}}let g=null;async function I(){const[{default:e},t]=await Promise.all([i(()=>import("./index-3uSonpzy.js"),[]),Promise.all([i(()=>import("./core-CtK-02SP.js"),[]),i(()=>import("./javascript-DUNaicwC.js"),[]),i(()=>import("./typescript-5pldp2kO.js"),[]),i(()=>import("./bash-I8pq0VWm.js"),[]),i(()=>import("./json-DdsocbVI.js"),[]),i(()=>import("./yaml-drsDnIKT.js"),[]),i(()=>import("./xml-FcirFJJ2.js"),[]),i(()=>import("./nginx-CwEijJ2O.js"),[]),i(()=>import("./dockerfile-Co-AyC30.js"),[])])]),n=t[0].default,s=t.slice(1).map(a=>a.default);["javascript","typescript","bash","json","yaml","xml","nginx","dockerfile"].forEach((a,r)=>n.registerLanguage(a,s[r]));const m=new e({html:!0,linkify:!0,typographer:!0,highlight(a,r){const o=r&&n.getLanguage(r)?r:"bash";return`<pre class="hljs"><code class="language-${o}">${n.highlight(a,{language:o}).value}</code></pre>`}}),_=m.renderer.rules.link_open||((a,r,o,d,u)=>u.renderToken(a,r,o)),h="/".replace(/\/$/,""),f=m.renderer.rules.image||((a,r,o,d,u)=>u.renderToken(a,r,o));return m.renderer.rules.image=(a,r,o,d,u)=>{const c=a[r].attrGet("src")||"";return h&&c.startsWith("/")&&!c.startsWith("//")&&a[r].attrSet("src",`${h}${c}`),f(a,r,o,d,u)},m.renderer.rules.link_open=(a,r,o,d,u)=>{const c=a[r].attrGet("href")||"";return/^https?:\/\//.test(c)&&(a[r].attrSet("target","_blank"),a[r].attrSet("rel","noopener")),_(a,r,o,d,u)},m}async function R(e){return g||(g=await I()),g.render(e)}function S(e,t){const n=t,s=e.i18n?.[n];return{title:s?.title||e.title,summary:s?.summary||e.summary}}export{O as a,D as g,S as l,p as m,R as r};
