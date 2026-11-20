@@ -3,18 +3,131 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>江涛の个人小站</title>
-    <meta name="description" content="江涛の个人小站：AI 工程、排版实验与可复现的工程笔记。" />
+    <title>내 캐스팅 시스템을 직접 만들다 — 기성 프로토콜을 쓰지 않은 이유 · 江涛の个人小站</title>
+    <meta name="description" content="제조사 캐스팅은 유료, Miracast는 복불복, DLNA는 스트림만 보낸다. 결국 2주 동안 직접 만들었다. 프로토콜 설계, 지연, 그리고 삽질 기록." />
     <meta name="theme-color" content="#faf8f5" />
     <link rel="icon" href="/favicon.ico?v=20261108" sizes="any" />
     <link rel="icon" type="image/png" href="/favicon.png?v=20261108" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261108" />
+    <link rel="alternate" type="application/rss+xml" title="郑江涛 · 自留地" href="/rss.xml" />
     <meta property="og:image" content="https://zhengjiangtao.cn/logo-512.png" />
-    <script type="module" crossorigin src="/assets/index-Bz82pe9E.js"></script>
+    <script type="module" crossorigin src="/assets/index-WvT-PIti.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-_1Tdxk4W.css">
-    <link rel="canonical" href="https://zhengjiangtao.cn/ko/blog/2026-11-05-self-made-cast" />
-  </head>
+  <link rel="canonical" href="https://zhengjiangtao.cn/blog/2026-11-05-self-made-cast/" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="내 캐스팅 시스템을 직접 만들다 — 기성 프로토콜을 쓰지 않은 이유 · 江涛の个人小站" />
+<meta property="og:description" content="제조사 캐스팅은 유료, Miracast는 복불복, DLNA는 스트림만 보낸다. 결국 2주 동안 직접 만들었다. 프로토콜 설계, 지연, 그리고 삽질 기록." />
+<meta property="og:url" content="https://zhengjiangtao.cn/blog/2026-11-05-self-made-cast/" />
+<meta property="og:site_name" content="江涛の个人小站" />
+<meta property="og:locale" content="ko" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="내 캐스팅 시스템을 직접 만들다 — 기성 프로토콜을 쓰지 않은 이유 · 江涛の个人小站" />
+<meta name="twitter:description" content="제조사 캐스팅은 유료, Miracast는 복불복, DLNA는 스트림만 보낸다. 결국 2주 동안 직접 만들었다. 프로토콜 설계, 지연, 그리고 삽질 기록." />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://zhengjiangtao.cn/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://zhengjiangtao.cn/blog/"},{"@type":"ListItem","position":3,"name":"自己写一个投屏系统：为什么我没用现成协议","item":"https://zhengjiangtao.cn/blog/2026-11-05-self-made-cast/"}]}</script>
+<style id="prerender-style">.prerender{max-width:780px;margin:0 auto;padding:26px 20px 10px;font:16px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans","Noto Sans KR","Microsoft YaHei",sans-serif;color:#17140f;background:#faf8f5}
+.prerender a{color:#9c1f16;text-decoration:none}
+.prerender a:hover{text-decoration:underline}
+.prerender .nav{display:flex;flex-wrap:wrap;gap:6px 16px;border-bottom:1px solid #d9d1bf;padding-bottom:10px;margin-bottom:26px;font-size:14px;letter-spacing:.04em}
+.prerender .nav .brand{font-weight:700;color:#17140f}
+.prerender h1{font-size:28px;line-height:1.35;margin:.4em 0 .5em;font-weight:700}
+.prerender h2{font-size:20px;margin:1.8em 0 .5em}
+.prerender h3{font-size:16px;margin:1.2em 0 .3em}
+.prerender p,.prerender li{color:#3a342b}
+.prerender .meta{color:#6d6557;font-size:14px}
+.prerender .deck{font-size:17px;color:#4a4438}
+.prerender ul.cards{list-style:none;padding:0;margin:0}
+.prerender ul.cards>li{padding:10px 0;border-bottom:1px solid #e6dfd1}
+.prerender ul.cards>li:last-child{border-bottom:0}
+.prerender ul.cards p{margin:.2em 0 0;font-size:14.5px;color:#5c5548}
+.prerender pre{background:#f0ece3;border:1px solid #e0d9c9;padding:12px;overflow:auto;font-size:13.5px;line-height:1.6}
+.prerender code{font-size:.92em}
+.prerender img{max-width:100%;height:auto}
+.prerender .foot{margin-top:44px;border-top:1px solid #d9d1bf;padding-top:12px;font-size:13px;color:#6d6557}
+@media (prefers-color-scheme:dark){
+.prerender{background:#17150f;color:#f2ede2}
+.prerender .nav .brand{color:#f2ede2}
+.prerender p,.prerender li,.prerender .deck{color:#cfc7b8}
+.prerender a{color:#e0603f}
+.prerender .nav,.prerender .foot,prerender ul.cards>li{border-color:#3a342b}
+.prerender ul.cards>li{border-color:#332e26}
+.prerender ul.cards p{color:#b6ae9e}
+.prerender pre{background:#241f18;border-color:#3a342b}
+}</style>
+</head>
   <body>
-    <div id="app"></div>
+    <div id="app"><div class="prerender" data-prerender><nav class="nav"><a class="brand" href="/ko">江涛の个人小站</a><a href="/ko/">첫 면</a><a href="/ko/blog/">글</a><a href="/ko/projects/">프로젝트</a><a href="/ko/lab/">랩</a><a href="/ko/welfare/">복지</a><a href="/ko/about/">소개</a></nav><main>
+<article>
+<h1>내 캐스팅 시스템을 직접 만들다 — 기성 프로토콜을 쓰지 않은 이유</h1>
+<div class="meta"><span>郑江涛</span> · <time datetime="2026-11-05">2026-11-05</time> · 4분 · 投屏 / Android / 工程笔记</div>
+<p class="deck">제조사 캐스팅은 유료, Miracast는 복불복, DLNA는 스트림만 보낸다. 결국 2주 동안 직접 만들었다. 프로토콜 설계, 지연, 그리고 삽질 기록.</p>
+<p class="meta">이 글은 현재 중국어로만 제공됩니다.</p>
+<p>家里有台投影仪，想把手机画面投上去。试过一圈现成方案，各有各的别扭：厂商投屏要会员、Miracast 兼容性玄学、DLNA 只能投流不能投屏。最后干脆自己写了一套——手机抓屏编码推流，投影仪收流解码。</p>
+<p>这篇不贴代码，只记设计取舍和踩过的坑。</p>
+<h2>一、先把问题拆开</h2>
+<p>投屏本质是四件事：</p>
+<ol>
+<li><strong>采集</strong>：拿到屏幕画面（Android 的 MediaProjection）</li>
+<li><strong>编码</strong>：H.264 硬编，音频 AAC</li>
+<li><strong>传输</strong>：局域网，Wi-Fi 抖动大</li>
+<li><strong>播放</strong>：低延迟解码 + 铺满屏幕</li>
+</ol>
+<p>前两步是标准 API，难的是第三、四步——延迟、抖动、丢包。</p>
+<h2>二、协议：13 字节帧头 + 两个端口</h2>
+<p>没有用 RTP，因为需要控制的字段太少，自己定更简单：</p>
+<pre><code>[4B 长度][1B flags][8B ptsNs][payload]
+
+flags:
+  0x01 视频关键帧
+  0x02 音频
+  0x04 配置
+  0x08 ping
+  0x10 HELLO
+  0x20 拒绝
+</code></pre>
+<ul>
+<li>TCP <code>19602</code> 走配置和关键帧，保证不丢</li>
+<li>UDP <code>19603</code> 跑视频，用 FEC 抗丢包</li>
+<li>控制信令（配对、抢占、停止）单独一个端口 <code>19601</code></li>
+</ul>
+<p>为什么关键帧走 TCP：丢一个 I 帧，后面几秒都是花屏。宁可慢一点，也不能烂画面。</p>
+<h2>三、延迟是怎么降下来的</h2>
+<ul>
+<li>不做缓冲队列：解码器只保留最新一帧，宁可丢帧也不堆延迟</li>
+<li>按需丢帧：发送端读编码器输出队列长度，超过阈值就丢非关键帧</li>
+<li>自适应码率：按 RTT 和发送失败率动态调，20Mbps 一路降到 4Mbps</li>
+<li>按机型限码率：老设备编 20Mbps 直接卡死，得给每台机器一个上限</li>
+</ul>
+<p>实测同一局域网，手机到投影仪的单向延迟在 <strong>15–25ms</strong> 量级，操作是跟手的。</p>
+<h2>四、坑都集中在「设备差异」上</h2>
+<p>代码本身不难，难的是每台设备都不一样：</p>
+<ul>
+<li>编码器初始化失败要能降级重试（不同厂商的 MediaCodec 差异极大）</li>
+<li>投影仪只有 32 位 ABI，装了 64 位包直接失败</li>
+<li>老机型内存小，解码器一开就 OOM</li>
+<li>投屏中如果另一个 App 抢了前台，会直接断流——需要会话隔离和踢旧逻辑</li>
+</ul>
+<blockquote>
+<p>经验：凡是「系统级能力」，一定要按「设备 × 系统版本」列矩阵实测，不要相信 API 文档。</p>
+</blockquote>
+<h2>五、另一个坑：媒体文件不一定是你以为的格式</h2>
+<p>顺手做过一个曲库整理工具，遇到一件有意思的事：从某个 App 目录里拷出来的 <code>.ts</code> 文件，扩展名是 MPEG-TS，但一解码就报错：</p>
+<pre><code>top block unavailable for requested intra mode -1
+</code></pre>
+<p>看首字节就明白了——正常的 MPEG-TS 每 188 字节有一个 <code>0x47</code> 同步头，而这些文件的首字节是随机的：</p>
+<pre><code>e6 d9 b8 4b 8e 8f 8d 29   ← 不是明文
+</code></pre>
+<p>文件是加密的，只有那个 App 自己的本地文件服务会边读边解密。于是换个思路：不去硬啃加密算法，而是<strong>让它自己的服务把明文吐出来</strong>——把它的本地 HTTP 端口转发到本机，按文件 ID 请求一遍，拿到的就是解密后的流。</p>
+<blockquote>
+<p>这件事的启发：遇到加密，先找「谁有权读它」，别硬啃算法。</p>
+</blockquote>
+<h2>六、最后</h2>
+<p>这套东西现在日常在用：手机点一下就连，投影仪顶上显示帧率、码率、分辨率，卡的时候一眼能看出是哪一段的问题。</p>
+<p>自己写的好处不是性能，而是<strong>每一层都看得见</strong>——出问题能定位到帧、到包、到编码器参数，而不是对着一个黑盒猜。</p>
+
+</article>
+
+<p><a href="/ko/blog/">글 목록으로</a></p>
+</main><footer class="foot">© 2019–2026 郑江涛 · <a href="/about/">关于</a> · <a href="/rss.xml">RSS</a></footer></div></div>
   </body>
 </html>

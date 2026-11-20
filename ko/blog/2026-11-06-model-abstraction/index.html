@@ -3,18 +3,122 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>江涛の个人小站</title>
-    <meta name="description" content="江涛の个人小站：AI 工程、排版实验与可复现的工程笔记。" />
+    <title>모델을 언제든 교체할 수 있게 만들기 · 江涛の个人小站</title>
+    <meta name="description" content="업스트림이 새 버전을 내고 구 버전을 내리는 일은 일상이다. 모델 이름을 얇은 추상 뒤에 두면 갈아타는 일이 한 줄 수정이 된다." />
     <meta name="theme-color" content="#faf8f5" />
     <link rel="icon" href="/favicon.ico?v=20261108" sizes="any" />
     <link rel="icon" type="image/png" href="/favicon.png?v=20261108" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261108" />
+    <link rel="alternate" type="application/rss+xml" title="郑江涛 · 自留地" href="/rss.xml" />
     <meta property="og:image" content="https://zhengjiangtao.cn/logo-512.png" />
-    <script type="module" crossorigin src="/assets/index-Bz82pe9E.js"></script>
+    <script type="module" crossorigin src="/assets/index-WvT-PIti.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-_1Tdxk4W.css">
-    <link rel="canonical" href="https://zhengjiangtao.cn/ko/blog/2026-11-06-model-abstraction" />
-  </head>
+  <link rel="canonical" href="https://zhengjiangtao.cn/blog/2026-11-06-model-abstraction/" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="모델을 언제든 교체할 수 있게 만들기 · 江涛の个人小站" />
+<meta property="og:description" content="업스트림이 새 버전을 내고 구 버전을 내리는 일은 일상이다. 모델 이름을 얇은 추상 뒤에 두면 갈아타는 일이 한 줄 수정이 된다." />
+<meta property="og:url" content="https://zhengjiangtao.cn/blog/2026-11-06-model-abstraction/" />
+<meta property="og:site_name" content="江涛の个人小站" />
+<meta property="og:locale" content="ko" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="모델을 언제든 교체할 수 있게 만들기 · 江涛の个人小站" />
+<meta name="twitter:description" content="업스트림이 새 버전을 내고 구 버전을 내리는 일은 일상이다. 모델 이름을 얇은 추상 뒤에 두면 갈아타는 일이 한 줄 수정이 된다." />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://zhengjiangtao.cn/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://zhengjiangtao.cn/blog/"},{"@type":"ListItem","position":3,"name":"让模型可以随时被换掉","item":"https://zhengjiangtao.cn/blog/2026-11-06-model-abstraction/"}]}</script>
+<style id="prerender-style">.prerender{max-width:780px;margin:0 auto;padding:26px 20px 10px;font:16px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans","Noto Sans KR","Microsoft YaHei",sans-serif;color:#17140f;background:#faf8f5}
+.prerender a{color:#9c1f16;text-decoration:none}
+.prerender a:hover{text-decoration:underline}
+.prerender .nav{display:flex;flex-wrap:wrap;gap:6px 16px;border-bottom:1px solid #d9d1bf;padding-bottom:10px;margin-bottom:26px;font-size:14px;letter-spacing:.04em}
+.prerender .nav .brand{font-weight:700;color:#17140f}
+.prerender h1{font-size:28px;line-height:1.35;margin:.4em 0 .5em;font-weight:700}
+.prerender h2{font-size:20px;margin:1.8em 0 .5em}
+.prerender h3{font-size:16px;margin:1.2em 0 .3em}
+.prerender p,.prerender li{color:#3a342b}
+.prerender .meta{color:#6d6557;font-size:14px}
+.prerender .deck{font-size:17px;color:#4a4438}
+.prerender ul.cards{list-style:none;padding:0;margin:0}
+.prerender ul.cards>li{padding:10px 0;border-bottom:1px solid #e6dfd1}
+.prerender ul.cards>li:last-child{border-bottom:0}
+.prerender ul.cards p{margin:.2em 0 0;font-size:14.5px;color:#5c5548}
+.prerender pre{background:#f0ece3;border:1px solid #e0d9c9;padding:12px;overflow:auto;font-size:13.5px;line-height:1.6}
+.prerender code{font-size:.92em}
+.prerender img{max-width:100%;height:auto}
+.prerender .foot{margin-top:44px;border-top:1px solid #d9d1bf;padding-top:12px;font-size:13px;color:#6d6557}
+@media (prefers-color-scheme:dark){
+.prerender{background:#17150f;color:#f2ede2}
+.prerender .nav .brand{color:#f2ede2}
+.prerender p,.prerender li,.prerender .deck{color:#cfc7b8}
+.prerender a{color:#e0603f}
+.prerender .nav,.prerender .foot,prerender ul.cards>li{border-color:#3a342b}
+.prerender ul.cards>li{border-color:#332e26}
+.prerender ul.cards p{color:#b6ae9e}
+.prerender pre{background:#241f18;border-color:#3a342b}
+}</style>
+</head>
   <body>
-    <div id="app"></div>
+    <div id="app"><div class="prerender" data-prerender><nav class="nav"><a class="brand" href="/ko">江涛の个人小站</a><a href="/ko/">첫 면</a><a href="/ko/blog/">글</a><a href="/ko/projects/">프로젝트</a><a href="/ko/lab/">랩</a><a href="/ko/welfare/">복지</a><a href="/ko/about/">소개</a></nav><main>
+<article>
+<h1>모델을 언제든 교체할 수 있게 만들기</h1>
+<div class="meta"><span>郑江涛</span> · <time datetime="2026-11-06">2026-11-06</time> · 2분 · LLM / 架构</div>
+<p class="deck">업스트림이 새 버전을 내고 구 버전을 내리는 일은 일상이다. 모델 이름을 얇은 추상 뒤에 두면 갈아타는 일이 한 줄 수정이 된다.</p>
+<p class="meta">이 글은 현재 중국어로만 제공됩니다.</p>
+<p>去年有个模型服务商调整了模型命名，加了个日期后缀。我当时有四个工具在用它，每个工具的配置文件里都写着旧名字。</p>
+<p>结果是一次很没必要的下午：改配置、重启、挨个验证，其中两个还在启动时不报错，只是回答质量悄悄变了。</p>
+<p>从那以后我把模型名收进了一层抽象。</p>
+<h2>只写意图，不写上游的名字</h2>
+<p>客户端里不写具体型号，写角色：</p>
+<pre><code>chat-model     long-context-model     fast-model
+</code></pre>
+<p>角色到真实型号的翻译放在中间层——自建网关、代理，或者一个只做转发的函数都行。上游换名字，只改这一张表。</p>
+<p>这层薄得几乎没成本，但它决定了「换供应商」是一行配置还是一次迁移。</p>
+<h2>切换要给观察期</h2>
+<p>直接指过去是最容易出事的地方。稳妥的顺序：</p>
+<ol>
+<li>新模型先以<strong>影子</strong>身份接入，主路径不动</li>
+<li>拿真实任务跑几天，比延迟、比稳定性、比输出质量</li>
+<li>确认后再把角色的映射切过去</li>
+<li>旧路径保留一段时间，留住回滚的可能</li>
+</ol>
+<p>同一时刻一个角色只对应一个上游。想同时试两条，就开两个角色，别让一个名字同时通两处——出了问题连「刚才走的哪条」都查不清。</p>
+<h2>提前知道上游变了</h2>
+<p>等报错就晚了。每天拉一次对方公布的模型清单，和自己配置的比。</p>
+<table>
+<thead>
+<tr>
+<th>变化</th>
+<th>含义</th>
+<th>该做的事</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>我们配着、对方没了</td>
+<td>旧版下线</td>
+<td>告警，准备切映射</td>
+</tr>
+<tr>
+<td>对方上了新的</td>
+<td>新版发布</td>
+<td>记录，观察后再用</td>
+</tr>
+<tr>
+<td>名字对不上</td>
+<td>命名改了</td>
+<td>查是不是映射漏了</td>
+</tr>
+</tbody>
+</table>
+<p>第一类必须告警，因为从「下线」到「客户端报错」往往只有几个小时。</p>
+<h2>最隐蔽的一种失败</h2>
+<p>不是报错，是<strong>静默降级</strong>。</p>
+<p>有些客户端在模型不可用时会自动退到备选，日志里只有一行 warning。等你发现回答变差，可能已经过去一周，而且很难回溯是哪天开始的。</p>
+<p>所以监控要盯的是<strong>实际用了哪个模型</strong>，而不只是「请求成功了没有」。成功但不达预期，比失败更难处理。</p>
+<h2>一句话</h2>
+<p>把模型当基础设施，而不是当依赖。基础设施的第一属性是可替换——换的时候不应该惊动业务。</p>
+
+</article>
+
+<p><a href="/ko/blog/">글 목록으로</a></p>
+</main><footer class="foot">© 2019–2026 郑江涛 · <a href="/about/">关于</a> · <a href="/rss.xml">RSS</a></footer></div></div>
   </body>
 </html>

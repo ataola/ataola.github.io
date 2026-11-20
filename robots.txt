@@ -1,0 +1,8 @@
+# zhengjiangtao.cn
+# 只引导抓取，不做保密：私密页面用 <meta name="robots" content="noindex"> 处理。
+# 在 robots.txt 里 Disallow 等于把路径写给所有人看，所以这里不列任何内网/工具页。
+
+User-agent: *
+Allow: /
+
+Sitemap: https://zhengjiangtao.cn/sitemap.xml
