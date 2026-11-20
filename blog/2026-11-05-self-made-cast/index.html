@@ -2,6 +2,7 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
+    <script>document.documentElement.classList.add('js')</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>自己写一个投屏系统：为什么我没用现成协议 · 江涛の个人小站</title>
     <meta name="description" content="厂商投屏要会员、Miracast 玄学、DLNA 只能投流。最后花了两周自己写了一套：抓屏编码推流，投影仪收流解码。记一下协议怎么定、延迟怎么压、坑都在哪。" />
@@ -11,8 +12,8 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261108" />
     <link rel="alternate" type="application/rss+xml" title="郑江涛 · 自留地" href="/rss.xml" />
     <meta property="og:image" content="https://zhengjiangtao.cn/logo-512.png" />
-    <script type="module" crossorigin src="/assets/index-Cb5rZFuY.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-_1Tdxk4W.css">
+    <script type="module" crossorigin src="/assets/index-Ds1Qhufp.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BLM5BXeO.css">
   <link rel="canonical" href="https://zhengjiangtao.cn/blog/2026-11-05-self-made-cast/" />
 <link rel="alternate" hreflang="zh-CN" href="https://zhengjiangtao.cn/blog/2026-11-05-self-made-cast/" />
 <link rel="alternate" hreflang="x-default" href="https://zhengjiangtao.cn/blog/2026-11-05-self-made-cast/" />
@@ -27,7 +28,8 @@
 <meta name="twitter:title" content="自己写一个投屏系统：为什么我没用现成协议 · 江涛の个人小站" />
 <meta name="twitter:description" content="厂商投屏要会员、Miracast 玄学、DLNA 只能投流。最后花了两周自己写了一套：抓屏编码推流，投影仪收流解码。记一下协议怎么定、延迟怎么压、坑都在哪。" />
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"自己写一个投屏系统：为什么我没用现成协议","description":"厂商投屏要会员、Miracast 玄学、DLNA 只能投流。最后花了两周自己写了一套：抓屏编码推流，投影仪收流解码。记一下协议怎么定、延迟怎么压、坑都在哪。","datePublished":"2026-11-05","dateModified":"2026-11-08","inLanguage":"zh-CN","author":{"@type":"Person","name":"郑江涛","url":"https://zhengjiangtao.cn/about/"},"publisher":{"@type":"Person","name":"郑江涛","url":"https://zhengjiangtao.cn/about/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://zhengjiangtao.cn/blog/2026-11-05-self-made-cast/"},"image":"https://zhengjiangtao.cn/logo-512.png","keywords":"投屏, Android, 工程笔记","url":"https://zhengjiangtao.cn/blog/2026-11-05-self-made-cast/"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://zhengjiangtao.cn/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://zhengjiangtao.cn/blog/"},{"@type":"ListItem","position":3,"name":"自己写一个投屏系统：为什么我没用现成协议","item":"https://zhengjiangtao.cn/blog/2026-11-05-self-made-cast/"}]}]}</script>
-<style id="prerender-style">.prerender{max-width:780px;margin:0 auto;padding:26px 20px 10px;font:16px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans","Noto Sans KR","Microsoft YaHei",sans-serif;color:#17140f;background:#faf8f5}
+<style id="prerender-style">.prerender{max-width:780px;margin:0 auto;min-height:100vh;min-height:100svh;padding:26px 20px 10px}
+.js .prerender{display:none}font:16px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans","Noto Sans KR","Microsoft YaHei",sans-serif;color:#17140f;background:#faf8f5}
 .prerender a{color:#9c1f16;text-decoration:none}
 .prerender a:hover{text-decoration:underline}
 .prerender .nav{display:flex;flex-wrap:wrap;gap:6px 16px;border-bottom:1px solid #d9d1bf;padding-bottom:10px;margin-bottom:26px;font-size:14px;letter-spacing:.04em}
