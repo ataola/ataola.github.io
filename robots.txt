@@ -4,5 +4,20 @@
 
 User-agent: *
 Allow: /
+# 搜索可收录；不允许拿去训练模型、也不允许喂给 AI 问答（这是声明，不是强制）
+Content-Signal: search=yes, ai-train=no, ai-input=no
+
+# AI 训练类爬虫：一律不许抓。
+# 搜索/回答类（Googlebot、bingbot、OAI-SearchBot、PerplexityBot）不在此列，仍可抓取。
+User-agent: GPTBot
+User-agent: anthropic-ai
+User-agent: ClaudeBot
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: meta-externalagent
+User-agent: Amazonbot
+Disallow: /
 
 Sitemap: https://zhengjiangtao.cn/sitemap.xml
