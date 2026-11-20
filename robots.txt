@@ -1,23 +1,14 @@
 # zhengjiangtao.cn
 # 只引导抓取，不做保密：私密页面用 <meta name="robots" content="noindex"> 处理。
 # 在 robots.txt 里 Disallow 等于把路径写给所有人看，所以这里不列任何内网/工具页。
+#
+# AI 训练策略由 Cloudflare 托管段注入（Security → Bot traffic：Training=Block +
+# Bot Preference Sync），它会在本文件前面加一段 "Cloudflare Managed content"，
+# 里面已经列了 GPTBot / ClaudeBot / CCBot / Bytespider / Google-Extended 等三十多个。
+# 所以这里不再重复写那批爬虫，避免出现两个 User-agent: * 组。
 
 User-agent: *
 Allow: /
-# 搜索可收录；不允许拿去训练模型、也不允许喂给 AI 问答（这是声明，不是强制）
 Content-Signal: search=yes, ai-train=no, ai-input=no
-
-# AI 训练类爬虫：一律不许抓。
-# 搜索/回答类（Googlebot、bingbot、OAI-SearchBot、PerplexityBot）不在此列，仍可抓取。
-User-agent: GPTBot
-User-agent: anthropic-ai
-User-agent: ClaudeBot
-User-agent: CCBot
-User-agent: Google-Extended
-User-agent: Applebot-Extended
-User-agent: Bytespider
-User-agent: meta-externalagent
-User-agent: Amazonbot
-Disallow: /
 
 Sitemap: https://zhengjiangtao.cn/sitemap.xml
